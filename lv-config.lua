@@ -247,8 +247,8 @@ O.user_plugins = {
       require "lv-user/tokyonight"
     end,
   },
-  -- { "Shatur/neovim-ayu", event = "BufEnter" }, -- ayu colorscheme
-  -- { "Mofiqul/dracula.nvim", event = "BufEnter" }, -- dracula colorsheme
+  { "Shatur/neovim-ayu", event = "BufEnter" }, -- ayu colorscheme
+  { "Mofiqul/dracula.nvim", event = "BufEnter" }, -- dracula colorsheme
   {
     "Pocco81/TrueZen.nvim",
     setup = function()
@@ -271,8 +271,7 @@ O.user_plugins = {
       require "lv-user/onedark"
     end,
   },
-  -- diagnostics
-  {
+  {  -- diagnostics
     "folke/trouble.nvim",
     config = function()
       require("lv-user/trouble").config()
@@ -315,8 +314,6 @@ O.user_autocommands = {
   { "BufRead,BufNewFile", "LICENSE", "setf LICENSE" },
 }
 
--- O.user_which_key["y"] = { "<cmd>Codi<CR>", "Codi" }
--- O.user_which_key["Y"] = { "<cmd>Codi!<CR>", "Clear Codi" }
 O.user_which_key["S"] = {
   name = "Session",
   s = { "<cmd>SessionSave<cr>", "Save Session" },
