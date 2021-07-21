@@ -271,7 +271,7 @@ O.user_plugins = {
       require "lv-user/onedark"
     end,
   },
-  {  -- diagnostics
+  { -- diagnostics
     "folke/trouble.nvim",
     config = function()
       require("lv-user/trouble").config()
