@@ -271,6 +271,10 @@ O.user_plugins = {
       require "lv-user/onedark"
     end,
   },
+  {
+    "yong1le/darkplus.nvim",
+    event = "BufRead",
+  },
   { -- diagnostics
     "folke/trouble.nvim",
     config = function()
