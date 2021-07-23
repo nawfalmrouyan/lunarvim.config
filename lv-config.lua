@@ -168,7 +168,13 @@ O.user_plugins = {
   { "tpope/vim-repeat", event = "BufRead" },
   { "norcalli/nvim-colorizer.lua", event = "BufWinEnter" },
   { "folke/todo-comments.nvim", event = "BufRead" },
-  { "f-person/git-blame.nvim", event = "BufRead" }, -- Git Blame
+  {
+    "f-person/git-blame.nvim",
+    setup = function()
+      O.user_which_key["a"] = { "<cmd>GitBlameToggle<CR>", "Toggle Git Blame" }
+    end,
+    event = "BufRead",
+  }, -- Git Blame
   { "p00f/nvim-ts-rainbow", after = { "telescope.nvim" } }, -- Pretty parentheses
   { "windwp/nvim-ts-autotag", after = { "telescope.nvim" } }, -- Autotags <div>|</div>
   { "JoosepAlviste/nvim-ts-context-commentstring", after = { "telescope.nvim" } },
