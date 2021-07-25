@@ -48,6 +48,6 @@ M.config = function()
   -- because lazy load indent-blankline so need readd this autocmd
   vim.cmd "autocmd CursorMoved * IndentBlanklineRefresh"
 
-  lvim.user_which_key["i"] = { "<cmd>IndentBlanklineToggle<CR>", "Indent Lines" }
+--   lvim.user_which_key["i"] = { "<cmd>IndentBlanklineToggle<CR>", "Indent Lines" }
 end
 return M

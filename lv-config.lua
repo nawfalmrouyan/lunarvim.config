@@ -142,9 +142,9 @@ lvim.plugins = {
   {
     "mbbill/undotree",
     event = "BufRead",
-    setup = function()
-      lvim.builtin.which_key["u"] = { "<cmd>UndotreeToggle<CR>", "Undo Tree" }
-    end,
+--     setup = function()
+--       lvim.builtin.which_key["u"] = { "<cmd>UndotreeToggle<CR>", "Undo Tree" }
+--     end,
   },
   { "michaeljsmith/vim-indent-object", event = "BufRead" },
   { "dsznajder/vscode-es7-javascript-react-snippets", event = "BufRead" },
@@ -157,9 +157,9 @@ lvim.plugins = {
   { "folke/todo-comments.nvim", event = "BufRead" },
   {
     "f-person/git-blame.nvim",
-    setup = function()
-      lvim.builtin.which_key["a"] = { "<cmd>GitBlameToggle<CR>", "Toggle Git Blame" }
-    end,
+--     setup = function()
+--       lvim.builtin.which_key["a"] = { "<cmd>GitBlameToggle<CR>", "Toggle Git Blame" }
+--     end,
     event = "BufRead",
   }, -- Git Blame
   { "p00f/nvim-ts-rainbow", after = { "telescope.nvim" } }, -- Pretty parentheses
@@ -193,17 +193,17 @@ lvim.plugins = {
   { -- Interactive scratchpad
     "metakirby5/codi.vim",
     ft = { "python", "javascript", "typescript", "php", "lua" },
-    setup = function()
-      lvim.builtin.which_key["y"] = { "<cmd>Codi<CR>", "Codi" }
-      lvim.builtin.which_key["Y"] = { "<cmd>Codi!<CR>", "Clear Codi" }
-    end,
+--     setup = function()
+--       lvim.builtin.which_key["y"] = { "<cmd>Codi<CR>", "Codi" }
+--       lvim.builtin.which_key["Y"] = { "<cmd>Codi!<CR>", "Clear Codi" }
+--     end,
     event = "BufRead",
   },
   { -- Symbol lvimutline
     "simrat39/symbols-outline.nvim",
-    setup = function()
-      lvim.builtin.which_key["l"] = { o = { "<cmd>SymbolsOutline<CR>", "Symbols Outline" } }
-    end,
+--     setup = function()
+--       lvim.builtin.which_key["l"] = { o = { "<cmd>SymbolsOutline<CR>", "Symbols Outline" } }
+--     end,
     event = "BufRead",
   },
   { -- floating terminal
@@ -247,7 +247,7 @@ lvim.plugins = {
     setup = function()
       vim.api.nvim_set_keymap("n", "<M-=>", ":TZFocus<cr>", { noremap = true, silent = true })
       vim.api.nvim_set_keymap("t", "<M-=>", "<C-\\><C-n>:TZFocus<cr>i", { noremap = true, silent = true })
-      lvim.builtin.which_key["z"] = { "<cmd>TZAtaraxis<CR>", "Zen Mode" }
+--       lvim.builtin.which_key["z"] = { "<cmd>TZAtaraxis<CR>", "Zen Mode" }
     end,
     event = "BufRead",
   },
@@ -311,12 +311,12 @@ lvim.autocommands = {
   { "BufRead,BufNewFile", "LICENSE", "setf LICENSE" },
 }
 
-lvim.builtin.which_key["S"] = {
-  name = "Session",
-  s = { "<cmd>SessionSave<cr>", "Save Session" },
-  l = { "<cmd>SessionLoad<cr>", "Load Session" },
-}
-lvim.builtin.which_key["?"] = { "<cmd>NvimTreeFindFile<CR>", "Open current dir" }
+-- lvim.builtin.which_key["S"] = {
+--   name = "Session",
+--   s = { "<cmd>SessionSave<cr>", "Save Session" },
+--   l = { "<cmd>SessionLoad<cr>", "Load Session" },
+-- }
+-- lvim.builtin.which_key["?"] = { "<cmd>NvimTreeFindFile<CR>", "Open current dir" }
 
 lvim.builtin.dashboard.custom_header = {
   "   ____              ______ _____ ____ ",
