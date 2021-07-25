@@ -90,7 +90,7 @@ M.config = function()
   vim.api.nvim_set_keymap("n", "<S-TAB>", [[:BufferLineCyclePrev<CR>]], opt)
 end
 
-O.user_which_key["b"] = {
+lvim.builtin.which_key["b"] = {
   name = "Buffers",
   j = { ":BufferLinePick<CR>", "jump to buffer" },
   f = { ":Telescope buffers<CR>", "Find buffer" },

@@ -1,68 +1,55 @@
 --[[
-O is the global options object
+lvim is the global options object
 
 Formatters and linters should be
 filled in as strings with either
 a global executable or a path to
 an executable
 ]]
--- THESE ARE EXAMPLE CONFIGS FEEL FREE TO CHANGE TO WHATEVER YOU WANT
+-- THESE ARE EXAMPLE ClvimNFIGS FEEL FREE TO CHANGE TO WHATEVER YOU WANT
 -- general
-O.format_on_save = false
-O.lint_on_save = false
-O.completion.autocomplete = true
-O.colorscheme = "tokyonight"
-O.shell = "zsh"
-O.auto_close_tree = 1
-O.nvim_tree_disable_netrw = 1
-O.transparent_window = false
+lvim.format_on_save = false
+lvim.lint_on_save = false
+-- lvim.completion.autocomplete = true
+lvim.colorscheme = "tokyonight"
+lvim.shell = "/usr/bin/zsh"
+-- lvim.auto_close_tree = 1
+-- lvim.nvim_tree_disable_netrw = 1
+lvim.transparent_window = false
 
 -- defaults
-O.default_options.timeoutlen = 500
-O.default_options.ignorecase = false
-O.default_options.smartcase = false
-O.default_options.foldmethod = "manual"
-O.default_options.foldexpr = "nvim_treesitter#foldexpr()"
-O.default_options.guifont = "Iosevka:h24"
-O.default_options.relativenumber = true
+-- lvim.default_options.timeoutlen = 500
+-- lvim.default_options.ignorecase = false
+-- lvim.default_options.smartcase = false
+-- lvim.default_options.foldmethod = "manual"
+-- lvim.default_options.foldexpr = "nvim_treesitter#foldexpr()"
+-- lvim.default_options.guifont = "Iosevka:h24"
+-- lvim.default_options.relativenumber = true
 
 -- After changing plugin config it is recommended to run :PackerCompile
-O.plugin.galaxyline.active = false
-O.plugin.dashboard.active = true
-O.plugin.zen.active = false
-O.plugin.dap.active = false
+lvim.builtin.galaxyline.active = false
+lvim.builtin.dashboard.active = true
+-- lvim.builtin.zen.active = false
+lvim.builtin.dap.active = false
 
 -- Active LSPs
-O.lang.emmet.active = true
-O.lang.tailwindcss.active = true
+-- lvim.lang.emmet.active = true
+-- lvim.lang.tailwindcss.active = true
 
-O.treesitter.ensure_installed = "maintained"
-O.treesitter.ignore_install = { "haskell" }
-O.treesitter.highlight.enabled = true
-O.treesitter.rainbow.enable = true
-O.treesitter.autotag.enable = true
-O.treesitter.context_commentstring.enable = true
-O.treesitter.context_commentstring.config = {
-  jsx_element = "{/* %s */}",
-  jsx_fragment = "{/* %s */}",
-  jsx_attribute = "// %s",
-}
-
--- O.treesitter.textsubjects.enable = true
--- O.plugin.ts_textsubjects.active = true
-
--- python
--- add things like O.python.linter.flake8.exec_path
--- O.python.linter = 'flake8'
-O.lang.python.isort = true
-O.lang.python.diagnostics.virtual_text = true
-O.lang.python.analysis.use_library_code_types = true
-
--- javascript
-O.lang.tsserver.linter = "eslint"
+-- lvim.treesitter.ensure_installed = "maintained"
+-- lvim.treesitter.ignore_install = { "haskell" }
+-- lvim.treesitter.highlight.enabled = true
+-- lvim.treesitter.rainbow.enable = true
+-- lvim.treesitter.autotag.enable = true
+-- lvim.treesitter.context_commentstring.enable = true
+-- lvim.treesitter.context_commentstring.config = {
+--   jsx_element = "{/* %s */}",
+--   jsx_fragment = "{/* %s */}",
+--   jsx_attribute = "// %s",
+-- }
 
 -- Personal Keymaps
-O.keys.normal_mode = {
+lvim.keys.normal_mode = {
   -- Better window movement
   { "<C-h>", "<C-w>h" },
   { "<C-j>", "<C-w>j" },
@@ -85,7 +72,7 @@ O.keys.normal_mode = {
   { "<M-r>", ":set relativenumber! relativenumber?<cr>" },
   -- insert blank lines
   { "<M-o>", "o<esc>" },
-  { "<M-O>", "O<esc>" },
+  { "<M-lvim>", "O<esc>" },
   -- move to end line in wrap mode
   { "<M-$>", "g$" },
   { "/", "ms/" },
@@ -95,7 +82,7 @@ O.keys.normal_mode = {
   { "<M-h>", ":vertical resize -2<CR>" },
   { "<M-l>", ":vertical resize +2<CR>" },
 }
-O.keys.insert_mode = {
+lvim.keys.insert_mode = {
   -- I hate escape
   { "jk", "<ESC>" },
   { "kj", "<ESC>" },
@@ -110,9 +97,9 @@ O.keys.insert_mode = {
   { "<A-Right>", "<C-\\><C-N><C-w>l" },
   -- Insert blank lines
   { "<M-o>", "<C-o>o" },
-  { "<M-O>", "<C-o>O" },
+  { "<M-lvim>", "<C-o>O" },
 }
-O.keys.term_mode = {
+lvim.keys.term_mode = {
   -- Terminal window navigation
   { "<C-h>", "<C-\\><C-N><C-w>h" },
   { "<C-j>", "<C-\\><C-N><C-w>j" },
@@ -130,7 +117,7 @@ O.keys.term_mode = {
   { "<C-Right>", "<C-\\><C-N>vertical resize +2<CR>" },
 }
 -- Additional Plugins
-O.user_plugins = {
+lvim.plugins = {
   {
     "ahmedkhalf/lsp-rooter.nvim",
     config = function()
@@ -156,7 +143,7 @@ O.user_plugins = {
     "mbbill/undotree",
     event = "BufRead",
     setup = function()
-      O.user_which_key["u"] = { "<cmd>UndotreeToggle<CR>", "Undo Tree" }
+      lvim.builtin.which_key["u"] = { "<cmd>UndotreeToggle<CR>", "Undo Tree" }
     end,
   },
   { "michaeljsmith/vim-indent-object", event = "BufRead" },
@@ -164,14 +151,14 @@ O.user_plugins = {
   { "tweekmonster/startuptime.vim" },
   { "kevinhwang91/nvim-bqf", event = "BufRead" }, -- Better quickfix
   { "andymass/vim-matchup", event = "BufRead" }, -- matchup
-  { "glepnir/zephyr-nvim", event = "Bufread" }, -- zephyr colorscheme
+  -- { "glepnir/zephyr-nvim", event = "Bufread" }, -- zephyr colorscheme
   { "tpope/vim-repeat", event = "BufRead" },
   { "norcalli/nvim-colorizer.lua", event = "BufWinEnter" },
   { "folke/todo-comments.nvim", event = "BufRead" },
   {
     "f-person/git-blame.nvim",
     setup = function()
-      O.user_which_key["a"] = { "<cmd>GitBlameToggle<CR>", "Toggle Git Blame" }
+      lvim.builtin.which_key["a"] = { "<cmd>GitBlameToggle<CR>", "Toggle Git Blame" }
     end,
     event = "BufRead",
   }, -- Git Blame
@@ -207,15 +194,15 @@ O.user_plugins = {
     "metakirby5/codi.vim",
     ft = { "python", "javascript", "typescript", "php", "lua" },
     setup = function()
-      O.user_which_key["y"] = { "<cmd>Codi<CR>", "Codi" }
-      O.user_which_key["Y"] = { "<cmd>Codi!<CR>", "Clear Codi" }
+      lvim.builtin.which_key["y"] = { "<cmd>Codi<CR>", "Codi" }
+      lvim.builtin.which_key["Y"] = { "<cmd>Codi!<CR>", "Clear Codi" }
     end,
     event = "BufRead",
   },
-  { -- Symbol Outline
+  { -- Symbol lvimutline
     "simrat39/symbols-outline.nvim",
     setup = function()
-      O.user_which_key["l"] = { o = { "<cmd>SymbolsOutline<CR>", "Symbols Outline" } }
+      lvim.builtin.which_key["l"] = { o = { "<cmd>SymbolsOutline<CR>", "Symbols Outline" } }
     end,
     event = "BufRead",
   },
@@ -225,7 +212,7 @@ O.user_plugins = {
       require "lv-user/floaterm"
     end,
   },
-  { -- better (IMHO) hop, sneak, quickscope
+  { -- better (IMHlvim) hop, sneak, quickscope
     "ggandor/lightspeed.nvim",
     config = function()
       require "lv-user/lightspeed"
@@ -260,7 +247,7 @@ O.user_plugins = {
     setup = function()
       vim.api.nvim_set_keymap("n", "<M-=>", ":TZFocus<cr>", { noremap = true, silent = true })
       vim.api.nvim_set_keymap("t", "<M-=>", "<C-\\><C-n>:TZFocus<cr>i", { noremap = true, silent = true })
-      O.user_which_key["z"] = { "<cmd>TZAtaraxis<CR>", "Zen Mode" }
+      lvim.builtin.which_key["z"] = { "<cmd>TZAtaraxis<CR>", "Zen Mode" }
     end,
     event = "BufRead",
   },
@@ -297,7 +284,7 @@ O.user_plugins = {
   -- },
 }
 
-O.user_autocommands = {
+lvim.autocommands = {
   -- will check for external file changes on cursor hold
   { "CursorHold", "*", "silent! checktime" },
   -- will switch between absolute and relative line numbers depending on mode
@@ -310,9 +297,9 @@ O.user_autocommands = {
   { "WinEnter", "*", "setlocal cursorline" },
   { "WinLeave", "*", "setlocal nocursorline" },
   -- Terminal settings
-  { "TermOpen", "*", "startinsert" },
-  { "TermOpen", "*", "setlocal nonumber norelativenumber" },
-  { "TermOpen", "*", "nnoremap <buffer> <C-c> i<C-c>" },
+  { "Termlvimpen", "*", "startinsert" },
+  { "Termlvimpen", "*", "setlocal nonumber norelativenumber" },
+  { "Termlvimpen", "*", "nnoremap <buffer> <C-c> i<C-c>" },
   -- Set additional filetypes
   { "BufRead,BufNewFile", "*.asm", "setf nasm" },
   { "BufRead,BufNewFile", "*.conf", "setf conf" },
@@ -324,14 +311,14 @@ O.user_autocommands = {
   { "BufRead,BufNewFile", "LICENSE", "setf LICENSE" },
 }
 
-O.user_which_key["S"] = {
+lvim.builtin.which_key["S"] = {
   name = "Session",
   s = { "<cmd>SessionSave<cr>", "Save Session" },
   l = { "<cmd>SessionLoad<cr>", "Load Session" },
 }
-O.user_which_key["?"] = { "<cmd>NvimTreeFindFile<CR>", "Open current dir" }
+lvim.builtin.which_key["?"] = { "<cmd>NvimTreeFindFile<CR>", "Open current dir" }
 
-O.plugin.dashboard.custom_header = {
+lvim.builtin.dashboard.custom_header = {
   "   ____              ______ _____ ____ ",
   "  / __ \\____  ____ _/ / __ / ___// __ \\",
   " / / / / __ \\/ __ `/ / __  \\__ \\/ / / /",
@@ -344,7 +331,7 @@ O.plugin.dashboard.custom_header = {
 vim.cmd "autocmd VimLeave,VimSuspend * set guicursor=a:ver90"
 -- vim.cmd('autocmd VimLeave,VimSuspend * set guicursor=a:hor20') -- Underline
 
--- NOTE: Above code doesn't take a value from the terminal's cursor and
+-- NlvimTE: Above code doesn't take a value from the terminal's cursor and
 --       replace it. It hardcodes the cursor shape.
 --       And I think `ver` means vertical and `hor` means horizontal.
 --       The numbers didn't make a difference in alacritty. Please change
