@@ -18,13 +18,13 @@ lvim.shell = "/usr/bin/zsh"
 lvim.transparent_window = false
 
 -- defaults
--- lvim.default_options.timeoutlen = 500
--- lvim.default_options.ignorecase = false
--- lvim.default_options.smartcase = false
--- lvim.default_options.foldmethod = "manual"
--- lvim.default_options.foldexpr = "nvim_treesitter#foldexpr()"
--- lvim.default_options.guifont = "Iosevka:h24"
--- lvim.default_options.relativenumber = true
+vim.cmd("set timeoutlen=500")
+-- vim.cmd("set ignorecase false")
+-- vim.cmd("set smartcase false")
+-- vim.cmd("foldmethod = "manual"")
+-- vim.cmd("foldexpr = "nvim_treesitter#foldexpr()"")
+-- vim.cmd("guifont = "Iosevka:h24"")
+vim.cmd("set relativenumber")
 
 -- After changing plugin config it is recommended to run :PackerCompile
 lvim.builtin.galaxyline.active = false
