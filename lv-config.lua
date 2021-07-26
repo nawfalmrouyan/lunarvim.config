@@ -284,7 +284,7 @@ lvim.plugins = {
   -- },
 }
 
-lvim.autocommands = {
+lvim.autocommands.custom_groups = {
   -- will check for external file changes on cursor hold
   { "CursorHold", "*", "silent! checktime" },
   -- will switch between absolute and relative line numbers depending on mode
@@ -297,9 +297,9 @@ lvim.autocommands = {
   { "WinEnter", "*", "setlocal cursorline" },
   { "WinLeave", "*", "setlocal nocursorline" },
   -- Terminal settings
-  { "Termlvimpen", "*", "startinsert" },
-  { "Termlvimpen", "*", "setlocal nonumber norelativenumber" },
-  { "Termlvimpen", "*", "nnoremap <buffer> <C-c> i<C-c>" },
+  { "TermOpen", "*", "startinsert" },
+  { "TermOpen", "*", "setlocal nonumber norelativenumber" },
+  { "TermOpen", "*", "nnoremap <buffer> <C-c> i<C-c>" },
   -- Set additional filetypes
   { "BufRead,BufNewFile", "*.asm", "setf nasm" },
   { "BufRead,BufNewFile", "*.conf", "setf conf" },
