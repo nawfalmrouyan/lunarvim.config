@@ -7,7 +7,7 @@ filled in as strings with either
 a global executable or a path to
 an executable
 ]]
--- THESE ARE EXAMPLE ClvimNFIGS FEEL FREE TO CHANGE TO WHATEVER YOU WANT
+-- THESE ARE EXAMPLE CONFIGS FEEL FREE TO CHANGE TO WHATEVER YOU WANT
 -- general
 lvim.format_on_save = false
 lvim.lint_on_save = false
@@ -73,7 +73,7 @@ lvim.keys.normal_mode = {
   { "<M-r>", ":set relativenumber! relativenumber?<cr>" },
   -- insert blank lines
   { "<M-o>", "o<esc>" },
-  { "<M-lvim>", "O<esc>" },
+  { "<M-O>", "O<esc>" },
   -- move to end line in wrap mode
   { "<M-$>", "g$" },
   { "/", "ms/" },
@@ -98,7 +98,7 @@ lvim.keys.insert_mode = {
   { "<A-Right>", "<C-\\><C-N><C-w>l" },
   -- Insert blank lines
   { "<M-o>", "<C-o>o" },
-  { "<M-lvim>", "<C-o>O" },
+  { "<M-O>", "<C-o>O" },
 }
 lvim.keys.term_mode = {
   -- Terminal window navigation
@@ -216,7 +216,7 @@ lvim.plugins = {
       require "lv-user/floaterm"
     end,
   },
-  { -- better (IMHlvim) hop, sneak, quickscope
+  { -- better (IMHO) hop, sneak, quickscope
     "ggandor/lightspeed.nvim",
     config = function()
       require "lv-user/lightspeed"
@@ -335,7 +335,7 @@ lvim.builtin.dashboard.custom_header = {
 vim.cmd "autocmd VimLeave,VimSuspend * set guicursor=a:ver90"
 -- vim.cmd('autocmd VimLeave,VimSuspend * set guicursor=a:hor20') -- Underline
 
--- NlvimTE: Above code doesn't take a value from the terminal's cursor and
+-- NOTE: Above code doesn't take a value from the terminal's cursor and
 --       replace it. It hardcodes the cursor shape.
 --       And I think `ver` means vertical and `hor` means horizontal.
 --       The numbers didn't make a difference in alacritty. Please change
