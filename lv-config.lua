@@ -20,17 +20,16 @@ lvim.transparent_window = false
 
 -- defaults
 vim.cmd "set timeoutlen=500"
--- vim.cmd("set ignorecase false")
--- vim.cmd("set smartcase false")
--- vim.cmd("foldmethod = "manual"")
--- vim.cmd("foldexpr = "nvim_treesitter#foldexpr()"")
--- vim.cmd("guifont = "Iosevka:h24"")
+vim.cmd "set noignorecase"
+vim.cmd "set nosmartcase"
+vim.cmd "set foldmethod=manual"
+vim.cmd "set foldexpr=nvim_treesitter#foldexpr()"
+vim.cmd "set guifont=Iosevka:h16"
 vim.cmd "set relativenumber"
 
 -- After changing plugin config it is recommended to run :PackerCompile
 lvim.builtin.galaxyline.active = false
 lvim.builtin.dashboard.active = true
--- lvim.builtin.zen.active = false
 lvim.builtin.dap.active = false
 
 -- Active LSPs
