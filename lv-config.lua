@@ -15,7 +15,7 @@ lvim.lint_on_save = false
 lvim.colorscheme = "tokyonight"
 lvim.shell = "/usr/bin/zsh"
 -- lvim.auto_close_tree = 1
--- lvim.nvim_tree_disable_netrw = 1
+lvim.nvim_tree_disable_netrw = 1
 lvim.transparent_window = false
 
 -- defaults
@@ -127,10 +127,13 @@ lvim.plugins = {
   },
   {
     "lukas-reineke/indent-blankline.nvim",
-    event = "BufRead",
+    setup = function()
+      lvim.builtin.which_key.mappings["i"] = { "<cmd>IndentBlanklineToggle<CR>", "Indent Lines" }
+    end,
     config = function()
       require("lv-user/indentline").config()
     end,
+    event = "BufRead",
   },
   {
     "windwp/windline.nvim",
@@ -200,7 +203,7 @@ lvim.plugins = {
     end,
     event = "BufRead",
   },
-  { -- Symbol lvimutline
+  { -- Symbol Outline
     "simrat39/symbols-outline.nvim",
     setup = function()
       lvim.builtin.which_key.mappings["o"] = { "<cmd>SymbolsOutline<CR>", "Symbols Outline" }

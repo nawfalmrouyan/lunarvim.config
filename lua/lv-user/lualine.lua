@@ -48,7 +48,7 @@ local config = {
     --   inactive = { c = {fg = colors.fg, bg = colors.bg}}
     -- },
     disabled_filetypes = { "packer", "floaterm", "qf", "help", "man", "terminal", "dashboard", "NvimTree" },
-    theme = O.colorscheme,
+    theme = lvim.colorscheme,
   },
   sections = {
     -- these are to remove the defaults

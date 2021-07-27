@@ -10,7 +10,7 @@ M.config = function()
     "lspinfo",
     "LICENSE",
   }
-  vim.g.indent_blankline_buftype_exclude = { "qf", "terminal" }
+  vim.g.indent_blankline_buftype_exclude = { "qf", "terminal", "NvimTree" }
 
   vim.cmd [[highlight IndentOne guifg=#BF616A guibg=NONE gui=nocombine]]
   vim.cmd [[highlight IndentTwo guifg=#D08770 guibg=NONE gui=nocombine]]
@@ -47,7 +47,6 @@ M.config = function()
   }
   -- because lazy load indent-blankline so need readd this autocmd
   vim.cmd "autocmd CursorMoved * IndentBlanklineRefresh"
-
---   lvim.user_which_key["i"] = { "<cmd>IndentBlanklineToggle<CR>", "Indent Lines" }
 end
+
 return M

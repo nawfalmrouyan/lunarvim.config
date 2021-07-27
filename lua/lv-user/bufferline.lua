@@ -90,17 +90,16 @@ M.config = function()
   vim.api.nvim_set_keymap("n", "<S-TAB>", [[:BufferLineCyclePrev<CR>]], opt)
 end
 
--- lvim.builtin.which_key["b"] = {
---   name = "Buffers",
---   j = { ":BufferLinePick<CR>", "jump to buffer" },
---   f = { ":Telescope buffers<CR>", "Find buffer" },
---   h = { ":BufferLineMovePrev<CR>", "move buffer left" },
---   l = { ":BufferLineMoveNext<CR>", "move buffer right" },
---   H = { ":BufferLineCloseLeft<CR>", "close all buffers to the left" },
---   L = { ":BufferLineCloseRight<CR>", "close all buffers to the right" },
---   D = { ":BufferLineSortByDirectory<CR>", "sort by directory" },
---   E = { ":BufferLineSortByExtension<CR>", "sort by extension" },
---   R = { ":BufferLineSortByRelativeDirectory<CR>", "sort by relative directory" },
--- }
-
+lvim.builtin.which_key.mappings["b"] = {
+  name = "Buffers",
+  j = { ":BufferLinePick<CR>", "jump to buffer" },
+  f = { ":Telescope buffers<CR>", "Find buffer" },
+  h = { ":BufferLineMovePrev<CR>", "move buffer left" },
+  l = { ":BufferLineMoveNext<CR>", "move buffer right" },
+  H = { ":BufferLineCloseLeft<CR>", "close all buffers to the left" },
+  L = { ":BufferLineCloseRight<CR>", "close all buffers to the right" },
+  D = { ":BufferLineSortByDirectory<CR>", "sort by directory" },
+  E = { ":BufferLineSortByExtension<CR>", "sort by extension" },
+  R = { ":BufferLineSortByRelativeDirectory<CR>", "sort by relative directory" },
+}
 return M
