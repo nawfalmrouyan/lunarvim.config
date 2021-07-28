@@ -9,6 +9,7 @@ M.config = function()
     "packer",
     "lspinfo",
     "LICENSE",
+    "NvimTree",
   }
   vim.g.indent_blankline_buftype_exclude = { "qf", "terminal", "NvimTree" }
 
