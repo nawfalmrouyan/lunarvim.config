@@ -14,9 +14,9 @@ lvim.lint_on_save = false
 -- lvim.completion.autocomplete = true
 lvim.colorscheme = "tokyonight"
 lvim.shell = "/usr/bin/zsh"
--- lvim.auto_close_tree = 1
+lvim.auto_close_tree = 1
 lvim.nvim_tree_disable_netrw = 1
-lvim.transparent_window = true
+-- lvim.transparent_window = true
 
 -- defaults
 vim.cmd "set timeoutlen=500"
