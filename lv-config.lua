@@ -39,14 +39,14 @@ lvim.builtin.dap.active = false
 lvim.builtin.treesitter.ensure_installed = "maintained"
 lvim.builtin.treesitter.ignore_install = { "haskell" }
 lvim.builtin.treesitter.highlight.enabled = true
--- lvim.treesitter.rainbow.enable = true
--- lvim.treesitter.autotag.enable = true
--- lvim.treesitter.context_commentstring.enable = true
--- lvim.treesitter.context_commentstring.config = {
---   jsx_element = "{/* %s */}",
---   jsx_fragment = "{/* %s */}",
---   jsx_attribute = "// %s",
--- }
+lvim.builtin.treesitter.rainbow.enable = true
+lvim.builtin.treesitter.autotag.enable = true
+lvim.builtin.treesitter.context_commentstring.enable = true
+lvim.builtin.treesitter.context_commentstring.config = {
+  jsx_element = "{/* %s */}",
+  jsx_fragment = "{/* %s */}",
+  jsx_attribute = "// %s",
+}
 lvim.builtin.telescope.extensions = {
 	fzy_native = {
 		override_generic_sorter = false,
