@@ -155,7 +155,7 @@ lvim.plugins = {
   },
   { -- smooth scroll
     "karb94/neoscroll.nvim",
-    event = "BufRead",
+    -- event = "BufRead",
     config = function()
       require "lv-user/neoscroll"
     end,
