@@ -16,4 +16,4 @@ vim.g.tokyonight_hide_inactive_statusline = true
 vim.g.tokyonight_colors = { hint = "orange", error = "#ff0000" }
 
 -- Load the colorscheme
-vim.cmd("colorscheme " .. lvim.colorscheme)
+-- vim.cmd("colorscheme " .. lvim.colorscheme)
