@@ -135,6 +135,7 @@ lvim.plugins = {
   { "p00f/nvim-ts-rainbow", after = { "telescope.nvim" } }, -- Pretty parentheses
   { "windwp/nvim-ts-autotag", after = { "telescope.nvim" } }, -- Autotags <div>|</div>
   { "JoosepAlviste/nvim-ts-context-commentstring", after = { "telescope.nvim" } },
+  { "romgrk/fzy-lua-native" },
   { -- Enhanced increment/decrement
     "monaqa/dial.nvim",
     event = "BufRead",
@@ -218,14 +219,14 @@ lvim.plugins = {
   {
     "akinsho/nvim-bufferline.lua",
     config = function()
-      require("lv-user/bufferline").config()
+      require("lv-user.bufferline").config()
     end,
   },
   {
     "monsonjeremy/onedark.nvim",
     event = "BufRead",
     config = function()
-      require "lv-user/onedark"
+      require "lv-user.onedark"
     end,
   },
   {
@@ -234,20 +235,26 @@ lvim.plugins = {
   { -- diagnostics
     "folke/trouble.nvim",
     config = function()
-      require("lv-user/trouble").config()
+      require("lv-user.trouble").config()
     end,
     event = "BufRead",
   },
   {
     "folke/tokyonight.nvim",
     config = function()
-      require "lv-user/tokyonight"
+      require "lv-user.tokyonight"
     end,
     -- event = "BufRead"
   },
   {
     "nvim-telescope/telescope-fzy-native.nvim",
     run = "make",
+  },
+  {
+    "gelguy/wilder.nvim",
+    -- config = function()
+    --   require "lv-user.wilder"
+    -- end,
   },
   -- -- Tabnine
   -- {
