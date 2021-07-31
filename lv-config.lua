@@ -16,7 +16,7 @@ lvim.colorscheme = "tokyonight"
 lvim.shell = "/usr/bin/zsh"
 -- lvim.auto_close_tree = 1
 lvim.nvim_tree_disable_netrw = 1
-lvim.transparent_window = false
+lvim.transparent_window = true
 
 -- defaults
 vim.cmd "set timeoutlen=500"
@@ -36,9 +36,9 @@ lvim.builtin.dap.active = false
 -- lvim.lang.emmet.active = true
 -- lvim.lang.tailwindcss.active = true
 
--- lvim.treesitter.ensure_installed = "maintained"
--- lvim.treesitter.ignore_install = { "haskell" }
--- lvim.treesitter.highlight.enabled = true
+lvim.builtin.treesitter.ensure_installed = "maintained"
+lvim.builtin.treesitter.ignore_install = { "haskell" }
+lvim.builtin.treesitter.highlight.enabled = true
 -- lvim.treesitter.rainbow.enable = true
 -- lvim.treesitter.autotag.enable = true
 -- lvim.treesitter.context_commentstring.enable = true
@@ -47,27 +47,24 @@ lvim.builtin.dap.active = false
 --   jsx_fragment = "{/* %s */}",
 --   jsx_attribute = "// %s",
 -- }
+lvim.builtin.telescope.extensions = {
+	fzy_native = {
+		override_generic_sorter = false,
+		override_file_sorter = true,
+	},
+}
+
+lvim.builtin.telescope.on_config_done = function()
+	require("telescope").load_extension("fzy_native")
+end
 
 -- Personal Keymaps
+lvim.keys.insert_mode = {
+  -- Insert blank lines
+  { "<M-o>", "<C-o>o" },
+  { "<M-O>", "<C-o>O" },
+}
 lvim.keys.normal_mode = {
-  -- Better window movement
-  { "<C-h>", "<C-w>h" },
-  { "<C-j>", "<C-w>j" },
-  { "<C-k>", "<C-w>k" },
-  { "<C-l>", "<C-w>l" },
-  -- Resize with arrows
-  { "<C-Down>", ":resize -2<CR>" },
-  { "<C-Up>", ":resize +2<CR>" },
-  { "<C-Left>", ":vertical resize -2<CR>" },
-  { "<C-Right>", ":vertical resize +2<CR>" },
-  -- Move current line / block with Alt-j/k a la vscode.
-  { "<A-j>", ":m .+1<CR>==" },
-  { "<A-k>", ":m .-2<CR>==" },
-  -- QuickFix
-  { "]q", ":cnext<CR>" },
-  { "[q", ":cprev<CR>" },
-  { "<C-q>", ":call QuickFixToggle()<CR>" },
-  -- {'<C-TAB>', 'compe#complete()', {noremap = true, silent = true, expr = true}},
   { "<M-w>", ":set wrap! wrap?<cr>" },
   { "<M-r>", ":set relativenumber! relativenumber?<cr>" },
   -- insert blank lines
@@ -76,41 +73,11 @@ lvim.keys.normal_mode = {
   -- move to end line in wrap mode
   { "<M-$>", "g$" },
   { "/", "ms/" },
-  -- resize
-  { "<M-j>", ":resize -2<CR>" },
-  { "<M-k>", ":resize +2<CR>" },
-  { "<M-h>", ":vertical resize -2<CR>" },
-  { "<M-l>", ":vertical resize +2<CR>" },
-}
-lvim.keys.insert_mode = {
-  -- I hate escape
-  { "jk", "<ESC>" },
-  { "kj", "<ESC>" },
-  { "jj", "<ESC>" },
-  -- Move current line / block with Alt-j/k ala vscode.
-  { "<A-j>", "<Esc>:m .+1<CR>==gi" },
-  { "<A-k>", "<Esc>:m .-2<CR>==gi" },
-  -- navigation
-  { "<A-Up>", "<C-\\><C-N><C-w>h" },
-  { "<A-Down>", "<C-\\><C-N><C-w>j" },
-  { "<A-Left>", "<C-\\><C-N><C-w>k" },
-  { "<A-Right>", "<C-\\><C-N><C-w>l" },
-  -- Insert blank lines
-  { "<M-o>", "<C-o>o" },
-  { "<M-O>", "<C-o>O" },
 }
 lvim.keys.term_mode = {
   -- Terminal window navigation
-  { "<C-h>", "<C-\\><C-N><C-w>h" },
-  { "<C-j>", "<C-\\><C-N><C-w>j" },
-  { "<C-k>", "<C-\\><C-N><C-w>k" },
-  { "<C-l>", "<C-\\><C-N><C-w>l" },
   { "<Esc>", "<C-\\><C-N>" },
   -- resize
-  { "<M-j>", "<C-\\><C-N>resize -2<CR>" },
-  { "<M-k>", "<C-\\><C-N>resize +2<CR>" },
-  { "<M-h>", "<C-\\><C-N>vertical resize -2<CR>" },
-  { "<M-l>", "<C-\\><C-N>vertical resize +2<CR>" },
   { "<C-Up>", "<C-\\><C-N>resize -2<CR>" },
   { "<C-Down>", "<C-\\><C-N>resize +2<CR>" },
   { "<C-Left>", "<C-\\><C-N>vertical resize -2<CR>" },
@@ -237,12 +204,6 @@ lvim.plugins = {
     end,
     requires = "nvim-lua/plenary.nvim",
   },
-  {
-    "folke/tokyonight.nvim",
-    config = function()
-      require "lv-user/tokyonight"
-    end,
-  },
   { "Shatur/neovim-ayu", event = "BufEnter" }, -- ayu colorscheme
   { "Mofiqul/dracula.nvim", event = "BufEnter" }, -- dracula colorsheme
   {
@@ -269,7 +230,6 @@ lvim.plugins = {
   },
   {
     "yong1le/darkplus.nvim",
-    event = "BufRead",
   },
   { -- diagnostics
     "folke/trouble.nvim",
@@ -278,6 +238,17 @@ lvim.plugins = {
     end,
     event = "BufRead",
   },
+  {
+    "folke/tokyonight.nvim",
+    config = function()
+      require "lv-user/tokyonight"
+    end,
+    -- event = "BufRead"
+  },
+	{
+		"nvim-telescope/telescope-fzy-native.nvim",
+		run = "make",
+	},
   -- -- Tabnine
   -- {
   --   "tzachar/compe-tabnine",
