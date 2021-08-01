@@ -97,14 +97,14 @@ lvim.plugins = {
       lvim.builtin.which_key.mappings["i"] = { "<cmd>IndentBlanklineToggle<CR>", "Indent Lines" }
     end,
     config = function()
-      require("lv-user/indentline").config()
+      require("lv-user.indentline").config()
     end,
     event = "BufRead",
   },
   {
     "windwp/windline.nvim",
     config = function()
-      require "lv-user/windline"
+      require "lv-user.windline"
     end,
     event = "BufWinEnter",
   },
@@ -140,7 +140,7 @@ lvim.plugins = {
     "monaqa/dial.nvim",
     event = "BufRead",
     config = function()
-      require("lv-user/dial").config()
+      require("lv-user.dial").config()
     end,
     opt = true,
   },
@@ -158,7 +158,7 @@ lvim.plugins = {
     "karb94/neoscroll.nvim",
     -- event = "BufRead",
     config = function()
-      require "lv-user/neoscroll"
+      require "lv-user.neoscroll"
     end,
   },
   { -- Interactive scratchpad
@@ -180,13 +180,13 @@ lvim.plugins = {
   { -- floating terminal
     "voldikss/vim-floaterm",
     config = function()
-      require "lv-user/floaterm"
+      require "lv-user.floaterm"
     end,
   },
   { -- better (IMHO) hop, sneak, quickscope
     "ggandor/lightspeed.nvim",
     config = function()
-      require "lv-user/lightspeed"
+      require "lv-user.lightspeed"
     end,
     event = "BufRead",
   },
@@ -252,8 +252,9 @@ lvim.plugins = {
   },
   {
     "gelguy/wilder.nvim",
+    -- event = "BufRead",
     -- config = function()
-    --   require "lv-user.wilder"
+    --   require("lv-user.wilder").config()
     -- end,
   },
   -- -- Tabnine
