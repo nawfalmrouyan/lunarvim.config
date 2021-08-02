@@ -58,6 +58,8 @@ lvim.builtin.telescope.on_config_done = function()
   require("telescope").load_extension "fzy_native"
 end
 
+lvim.lang.lua.formatters.exe = "stylua"
+
 -- Personal Keymaps
 lvim.keys.insert_mode = {
   -- Insert blank lines
@@ -124,7 +126,7 @@ lvim.plugins = {
   -- { "glepnir/zephyr-nvim", event = "Bufread" }, -- zephyr colorscheme
   { "tpope/vim-repeat", event = "BufRead" },
   { "norcalli/nvim-colorizer.lua", event = "BufWinEnter" },
-  { "folke/todo-comments.nvim", event = "BufRead" },
+  -- { "folke/todo-comments.nvim", event = "BufRead" },
   {
     "f-person/git-blame.nvim",
     setup = function()
@@ -190,23 +192,23 @@ lvim.plugins = {
     end,
     event = "BufRead",
   },
-  { -- generate code links
-    "ruifm/gitlinker.nvim",
-    event = "BufRead",
-    config = function()
-      require("gitlinker").setup {
-        opts = {
-          add_current_line_on_normal_mode = true,
-          action_callback = require("gitlinker.actions").copy_to_clipboard,
-          print_url = false,
-          mappings = "<leader>gy",
-        },
-      }
-    end,
-    requires = "nvim-lua/plenary.nvim",
-  },
-  { "Shatur/neovim-ayu", event = "BufEnter" }, -- ayu colorscheme
-  { "Mofiqul/dracula.nvim", event = "BufEnter" }, -- dracula colorsheme
+  -- { -- generate code links
+  --   "ruifm/gitlinker.nvim",
+  --   event = "BufRead",
+  --   config = function()
+  --     require("gitlinker").setup {
+  --       opts = {
+  --         add_current_line_on_normal_mode = true,
+  --         action_callback = require("gitlinker.actions").copy_to_clipboard,
+  --         print_url = false,
+  --         mappings = "<leader>gy",
+  --       },
+  --     }
+  --   end,
+  --   requires = "nvim-lua/plenary.nvim",
+  -- },
+  -- { "Shatur/neovim-ayu", event = "BufEnter" }, -- ayu colorscheme
+  -- { "Mofiqul/dracula.nvim", event = "BufEnter" }, -- dracula colorsheme
   {
     "Pocco81/TrueZen.nvim",
     setup = function()
@@ -222,13 +224,13 @@ lvim.plugins = {
       require("lv-user.bufferline").config()
     end,
   },
-  {
-    "monsonjeremy/onedark.nvim",
-    event = "BufRead",
-    config = function()
-      require "lv-user.onedark"
-    end,
-  },
+  -- {
+  --   "monsonjeremy/onedark.nvim",
+  --   event = "BufRead",
+  --   config = function()
+  --     require "lv-user.onedark"
+  --   end,
+  -- },
   {
     "yong1le/darkplus.nvim",
   },
@@ -252,10 +254,10 @@ lvim.plugins = {
   },
   {
     "gelguy/wilder.nvim",
-    -- event = "BufRead",
-    -- config = function()
-    --   require("lv-user.wilder").config()
-    -- end,
+    --   config = function()
+    --     require("lv-user.wilder").config()
+    --   end,
+    --   -- event = "BufRead",
   },
   -- -- Tabnine
   -- {
