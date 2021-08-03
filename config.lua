@@ -41,6 +41,7 @@ lvim.builtin.dap.active = false
 -- Active LSPs
 -- lvim.lang.emmet.active = true
 -- lvim.lang.tailwindcss.active = true
+lvim.lsp.diagnostics.virtual_text = false
 
 lvim.builtin.treesitter.ensure_installed = "maintained"
 -- lvim.builtin.treesitter.ignore_install = { "haskell" }
@@ -67,32 +68,28 @@ end
 lvim.lang.lua.formatters.exe = "stylua"
 
 -- Personal Keymaps
-lvim.keys.insert_mode = {
-  -- Insert blank lines
-  ["<M-o>"] = "<C-o>o",
-  ["<M-O>"] = "<C-o>O",
-}
-lvim.keys.normal_mode = {
-  ["<M-w>"] = ":set wrap! wrap?<cr>",
-  ["<M-r>"] = ":set relativenumber! relativenumber?<cr>",
-  -- insert blank lines
-  ["<M-o>"] = "o<esc>",
-  ["<M-O>"] = "O<esc>",
-  -- move to end line in wrap mode
-  ["<M-$>"] = "g$",
-  ["/"] = "ms/",
-}
-lvim.keys.term_mode = {
-  -- Terminal window navigation
-  ["<Esc>"] = "<C-\\><C-N>",
-  -- resize
-  ["<C-Up>"] = "<C-\\><C-N>resize -2<CR>",
-  ["<C-Down>"] = "<C-\\><C-N>resize +2<CR>",
-  ["<C-Left>"] = "<C-\\><C-N>vertical resize -2<CR>",
-  ["<C-Right>"] = "<C-\\><C-N>vertical resize +2<CR>",
-}
+lvim.keys.insert_mode["<M-o>"] = "<C-o>o"
+lvim.keys.insert_mode["<M-O>"] = "<C-o>O"
+lvim.keys.normal_mode["<M-w>"] = ":set wrap! wrap?<cr>"
+lvim.keys.normal_mode["<M-r>"] = ":set relativenumber! relativenumber?<cr>"
+-- insert blank lines
+lvim.keys.normal_mode["<M-o>"] = "o<esc>"
+lvim.keys.normal_mode["<M-O>"] = "O<esc>"
+-- move to end line in wrap mode
+lvim.keys.normal_mode["<M-$>"] = "g$"
+lvim.keys.normal_mode["/"] = "ms/"
+lvim.keys.term_mode["<Esc>"] = "<C-\\><C-N>"
+-- resize
+lvim.keys.term_mode["<C-Up>"] = "<C-\\><C-N>resize -2<CR>"
+lvim.keys.term_mode["<C-Down>"] = "<C-\\><C-N>resize +2<CR>"
+lvim.keys.term_mode["<C-Left>"] = "<C-\\><C-N>vertical resize -2<CR>"
+lvim.keys.term_mode["<C-Right>"] = "<C-\\><C-N>vertical resize +2<CR>"
+
 -- Additional Plugins
 lvim.plugins = {
+  {
+    "famiu/bufdelete.nvim",
+  },
   {
     "ray-x/lsp_signature.nvim",
     event = "InsertEnter",
@@ -131,9 +128,17 @@ lvim.plugins = {
       lvim.builtin.which_key.mappings["u"] = { "<cmd>UndotreeToggle<CR>", "Undo Tree" }
     end,
   },
-  { "michaeljsmith/vim-indent-object", event = "BufRead" },
-  { "dsznajder/vscode-es7-javascript-react-snippets", event = "BufRead" },
-  { "tweekmonster/startuptime.vim" },
+  {
+    "michaeljsmith/vim-indent-object",
+    event = "BufRead"
+  },
+  {
+    "dsznajder/vscode-es7-javascript-react-snippets",
+    event = "BufRead"
+  },
+  {
+    "tweekmonster/startuptime.vim",
+  },
   { "kevinhwang91/nvim-bqf", event = "BufRead" }, -- Better quickfix
   { "andymass/vim-matchup", event = "BufRead" }, -- matchup
   { "tpope/vim-repeat", event = "BufRead" },
@@ -253,10 +258,10 @@ lvim.plugins = {
   },
   {
     "gelguy/wilder.nvim",
-  --   config = function()
-  --     require("user.wilder").config()
-  --   end,
-  --   -- event = "BufRead",
+    --   config = function()
+    --     require("user.wilder").config()
+    --   end,
+    --   -- event = "BufRead",
   },
 }
 
