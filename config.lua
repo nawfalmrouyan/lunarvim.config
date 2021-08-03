@@ -19,13 +19,19 @@ lvim.nvim_tree_disable_netrw = 1
 -- lvim.transparent_window = true
 
 -- defaults
-vim.cmd "set timeoutlen=500"
-vim.cmd "set noignorecase"
-vim.cmd "set nosmartcase"
-vim.cmd "set foldmethod=manual"
-vim.cmd "set foldexpr=nvim_treesitter#foldexpr()"
-vim.cmd "set guifont=Iosevka:h16"
-vim.cmd "set relativenumber"
+vim.opt.timeoutlen = 500
+vim.opt.ignorecase = false
+vim.opt.smartcase = false
+vim.opt.guifont = "Iosevka:h16"
+vim.opt.relativenumber = true
+
+-- vim.cmd "set timeoutlen=500"
+-- vim.cmd "set noignorecase"
+-- vim.cmd "set nosmartcase"
+-- vim.cmd "set foldmethod=manual"
+-- vim.cmd "set foldexpr=nvim_treesitter#foldexpr()"
+-- vim.cmd "set guifont=Iosevka:h16"
+-- vim.cmd "set relativenumber"
 
 -- After changing plugin config it is recommended to run :PackerCompile
 lvim.builtin.galaxyline.active = false
@@ -37,7 +43,7 @@ lvim.builtin.dap.active = false
 -- lvim.lang.tailwindcss.active = true
 
 lvim.builtin.treesitter.ensure_installed = "maintained"
-lvim.builtin.treesitter.ignore_install = { "haskell" }
+-- lvim.builtin.treesitter.ignore_install = { "haskell" }
 lvim.builtin.treesitter.highlight.enabled = true
 lvim.builtin.treesitter.rainbow.enable = true
 lvim.builtin.treesitter.autotag.enable = true
@@ -88,6 +94,13 @@ lvim.keys.term_mode = {
 -- Additional Plugins
 lvim.plugins = {
   {
+    "ray-x/lsp_signature.nvim",
+    event = "InsertEnter",
+    config = function()
+      require("user.lsp_signature").config()
+    end,
+  },
+  {
     "ahmedkhalf/lsp-rooter.nvim",
     config = function()
       require("lsp-rooter").setup()
@@ -99,21 +112,14 @@ lvim.plugins = {
       lvim.builtin.which_key.mappings["i"] = { "<cmd>IndentBlanklineToggle<CR>", "Indent Lines" }
     end,
     config = function()
-      require("lv-user.indentline").config()
+      require("user.indentline").config()
     end,
     event = "BufRead",
   },
-  -- {
-  --   "famiu/feline.nvim",
-  --   config = function()
-  --     require("lv-user.feline").config()
-  --   end,
-  --   -- event = "BufWinEnter",
-  -- },
   {
     "windwp/windline.nvim",
     config = function()
-      require "lv-user.windline"
+      require "user.windline"
     end,
     event = "BufWinEnter",
   },
@@ -130,10 +136,13 @@ lvim.plugins = {
   { "tweekmonster/startuptime.vim" },
   { "kevinhwang91/nvim-bqf", event = "BufRead" }, -- Better quickfix
   { "andymass/vim-matchup", event = "BufRead" }, -- matchup
-  -- { "glepnir/zephyr-nvim", event = "Bufread" }, -- zephyr colorscheme
   { "tpope/vim-repeat", event = "BufRead" },
-  { "norcalli/nvim-colorizer.lua", event = "BufWinEnter" },
-  -- { "folke/todo-comments.nvim", event = "BufRead" },
+  {
+    "norcalli/nvim-colorizer.lua",
+    config = function()
+      require("user.colorizer").config()
+    end,
+  },
   {
     "f-person/git-blame.nvim",
     setup = function()
@@ -141,82 +150,77 @@ lvim.plugins = {
     end,
     event = "BufRead",
   }, -- Git Blame
-  { "p00f/nvim-ts-rainbow", after = { "telescope.nvim" } }, -- Pretty parentheses
-  { "windwp/nvim-ts-autotag", after = { "telescope.nvim" } }, -- Autotags <div>|</div>
-  { "JoosepAlviste/nvim-ts-context-commentstring", after = { "telescope.nvim" } },
+  { "p00f/nvim-ts-rainbow", event = "BufEnter" }, -- Pretty parentheses
+  { "windwp/nvim-ts-autotag", event = "InsertEnter" }, -- Autotags <div>|</div>
+  { "JoosepAlviste/nvim-ts-context-commentstring", event = "BufEnter" },
   { "romgrk/fzy-lua-native" },
   { -- Enhanced increment/decrement
     "monaqa/dial.nvim",
     event = "BufRead",
     config = function()
-      require("lv-user.dial").config()
+      require("user.dial").config()
     end,
-    opt = true,
   },
   { -- Peek changes live
     "nacro90/numb.nvim",
     event = "BufRead",
     config = function()
-      require("numb").setup {
-        show_numbers = true, -- Enable "number" for the window while peeking
-        show_cursorline = true, -- Enable "cursorline" for the window while peeking
-      }
+      require("user.numb").config()
     end,
   },
   { -- smooth scroll
     "karb94/neoscroll.nvim",
     -- event = "BufRead",
     config = function()
-      require "lv-user.neoscroll"
+      require "user.neoscroll"
     end,
   },
   { -- Interactive scratchpad
     "metakirby5/codi.vim",
-    ft = { "python", "javascript", "typescript", "php", "lua" },
+    cmd = "Codi",
     setup = function()
       lvim.builtin.which_key.mappings["y"] = { "<cmd>Codi<CR>", "Codi" }
       lvim.builtin.which_key.mappings["Y"] = { "<cmd>Codi!<CR>", "Clear Codi" }
     end,
-    event = "BufRead",
   },
   { -- Symbol Outline
     "simrat39/symbols-outline.nvim",
     setup = function()
-      lvim.builtin.which_key.mappings["o"] = { "<cmd>SymbolsOutline<CR>", "Symbols Outline" }
+      lvim.builtin.which_key.mappings.l.o = { "<cmd>SymbolsOutline<cr>", "Outline" }
     end,
     event = "BufRead",
   },
   { -- floating terminal
     "voldikss/vim-floaterm",
     config = function()
-      require "lv-user.floaterm"
+      require "user.floaterm"
     end,
   },
   { -- better (IMHO) hop, sneak, quickscope
     "ggandor/lightspeed.nvim",
     config = function()
-      require "lv-user.lightspeed"
+      require "user.lightspeed"
     end,
     event = "BufRead",
   },
-  -- { -- generate code links
-  --   "ruifm/gitlinker.nvim",
-  --   event = "BufRead",
-  --   config = function()
-  --     require("gitlinker").setup {
-  --       opts = {
-  --         add_current_line_on_normal_mode = true,
-  --         action_callback = require("gitlinker.actions").copy_to_clipboard,
-  --         print_url = false,
-  --         mappings = "<leader>gy",
-  --       },
-  --     }
-  --   end,
-  --   requires = "nvim-lua/plenary.nvim",
-  -- },
+  { -- generate code links
+    "ruifm/gitlinker.nvim",
+    event = "BufRead",
+    config = function()
+      require("gitlinker").setup {
+        opts = {
+          add_current_line_on_normal_mode = true,
+          action_callback = require("gitlinker.actions").copy_to_clipboard,
+          print_url = false,
+          mappings = "<leader>gy",
+        },
+      }
+    end,
+    requires = "nvim-lua/plenary.nvim",
+  },
   { "Shatur/neovim-ayu", event = "BufEnter" }, -- ayu colorscheme
   { "Mofiqul/dracula.nvim", event = "BufEnter" }, -- dracula colorsheme
-  { "yong1le/darkplus.nvim", event = "BufEnter"}, -- darkplus theme
+  -- { "yong1le/darkplus.nvim", event = "BufEnter"}, -- darkplus theme
   {
     "Pocco81/TrueZen.nvim",
     setup = function()
@@ -229,20 +233,17 @@ lvim.plugins = {
   {
     "akinsho/nvim-bufferline.lua",
     config = function()
-      require("lv-user.bufferline").config()
+      require("user.bufferline").config()
     end,
   },
   { -- diagnostics
     "folke/trouble.nvim",
-    config = function()
-      require("lv-user.trouble").config()
-    end,
-    event = "BufRead",
+    cmd = "TroubleToggle",
   },
   {
     "folke/tokyonight.nvim",
     config = function()
-      require "lv-user.tokyonight"
+      require "user.tokyonight"
     end,
     -- event = "BufRead"
   },
@@ -250,20 +251,13 @@ lvim.plugins = {
     "nvim-telescope/telescope-fzy-native.nvim",
     run = "make",
   },
-  -- {
-  --   "gelguy/wilder.nvim",
-    --   config = function()
-    --     require("lv-user.wilder").config()
-    --   end,
-    --   -- event = "BufRead",
-  -- },
-  -- -- Tabnine
-  -- {
-  --   "tzachar/compe-tabnine",
-  --   event = "BufRead",
-  --   run = "./install.sh",
-  --   requires = "hrsh7th/nvim-compe",
-  -- },
+  {
+    "gelguy/wilder.nvim",
+  --   config = function()
+  --     require("user.wilder").config()
+  --   end,
+  --   -- event = "BufRead",
+  },
 }
 
 lvim.autocommands.custom_groups = {
