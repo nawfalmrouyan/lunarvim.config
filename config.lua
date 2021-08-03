@@ -14,7 +14,7 @@ lvim.lint_on_save = false
 -- lvim.completion.autocomplete = true
 lvim.colorscheme = "tokyonight"
 lvim.shell = "/usr/bin/zsh"
-lvim.auto_close_tree = 1
+-- lvim.auto_close_tree = 1
 lvim.nvim_tree_disable_netrw = 1
 -- lvim.transparent_window = true
 
@@ -88,9 +88,6 @@ lvim.keys.term_mode["<C-Right>"] = "<C-\\><C-N>vertical resize +2<CR>"
 -- Additional Plugins
 lvim.plugins = {
   {
-    "famiu/bufdelete.nvim",
-  },
-  {
     "ray-x/lsp_signature.nvim",
     event = "InsertEnter",
     config = function()
@@ -139,9 +136,18 @@ lvim.plugins = {
   {
     "tweekmonster/startuptime.vim",
   },
-  { "kevinhwang91/nvim-bqf", event = "BufRead" }, -- Better quickfix
-  { "andymass/vim-matchup", event = "BufRead" }, -- matchup
-  { "tpope/vim-repeat", event = "BufRead" },
+  {
+    "kevinhwang91/nvim-bqf",
+    event = "BufRead"
+  },
+  {
+    "andymass/vim-matchup",
+    event = "BufRead"
+  },
+  {
+    "tpope/vim-repeat",
+    event = "BufRead"
+  },
   {
     "norcalli/nvim-colorizer.lua",
     config = function()
@@ -155,11 +161,19 @@ lvim.plugins = {
     end,
     event = "BufRead",
   }, -- Git Blame
-  { "p00f/nvim-ts-rainbow", event = "BufEnter" }, -- Pretty parentheses
-  { "windwp/nvim-ts-autotag", event = "InsertEnter" }, -- Autotags <div>|</div>
-  { "JoosepAlviste/nvim-ts-context-commentstring", event = "BufEnter" },
-  { "romgrk/fzy-lua-native" },
-  { -- Enhanced increment/decrement
+  {
+    "p00f/nvim-ts-rainbow", event = "BufEnter"
+  },
+  {
+    "windwp/nvim-ts-autotag", event = "InsertEnter"
+  },
+  {
+    "JoosepAlviste/nvim-ts-context-commentstring", event = "BufEnter"
+  },
+  {
+    "romgrk/fzy-lua-native"
+  },
+  {
     "monaqa/dial.nvim",
     event = "BufRead",
     config = function()
@@ -223,8 +237,14 @@ lvim.plugins = {
     end,
     requires = "nvim-lua/plenary.nvim",
   },
-  { "Shatur/neovim-ayu", event = "BufEnter" }, -- ayu colorscheme
-  { "Mofiqul/dracula.nvim", event = "BufEnter" }, -- dracula colorsheme
+  {
+    "Shatur/neovim-ayu",
+    event = "BufEnter"
+  },
+  {
+    "Mofiqul/dracula.nvim",
+    event = "BufEnter"
+  }, -- dracula colorsheme
   -- { "yong1le/darkplus.nvim", event = "BufEnter"}, -- darkplus theme
   {
     "Pocco81/TrueZen.nvim",
@@ -258,10 +278,6 @@ lvim.plugins = {
   },
   {
     "gelguy/wilder.nvim",
-    --   config = function()
-    --     require("user.wilder").config()
-    --   end,
-    --   -- event = "BufRead",
   },
 }
 
