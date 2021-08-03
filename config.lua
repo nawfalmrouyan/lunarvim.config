@@ -63,27 +63,27 @@ lvim.lang.lua.formatters.exe = "stylua"
 -- Personal Keymaps
 lvim.keys.insert_mode = {
   -- Insert blank lines
-  { "<M-o>", "<C-o>o" },
-  { "<M-O>", "<C-o>O" },
+  ["<M-o>"] = "<C-o>o",
+  ["<M-O>"] = "<C-o>O",
 }
 lvim.keys.normal_mode = {
-  { "<M-w>", ":set wrap! wrap?<cr>" },
-  { "<M-r>", ":set relativenumber! relativenumber?<cr>" },
+  ["<M-w>"] = ":set wrap! wrap?<cr>",
+  ["<M-r>"] = ":set relativenumber! relativenumber?<cr>",
   -- insert blank lines
-  { "<M-o>", "o<esc>" },
-  { "<M-O>", "O<esc>" },
+  ["<M-o>"] = "o<esc>",
+  ["<M-O>"] = "O<esc>",
   -- move to end line in wrap mode
-  { "<M-$>", "g$" },
-  { "/", "ms/" },
+  ["<M-$>"] = "g$",
+  ["/"] = "ms/",
 }
 lvim.keys.term_mode = {
   -- Terminal window navigation
-  { "<Esc>", "<C-\\><C-N>" },
+  ["<Esc>"] = "<C-\\><C-N>",
   -- resize
-  { "<C-Up>", "<C-\\><C-N>resize -2<CR>" },
-  { "<C-Down>", "<C-\\><C-N>resize +2<CR>" },
-  { "<C-Left>", "<C-\\><C-N>vertical resize -2<CR>" },
-  { "<C-Right>", "<C-\\><C-N>vertical resize +2<CR>" },
+  ["<C-Up>"] = "<C-\\><C-N>resize -2<CR>",
+  ["<C-Down>"] = "<C-\\><C-N>resize +2<CR>",
+  ["<C-Left>"] = "<C-\\><C-N>vertical resize -2<CR>",
+  ["<C-Right>"] = "<C-\\><C-N>vertical resize +2<CR>",
 }
 -- Additional Plugins
 lvim.plugins = {
@@ -103,6 +103,13 @@ lvim.plugins = {
     end,
     event = "BufRead",
   },
+  -- {
+  --   "famiu/feline.nvim",
+  --   config = function()
+  --     require("lv-user.feline").config()
+  --   end,
+  --   -- event = "BufWinEnter",
+  -- },
   {
     "windwp/windline.nvim",
     config = function()
@@ -207,8 +214,9 @@ lvim.plugins = {
   --   end,
   --   requires = "nvim-lua/plenary.nvim",
   -- },
-  -- { "Shatur/neovim-ayu", event = "BufEnter" }, -- ayu colorscheme
-  -- { "Mofiqul/dracula.nvim", event = "BufEnter" }, -- dracula colorsheme
+  { "Shatur/neovim-ayu", event = "BufEnter" }, -- ayu colorscheme
+  { "Mofiqul/dracula.nvim", event = "BufEnter" }, -- dracula colorsheme
+  { "yong1le/darkplus.nvim", event = "BufEnter"}, -- darkplus theme
   {
     "Pocco81/TrueZen.nvim",
     setup = function()
@@ -223,16 +231,6 @@ lvim.plugins = {
     config = function()
       require("lv-user.bufferline").config()
     end,
-  },
-  -- {
-  --   "monsonjeremy/onedark.nvim",
-  --   event = "BufRead",
-  --   config = function()
-  --     require "lv-user.onedark"
-  --   end,
-  -- },
-  {
-    "yong1le/darkplus.nvim",
   },
   { -- diagnostics
     "folke/trouble.nvim",
@@ -252,13 +250,13 @@ lvim.plugins = {
     "nvim-telescope/telescope-fzy-native.nvim",
     run = "make",
   },
-  {
-    "gelguy/wilder.nvim",
+  -- {
+  --   "gelguy/wilder.nvim",
     --   config = function()
     --     require("lv-user.wilder").config()
     --   end,
     --   -- event = "BufRead",
-  },
+  -- },
   -- -- Tabnine
   -- {
   --   "tzachar/compe-tabnine",
