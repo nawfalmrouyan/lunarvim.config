@@ -254,6 +254,9 @@ lvim.plugins = {
   { -- diagnostics
     "folke/trouble.nvim",
     cmd = "TroubleToggle",
+    setup = function()
+      lvim.builtin.which_key.mappings.l.t = { "<cmd>TroubleToggle<CR>", "Trouble" }
+    end
   },
   {
     "folke/tokyonight.nvim",
