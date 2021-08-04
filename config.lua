@@ -1,14 +1,3 @@
---[[
-
-lvim is the global options object
-
-Formatters and linters should be
-filled in as strings with either
-a global executable or a path to
-an executable
-]]
--- THESE ARE EXAMPLE CONFIGS FEEL FREE TO CHANGE TO WHATEVER YOU WANT
--- general
 lvim.format_on_save = false
 lvim.lint_on_save = false
 -- lvim.completion.autocomplete = true
@@ -18,25 +7,19 @@ lvim.shell = "/usr/bin/zsh"
 lvim.nvim_tree_disable_netrw = 1
 -- lvim.transparent_window = true
 
--- defaults
 vim.opt.timeoutlen = 500
 vim.opt.ignorecase = false
 vim.opt.smartcase = false
 vim.opt.guifont = "Iosevka:h16"
 vim.opt.relativenumber = true
 
--- vim.cmd "set timeoutlen=500"
--- vim.cmd "set noignorecase"
--- vim.cmd "set nosmartcase"
 -- vim.cmd "set foldmethod=manual"
 -- vim.cmd "set foldexpr=nvim_treesitter#foldexpr()"
--- vim.cmd "set guifont=Iosevka:h16"
--- vim.cmd "set relativenumber"
 
--- After changing plugin config it is recommended to run :PackerCompile
 lvim.builtin.galaxyline.active = false
 lvim.builtin.dashboard.active = true
 lvim.builtin.dap.active = false
+lvim.builtin.rooter.active= false
 
 -- Active LSPs
 -- lvim.lang.emmet.active = true
@@ -44,7 +27,6 @@ lvim.builtin.dap.active = false
 lvim.lsp.diagnostics.virtual_text = false
 
 lvim.builtin.treesitter.ensure_installed = "maintained"
--- lvim.builtin.treesitter.ignore_install = { "haskell" }
 lvim.builtin.treesitter.highlight.enabled = true
 lvim.builtin.treesitter.rainbow.enable = true
 lvim.builtin.treesitter.autotag.enable = true
@@ -153,6 +135,7 @@ lvim.plugins = {
     config = function()
       require("user.colorizer").config()
     end,
+    event = "BufRead"
   },
   {
     "f-person/git-blame.nvim",
@@ -162,13 +145,16 @@ lvim.plugins = {
     event = "BufRead",
   }, -- Git Blame
   {
-    "p00f/nvim-ts-rainbow", event = "BufEnter"
+    "p00f/nvim-ts-rainbow",
+    event = "BufEnter"
   },
   {
-    "windwp/nvim-ts-autotag", event = "InsertEnter"
+    "windwp/nvim-ts-autotag",
+    event = "InsertEnter"
   },
   {
-    "JoosepAlviste/nvim-ts-context-commentstring", event = "BufEnter"
+    "JoosepAlviste/nvim-ts-context-commentstring",
+    event = "BufEnter"
   },
   {
     "romgrk/fzy-lua-native"
@@ -214,6 +200,7 @@ lvim.plugins = {
     config = function()
       require "user.floaterm"
     end,
+    event = "BufRead",
   },
   { -- better (IMHO) hop, sneak, quickscope
     "ggandor/lightspeed.nvim",
@@ -244,8 +231,11 @@ lvim.plugins = {
   {
     "Mofiqul/dracula.nvim",
     event = "BufEnter"
-  }, -- dracula colorsheme
-  -- { "yong1le/darkplus.nvim", event = "BufEnter"}, -- darkplus theme
+  },
+  {
+    "yong1le/darkplus.nvim",
+    event = "BufEnter"
+  }, -- darkplus theme
   {
     "Pocco81/TrueZen.nvim",
     setup = function()
@@ -278,6 +268,9 @@ lvim.plugins = {
   },
   {
     "gelguy/wilder.nvim",
+    config = function()
+      vim.cmd "source ~/.config/lvim/vimscripts/wilder.vim"
+    end,
   },
 }
 
