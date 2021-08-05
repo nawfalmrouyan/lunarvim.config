@@ -283,7 +283,7 @@ lvim.plugins = {
   {
     "gelguy/wilder.nvim",
     config = function()
-      vim.cmd "source ~/.config/lvim/vimscripts/wilder.vim"
+      require ("user.wilder").config()
     end,
   },
 }
