@@ -52,7 +52,13 @@ lvim.builtin.telescope.on_config_done = function()
   require("telescope").load_extension "fzy_native"
 end
 
-lvim.lang.lua.formatters.exe = "stylua"
+lvim.lang.lua.formatters = { exe = "stylua", args = {} }
+lvim.lang.python.formatters = { exe = "yapf", args = {} }
+lvim.lang.python.linters = { exe = "flake8", args = {} }
+lvim.lang.javascriptreact.formatters = { exe = "prettier", args = {} }
+lvim.lang.javascriptreact.linters = { exe = "eslint", args = {} }
+lvim.lang.typescriptreact.formatters = { exe = "prettier", args = {} }
+lvim.lang.typescriptreact.linters = { exe = "eslint", args = {} }
 
 -- Personal Keymaps
 lvim.keys.insert_mode["<M-o>"] = "<C-o>o"
