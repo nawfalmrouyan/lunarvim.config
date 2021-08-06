@@ -22,6 +22,7 @@ vim.opt.listchars.trail = "·"
 -- vim.cmd "set foldexpr=nvim_treesitter#foldexpr()"
 
 lvim.builtin.galaxyline.active = false
+lvim.builtin.bufferline.active = false
 lvim.builtin.dashboard.active = true
 lvim.builtin.dap.active = false
 lvim.builtin.rooter.active= false
@@ -280,12 +281,12 @@ lvim.plugins = {
     "nvim-telescope/telescope-fzy-native.nvim",
     run = "make",
   },
-  {
-    "gelguy/wilder.nvim",
-    config = function()
-      require ("user.wilder").config()
-    end,
-  },
+  -- {
+  --   "gelguy/wilder.nvim",
+  --   config = function()
+  --     require ("user.wilder").config()
+  --   end,
+  -- },
 }
 
 lvim.autocommands.custom_groups = {
