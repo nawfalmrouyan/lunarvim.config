@@ -25,7 +25,7 @@ lvim.builtin.galaxyline.active = false
 lvim.builtin.bufferline.active = false
 lvim.builtin.dashboard.active = true
 lvim.builtin.dap.active = false
-lvim.builtin.rooter.active= false
+lvim.builtin.rooter.active = false
 
 -- Active LSPs
 -- lvim.lang.emmet.active = true
@@ -53,13 +53,14 @@ lvim.builtin.telescope.on_config_done = function()
   require("telescope").load_extension "fzy_native"
 end
 
-lvim.lang.lua.formatters = {{ exe = "stylua" }}
-lvim.lang.python.formatters = {{ exe = "yapf" }}
-lvim.lang.python.linters = {{ exe = "flake8" }}
-lvim.lang.javascriptreact.formatters = {{ exe = "prettier"}}
-lvim.lang.javascriptreact.linters = {{ exe = "eslint" }}
-lvim.lang.typescriptreact.formatters = {{ exe = "prettier" }}
-lvim.lang.typescriptreact.linters = {{ exe = "eslint" }}
+lvim.lang.lua.formatters = { { exe = "stylua" } }
+lvim.lang.python.formatters = { { exe = "yapf" } }
+lvim.lang.python.linters = { { exe = "flake8" } }
+lvim.lang.javascriptreact.formatters = { { exe = "prettier" } }
+lvim.lang.javascriptreact.linters = { { exe = "eslint" } }
+lvim.lang.typescriptreact.formatters = { { exe = "prettier" } }
+lvim.lang.typescriptreact.linters = { { exe = "eslint" } }
+lvim.lang.sh.formatters = { { exe = "shfmt", arg = "-i 2 -ci -bn" } }
 
 -- Personal Keymaps
 lvim.keys.insert_mode["<M-o>"] = "<C-o>o"
@@ -121,33 +122,33 @@ lvim.plugins = {
   },
   {
     "michaeljsmith/vim-indent-object",
-    event = "BufRead"
+    event = "BufRead",
   },
   {
     "dsznajder/vscode-es7-javascript-react-snippets",
-    event = "BufRead"
+    event = "BufRead",
   },
   {
     "tweekmonster/startuptime.vim",
   },
   {
     "kevinhwang91/nvim-bqf",
-    event = "BufRead"
+    event = "BufRead",
   },
   {
     "andymass/vim-matchup",
-    event = "BufRead"
+    event = "BufRead",
   },
   {
     "tpope/vim-repeat",
-    event = "BufRead"
+    event = "BufRead",
   },
   {
     "norcalli/nvim-colorizer.lua",
     config = function()
       require("user.colorizer").config()
     end,
-    event = "BufRead"
+    event = "BufRead",
   },
   {
     "f-person/git-blame.nvim",
@@ -158,18 +159,18 @@ lvim.plugins = {
   }, -- Git Blame
   {
     "p00f/nvim-ts-rainbow",
-    event = "BufEnter"
+    event = "BufEnter",
   },
   {
     "windwp/nvim-ts-autotag",
-    event = "InsertEnter"
+    event = "InsertEnter",
   },
   {
     "JoosepAlviste/nvim-ts-context-commentstring",
-    event = "BufEnter"
+    event = "BufEnter",
   },
   {
-    "romgrk/fzy-lua-native"
+    "romgrk/fzy-lua-native",
   },
   {
     "monaqa/dial.nvim",
@@ -238,15 +239,15 @@ lvim.plugins = {
   },
   {
     "Shatur/neovim-ayu",
-    event = "BufEnter"
+    event = "BufEnter",
   },
   {
     "Mofiqul/dracula.nvim",
-    event = "BufEnter"
+    event = "BufEnter",
   },
   {
     "yong1le/darkplus.nvim",
-    event = "BufEnter"
+    event = "BufEnter",
   }, -- darkplus theme
   {
     "Pocco81/TrueZen.nvim",
@@ -268,7 +269,7 @@ lvim.plugins = {
     cmd = "TroubleToggle",
     setup = function()
       lvim.builtin.which_key.mappings.l.t = { "<cmd>TroubleToggle<CR>", "Trouble" }
-    end
+    end,
   },
   {
     "folke/tokyonight.nvim",
