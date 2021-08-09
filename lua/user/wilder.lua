@@ -1,4 +1,4 @@
-local M =  {}
+local M = {}
 M.config = function()
   vim.cmd [[
     call wilder#enable_cmdline_enter()
