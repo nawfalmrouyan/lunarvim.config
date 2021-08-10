@@ -1,3 +1,4 @@
+lvim.log.level = "warn"
 lvim.format_on_save = false
 lvim.lint_on_save = false
 -- lvim.completion.autocomplete = true
@@ -26,6 +27,7 @@ lvim.builtin.bufferline.active = false
 lvim.builtin.dashboard.active = true
 lvim.builtin.dap.active = false
 lvim.builtin.rooter.active = false
+lvim.builtin.terminal.active = false
 
 -- Active LSPs
 -- lvim.lang.emmet.active = true
