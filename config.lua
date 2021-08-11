@@ -284,12 +284,12 @@ lvim.plugins = {
     "nvim-telescope/telescope-fzy-native.nvim",
     run = "make",
   },
-  -- {
-  --   "gelguy/wilder.nvim",
-  --   config = function()
-  --     require ("user.wilder").config()
-  --   end,
-  -- },
+  {
+    "gelguy/wilder.nvim",
+    config = function()
+      require("user.wilder").config()
+    end,
+  },
 }
 
 lvim.autocommands.custom_groups = {
@@ -336,8 +336,8 @@ lvim.builtin.dashboard.custom_header = {
 }
 
 -- Neovim turns the default cursor to 'Block'  -- when switched back into terminal.  -- This below line fixes that. Uncomment if needed.
-vim.cmd "autocmd VimLeave,VimSuspend * set guicursor=a:ver90"
--- vim.cmd('autocmd VimLeave,VimSuspend * set guicursor=a:hor20') -- Underline
+-- vim.cmd "autocmd VimLeave,VimSuspend * set guicursor=a:ver90" -- Beam
+vim.cmd('autocmd VimLeave,VimSuspend * set guicursor=a:hor20') -- Underline
 
 -- NOTE: Above code doesn't take a value from the terminal's cursor and
 --       replace it. It hardcodes the cursor shape.
