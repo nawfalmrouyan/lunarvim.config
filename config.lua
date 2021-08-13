@@ -29,9 +29,6 @@ lvim.builtin.dap.active = false
 lvim.builtin.rooter.active = false
 lvim.builtin.terminal.active = false
 
--- Active LSPs
--- lvim.lang.emmet.active = true
--- lvim.lang.tailwindcss.active = true
 lvim.lsp.diagnostics.virtual_text = false
 
 lvim.builtin.treesitter.ensure_installed = "maintained"
@@ -63,6 +60,8 @@ lvim.lang.javascriptreact.linters = { { exe = "eslint" } }
 lvim.lang.typescriptreact.formatters = { { exe = "prettier" } }
 lvim.lang.typescriptreact.linters = { { exe = "eslint" } }
 lvim.lang.sh.formatters = { { exe = "shfmt", arg = "-i 2 -ci -bn" } }
+lvim.lang.tailwindcss.active = true
+-- lvim.lang.emmet.active = true
 
 -- Personal Keymaps
 lvim.keys.insert_mode["<M-o>"] = "<C-o>o"
