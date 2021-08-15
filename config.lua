@@ -41,12 +41,13 @@ lvim.builtin.treesitter.context_commentstring.config = {
   jsx_fragment = "{/* %s */}",
   jsx_attribute = "// %s",
 }
-lvim.builtin.telescope.extensions = {
-  fzy_native = {
-    override_generic_sorter = false,
-    override_file_sorter = true,
-  },
-}
+lvim.builtin.telescope.defaults.layout_strategy = "center"
+-- lvim.builtin.telescope.extensions = {
+--   fzy_native = {
+--     override_generic_sorter = false,
+--     override_file_sorter = true,
+--   },
+-- }
 
 lvim.builtin.telescope.on_config_done = function()
   require("telescope").load_extension "fzy_native"
