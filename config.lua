@@ -41,7 +41,7 @@ lvim.builtin.treesitter.context_commentstring.config = {
   jsx_fragment = "{/* %s */}",
   jsx_attribute = "// %s",
 }
-lvim.builtin.telescope.defaults.layout_strategy = "center"
+-- lvim.builtin.telescope.defaults.layout_strategy = "center"
 -- lvim.builtin.telescope.extensions = {
 --   fzy_native = {
 --     override_generic_sorter = false,
@@ -325,6 +325,7 @@ lvim.builtin.which_key.mappings["S"] = {
   l = { "<cmd>SessionLoad<cr>", "Load Session" },
 }
 lvim.builtin.which_key.mappings["?"] = { "<cmd>NvimTreeFindFile<CR>", "Open current dir" }
+lvim.builtin.which_key.mappings["c"] = { "<cmd>bdelete!<CR>", "Close buffer"}
 
 lvim.builtin.dashboard.custom_header = {
   "   ____              ______ _____ ____ ",
