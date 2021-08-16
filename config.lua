@@ -364,7 +364,7 @@ if lvim.lang.emmet.active then
       default_config = {
         cmd = { "emmet-ls", "--stdio" },
         filetypes = { "html", "css" },
-        root_dir = function(fname)
+        root_dir = function()
           return vim.loop.cwd()
         end,
         settings = {},
