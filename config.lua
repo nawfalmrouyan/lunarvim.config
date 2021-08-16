@@ -62,6 +62,7 @@ lvim.lang.typescriptreact.formatters = { { exe = "prettier" } }
 lvim.lang.typescriptreact.linters = { { exe = "eslint" } }
 lvim.lang.sh.formatters = { { exe = "shfmt", arg = "-i 2 -ci -bn" } }
 lvim.lang.tailwindcss.active = true
+lvim.lang.emmet.active = true
 -- lvim.lang.emmet.active = true
 
 -- Personal Keymaps
@@ -345,3 +346,30 @@ vim.cmd "autocmd VimLeave,VimSuspend * set guicursor=a:hor20"
 --       And I think `ver` means vertical and `hor` means horizontal.
 --       The numbers didn't make a difference in alacritty. Please change
 --       the number to something that suits your needs if it looks weird.
+if lvim.lang.tailwindcss.active then
+  require("lspconfig").tailwindcss.setup{
+    cmd = { "node", os.getenv "HOME" .. "/.local/share/nvim/lspinstall/tailwindcss/tailwindcss-intellisense/extension/dist/server/tailwindServer.js", "--stdio" },
+  }
+end
+
+if lvim.lang.emmet.active then
+  local lspconfig = require "lspconfig"
+  local configs = require "lspconfig/configs"
+
+  local capabilities = vim.lsp.protocol.make_client_capabilities()
+  capabilities.textDocument.completion.completionItem.snippetSupport = true
+
+  if not lspconfig.emmet_ls then
+    configs.emmet_ls = {
+      default_config = {
+        cmd = { "emmet-ls", "--stdio" },
+        filetypes = { "html", "css" },
+        root_dir = function(fname)
+          return vim.loop.cwd()
+        end,
+        settings = {},
+      },
+    }
+  end
+  lspconfig.emmet_ls.setup { capabilities = capabilities }
+end
