@@ -285,6 +285,31 @@ lvim.plugins = {
     "nvim-telescope/telescope-fzy-native.nvim",
     run = "make",
   },
+  {
+    "abecodes/tabout.nvim",
+    config = function()
+      require("tabout").setup {
+        tabkey = "<Tab>", -- key to trigger tabout, set to an empty string to disable
+        backwards_tabkey = "<S-Tab>", -- key to trigger backwards tabout, set to an empty string to disable
+        act_as_tab = true, -- shift content if tab out is not possible
+        act_as_shift_tab = false, -- reverse shift content if tab out is not possible (if your keyboard/terminal supports <S-Tab>)
+        enable_backwards = true, -- well ...
+        completion = true, -- if the tabkey is used in a completion pum
+        tabouts = {
+          { open = "'", close = "'" },
+          { open = '"', close = '"' },
+          { open = "`", close = "`" },
+          { open = "(", close = ")" },
+          { open = "[", close = "]" },
+          { open = "{", close = "}" },
+        },
+        ignore_beginning = true, --[[ if the cursor is at the beginning of a filled element it will rather tab out than shift the content ]]
+        exclude = {}, -- tabout will ignore these filetypes
+      }
+    end,
+    wants = { "nvim-treesitter" }, -- or require if not used so far
+    after = { "nvim-compe" }, -- if a completion plugin is using tabs load it before
+  },
   -- {
   --   "gelguy/wilder.nvim",
   --   config = function()
@@ -326,7 +351,7 @@ lvim.builtin.which_key.mappings["S"] = {
   l = { "<cmd>SessionLoad<cr>", "Load Session" },
 }
 lvim.builtin.which_key.mappings["?"] = { "<cmd>NvimTreeFindFile<CR>", "Open current dir" }
-lvim.builtin.which_key.mappings["c"] = { "<cmd>bdelete!<CR>", "Close buffer"}
+lvim.builtin.which_key.mappings["c"] = { "<cmd>bdelete!<CR>", "Close buffer" }
 
 lvim.builtin.dashboard.custom_header = {
   "   ____              ______ _____ ____ ",
@@ -347,8 +372,13 @@ vim.cmd "autocmd VimLeave,VimSuspend * set guicursor=a:hor20"
 --       The numbers didn't make a difference in alacritty. Please change
 --       the number to something that suits your needs if it looks weird.
 if lvim.lang.tailwindcss.active then
-  require("lspconfig").tailwindcss.setup{
-    cmd = { "node", os.getenv "HOME" .. "/.local/share/nvim/lspinstall/tailwindcss/tailwindcss-intellisense/extension/dist/server/tailwindServer.js", "--stdio" },
+  require("lspconfig").tailwindcss.setup {
+    cmd = {
+      "node",
+      os.getenv "HOME"
+        .. "/.local/share/nvim/lspinstall/tailwindcss/tailwindcss-intellisense/extension/dist/server/tailwindServer.js",
+      "--stdio",
+    },
   }
 end
 
