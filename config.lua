@@ -127,10 +127,10 @@ lvim.plugins = {
     "michaeljsmith/vim-indent-object",
     event = "BufRead",
   },
-  {
-    "dsznajder/vscode-es7-javascript-react-snippets",
-    event = "BufRead",
-  },
+  -- {
+  --   "dsznajder/vscode-es7-javascript-react-snippets",
+  --   event = "BufRead",
+  -- },
   {
     "tweekmonster/startuptime.vim",
   },
@@ -175,20 +175,20 @@ lvim.plugins = {
   {
     "romgrk/fzy-lua-native",
   },
-  {
-    "monaqa/dial.nvim",
-    event = "BufRead",
-    config = function()
-      require("user.dial").config()
-    end,
-  },
-  { -- Peek changes live
-    "nacro90/numb.nvim",
-    event = "BufRead",
-    config = function()
-      require("user.numb").config()
-    end,
-  },
+  -- {
+  --   "monaqa/dial.nvim",
+  --   event = "BufRead",
+  --   config = function()
+  --     require("user.dial").config()
+  --   end,
+  -- },
+  -- { -- Peek changes live
+  --   "nacro90/numb.nvim",
+  --   event = "BufRead",
+  --   config = function()
+  --     require("user.numb").config()
+  --   end,
+  -- },
   { -- smooth scroll
     "karb94/neoscroll.nvim",
     -- event = "BufRead",
@@ -225,33 +225,33 @@ lvim.plugins = {
     end,
     event = "BufRead",
   },
-  { -- generate code links
-    "ruifm/gitlinker.nvim",
-    event = "BufRead",
-    config = function()
-      require("gitlinker").setup {
-        opts = {
-          add_current_line_on_normal_mode = true,
-          action_callback = require("gitlinker.actions").copy_to_clipboard,
-          print_url = false,
-          mappings = "<leader>gy",
-        },
-      }
-    end,
-    requires = "nvim-lua/plenary.nvim",
-  },
-  {
-    "Shatur/neovim-ayu",
-    event = "BufEnter",
-  },
-  {
-    "Mofiqul/dracula.nvim",
-    event = "BufEnter",
-  },
-  {
-    "yong1le/darkplus.nvim",
-    event = "BufEnter",
-  }, -- darkplus theme
+  -- { -- generate code links
+  --   "ruifm/gitlinker.nvim",
+  --   event = "BufRead",
+  --   config = function()
+  --     require("gitlinker").setup {
+  --       opts = {
+  --         add_current_line_on_normal_mode = true,
+  --         action_callback = require("gitlinker.actions").copy_to_clipboard,
+  --         print_url = false,
+  --         mappings = "<leader>gy",
+  --       },
+  --     }
+  --   end,
+  --   requires = "nvim-lua/plenary.nvim",
+  -- },
+  -- {
+  --   "Shatur/neovim-ayu",
+  --   event = "BufEnter",
+  -- },
+  -- {
+  --   "Mofiqul/dracula.nvim",
+  --   event = "BufEnter",
+  -- },
+  -- {
+  --   "yong1le/darkplus.nvim",
+  --   event = "BufEnter",
+  -- }, -- darkplus theme
   {
     "Pocco81/TrueZen.nvim",
     setup = function()
@@ -285,12 +285,12 @@ lvim.plugins = {
     "nvim-telescope/telescope-fzy-native.nvim",
     run = "make",
   },
-  {
-    "gelguy/wilder.nvim",
-    config = function()
-      require("user.wilder").config()
-    end,
-  },
+  -- {
+  --   "gelguy/wilder.nvim",
+  --   config = function()
+  --     require("user.wilder").config()
+  --   end,
+  -- },
 }
 
 lvim.autocommands.custom_groups = {
