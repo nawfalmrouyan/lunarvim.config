@@ -1,11 +1,10 @@
 lvim.log.level = "warn"
 lvim.format_on_save = false
 lvim.lint_on_save = false
--- lvim.completion.autocomplete = true
 lvim.colorscheme = "tokyonight"
 lvim.shell = "/usr/bin/zsh"
--- lvim.auto_close_tree = 1
 lvim.nvim_tree_disable_netrw = 1
+-- lvim.auto_close_tree = 1
 -- lvim.transparent_window = true
 
 vim.opt.timeoutlen = 500
@@ -63,7 +62,6 @@ lvim.lang.typescriptreact.linters = { { exe = "eslint" } }
 lvim.lang.sh.formatters = { { exe = "shfmt", arg = "-i 2 -ci -bn" } }
 lvim.lang.tailwindcss.active = true
 lvim.lang.emmet.active = true
--- lvim.lang.emmet.active = true
 
 -- Personal Keymaps
 lvim.keys.insert_mode["<M-o>"] = "<C-o>o"
@@ -175,20 +173,20 @@ lvim.plugins = {
   {
     "romgrk/fzy-lua-native",
   },
-  -- {
-  --   "monaqa/dial.nvim",
-  --   event = "BufRead",
-  --   config = function()
-  --     require("user.dial").config()
-  --   end,
-  -- },
-  -- { -- Peek changes live
-  --   "nacro90/numb.nvim",
-  --   event = "BufRead",
-  --   config = function()
-  --     require("user.numb").config()
-  --   end,
-  -- },
+  {
+    "monaqa/dial.nvim",
+    event = "BufRead",
+    config = function()
+      require("user.dial").config()
+    end,
+  },
+  { -- Peek changes live
+    "nacro90/numb.nvim",
+    event = "BufRead",
+    config = function()
+      require("user.numb").config()
+    end,
+  },
   { -- smooth scroll
     "karb94/neoscroll.nvim",
     -- event = "BufRead",
