@@ -25,7 +25,7 @@ lvim.builtin.galaxyline.active = false
 lvim.builtin.bufferline.active = false
 lvim.builtin.dashboard.active = true
 lvim.builtin.dap.active = false
-lvim.builtin.rooter.active = false
+-- lvim.builtin.rooter.active = false
 lvim.builtin.terminal.active = false
 
 lvim.lsp.diagnostics.virtual_text = false
@@ -90,12 +90,12 @@ lvim.plugins = {
       require("user.lsp_signature").config()
     end,
   },
-  {
-    "ahmedkhalf/lsp-rooter.nvim",
-    config = function()
-      require("lsp-rooter").setup()
-    end,
-  },
+  -- {
+  --   "ahmedkhalf/lsp-rooter.nvim",
+  --   config = function()
+  --     require("lsp-rooter").setup()
+  --   end,
+  -- },
   {
     "lukas-reineke/indent-blankline.nvim",
     setup = function()
