@@ -21,7 +21,7 @@ vim.opt.listchars.tab = "→\\ "
 -- vim.cmd "set foldmethod=manual"
 -- vim.cmd "set foldexpr=nvim_treesitter#foldexpr()"
 
-lvim.builtin.galaxyline.active = false
+lvim.builtin.lualine.active = false
 lvim.builtin.bufferline.active = false
 lvim.builtin.dashboard.active = true
 lvim.builtin.dap.active = false
@@ -308,12 +308,19 @@ lvim.plugins = {
     wants = { "nvim-treesitter" }, -- or require if not used so far
     after = { "nvim-compe" }, -- if a completion plugin is using tabs load it before
   },
-  -- {
-  --   "gelguy/wilder.nvim",
-  --   config = function()
-  --     require("user.wilder").config()
-  --   end,
-  -- },
+  {
+    "gelguy/wilder.nvim",
+    config = function()
+      require("user.wilder").config()
+    end,
+  },
+  {
+    "wfxr/minimap.vim",
+    setup = function()
+      lvim.builtin.which_key.mappings["m"] = { "<cmd>MinimapToggle<CR>", "Minimap" }
+    end,
+    event = "BufRead",
+  },
 }
 
 lvim.autocommands.custom_groups = {
