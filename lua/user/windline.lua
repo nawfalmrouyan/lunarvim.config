@@ -149,7 +149,7 @@ local quickfix = {
 }
 
 local explorer = {
-  filetypes = { "fern", "NvimTree", "lir", "Outline", "packer", "floaterm" },
+  filetypes = { "fern", "NvimTree", "lir", "Outline", "packer" },
   active = {
     { "  ", { "white", "black" } },
     { helper.separators.slant_right, { "black", "black_light" } },
@@ -160,7 +160,7 @@ local explorer = {
   show_last_status = true,
 }
 local disable = {
-  filetypes = { "dashboard", "terminal" },
+  filetypes = { "dashboard", "terminal", "floaterm", "minimap" },
   active = {
     { " ", hl_list.Inactive },
   },
