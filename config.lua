@@ -56,9 +56,9 @@ lvim.lang.lua.formatters = { { exe = "stylua" } }
 lvim.lang.python.formatters = { { exe = "yapf" } }
 lvim.lang.python.linters = { { exe = "flake8" } }
 lvim.lang.javascriptreact.formatters = { { exe = "prettier" } }
-lvim.lang.javascriptreact.linters = { { exe = "eslint" } }
+lvim.lang.javascriptreact.linters = { { exe = "eslint_d" } }
 lvim.lang.typescriptreact.formatters = { { exe = "prettier" } }
-lvim.lang.typescriptreact.linters = { { exe = "eslint" } }
+lvim.lang.typescriptreact.linters = { { exe = "eslint_d" } }
 lvim.lang.sh.formatters = { { exe = "shfmt", arg = "-i 2 -ci -bn" } }
 lvim.lang.tailwindcss.active = true
 lvim.lang.emmet.active = true
