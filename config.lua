@@ -13,11 +13,7 @@ vim.opt.smartcase = false
 vim.opt.guifont = "Iosevka:h16"
 vim.opt.relativenumber = true
 vim.opt.list = true
-vim.opt.listchars.eol = "¬"
-vim.opt.listchars.trail = "·"
-vim.opt.listchars.precedes = "…"
-vim.opt.listchars.extends = "…"
-vim.opt.listchars.tab = "→\\ "
+vim.opt.listchars = { eol = "¬", trail = "·", precedes = "…", extends = "…", tab = "→\\ ", }
 -- vim.cmd "set foldmethod=manual"
 -- vim.cmd "set foldexpr=nvim_treesitter#foldexpr()"
 
