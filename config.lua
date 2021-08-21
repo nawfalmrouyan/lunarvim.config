@@ -227,18 +227,18 @@ lvim.plugins = {
   --   end,
   --   requires = "nvim-lua/plenary.nvim",
   -- },
-  -- {
-  --   "Shatur/neovim-ayu",
-  --   event = "BufEnter",
-  -- },
-  -- {
-  --   "Mofiqul/dracula.nvim",
-  --   event = "BufEnter",
-  -- },
-  -- {
-  --   "yong1le/darkplus.nvim",
-  --   event = "BufEnter",
-  -- }, -- darkplus theme
+  {
+    "Shatur/neovim-ayu",
+    event = "BufEnter",
+  },
+  {
+    "Mofiqul/dracula.nvim",
+    event = "BufEnter",
+  },
+  {
+    "yong1le/darkplus.nvim",
+    event = "BufEnter",
+  },
   {
     "Pocco81/TrueZen.nvim",
     setup = function()
