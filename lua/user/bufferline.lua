@@ -79,8 +79,8 @@ M.config = function()
   local opt = { silent = true }
 
   --command that adds new buffer and moves to it
-  -- vim.api.nvim_command "com -nargs=? -complete=file_in_path New badd <args> | blast"
-  -- vim.api.nvim_set_keymap("n", "<S-b>", ":New ", opt)
+  vim.api.nvim_command "com -nargs=? -complete=file_in_path New badd <args> | blast"
+  vim.api.nvim_set_keymap("n", "<S-b>", ":New ", opt)
 
   --removing a buffer
   vim.api.nvim_set_keymap("n", "<S-x>", [[:bdelete!<CR>]], opt)
