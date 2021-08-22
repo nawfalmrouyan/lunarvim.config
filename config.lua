@@ -249,7 +249,7 @@ lvim.plugins = {
     event = "BufRead",
   },
   {
-    "akinsho/nvim-bufferline.lua",
+    "akinsho/bufferline.nvim",
     config = function()
       require("user.bufferline").config()
     end,
