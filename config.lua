@@ -13,7 +13,7 @@ vim.opt.smartcase = false
 vim.opt.guifont = "OpalSlab Nerd Font Mono:h18"
 vim.opt.relativenumber = true
 vim.opt.list = true
-vim.opt.listchars = { eol = "¬", trail = "·", precedes = "…", extends = "…", tab = "→\\ ", }
+vim.opt.listchars = { eol = "¬", trail = "·", precedes = "…", extends = "…", tab = "→\\ " }
 vim.opt.scrolloff = 0
 vim.opt.sidescrolloff = 0
 -- vim.cmd "set foldmethod=manual"
@@ -371,8 +371,7 @@ if lvim.lang.tailwindcss.active then
   require("lspconfig").tailwindcss.setup {
     cmd = {
       "node",
-      os.getenv "HOME"
-        .. "/.local/share/nvim/lspinstall/tailwindcss/tailwindcss-intellisense/extension/dist/server/tailwindServer.js",
+      os.getenv "HOME" .. "/.local/share/nvim/lspinstall/tailwindcss/node_modules/.bin/tailwindcss-language-server",
       "--stdio",
     },
   }
