@@ -234,6 +234,23 @@ lvim.plugins = {
     event = "BufEnter",
   },
   {
+    "Murtaza-Udaipurwala/gruvqueen",
+    config = function()
+      require("gruvqueen").setup {
+        config = {
+          disable_bold = true,
+          italic_comments = true,
+          italic_keywords = true,
+          italic_functions = true,
+          italic_variables = true,
+          invert_selection = false,
+          style = "mix",
+        },
+      }
+    end,
+    event = "BufRead",
+  },
+  {
     "Mofiqul/dracula.nvim",
     event = "BufEnter",
   },
