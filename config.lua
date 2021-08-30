@@ -214,42 +214,42 @@ lvim.plugins = {
     end,
     event = "BufRead",
   },
-  -- { -- generate code links
-  --   "ruifm/gitlinker.nvim",
-  --   event = "BufRead",
-  --   config = function()
-  --     require("gitlinker").setup {
-  --       opts = {
-  --         add_current_line_on_normal_mode = true,
-  --         action_callback = require("gitlinker.actions").copy_to_clipboard,
-  --         print_url = false,
-  --         mappings = "<leader>gy",
-  --       },
-  --     }
-  --   end,
-  --   requires = "nvim-lua/plenary.nvim",
-  -- },
+  { -- generate code links
+    "ruifm/gitlinker.nvim",
+    event = "BufRead",
+    config = function()
+      require("gitlinker").setup {
+        opts = {
+          add_current_line_on_normal_mode = true,
+          action_callback = require("gitlinker.actions").copy_to_clipboard,
+          print_url = false,
+          mappings = "<leader>gy",
+        },
+      }
+    end,
+    requires = "nvim-lua/plenary.nvim",
+  },
   {
     "Shatur/neovim-ayu",
     event = "BufEnter",
   },
-  {
-    "Murtaza-Udaipurwala/gruvqueen",
-    config = function()
-      require("gruvqueen").setup {
-        config = {
-          disable_bold = true,
-          italic_comments = true,
-          italic_keywords = true,
-          italic_functions = true,
-          italic_variables = true,
-          invert_selection = false,
-          style = "mix",
-        },
-      }
-    end,
-    event = "BufRead",
-  },
+  -- {
+  --   "Murtaza-Udaipurwala/gruvqueen",
+  --   config = function()
+  --     require("gruvqueen").setup {
+  --       config = {
+  --         disable_bold = false,
+  --         italic_comments = true,
+  --         italic_keywords = true,
+  --         italic_functions = true,
+  --         italic_variables = true,
+  --         invert_selection = false,
+  --         style = "mix",
+  --       },
+  --     }
+  --   end,
+  --   event = "BufEnter",
+  -- },
   {
     "Mofiqul/dracula.nvim",
     event = "BufEnter",
@@ -285,7 +285,6 @@ lvim.plugins = {
     config = function()
       require "user.tokyonight"
     end,
-    -- event = "BufRead"
   },
   {
     "nvim-telescope/telescope-fzy-native.nvim",
