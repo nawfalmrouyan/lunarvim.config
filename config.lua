@@ -329,6 +329,11 @@ lvim.plugins = {
     end,
     event = "BufRead",
   },
+  {
+    "iamcco/markdown-preview.nvim",
+    run = "cd app && npm install",
+    ft = "markdown",
+  },
 }
 
 lvim.autocommands.custom_groups = {
