@@ -333,6 +333,18 @@ lvim.plugins = {
     run = "cd app && npm install",
     ft = "markdown",
   },
+  {
+    "vimwiki/vimwiki",
+    config = function()
+      vim.g.vimwiki_list = {
+        {
+          path = "~/vimwiki",
+          syntax = "markdown",
+          ext = ".md",
+        },
+      }
+    end,
+  },
 }
 
 lvim.autocommands.custom_groups = {
