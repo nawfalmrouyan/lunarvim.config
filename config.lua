@@ -345,6 +345,13 @@ lvim.plugins = {
       }
     end,
   },
+  {
+    "rose-pine/neovim",
+    config = function()
+      vim.g.rose_pine_variant = "base"
+    end,
+    event = "BufEnter",
+  },
 }
 
 lvim.autocommands.custom_groups = {
