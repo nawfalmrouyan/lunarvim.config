@@ -407,34 +407,25 @@ vim.cmd "autocmd VimLeave,VimSuspend * set guicursor=a:hor20"
 --       And I think `ver` means vertical and `hor` means horizontal.
 --       The numbers didn't make a difference in alacritty. Please change
 --       the number to something that suits your needs if it looks weird.
--- if lvim.lang.tailwindcss.active then
---   require("lspconfig").tailwindcss.setup {
---     cmd = {
---       "node",
---       os.getenv "HOME" .. "/.local/share/nvim/lspinstall/tailwindcss/node_modules/.bin/tailwindcss-language-server",
---       "--stdio",
---     },
---   }
+
+-- if lvim.lang.emmet.active then
+--   local lspconfig = require "lspconfig"
+--   local configs = require "lspconfig/configs"
+
+--   local capabilities = vim.lsp.protocol.make_client_capabilities()
+--   capabilities.textDocument.completion.completionItem.snippetSupport = true
+
+--   if not lspconfig.emmet_ls then
+--     configs.emmet_ls = {
+--       default_config = {
+--         cmd = { "emmet-ls", "--stdio" },
+--         filetypes = { "html", "css" },
+--         root_dir = function()
+--           return vim.loop.cwd()
+--         end,
+--         settings = {},
+--       },
+--     }
+--   end
+--   lspconfig.emmet_ls.setup { capabilities = capabilities }
 -- end
-
-if lvim.lang.emmet.active then
-  local lspconfig = require "lspconfig"
-  local configs = require "lspconfig/configs"
-
-  local capabilities = vim.lsp.protocol.make_client_capabilities()
-  capabilities.textDocument.completion.completionItem.snippetSupport = true
-
-  if not lspconfig.emmet_ls then
-    configs.emmet_ls = {
-      default_config = {
-        cmd = { "emmet-ls", "--stdio" },
-        filetypes = { "html", "css" },
-        root_dir = function()
-          return vim.loop.cwd()
-        end,
-        settings = {},
-      },
-    }
-  end
-  lspconfig.emmet_ls.setup { capabilities = capabilities }
-end
