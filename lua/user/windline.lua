@@ -145,7 +145,7 @@ local quickfix = {
     { "🧛 ", { "white", "black" } },
   },
 
-  show_in_active = true,
+  always_active = true,
 }
 
 local explorer = {
@@ -156,7 +156,7 @@ local explorer = {
     { b_components.divider, "" },
     { b_components.file_name "", { "white", "black_light" } },
   },
-  show_in_active = true,
+  always_active = true,
   show_last_status = true,
 }
 local disable = {
@@ -164,7 +164,7 @@ local disable = {
   active = {
     { " ", hl_list.Inactive },
   },
-  show_in_active = false,
+  always_active = false,
 }
 local default = {
   filetypes = { "default" },
@@ -181,7 +181,7 @@ local default = {
     { " ", hl_list.Black },
     basic.square_mode,
   },
-  in_active = {
+  inactive = {
     { b_components.full_file_name, hl_list.Inactive },
     basic.file_name_inactive,
     basic.divider,
