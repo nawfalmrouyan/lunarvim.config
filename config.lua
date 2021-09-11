@@ -340,6 +340,9 @@ lvim.plugins = {
     end,
     event = "BufEnter",
   },
+  {
+    "wellle/targets.vim"
+  },
 }
 
 lvim.autocommands.custom_groups = {
