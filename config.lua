@@ -321,18 +321,18 @@ lvim.plugins = {
       require('orgmode').setup{}
     end,
   },
-  -- {
-  --   "vimwiki/vimwiki",
-  --   config = function()
-  --     vim.g.vimwiki_list = {
-  --       {
-  --         path = "~/vimwiki",
-  --         syntax = "markdown",
-  --         ext = ".md",
-  --       },
-  --     }
-  --   end,
-  -- },
+  {
+    "vimwiki/vimwiki",
+    config = function()
+      vim.g.vimwiki_list = {
+        {
+          path = "~/vimwiki",
+          syntax = "markdown",
+          ext = ".md",
+        },
+      }
+    end,
+  },
   {
     "rose-pine/neovim",
     config = function()
