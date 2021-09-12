@@ -317,11 +317,6 @@ lvim.plugins = {
     run = "cd app && npm install",
     ft = "markdown",
   },
-  {'kristijanhusak/orgmode.nvim',
-    config = function()
-      require('orgmode').setup{}
-    end,
-  },
   {
     "vimwiki/vimwiki",
     config = function()
