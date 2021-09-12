@@ -337,7 +337,7 @@ lvim.plugins = {
     event = "BufEnter",
   },
   {
-    "wellle/targets.vim"
+    "wellle/targets.vim",
   },
   {
     "nvim-neorg/neorg",
