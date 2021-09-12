@@ -252,6 +252,7 @@ lvim.plugins = {
   },
   {
     "akinsho/bufferline.nvim",
+    tag = "58aeda605af5b107a25ee89d3fc7b8ba333d0767",
     config = function()
       require("user.bufferline").config()
     end,
