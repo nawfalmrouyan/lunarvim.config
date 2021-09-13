@@ -140,7 +140,7 @@ lvim.plugins = {
     config = function()
       require("user.colorizer").config()
     end,
-    event = "BufRead",
+    -- event = "BufRead",
   },
   {
     "f-person/git-blame.nvim",
