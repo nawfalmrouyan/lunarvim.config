@@ -17,6 +17,7 @@ M.config = function()
         { filetype = "Outline", text = "Symbols Outline", text_align = "center", padding = 1 },
         { filetype = "dashboard", text = "Dashboard", text_align = "center", padding = 1 },
         { filetype = "packer", text = "Packer", text_align = "center", padding = 1 },
+        { filetype = "git", text = "Git", text_align = "center", padding = 1 },
       },
       show_tab_indicators = true,
       show_close_icon = false,
