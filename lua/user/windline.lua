@@ -152,9 +152,11 @@ local explorer = {
   filetypes = { "fern", "NvimTree", "lir", "Outline" },
   active = {
     { "  ", { "white", "black" } },
-    { helper.separators.slant_right, { "black", "black_light" } },
+    -- { helper.separators.slant_right, { "black", "black_light" } },
+    { helper.separators.slant_right, { "black", "black" } },
     { b_components.divider, "" },
-    { b_components.file_name "", { "white", "black_light" } },
+    -- { b_components.file_name "", { "white", "black_light" } },
+    { b_components.file_name "", { "white", "black" } },
   },
   always_active = true,
   show_last_status = true,
