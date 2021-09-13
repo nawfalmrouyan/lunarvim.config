@@ -1,7 +1,7 @@
 lvim.log.level = "warn"
 lvim.format_on_save = false
 lvim.lint_on_save = false
-lvim.colorscheme = "tokyonight"
+lvim.colorscheme = "gruvbox-flat"
 lvim.shell = "/usr/bin/zsh"
 -- lvim.nvim_tree_disable_netrw = 1
 -- lvim.auto_close_tree = 1
@@ -265,6 +265,12 @@ lvim.plugins = {
     end,
   },
   {
+    "eddyekofo94/gruvbox-flat.nvim",
+    config = function()
+      require "user.gruvbox-flat"
+    end,
+  },
+  {
     "folke/tokyonight.nvim",
     config = function()
       require "user.tokyonight"
@@ -364,6 +370,9 @@ lvim.plugins = {
     end,
     requires = "nvim-lua/plenary.nvim",
   },
+  -- {
+  --   "tom-doerr/vim_codex",
+  -- },
 }
 
 lvim.autocommands.custom_groups = {
