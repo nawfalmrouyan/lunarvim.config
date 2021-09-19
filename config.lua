@@ -230,18 +230,6 @@ lvim.plugins = {
     requires = "nvim-lua/plenary.nvim",
   },
   {
-    "Shatur/neovim-ayu",
-    event = "BufEnter",
-  },
-  {
-    "Mofiqul/dracula.nvim",
-    event = "BufEnter",
-  },
-  {
-    "yong1le/darkplus.nvim",
-    event = "BufEnter",
-  },
-  {
     "Pocco81/TrueZen.nvim",
     setup = function()
       vim.api.nvim_set_keymap("n", "<M-=>", ":TZFocus<cr>", { noremap = true, silent = true })
@@ -334,13 +322,14 @@ lvim.plugins = {
       }
     end,
   },
-  {
-    "rose-pine/neovim",
-    config = function()
-      vim.g.rose_pine_variant = "base"
-    end,
-    event = "BufEnter",
-  },
+  -- {
+  -- {
+  --   "rose-pine/neovim",
+  --   config = function()
+  --     vim.g.rose_pine_variant = "base"
+  --   end,
+  --   event = "BufEnter",
+  -- },
   -- {
   --   "kristijanhusak/orgmode.nvim",
   --   config = function()
