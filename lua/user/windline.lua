@@ -162,7 +162,7 @@ local explorer = {
   show_last_status = true,
 }
 local disable = {
-  filetypes = { "dashboard", "terminal", "floaterm", "minimap", "packer" },
+  filetypes = { "dashboard", "terminal", "minimap", "packer" },
   active = {
     { " ", hl_list.Inactive },
   },
