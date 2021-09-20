@@ -169,6 +169,14 @@ lvim.plugins = {
     "romgrk/fzy-lua-native",
   },
   {
+    "nvim-telescope/telescope-fzf-native.nvim",
+    run = "make",
+    after = "telescope.nvim",
+    config = function()
+      require("telescope").load_extension "fzf"
+    end,
+  },
+  {
     "monaqa/dial.nvim",
     event = "BufRead",
     config = function()
