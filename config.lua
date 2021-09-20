@@ -257,12 +257,13 @@ lvim.plugins = {
       require "user.gruvbox-flat"
     end,
   },
-  {
-    "folke/tokyonight.nvim",
-    config = function()
-      require "user.tokyonight"
-    end,
-  },
+  -- {
+  --   "folke/tokyonight.nvim",
+  --   event = "BufRead",
+  --   config = function()
+  --     require "user.tokyonight"
+  --   end,
+  -- },
   {
     "nvim-telescope/telescope-fzy-native.nvim",
     run = "make",
