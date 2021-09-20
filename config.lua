@@ -50,7 +50,7 @@ lvim.builtin.telescope.on_config_done = function()
 end
 
 lvim.lang.lua.formatters = { { exe = "stylua" } }
-lvim.lang.python.formatters = { { exe = "yapf" } }
+lvim.lang.python.formatters = { { exe = "black" } }
 lvim.lang.python.linters = { { exe = "flake8" } }
 lvim.lang.javascriptreact.formatters = { { exe = "prettier" } }
 lvim.lang.javascriptreact.linters = { { exe = "eslint_d" } }
