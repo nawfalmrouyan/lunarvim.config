@@ -23,7 +23,10 @@ lvim.builtin.lualine.active = false
 lvim.builtin.bufferline.active = false
 lvim.builtin.dashboard.active = true
 lvim.builtin.dap.active = false
-lvim.builtin.terminal.active = false
+lvim.builtin.terminal.active = true
+lvim.builtin.terminal.direction = "horizontal"
+lvim.builtin.terminal.size = 10
+lvim.builtin.terminal.shading_factor = 1
 
 lvim.lsp.diagnostics.virtual_text = false
 
@@ -200,13 +203,13 @@ lvim.plugins = {
     end,
     event = "BufRead",
   },
-  { -- floating terminal
-    "voldikss/vim-floaterm",
-    config = function()
-      require "user.floaterm"
-    end,
-    event = "BufEnter",
-  },
+  -- { -- floating terminal
+  --   "voldikss/vim-floaterm",
+  --   config = function()
+  --     require "user.floaterm"
+  --   end,
+  --   event = "BufEnter",
+  -- },
   { -- better (IMHO) hop, sneak, quickscope
     "ggandor/lightspeed.nvim",
     config = function()
