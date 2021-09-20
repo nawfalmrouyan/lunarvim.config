@@ -13,7 +13,7 @@ lvim.builtin.which_key.mappings["t"] = {
   k = { "<cmd>FloatermNext<cr>", "Next Terminal" },
   t = { "<cmd>FloatermToggle<cr>", "Toggle Floaterm" },
   d = {
-    "<cmd>FloatermNew! --wintype=normal --height=7 cd %:p:h<cr>",
+    "<cmd>FloatermNew! --wintype=normal --height=12 cd %:p:h<cr>",
     "Terminal",
   },
 }
