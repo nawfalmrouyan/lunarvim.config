@@ -10,8 +10,8 @@ vim.g.gruvbox_transparent_sidebar = false
 vim.g.gruvbox_dark_sidebars = true
 vim.g.gruvbox_sidebars = { "qf", "NvimTree", "floaterm", "Symbols", "terminal", "packer" }
 vim.g.gruvbox_dark_float = true
--- vim.g.gruvbox_lualine_bold = true
 vim.g.gruvbox_hide_inactive_statusline = true
+-- vim.g.gruvbox_lualine_bold = true
 
 -- Change the "hint" color to the "orange" color, and make the "error" color bright red
 -- vim.g.gruvbox_colors = { hint = "orange", error = "#ff0000" }
