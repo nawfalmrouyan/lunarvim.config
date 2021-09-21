@@ -53,6 +53,52 @@ lvim.builtin.telescope.on_config_done = function()
   require("telescope").load_extension "fzy_native"
 end
 
+lvim.builtin.treesitter.textobjects = {
+  lookahead = true,
+  select = {
+    enable = true,
+    keymaps = {
+      ["af"] = "@function.outer",
+      ["if"] = "@function.inner",
+      ["ac"] = "@class.outer",
+      ["ic"] = "@class.inner",
+      ["aC"] = "@conditional.outer",
+      ["iC"] = "@conditional.inner",
+    },
+  },
+  swap = {
+    enable = true,
+    swap_next = {
+      ["[w"] = "@parameter.inner",
+    },
+    swap_previous = {
+      ["]w"] = "@parameter.inner",
+    },
+  },
+  move = {
+    enable = true,
+    set_jumps = true, -- whether to set jumps in the jumplist
+    goto_next_start = {
+      ["]m"] = "@function.outer",
+      ["]]"] = "@class.outer",
+    },
+    goto_previous_start = {
+      ["[m"] = "@function.outer",
+      ["[["] = "@class.outer",
+    },
+  },
+  lsp_interop = {
+    enable = true,
+    border = "rounded",
+    peek_definition_code = {
+      ["df"] = "@function.outer",
+      ["dF"] = "@class.outer",
+    },
+  },
+}
+-- lvim.plugins = {
+-- }
+
 lvim.lang.lua.formatters = { { exe = "stylua" } }
 lvim.lang.python.formatters = { { exe = "black" } }
 lvim.lang.python.linters = { { exe = "flake8" } }
@@ -385,6 +431,11 @@ lvim.plugins = {
       }
     end,
     requires = "vhyrro/neorg-telescope",
+  },
+  {
+    "nvim-treesitter/nvim-treesitter-textobjects",
+    branch = "0.5-compat",
+    before = "nvim-treesitter",
   },
   -- {
   --   "tom-doerr/vim_codex",
