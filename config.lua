@@ -438,6 +438,12 @@ lvim.plugins = {
     before = "nvim-treesitter",
   },
   -- {
+  --   "Pocco81/Catppuccino.nvim",
+  --   config = function()
+  --     require "user.catppuccino"
+  --   end,
+  -- },
+  -- {
   --   "tom-doerr/vim_codex",
   -- },
 }
