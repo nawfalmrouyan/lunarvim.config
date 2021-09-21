@@ -96,8 +96,6 @@ lvim.builtin.treesitter.textobjects = {
     },
   },
 }
--- lvim.plugins = {
--- }
 
 lvim.lang.lua.formatters = { { exe = "stylua" } }
 lvim.lang.python.formatters = { { exe = "black" } }
