@@ -349,12 +349,12 @@ lvim.plugins = {
   --   wants = { "nvim-treesitter" }, -- or require if not used so far
   --   after = { "nvim-cmp" }, -- if a completion plugin is using tabs load it before
   -- },
-  {
-    "gelguy/wilder.nvim",
-    config = function()
-      require("user.wilder").config()
-    end,
-  },
+  -- {
+  --   "gelguy/wilder.nvim",
+  --   config = function()
+  --     require("user.wilder").config()
+  --   end,
+  -- },
   {
     "wfxr/minimap.vim",
     setup = function()
