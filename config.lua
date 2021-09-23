@@ -3,6 +3,7 @@ lvim.format_on_save = false
 lvim.lint_on_save = false
 lvim.colorscheme = "gruvbox-flat"
 lvim.shell = "/usr/bin/zsh"
+lvim.builtin.nvimtree.auto_open = 0
 -- lvim.nvim_tree_disable_netrw = 1
 -- lvim.auto_close_tree = 1
 -- lvim.transparent_window = true
@@ -19,7 +20,9 @@ vim.opt.sidescrolloff = 0
 -- vim.cmd "set foldmethod=manual"
 -- vim.cmd "set foldexpr=nvim_treesitter#foldexpr()"
 
-lvim.builtin.lualine.active = false
+lvim.builtin.lualine.active = true
+lvim.builtin.lualine.sections.lualine_b = { "branch" }
+require("user.lualine").config()
 lvim.builtin.bufferline.active = false
 lvim.builtin.dashboard.active = true
 lvim.builtin.dap.active = false
@@ -28,8 +31,15 @@ lvim.builtin.terminal.direction = "horizontal"
 lvim.builtin.terminal.size = 10
 lvim.builtin.terminal.shading_factor = 1
 lvim.builtin.which_key.mappings["P"] = { "<cmd>Telescope projects<CR>", "Projects" }
+lvim.builtin.which_key.mappings["ga"] = { "<cmd>lua require('user.telescope').code_actions()<CR>", "Code Action" }
 
 lvim.lsp.diagnostics.virtual_text = false
+lvim.lsp.diagnostics.signs.values = {
+  { name = "LspDiagnosticsSignError", text = " " },
+  { name = "LspDiagnosticsSignWarning", text = "" },
+  { name = "LspDiagnosticsSignHint", text = "" },
+  { name = "LspDiagnosticsSignInformation", text = "" },
+}
 
 lvim.builtin.treesitter.ensure_installed = "maintained"
 lvim.builtin.treesitter.highlight.enabled = true
@@ -41,13 +51,59 @@ lvim.builtin.treesitter.context_commentstring.config = {
   jsx_fragment = "{/* %s */}",
   jsx_attribute = "// %s",
 }
--- lvim.builtin.telescope.defaults.layout_strategy = "center"
--- lvim.builtin.telescope.extensions = {
---   fzy_native = {
---     override_generic_sorter = false,
---     override_file_sorter = true,
---   },
--- }
+
+lvim.builtin.cmp.sources = {
+  { name = "nvim_lsp", max_item_count = 7 },
+  -- { name = "cmp_tabnine", max_item_count = 3 },
+  { name = "buffer", max_item_count = 3 },
+  { name = "path", max_item_count = 5 },
+  { name = "luasnip", max_item_count = 3 },
+  { name = "nvim_lua" },
+  { name = "calc" },
+  { name = "emoji" },
+  { name = "treesitter" },
+  { name = "crates" },
+  { name = "neorg" },
+}
+lvim.builtin.cmp.documentation.border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" }
+lvim.builtin.cmp.formatting = {
+  format = function(entry, vim_item)
+    local cmp_kind = require("user.lsp_kind").cmp_kind
+    vim_item.kind = cmp_kind(vim_item.kind)
+    vim_item.menu = ({
+      buffer = "(Buffer)",
+      nvim_lsp = "(LSP)",
+      luasnip = "(Snip)",
+      treesitter = " ",
+      nvim_lua = "(NvLua)",
+      spell = " 暈",
+      emoji = "  ",
+      path = "  ",
+      calc = "  ",
+      -- cmp_tabnine = "  ",
+    })[entry.source.name]
+    vim_item.dup = ({
+      buffer = 1,
+      path = 1,
+      nvim_lsp = 0,
+    })[entry.source.name] or 0
+    return vim_item
+  end,
+}
+
+lvim.builtin.telescope.defaults.winblend = 6
+lvim.builtin.telescope.defaults.layout_strategy = "horizontal"
+lvim.builtin.telescope.defaults.file_ignore_patterns = {
+  "vendor/*",
+  "node_modules",
+  "%.jpg",
+  "%.jpeg",
+  "%.png",
+  "%.svg",
+  "%.otf",
+  "%.ttf",
+}
+lvim.builtin.telescope.defaults.layout_config = require("user.telescope").layout_config()
 
 lvim.builtin.telescope.on_config_done = function()
   require("telescope").load_extension "fzy_native"
@@ -107,6 +163,10 @@ lvim.lang.typescriptreact.linters = { { exe = "eslint_d" } }
 lvim.lang.sh.formatters = { { exe = "shfmt", arg = "-i 2 -ci -bn" } }
 lvim.lang.tailwindcss.lsp.active = true
 lvim.lang.emmet.active = true
+lvim.lang.typescript.on_attach = function(client, _)
+  require("nvim-lsp-ts-utils").setup_client(client)
+end
+lvim.lang.typescriptreact.on_attach = lvim.lang.typescript.on_attach
 
 -- Personal Keymaps
 lvim.keys.insert_mode["<M-o>"] = "<C-o>o"
@@ -126,11 +186,13 @@ lvim.keys.term_mode["<C-Down>"] = "<C-\\><C-N>resize +2<CR>"
 lvim.keys.term_mode["<C-Left>"] = "<C-\\><C-N>vertical resize -2<CR>"
 lvim.keys.term_mode["<C-Right>"] = "<C-\\><C-N>vertical resize +2<CR>"
 
+lvim.keys.visual_block_mode["P"] = '"_c<c-r>0<esc>'
+
 -- Additional Plugins
 lvim.plugins = {
   {
     "ray-x/lsp_signature.nvim",
-    event = "InsertEnter",
+    event = "BufRead",
     config = function()
       require("user.lsp_signature").config()
     end,
@@ -145,13 +207,13 @@ lvim.plugins = {
     end,
     event = "BufRead",
   },
-  {
-    "windwp/windline.nvim",
-    config = function()
-      require "user.windline"
-    end,
-    event = "BufWinEnter",
-  },
+  -- {
+  --   "windwp/windline.nvim",
+  --   config = function()
+  --     require "user.windline"
+  --   end,
+  --   event = "BufWinEnter",
+  -- },
   { "tpope/vim-surround", event = "BufRead" },
   {
     "mbbill/undotree",
@@ -177,7 +239,10 @@ lvim.plugins = {
   },
   {
     "andymass/vim-matchup",
-    event = "BufRead",
+    event = "CursorMoved",
+    config = function()
+      vim.g.matchup_matchparen_offscreen = { method = "popup" }
+    end,
   },
   {
     "tpope/vim-repeat",
@@ -188,7 +253,21 @@ lvim.plugins = {
     config = function()
       require("user.colorizer").config()
     end,
-    -- event = "BufRead",
+    event = "BufRead",
+  },
+  {
+    "jose-elias-alvarez/nvim-lsp-ts-utils",
+    config = function()
+      require("user.ts_utils").config()
+    end,
+    ft = {
+      "javascript",
+      "javascriptreact",
+      "javascript.jsx",
+      "typescript",
+      "typescriptreact",
+      "typescript.tsx",
+    },
   },
   {
     "f-person/git-blame.nvim",
@@ -299,6 +378,7 @@ lvim.plugins = {
     config = function()
       require("user.bufferline").config()
     end,
+    requires = "nvim-web-devicons",
   },
   { -- diagnostics
     "folke/trouble.nvim",
@@ -462,15 +542,6 @@ lvim.autocommands.custom_groups = {
   { "TermOpen", "*", "startinsert" },
   { "TermOpen", "*", "setlocal nonumber norelativenumber" },
   { "TermOpen", "*", "nnoremap <buffer> <C-c> i<C-c>" },
-  -- Set additional filetypes
-  { "BufRead,BufNewFile", "*.asm", "setf nasm" },
-  { "BufRead,BufNewFile", "*.conf", "setf conf" },
-  { "BufRead,BufNewFile", "*.csv", "setf csv" },
-  { "BufRead,BufNewFile", "*.fish", "setf fish" },
-  { "BufRead,BufNewFile", "*.h", "setf c" },
-  { "BufRead,BufNewFile", "*.list", "setf conf" },
-  { "BufRead,BufNewFile", "*.snippets", "setf snippets" },
-  { "BufRead,BufNewFile", "LICENSE", "setf LICENSE" },
 }
 
 lvim.builtin.which_key.mappings["S"] = {
