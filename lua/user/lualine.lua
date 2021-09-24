@@ -82,7 +82,7 @@ local file_icon_colors = {
   Pink = "#CB6F6F",
   Salmon = "#EE6E73",
   Green = "#a9b665",
-  Lightgreen = "#31B53E",
+  Lightgreen = "#4c7a5d",
   White = "#d4be98",
   LightBlue = "#5fd7ff",
 }
