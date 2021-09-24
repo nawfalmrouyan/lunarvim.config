@@ -20,9 +20,9 @@ vim.opt.sidescrolloff = 0
 -- vim.cmd "set foldmethod=manual"
 -- vim.cmd "set foldexpr=nvim_treesitter#foldexpr()"
 
-lvim.builtin.lualine.active = true
-lvim.builtin.lualine.sections.lualine_b = { "branch" }
-require("user.lualine").config()
+lvim.builtin.lualine.active = false
+-- lvim.builtin.lualine.sections.lualine_b = { "branch" }
+-- require("user.lualine").config()
 lvim.builtin.bufferline.active = false
 lvim.builtin.dashboard.active = true
 lvim.builtin.dap.active = false
@@ -207,13 +207,13 @@ lvim.plugins = {
     end,
     event = "BufRead",
   },
-  -- {
-  --   "windwp/windline.nvim",
-  --   config = function()
-  --     require "user.windline"
-  --   end,
-  --   event = "BufWinEnter",
-  -- },
+  {
+    "windwp/windline.nvim",
+    config = function()
+      require "user.windline"
+    end,
+    event = "BufWinEnter",
+  },
   { "tpope/vim-surround", event = "BufRead" },
   {
     "mbbill/undotree",
