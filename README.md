@@ -1,6 +1,7 @@
 # My Personal [LunarVim](https://github.com/ChristianChiarulli/LunarVim/ "LunarVim") Config Files
 
-1. Clone this repo to your `~/.config/lvim` directory.
+1. Install my fork of [LunarVim](https://github.com/nawfalmrouyan/LunarVim/).
+2. Clone this repo to your `~/.config/lvim` directory.
 
 # Screenshots
 
