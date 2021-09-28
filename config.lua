@@ -3,9 +3,6 @@ lvim.format_on_save = false
 lvim.lint_on_save = false
 lvim.colorscheme = "gruvbox-flat"
 lvim.shell = "/usr/bin/zsh"
-lvim.builtin.nvimtree.auto_open = 0
--- lvim.nvim_tree_disable_netrw = 1
--- lvim.auto_close_tree = 1
 -- lvim.transparent_window = true
 
 vim.opt.timeoutlen = 500
