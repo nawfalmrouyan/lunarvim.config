@@ -93,6 +93,7 @@ end
 
 lvim.builtin.which_key.mappings["b"] = {
   name = "Buffers",
+  d = { ":bdelete!<CR>", "delete buffer" },
   j = { ":BufferLinePick<CR>", "jump to buffer" },
   f = { ":Telescope buffers<CR>", "Find buffer" },
   h = { ":BufferLineMovePrev<CR>", "move buffer left" },
