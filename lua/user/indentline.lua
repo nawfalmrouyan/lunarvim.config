@@ -37,8 +37,8 @@ M.config = function()
   vim.cmd [[highlight IndentFive guifg=#5E81AC guibg=NONE gui=nocombine]]
   vim.cmd [[highlight IndentSix guifg=#88C0D0 guibg=NONE gui=nocombine]]
   vim.cmd [[highlight IndentSeven guifg=#B48EAD guibg=NONE gui=nocombine]]
-  -- vim.g.indent_blankline_char = "│"
-  vim.g.indent_blankline_char = "▏"
+  vim.g.indent_blankline_char = "│"
+  -- vim.g.indent_blankline_char = "▏"
   vim.g.indent_blankline_char_highlight_list = {
     "IndentOne",
     "IndentTwo",
