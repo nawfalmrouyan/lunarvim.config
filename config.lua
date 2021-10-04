@@ -158,8 +158,8 @@ lvim.lang.javascriptreact.linters = { { exe = "eslint_d" } }
 lvim.lang.typescriptreact.formatters = { { exe = "prettier" } }
 lvim.lang.typescriptreact.linters = { { exe = "eslint_d" } }
 lvim.lang.sh.formatters = { { exe = "shfmt", arg = "-i 2 -ci -bn" } }
-lvim.lang.tailwindcss.lsp.active = true
-lvim.lang.emmet.active = true
+-- lvim.lang.tailwindcss.lsp.active = true
+-- lvim.lang.emmet.active = true
 lvim.lang.typescript.on_attach = function(client, _)
   require("nvim-lsp-ts-utils").setup_client(client)
 end
