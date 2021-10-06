@@ -28,7 +28,7 @@ lvim.builtin.terminal.direction = "horizontal"
 lvim.builtin.terminal.size = 10
 lvim.builtin.terminal.shading_factor = 1
 lvim.builtin.which_key.mappings["P"] = { "<cmd>Telescope projects<CR>", "Projects" }
-lvim.builtin.which_key.mappings["ga"] = { "<cmd>lua require('user.telescope').code_actions()<CR>", "Code Action" }
+-- lvim.builtin.which_key.mappings["ga"] = { "<cmd>lua require('user.telescope').code_actions()<CR>", "Code Action" }
 
 lvim.lsp.diagnostics.virtual_text = false
 lvim.lsp.diagnostics.signs.values = {
