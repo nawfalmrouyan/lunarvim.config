@@ -509,7 +509,7 @@ lvim.plugins = {
   },
   {
     "nvim-treesitter/nvim-treesitter-textobjects",
-    branch = "0.5-compat",
+    -- branch = "0.5-compat",
     before = "nvim-treesitter",
   },
   -- {
