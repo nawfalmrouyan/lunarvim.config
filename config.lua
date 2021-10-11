@@ -158,7 +158,6 @@ lvim.lang.javascriptreact.linters = { { exe = "eslint_d" } }
 lvim.lang.typescriptreact.formatters = { { exe = "prettier" } }
 lvim.lang.typescriptreact.linters = { { exe = "eslint_d" } }
 lvim.lang.sh.formatters = { { exe = "shfmt", arg = "-i 2 -ci -bn" } }
--- lvim.lang.tailwindcss.lsp.active = true
 -- lvim.lang.emmet.active = true
 lvim.lang.typescript.on_attach = function(client, _)
   require("nvim-lsp-ts-utils").setup_client(client)
@@ -456,22 +455,6 @@ lvim.plugins = {
   --     }
   --   end,
   -- },
-  -- {
-  --   "rose-pine/neovim",
-  --   config = function()
-  --     vim.g.rose_pine_variant = "base"
-  --   end,
-  --   event = "BufEnter",
-  -- },
-  -- {
-  --   "kristijanhusak/orgmode.nvim",
-  --   config = function()
-  --     require("orgmode").setup {
-  --       org_agenda_files = { "~/org/agenda/**/*" },
-  --       org_default_notes_file = "~/org/notes/refile.org",
-  --     }
-  --   end,
-  -- },
   {
     "wellle/targets.vim",
   },
@@ -512,15 +495,6 @@ lvim.plugins = {
     -- branch = "0.5-compat",
     before = "nvim-treesitter",
   },
-  -- {
-  --   "Pocco81/Catppuccino.nvim",
-  --   config = function()
-  --     require "user.catppuccino"
-  --   end,
-  -- },
-  -- {
-  --   "tom-doerr/vim_codex",
-  -- },
 }
 
 lvim.autocommands.custom_groups = {
@@ -533,12 +507,12 @@ lvim.autocommands.custom_groups = {
   --   "if &relativenumber | let g:backtorelative = 1 | setlocal number norelativenumber nocursorline | endif",
   -- },
   -- { "InsertLeave", "*", 'if exists("g:backtorelative") | setlocal relativenumber cursorline | endif' },
-  { "WinEnter", "*", "setlocal cursorline" },
-  { "WinLeave", "*", "setlocal nocursorline" },
+  -- { "WinEnter", "*", "setlocal cursorline" },
+  -- { "WinLeave", "*", "setlocal nocursorline" },
   -- Terminal settings
-  { "TermOpen", "*", "startinsert" },
-  { "TermOpen", "*", "setlocal nonumber norelativenumber" },
-  { "TermOpen", "*", "nnoremap <buffer> <C-c> i<C-c>" },
+  -- { "TermOpen", "*", "startinsert" },
+  -- { "TermOpen", "*", "setlocal nonumber norelativenumber" },
+  -- { "TermOpen", "*", "nnoremap <buffer> <C-c> i<C-c>" },
 }
 
 lvim.builtin.which_key.mappings["S"] = {
