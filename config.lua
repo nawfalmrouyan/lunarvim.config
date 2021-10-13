@@ -18,8 +18,6 @@ vim.opt.sidescrolloff = 0
 vim.cmd "set foldexpr=nvim_treesitter#foldexpr()"
 
 lvim.builtin.lualine.active = false
--- lvim.builtin.lualine.sections.lualine_b = { "branch" }
--- require("user.lualine").config()
 lvim.builtin.bufferline.active = false
 lvim.builtin.dashboard.active = true
 lvim.builtin.dap.active = false
@@ -28,7 +26,6 @@ lvim.builtin.terminal.direction = "horizontal"
 lvim.builtin.terminal.size = 10
 lvim.builtin.terminal.shading_factor = 1
 lvim.builtin.which_key.mappings["P"] = { "<cmd>Telescope projects<CR>", "Projects" }
--- lvim.builtin.which_key.mappings["ga"] = { "<cmd>lua require('user.telescope').code_actions()<CR>", "Code Action" }
 
 lvim.lsp.diagnostics.virtual_text = false
 lvim.lsp.diagnostics.signs.values = {
@@ -49,19 +46,6 @@ lvim.builtin.treesitter.context_commentstring.config = {
   jsx_attribute = "// %s",
 }
 
-lvim.builtin.cmp.sources = {
-  { name = "nvim_lsp", max_item_count = 7 },
-  -- { name = "cmp_tabnine", max_item_count = 3 },
-  { name = "buffer", max_item_count = 3 },
-  { name = "path", max_item_count = 5 },
-  { name = "luasnip", max_item_count = 3 },
-  { name = "nvim_lua" },
-  { name = "calc" },
-  { name = "emoji" },
-  { name = "treesitter" },
-  { name = "crates" },
-  { name = "neorg" },
-}
 lvim.builtin.cmp.documentation.border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" }
 lvim.builtin.cmp.formatting = {
   format = function(entry, vim_item)
@@ -158,7 +142,6 @@ lvim.lang.javascriptreact.linters = { { exe = "eslint_d" } }
 lvim.lang.typescriptreact.formatters = { { exe = "prettier" } }
 lvim.lang.typescriptreact.linters = { { exe = "eslint_d" } }
 lvim.lang.sh.formatters = { { exe = "shfmt", arg = "-i 2 -ci -bn" } }
--- lvim.lang.emmet.active = true
 lvim.lang.typescript.on_attach = function(client, _)
   require("nvim-lsp-ts-utils").setup_client(client)
 end
@@ -400,37 +383,12 @@ lvim.plugins = {
     "nvim-telescope/telescope-fzy-native.nvim",
     run = "make",
   },
-  -- {
-  --   "abecodes/tabout.nvim",
-  --   config = function()
-  --     require("tabout").setup {
-  --       tabkey = "<Tab>", -- key to trigger tabout, set to an empty string to disable
-  --       backwards_tabkey = "<S-Tab>", -- key to trigger backwards tabout, set to an empty string to disable
-  --       act_as_tab = true, -- shift content if tab out is not possible
-  --       act_as_shift_tab = false, -- reverse shift content if tab out is not possible (if your keyboard/terminal supports <S-Tab>)
-  --       enable_backwards = true, -- well ...
-  --       completion = true, -- if the tabkey is used in a completion pum
-  --       tabouts = {
-  --         { open = "'", close = "'" },
-  --         { open = '"', close = '"' },
-  --         { open = "`", close = "`" },
-  --         { open = "(", close = ")" },
-  --         { open = "[", close = "]" },
-  --         { open = "{", close = "}" },
-  --       },
-  --       ignore_beginning = true, --[[ if the cursor is at the beginning of a filled element it will rather tab out than shift the content ]]
-  --       exclude = {}, -- tabout will ignore these filetypes
-  --     }
-  --   end,
-  --   wants = { "nvim-treesitter" }, -- or require if not used so far
-  --   after = { "nvim-cmp" }, -- if a completion plugin is using tabs load it before
-  -- },
-  -- {
-  --   "gelguy/wilder.nvim",
-  --   config = function()
-  --     require("user.wilder").config()
-  --   end,
-  -- },
+  {
+    "gelguy/wilder.nvim",
+    config = function()
+      require("user.wilder").config()
+    end,
+  },
   {
     "wfxr/minimap.vim",
     setup = function()
@@ -443,18 +401,6 @@ lvim.plugins = {
     run = "cd app && npm install",
     ft = "markdown",
   },
-  -- {
-  --   "vimwiki/vimwiki",
-  --   config = function()
-  --     vim.g.vimwiki_list = {
-  --       {
-  --         path = "~/vimwiki",
-  --         syntax = "markdown",
-  --         ext = ".md",
-  --       },
-  --     }
-  --   end,
-  -- },
   {
     "wellle/targets.vim",
   },
@@ -541,25 +487,3 @@ vim.cmd "autocmd VimLeave,VimSuspend * set guicursor=a:hor20"
 --       And I think `ver` means vertical and `hor` means horizontal.
 --       The numbers didn't make a difference in alacritty. Please change
 --       the number to something that suits your needs if it looks weird.
-
--- if lvim.lang.emmet.active then
---   local lspconfig = require "lspconfig"
---   local configs = require "lspconfig/configs"
-
---   local capabilities = vim.lsp.protocol.make_client_capabilities()
---   capabilities.textDocument.completion.completionItem.snippetSupport = true
-
---   if not lspconfig.emmet_ls then
---     configs.emmet_ls = {
---       default_config = {
---         cmd = { "emmet-ls", "--stdio" },
---         filetypes = { "html", "css" },
---         root_dir = function()
---           return vim.loop.cwd()
---         end,
---         settings = {},
---       },
---     }
---   end
---   lspconfig.emmet_ls.setup { capabilities = capabilities }
--- end
