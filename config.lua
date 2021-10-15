@@ -447,14 +447,14 @@ lvim.autocommands.custom_groups = {
   -- will check for external file changes on cursor hold
   { "CursorHold", "*", "silent! checktime" },
   -- will switch between absolute and relative line numbers depending on mode
-  -- {
-  --   "InsertEnter",
-  --   "*",
-  --   "if &relativenumber | let g:backtorelative = 1 | setlocal number norelativenumber nocursorline | endif",
-  -- },
-  -- { "InsertLeave", "*", 'if exists("g:backtorelative") | setlocal relativenumber cursorline | endif' },
-  -- { "WinEnter", "*", "setlocal cursorline" },
-  -- { "WinLeave", "*", "setlocal nocursorline" },
+  {
+    "InsertEnter",
+    "*",
+    "if &relativenumber | let g:backtorelative = 1 | setlocal number norelativenumber nocursorline | endif",
+  },
+  { "InsertLeave", "*", 'if exists("g:backtorelative") | setlocal relativenumber cursorline | endif' },
+  { "WinEnter", "*", "setlocal cursorline" },
+  { "WinLeave", "*", "setlocal nocursorline" },
   -- Terminal settings
   -- { "TermOpen", "*", "startinsert" },
   -- { "TermOpen", "*", "setlocal nonumber norelativenumber" },
