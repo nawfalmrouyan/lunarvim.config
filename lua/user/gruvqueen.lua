@@ -1,4 +1,4 @@
-vim.o.background = "dark" -- or light if you so prefer
+-- vim.o.background = "dark" -- or light if you so prefer
 require("gruvqueen").setup {
   config = {
     disable_bold = true,
@@ -7,7 +7,7 @@ require("gruvqueen").setup {
     italic_functions = true,
     italic_variables = true,
     invert_selection = false,
-    style = "mix", -- possible values: 'original', 'mix', 'material'
+    style = "original", -- possible values: 'original', 'mix', 'material'
     -- transparent_background = true,
     -- bg_color = "black",
   },
