@@ -1,8 +1,8 @@
 lvim.log.level = "warn"
 lvim.format_on_save = false
 lvim.lint_on_save = false
--- lvim.colorscheme = "gruvbox-flat"
-lvim.colorscheme = "fennec-gruvbox"
+lvim.colorscheme = "gruvbox-flat"
+-- lvim.colorscheme = "fennec-gruvbox"
 lvim.shell = "/usr/bin/zsh"
 -- lvim.transparent_window = true
 
@@ -359,16 +359,16 @@ lvim.plugins = {
       lvim.builtin.which_key.mappings.l.t = { "<cmd>TroubleToggle<CR>", "Trouble" }
     end,
   },
---   {
---     "eddyekofo94/gruvbox-flat.nvim",
---     config = function()
---       require "user.gruvbox-flat"
---     end,
---   },
   {
-    "svitax/fennec-gruvbox.nvim",
-    requires = { "rktjmp/lush.nvim" },
+    "eddyekofo94/gruvbox-flat.nvim",
+    config = function()
+      require "user.gruvbox-flat"
+    end,
   },
+  -- {
+  --   "svitax/fennec-gruvbox.nvim",
+  --   requires = { "rktjmp/lush.nvim" },
+  -- },
   {
     "folke/tokyonight.nvim",
     -- event = "BufRead",
