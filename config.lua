@@ -190,7 +190,8 @@ lvim.plugins = {
   {
     "windwp/windline.nvim",
     config = function()
-      require "user.windline"
+      -- require "user.windline"
+      require "user.evil_line"
     end,
     event = "BufWinEnter",
   },
