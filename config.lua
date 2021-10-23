@@ -2,7 +2,6 @@ lvim.log.level = "warn"
 lvim.format_on_save = false
 lvim.lint_on_save = false
 lvim.colorscheme = "gruvbox-flat"
--- lvim.colorscheme = "fennec-gruvbox"
 lvim.shell = "/usr/bin/zsh"
 -- lvim.transparent_window = true
 
@@ -190,7 +189,7 @@ lvim.plugins = {
   {
     "windwp/windline.nvim",
     config = function()
-      -- require "user.windline"
+      -- require "user.airline"
       require "user.evil_line"
     end,
     event = "BufWinEnter",
