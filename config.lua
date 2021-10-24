@@ -46,34 +46,8 @@ lvim.builtin.treesitter.context_commentstring.config = {
   jsx_attribute = "// %s",
 }
 
-lvim.builtin.cmp.documentation.border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" }
-lvim.builtin.cmp.formatting = {
-  format = function(entry, vim_item)
-    local cmp_kind = require("user.lsp_kind").cmp_kind
-    vim_item.kind = cmp_kind(vim_item.kind)
-    vim_item.menu = ({
-      buffer = "(Buffer)",
-      nvim_lsp = "(LSP)",
-      luasnip = "(Snip)",
-      treesitter = " ",
-      nvim_lua = "(NvLua)",
-      spell = " 暈",
-      emoji = "  ",
-      path = "  ",
-      calc = "  ",
-      -- cmp_tabnine = "  ",
-    })[entry.source.name]
-    vim_item.dup = ({
-      buffer = 1,
-      path = 1,
-      nvim_lsp = 0,
-    })[entry.source.name] or 0
-    return vim_item
-  end,
-}
-
 lvim.builtin.telescope.defaults.winblend = 6
-lvim.builtin.telescope.defaults.layout_strategy = "horizontal"
+lvim.builtin.telescope.defaults.layout_strategy = "listchars"
 lvim.builtin.telescope.defaults.file_ignore_patterns = {
   "vendor/*",
   "node_modules",
@@ -210,9 +184,7 @@ lvim.plugins = {
   --   "dsznajder/vscode-es7-javascript-react-snippets",
   --   event = "BufRead",
   -- },
-  {
-    "tweekmonster/startuptime.vim",
-  },
+  { "tweekmonster/startuptime.vim" },
   {
     "kevinhwang91/nvim-bqf",
     event = "BufRead",
@@ -268,9 +240,7 @@ lvim.plugins = {
     "JoosepAlviste/nvim-ts-context-commentstring",
     event = "BufEnter",
   },
-  {
-    "romgrk/fzy-lua-native",
-  },
+  { "romgrk/fzy-lua-native" },
   {
     "monaqa/dial.nvim",
     event = "BufRead",
@@ -398,9 +368,7 @@ lvim.plugins = {
     run = "cd app && npm install",
     ft = "markdown",
   },
-  {
-    "wellle/targets.vim",
-  },
+  { "wellle/targets.vim" },
   {
     "nvim-neorg/neorg",
     config = function()
