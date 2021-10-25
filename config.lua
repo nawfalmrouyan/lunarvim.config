@@ -129,6 +129,7 @@ lvim.keys.visual_block_mode["P"] = '"_c<c-r>0<esc>'
 
 -- Additional Plugins
 lvim.plugins = {
+  { "nathom/filetype.nvim" },
   {
     "ray-x/lsp_signature.nvim",
     event = "BufRead",
