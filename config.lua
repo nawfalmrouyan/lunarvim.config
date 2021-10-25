@@ -46,20 +46,6 @@ lvim.builtin.treesitter.context_commentstring.config = {
   jsx_attribute = "// %s",
 }
 
-lvim.builtin.telescope.defaults.winblend = 6
-lvim.builtin.telescope.defaults.layout_strategy = "listchars"
-lvim.builtin.telescope.defaults.file_ignore_patterns = {
-  "vendor/*",
-  "node_modules",
-  "%.jpg",
-  "%.jpeg",
-  "%.png",
-  "%.svg",
-  "%.otf",
-  "%.ttf",
-}
-lvim.builtin.telescope.defaults.layout_config = require("user.telescope").layout_config()
-
 lvim.builtin.telescope.on_config_done = function()
   require("telescope").load_extension "fzy_native"
 end
