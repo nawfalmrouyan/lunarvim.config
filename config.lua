@@ -150,7 +150,6 @@ lvim.plugins = {
   {
     "windwp/windline.nvim",
     config = function()
-      -- require "user.airline"
       require "user.evil_line"
     end,
     event = "BufWinEnter",
@@ -326,13 +325,13 @@ lvim.plugins = {
   --   "svitax/fennec-gruvbox.nvim",
   --   requires = { "rktjmp/lush.nvim" },
   -- },
-  {
-    "folke/tokyonight.nvim",
-    -- event = "BufRead",
-    config = function()
-      require "user.tokyonight"
-    end,
-  },
+  -- {
+  --   "folke/tokyonight.nvim",
+  --   -- event = "BufRead",
+  --   config = function()
+  --     require "user.tokyonight"
+  --   end,
+  -- },
   {
     "nvim-telescope/telescope-fzy-native.nvim",
     run = "make",
@@ -343,19 +342,19 @@ lvim.plugins = {
       require("user.wilder").config()
     end,
   },
-  {
-    "wfxr/minimap.vim",
-    setup = function()
-      lvim.builtin.which_key.mappings["m"] = { "<cmd>MinimapToggle<CR>", "Minimap" }
-    end,
-    event = "BufRead",
-  },
+  -- {
+  --   "wfxr/minimap.vim",
+  --   setup = function()
+  --     lvim.builtin.which_key.mappings["m"] = { "<cmd>MinimapToggle<CR>", "Minimap" }
+  --   end,
+  --   event = "BufRead",
+  -- },
   {
     "iamcco/markdown-preview.nvim",
     run = "cd app && npm install",
     ft = "markdown",
   },
-  { "wellle/targets.vim" },
+  -- { "wellle/targets.vim" },
   {
     "nvim-neorg/neorg",
     config = function()
@@ -393,19 +392,19 @@ lvim.plugins = {
     -- branch = "0.5-compat",
     before = "nvim-treesitter",
   },
-  {
-    "chipsenkbeil/distant.nvim",
-    config = function()
-      require("distant").setup {
-        -- Applies Chip's personal settings to every machine you connect to
-        --
-        -- 1. Ensures that distant servers terminate with no connections
-        -- 2. Provides navigation bindings for remote directories
-        -- 3. Provides keybinding to jump into a remote file's parent directory
-        ["*"] = require("distant.settings").chip_default(),
-      }
-    end,
-  },
+  -- {
+  --   "chipsenkbeil/distant.nvim",
+  --   config = function()
+  --     require("distant").setup {
+  --       -- Applies Chip's personal settings to every machine you connect to
+  --       --
+  --       -- 1. Ensures that distant servers terminate with no connections
+  --       -- 2. Provides navigation bindings for remote directories
+  --       -- 3. Provides keybinding to jump into a remote file's parent directory
+  --       ["*"] = require("distant.settings").chip_default(),
+  --     }
+  --   end,
+  -- },
 }
 
 lvim.autocommands.custom_groups = {
