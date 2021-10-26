@@ -392,6 +392,9 @@ lvim.plugins = {
     -- branch = "0.5-compat",
     before = "nvim-treesitter",
   },
+  {
+    "tom-doerr/vim_codex",
+  },
   -- {
   --   "chipsenkbeil/distant.nvim",
   --   config = function()
