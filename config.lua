@@ -95,7 +95,7 @@ lvim.builtin.treesitter.textobjects = {
 }
 
 lvim.lang.lua.formatters = { { exe = "stylua" } }
-lvim.lang.python.formatters = { { exe = "black" } }
+lvim.lang.python.formatters = { { exe = "black" }, { exe = "isort" } }
 lvim.lang.python.linters = { { exe = "flake8" } }
 lvim.lang.javascriptreact.formatters = { { exe = "prettier" } }
 lvim.lang.javascriptreact.linters = { { exe = "eslint_d" } }
