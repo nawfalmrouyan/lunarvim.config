@@ -1,4 +1,4 @@
-lvim.log.level = "warn"
+-- lvim.log.level = "warn"
 lvim.format_on_save = false
 lvim.lint_on_save = false
 lvim.colorscheme = "gruvbox-flat"
