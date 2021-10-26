@@ -40,11 +40,24 @@ lvim.builtin.treesitter.highlight.enabled = true
 lvim.builtin.treesitter.rainbow.enable = true
 lvim.builtin.treesitter.autotag.enable = true
 lvim.builtin.treesitter.context_commentstring.enable = true
+lvim.builtin.treesitter.context_commentstring.enable_autocmd = false
 lvim.builtin.treesitter.context_commentstring.config = {
   jsx_element = "{/* %s */}",
   jsx_fragment = "{/* %s */}",
   jsx_attribute = "// %s",
+  typescript = "// %s",
+  css = "/* %s */",
+  scss = "/* %s */",
+  html = "<!-- %s -->",
+  svelte = "<!-- %s -->",
+  vue = "<!-- %s -->",
+  json = "",
 }
+lvim.builtin.comment.pre_hook = function(ctx)
+    print("Hello-new", require('ts_context_commentstring.internal').calculate_commentstring(), ctx)
+    return require('ts_context_commentstring.internal').calculate_commentstring()
+    -- require('ts_context_commentstring.internal').update_commentstring()
+end
 
 lvim.builtin.telescope.on_config_done = function()
   require("telescope").load_extension "fzy_native"
