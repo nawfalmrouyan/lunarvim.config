@@ -107,8 +107,6 @@ lvim.builtin.treesitter.textobjects = {
   },
 }
 
-require'cmp'.setup.cmdline(':', { sources = { { name = 'cmdline' } } })
-
 lvim.lang.lua.formatters = { { exe = "stylua" } }
 lvim.lang.python.formatters = { { exe = "black" }, { exe = "isort" } }
 lvim.lang.python.linters = { { exe = "flake8" } }
@@ -144,7 +142,12 @@ lvim.keys.visual_block_mode["P"] = '"_c<c-r>0<esc>'
 
 -- Additional Plugins
 lvim.plugins = {
-  { "hrsh7th/cmp-cmdline" },
+  {
+    "hrsh7th/cmp-cmdline",
+    config = function()
+      require("cmp").setup.cmdline(":", { sources = { { name = "cmdline" } } })
+    end,
+  },
   { "nathom/filetype.nvim" },
   {
     "ray-x/lsp_signature.nvim",
