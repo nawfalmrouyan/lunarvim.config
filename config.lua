@@ -107,6 +107,8 @@ lvim.builtin.treesitter.textobjects = {
   },
 }
 
+require'cmp'.setup.cmdline(':', { sources = { { name = 'cmdline' } } })
+
 lvim.lang.lua.formatters = { { exe = "stylua" } }
 lvim.lang.python.formatters = { { exe = "black" }, { exe = "isort" } }
 lvim.lang.python.linters = { { exe = "flake8" } }
@@ -142,6 +144,7 @@ lvim.keys.visual_block_mode["P"] = '"_c<c-r>0<esc>'
 
 -- Additional Plugins
 lvim.plugins = {
+  { "hrsh7th/cmp-cmdline" },
   { "nathom/filetype.nvim" },
   {
     "ray-x/lsp_signature.nvim",
@@ -349,12 +352,12 @@ lvim.plugins = {
     "nvim-telescope/telescope-fzy-native.nvim",
     run = "make",
   },
-  {
-    "gelguy/wilder.nvim",
-    config = function()
-      require("user.wilder").config()
-    end,
-  },
+  -- {
+  --   "gelguy/wilder.nvim",
+  --   config = function()
+  --     require("user.wilder").config()
+  --   end,
+  -- },
   -- {
   --   "wfxr/minimap.vim",
   --   setup = function()
