@@ -54,9 +54,9 @@ lvim.builtin.treesitter.context_commentstring.config = {
   json = "",
 }
 lvim.builtin.comment.pre_hook = function(ctx)
-    print("Hello-new", require('ts_context_commentstring.internal').calculate_commentstring(), ctx)
-    return require('ts_context_commentstring.internal').calculate_commentstring()
-    -- require('ts_context_commentstring.internal').update_commentstring()
+  print("Hello-new", require("ts_context_commentstring.internal").calculate_commentstring(), ctx)
+  return require("ts_context_commentstring.internal").calculate_commentstring()
+  -- require('ts_context_commentstring.internal').update_commentstring()
 end
 
 lvim.builtin.telescope.on_config_done = function()
