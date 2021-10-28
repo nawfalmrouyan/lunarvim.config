@@ -411,6 +411,7 @@ lvim.plugins = {
     -- branch = "0.5-compat",
     before = "nvim-treesitter",
   },
+  -- { "github/copilot.vim", },
 }
 
 lvim.autocommands.custom_groups = {
