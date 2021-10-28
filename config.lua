@@ -429,7 +429,7 @@ lvim.plugins = {
 
 lvim.autocommands.custom_groups = {
   -- will check for external file changes on cursor hold
-  { "CursorHold", "*", "silent! checktime" },
+  -- { "CursorHold", "*", "silent! checktime" },
   -- will switch between absolute and relative line numbers depending on mode
   {
     "InsertEnter",
