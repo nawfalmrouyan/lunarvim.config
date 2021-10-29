@@ -142,13 +142,26 @@ lvim.keys.visual_block_mode["P"] = '"_c<c-r>0<esc>'
 
 -- Additional Plugins
 lvim.plugins = {
+  { "nathom/filetype.nvim" },
+  { "tpope/vim-surround", event = "BufRead" },
+  { "michaeljsmith/vim-indent-object", event = "BufRead" },
+  { "tweekmonster/startuptime.vim" },
+  { "kevinhwang91/nvim-bqf", event = "BufRead" },
+  { "tpope/vim-repeat", event = "BufRead" },
+  { "p00f/nvim-ts-rainbow", event = "BufEnter" },
+  { "windwp/nvim-ts-autotag", event = "InsertEnter" },
+  { "JoosepAlviste/nvim-ts-context-commentstring", event = "BufEnter" },
+  { "romgrk/fzy-lua-native" },
+  { "nvim-telescope/telescope-fzy-native.nvim", run = "make" },
+  { "iamcco/markdown-preview.nvim", run = "cd app && npm install", ft = "markdown" },
+  { "nvim-treesitter/nvim-treesitter-textobjects", before = "nvim-treesitter" },
+  -- { "wellle/targets.vim" },
   {
     "hrsh7th/cmp-cmdline",
     config = function()
       require("cmp").setup.cmdline(":", { sources = { { name = "cmdline" } } })
     end,
   },
-  { "nathom/filetype.nvim" },
   {
     "ray-x/lsp_signature.nvim",
     event = "BufRead",
@@ -173,7 +186,6 @@ lvim.plugins = {
     end,
     event = "BufWinEnter",
   },
-  { "tpope/vim-surround", event = "BufRead" },
   {
     "mbbill/undotree",
     event = "BufRead",
@@ -182,28 +194,11 @@ lvim.plugins = {
     end,
   },
   {
-    "michaeljsmith/vim-indent-object",
-    event = "BufRead",
-  },
-  -- {
-  --   "dsznajder/vscode-es7-javascript-react-snippets",
-  --   event = "BufRead",
-  -- },
-  { "tweekmonster/startuptime.vim" },
-  {
-    "kevinhwang91/nvim-bqf",
-    event = "BufRead",
-  },
-  {
     "andymass/vim-matchup",
     event = "CursorMoved",
     config = function()
       vim.g.matchup_matchparen_offscreen = { method = "popup" }
     end,
-  },
-  {
-    "tpope/vim-repeat",
-    event = "BufRead",
   },
   {
     "norcalli/nvim-colorizer.lua",
@@ -233,19 +228,6 @@ lvim.plugins = {
     end,
     event = "BufRead",
   }, -- Git Blame
-  {
-    "p00f/nvim-ts-rainbow",
-    event = "BufEnter",
-  },
-  {
-    "windwp/nvim-ts-autotag",
-    event = "InsertEnter",
-  },
-  {
-    "JoosepAlviste/nvim-ts-context-commentstring",
-    event = "BufEnter",
-  },
-  { "romgrk/fzy-lua-native" },
   {
     "monaqa/dial.nvim",
     event = "BufRead",
@@ -282,13 +264,6 @@ lvim.plugins = {
     end,
     event = "BufRead",
   },
-  -- { -- floating terminal
-  --   "voldikss/vim-floaterm",
-  --   config = function()
-  --     require "user.floaterm"
-  --   end,
-  --   event = "BufEnter",
-  -- },
   { -- better (IMHO) hop, sneak, quickscope
     "ggandor/lightspeed.nvim",
     config = function()
@@ -341,25 +316,15 @@ lvim.plugins = {
     end,
   },
   -- {
-  --   "svitax/fennec-gruvbox.nvim",
-  --   requires = { "rktjmp/lush.nvim" },
-  -- },
-  -- {
   --   "folke/tokyonight.nvim",
   --   -- event = "BufRead",
   --   config = function()
   --     require "user.tokyonight"
   --   end,
   -- },
-  {
-    "nvim-telescope/telescope-fzy-native.nvim",
-    run = "make",
-  },
   -- {
-  --   "gelguy/wilder.nvim",
-  --   config = function()
-  --     require("user.wilder").config()
-  --   end,
+  --   "dsznajder/vscode-es7-javascript-react-snippets",
+  --   event = "BufRead",
   -- },
   -- {
   --   "wfxr/minimap.vim",
@@ -368,12 +333,6 @@ lvim.plugins = {
   --   end,
   --   event = "BufRead",
   -- },
-  {
-    "iamcco/markdown-preview.nvim",
-    run = "cd app && npm install",
-    ft = "markdown",
-  },
-  -- { "wellle/targets.vim" },
   {
     "nvim-neorg/neorg",
     config = function()
@@ -406,31 +365,35 @@ lvim.plugins = {
     end,
     requires = "vhyrro/neorg-telescope",
   },
-  {
-    "nvim-treesitter/nvim-treesitter-textobjects",
-    before = "nvim-treesitter",
-  },
   -- { "github/copilot.vim", },
-  { "olambo/vi-viz",
+  {
+    "olambo/vi-viz",
     config = function()
       local map = vim.api.nvim_set_keymap
       -- to start off from normal mode
-      map('n', '<right>',   "<cmd>lua require('vi-viz').vizInit()<CR>",          {noremap = true})
+      map("n", "<right>", "<cmd>lua require('vi-viz').vizInit()<CR>", { noremap = true })
       -- expand and contract
-      map('x', '<right>',   "<cmd>lua require('vi-viz').vizExpand()<CR>",        {noremap = true})
-      map('x', '<left>',    "<cmd>lua require('vi-viz').vizContract()<CR>",      {noremap = true})
+      map("x", "<right>", "<cmd>lua require('vi-viz').vizExpand()<CR>", { noremap = true })
+      map("x", "<left>", "<cmd>lua require('vi-viz').vizContract()<CR>", { noremap = true })
       -- expand and contract by 1 char either side
-      map('x', '=',         "<cmd>lua require('vi-viz').vizExpand1Chr()<CR>",    {noremap = true})
-      map('x', '-',         "<cmd>lua require('vi-viz').vizContract1Chr()<CR>",  {noremap = true})
+      map("x", "=", "<cmd>lua require('vi-viz').vizExpand1Chr()<CR>", { noremap = true })
+      map("x", "-", "<cmd>lua require('vi-viz').vizContract1Chr()<CR>", { noremap = true })
       -- good use for the r key in visual mode
-      map('x', 'r',         "<cmd>lua require('vi-viz').vizPattern()<CR>",       {noremap = true})
+      map("x", "r", "<cmd>lua require('vi-viz').vizPattern()<CR>", { noremap = true })
       -- nice to have to get dot repeat on single words
-      map('x', 'c',         "<cmd>lua require('vi-viz').vizChange()<CR>",        {noremap = true})
+      map("x", "c", "<cmd>lua require('vi-viz').vizChange()<CR>", { noremap = true })
       -- nice to have to insert before and after
-      map('x', 'ii',        "<cmd>lua require('vi-viz').vizInsert()<CR>",        {noremap = true})
-      map('x', 'aa',        "<cmd>lua require('vi-viz').vizAppend()<CR>",        {noremap = true})
+      map("x", "ii", "<cmd>lua require('vi-viz').vizInsert()<CR>", { noremap = true })
+      map("x", "aa", "<cmd>lua require('vi-viz').vizAppend()<CR>", { noremap = true })
     end,
   },
+  -- { -- floating terminal
+  --   "voldikss/vim-floaterm",
+  --   config = function()
+  --     require "user.floaterm"
+  --   end,
+  --   event = "BufEnter",
+  -- },
 }
 
 lvim.autocommands.custom_groups = {
