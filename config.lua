@@ -153,8 +153,8 @@ lvim.plugins = {
   { "JoosepAlviste/nvim-ts-context-commentstring", event = "BufEnter" },
   { "romgrk/fzy-lua-native" },
   { "nvim-telescope/telescope-fzy-native.nvim", run = "make" },
-  { "iamcco/markdown-preview.nvim", run = "cd app && npm install", ft = "markdown" },
   { "nvim-treesitter/nvim-treesitter-textobjects", before = "nvim-treesitter" },
+  -- { "iamcco/markdown-preview.nvim", run = "cd app && npm install", ft = "markdown" },
   -- { "wellle/targets.vim" },
   {
     "hrsh7th/cmp-cmdline",
@@ -315,24 +315,6 @@ lvim.plugins = {
       require "user.gruvbox-flat"
     end,
   },
-  -- {
-  --   "folke/tokyonight.nvim",
-  --   -- event = "BufRead",
-  --   config = function()
-  --     require "user.tokyonight"
-  --   end,
-  -- },
-  -- {
-  --   "dsznajder/vscode-es7-javascript-react-snippets",
-  --   event = "BufRead",
-  -- },
-  -- {
-  --   "wfxr/minimap.vim",
-  --   setup = function()
-  --     lvim.builtin.which_key.mappings["m"] = { "<cmd>MinimapToggle<CR>", "Minimap" }
-  --   end,
-  --   event = "BufRead",
-  -- },
   {
     "nvim-neorg/neorg",
     config = function()
@@ -365,7 +347,6 @@ lvim.plugins = {
     end,
     requires = "vhyrro/neorg-telescope",
   },
-  -- { "github/copilot.vim", },
   {
     "olambo/vi-viz",
     config = function()
@@ -387,6 +368,25 @@ lvim.plugins = {
       map("x", "aa", "<cmd>lua require('vi-viz').vizAppend()<CR>", { noremap = true })
     end,
   },
+  -- { "github/copilot.vim", },
+  -- {
+  --   "folke/tokyonight.nvim",
+  --   -- event = "BufRead",
+  --   config = function()
+  --     require "user.tokyonight"
+  --   end,
+  -- },
+  -- {
+  --   "dsznajder/vscode-es7-javascript-react-snippets",
+  --   event = "BufRead",
+  -- },
+  -- {
+  --   "wfxr/minimap.vim",
+  --   setup = function()
+  --     lvim.builtin.which_key.mappings["m"] = { "<cmd>MinimapToggle<CR>", "Minimap" }
+  --   end,
+  --   event = "BufRead",
+  -- },
   -- { -- floating terminal
   --   "voldikss/vim-floaterm",
   --   config = function()
