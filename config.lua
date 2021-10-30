@@ -154,8 +154,8 @@ lvim.plugins = {
   { "romgrk/fzy-lua-native" },
   { "nvim-telescope/telescope-fzy-native.nvim", run = "make" },
   { "nvim-treesitter/nvim-treesitter-textobjects", before = "nvim-treesitter" },
+  { "wellle/targets.vim" },
   -- { "iamcco/markdown-preview.nvim", run = "cd app && npm install", ft = "markdown" },
-  -- { "wellle/targets.vim" },
   {
     "hrsh7th/cmp-cmdline",
     config = function()
