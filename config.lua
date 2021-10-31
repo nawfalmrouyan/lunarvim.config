@@ -184,7 +184,7 @@ lvim.plugins = {
     config = function()
       require "user.evil_line"
     end,
-    event = "BufWinEnter",
+    event = "BufRead",
   },
   {
     "mbbill/undotree",
@@ -209,6 +209,7 @@ lvim.plugins = {
   },
   {
     "jose-elias-alvarez/nvim-lsp-ts-utils",
+    event = "BufRead",
     config = function()
       require("user.ts_utils").config()
     end,
@@ -244,26 +245,26 @@ lvim.plugins = {
   },
   { -- smooth scroll
     "karb94/neoscroll.nvim",
-    -- event = "BufRead",
+    event = "BufRead",
     config = function()
       require "user.neoscroll"
     end,
   },
-  { -- Interactive scratchpad
-    "metakirby5/codi.vim",
-    cmd = "Codi",
-    setup = function()
-      lvim.builtin.which_key.mappings["y"] = { "<cmd>Codi<CR>", "Codi" }
-      lvim.builtin.which_key.mappings["Y"] = { "<cmd>Codi!<CR>", "Clear Codi" }
-    end,
-  },
-  { -- Symbol Outline
-    "simrat39/symbols-outline.nvim",
-    setup = function()
-      lvim.builtin.which_key.mappings.l.o = { "<cmd>SymbolsOutline<cr>", "Outline" }
-    end,
-    event = "BufRead",
-  },
+  -- { -- Interactive scratchpad
+  --   "metakirby5/codi.vim",
+  --   cmd = "Codi",
+  --   setup = function()
+  --     lvim.builtin.which_key.mappings["y"] = { "<cmd>Codi<CR>", "Codi" }
+  --     lvim.builtin.which_key.mappings["Y"] = { "<cmd>Codi!<CR>", "Clear Codi" }
+  --   end,
+  -- },
+  -- { -- Symbol Outline
+  --   "simrat39/symbols-outline.nvim",
+  --   setup = function()
+  --     lvim.builtin.which_key.mappings.l.o = { "<cmd>SymbolsOutline<cr>", "Outline" }
+  --   end,
+  --   event = "BufRead",
+  -- },
   { -- better (IMHO) hop, sneak, quickscope
     "ggandor/lightspeed.nvim",
     config = function()
@@ -271,21 +272,21 @@ lvim.plugins = {
     end,
     event = "BufRead",
   },
-  { -- generate code links
-    "ruifm/gitlinker.nvim",
-    event = "BufRead",
-    config = function()
-      require("gitlinker").setup {
-        opts = {
-          add_current_line_on_normal_mode = true,
-          action_callback = require("gitlinker.actions").copy_to_clipboard,
-          print_url = false,
-          mappings = "<leader>gy",
-        },
-      }
-    end,
-    requires = "nvim-lua/plenary.nvim",
-  },
+  -- { -- generate code links
+  --   "ruifm/gitlinker.nvim",
+  --   event = "BufRead",
+  --   config = function()
+  --     require("gitlinker").setup {
+  --       opts = {
+  --         add_current_line_on_normal_mode = true,
+  --         action_callback = require("gitlinker.actions").copy_to_clipboard,
+  --         print_url = false,
+  --         mappings = "<leader>gy",
+  --       },
+  --     }
+  --   end,
+  --   requires = "nvim-lua/plenary.nvim",
+  -- },
   {
     "Pocco81/TrueZen.nvim",
     setup = function()
@@ -367,6 +368,7 @@ lvim.plugins = {
       map("x", "ii", "<cmd>lua require('vi-viz').vizInsert()<CR>", { noremap = true })
       map("x", "aa", "<cmd>lua require('vi-viz').vizAppend()<CR>", { noremap = true })
     end,
+    event = "BufRead",
   },
   -- { "github/copilot.vim", },
   -- {
