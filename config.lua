@@ -157,6 +157,20 @@ lvim.plugins = {
   { "wellle/targets.vim" },
   -- { "iamcco/markdown-preview.nvim", run = "cd app && npm install", ft = "markdown" },
   {
+    "ThePrimeagen/harpoon",
+    setup = function()
+      lvim.builtin.which_key.mappings["o"] = {
+        name = "Harpoon",
+        m = { "<cmd>lua require('harpoon.ui').toggle_quick_menu()<cr>", "Toggle Quick Menu" },
+        a = { "<cmd>lua require('harpoon.mark').add_file()<cr>", "Add File" },
+        j = { "<cmd>lua require('harpoon.ui').nav_file(1)<cr>", "Navigate to File 1" },
+        k = { "<cmd>lua require('harpoon.ui').nav_file(2)<cr>", "Navigate to File 2" },
+        l = { "<cmd>lua require('harpoon.ui').nav_file(3)<cr>", "Navigate to File 3" },
+        t = { "<cmd>lua require('harpoon.term').gotoTerminal(1)<cr>", "Go to Terminal 1"}
+      }
+    end,
+  },
+  {
     "hrsh7th/cmp-cmdline",
     config = function()
       require("cmp").setup.cmdline(":", { sources = { { name = "cmdline" } } })
