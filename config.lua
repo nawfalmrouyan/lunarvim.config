@@ -8,7 +8,7 @@ lvim.shell = "/usr/bin/zsh"
 vim.opt.timeoutlen = 500
 vim.opt.ignorecase = false
 vim.opt.smartcase = false
-vim.opt.guifont = "OpalSlab:h16"
+vim.opt.guifont = "Iosevka:h16"
 vim.opt.relativenumber = true
 vim.opt.list = true
 vim.opt.listchars = { eol = "¬", trail = "·", precedes = "…", extends = "…", tab = "→\\ " }
@@ -250,21 +250,21 @@ lvim.plugins = {
       require "user.neoscroll"
     end,
   },
-  -- { -- Interactive scratchpad
-  --   "metakirby5/codi.vim",
-  --   cmd = "Codi",
-  --   setup = function()
-  --     lvim.builtin.which_key.mappings["y"] = { "<cmd>Codi<CR>", "Codi" }
-  --     lvim.builtin.which_key.mappings["Y"] = { "<cmd>Codi!<CR>", "Clear Codi" }
-  --   end,
-  -- },
-  -- { -- Symbol Outline
-  --   "simrat39/symbols-outline.nvim",
-  --   setup = function()
-  --     lvim.builtin.which_key.mappings.l.o = { "<cmd>SymbolsOutline<cr>", "Outline" }
-  --   end,
-  --   event = "BufRead",
-  -- },
+  { -- Interactive scratchpad
+    "metakirby5/codi.vim",
+    cmd = "Codi",
+    setup = function()
+      lvim.builtin.which_key.mappings["y"] = { "<cmd>Codi<CR>", "Codi" }
+      lvim.builtin.which_key.mappings["Y"] = { "<cmd>Codi!<CR>", "Clear Codi" }
+    end,
+  },
+  { -- Symbol Outline
+    "simrat39/symbols-outline.nvim",
+    setup = function()
+      lvim.builtin.which_key.mappings.l.o = { "<cmd>SymbolsOutline<cr>", "Outline" }
+    end,
+    event = "BufRead",
+  },
   { -- better (IMHO) hop, sneak, quickscope
     "ggandor/lightspeed.nvim",
     config = function()
@@ -382,13 +382,13 @@ lvim.plugins = {
   --   "dsznajder/vscode-es7-javascript-react-snippets",
   --   event = "BufRead",
   -- },
-  -- {
-  --   "wfxr/minimap.vim",
-  --   setup = function()
-  --     lvim.builtin.which_key.mappings["m"] = { "<cmd>MinimapToggle<CR>", "Minimap" }
-  --   end,
-  --   event = "BufRead",
-  -- },
+  {
+    "wfxr/minimap.vim",
+    setup = function()
+      lvim.builtin.which_key.mappings["m"] = { "<cmd>MinimapToggle<CR>", "Minimap" }
+    end,
+    event = "BufRead",
+  },
   -- { -- floating terminal
   --   "voldikss/vim-floaterm",
   --   config = function()
