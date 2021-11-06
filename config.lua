@@ -39,25 +39,6 @@ lvim.builtin.treesitter.ensure_installed = "maintained"
 lvim.builtin.treesitter.highlight.enabled = true
 lvim.builtin.treesitter.rainbow.enable = true
 lvim.builtin.treesitter.autotag.enable = true
-lvim.builtin.treesitter.context_commentstring.enable = true
-lvim.builtin.treesitter.context_commentstring.enable_autocmd = false
-lvim.builtin.treesitter.context_commentstring.config = {
-  jsx_element = "{/* %s */}",
-  jsx_fragment = "{/* %s */}",
-  jsx_attribute = "// %s",
-  typescript = "// %s",
-  css = "/* %s */",
-  scss = "/* %s */",
-  html = "<!-- %s -->",
-  svelte = "<!-- %s -->",
-  vue = "<!-- %s -->",
-  json = "",
-}
-lvim.builtin.comment.pre_hook = function(ctx)
-  print("Hello-new", require("ts_context_commentstring.internal").calculate_commentstring(), ctx)
-  return require("ts_context_commentstring.internal").calculate_commentstring()
-  -- require('ts_context_commentstring.internal').update_commentstring()
-end
 
 lvim.builtin.telescope.on_config_done = function()
   require("telescope").load_extension "fzy_native"
@@ -107,19 +88,6 @@ lvim.builtin.treesitter.textobjects = {
   },
 }
 
-lvim.lang.lua.formatters = { { exe = "stylua" } }
-lvim.lang.python.formatters = { { exe = "black" }, { exe = "isort" } }
-lvim.lang.python.linters = { { exe = "flake8" } }
-lvim.lang.javascriptreact.formatters = { { exe = "prettier" } }
-lvim.lang.javascriptreact.linters = { { exe = "eslint_d" } }
-lvim.lang.typescriptreact.formatters = { { exe = "prettier" } }
-lvim.lang.typescriptreact.linters = { { exe = "eslint_d" } }
-lvim.lang.sh.formatters = { { exe = "shfmt", arg = "-i 2 -ci -bn" } }
-lvim.lang.typescript.on_attach = function(client, _)
-  require("nvim-lsp-ts-utils").setup_client(client)
-end
-lvim.lang.typescriptreact.on_attach = lvim.lang.typescript.on_attach
-
 -- Personal Keymaps
 lvim.keys.insert_mode["<M-o>"] = "<C-o>o"
 lvim.keys.insert_mode["<M-O>"] = "<C-o>O"
@@ -150,7 +118,7 @@ lvim.plugins = {
   { "tpope/vim-repeat", event = "BufRead" },
   { "p00f/nvim-ts-rainbow", event = "BufEnter" },
   { "windwp/nvim-ts-autotag", event = "InsertEnter" },
-  { "JoosepAlviste/nvim-ts-context-commentstring", event = "BufEnter" },
+  -- { "JoosepAlviste/nvim-ts-context-commentstring", event = "BufEnter" },
   { "romgrk/fzy-lua-native" },
   { "nvim-telescope/telescope-fzy-native.nvim", run = "make" },
   { "nvim-treesitter/nvim-treesitter-textobjects", before = "nvim-treesitter" },
