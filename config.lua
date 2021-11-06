@@ -189,21 +189,21 @@ lvim.plugins = {
     end,
     event = "BufRead",
   },
-  {
-    "jose-elias-alvarez/nvim-lsp-ts-utils",
-    event = "BufRead",
-    config = function()
-      require("user.ts_utils").config()
-    end,
-    ft = {
-      "javascript",
-      "javascriptreact",
-      "javascript.jsx",
-      "typescript",
-      "typescriptreact",
-      "typescript.tsx",
-    },
-  },
+  -- {
+  --   "jose-elias-alvarez/nvim-lsp-ts-utils",
+  --   event = "BufRead",
+  --   config = function()
+  --     require("user.ts_utils").config()
+  --   end,
+  --   ft = {
+  --     "javascript",
+  --     "javascriptreact",
+  --     "javascript.jsx",
+  --     "typescript",
+  --     "typescriptreact",
+  --     "typescript.tsx",
+  --   },
+  -- },
   {
     "f-person/git-blame.nvim",
     setup = function()
