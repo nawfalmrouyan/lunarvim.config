@@ -134,7 +134,7 @@ lvim.plugins = {
         j = { "<cmd>lua require('harpoon.ui').nav_file(1)<cr>", "Navigate to File 1" },
         k = { "<cmd>lua require('harpoon.ui').nav_file(2)<cr>", "Navigate to File 2" },
         l = { "<cmd>lua require('harpoon.ui').nav_file(3)<cr>", "Navigate to File 3" },
-        t = { "<cmd>lua require('harpoon.term').gotoTerminal(1)<cr>", "Go to Terminal 1"}
+        t = { "<cmd>lua require('harpoon.term').gotoTerminal(1)<cr>", "Go to Terminal 1" },
       }
     end,
   },
