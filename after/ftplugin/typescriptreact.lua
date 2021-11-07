@@ -1,9 +1,5 @@
-require("lvim.lsp.manager").setup("tailwindcss")
+require("lvim.lsp.manager").setup "tailwindcss"
 local formatters = require "lvim.lsp.null-ls.formatters"
-formatters.setup {
-  { exe = "prettier", filetypes = { "typescript", "typescriptreact" }, },
-}
+formatters.setup { { exe = "prettier" } }
 local linters = require "lvim.lsp.null-ls.linters"
-linters.setup {
-  { exe = "eslint_d", filetypes = { "javascript", "javascriptreact" }, },
-}
+linters.setup { { exe = "eslint_d" } }
