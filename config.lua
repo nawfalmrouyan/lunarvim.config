@@ -118,7 +118,6 @@ lvim.plugins = {
   { "tpope/vim-repeat", event = "BufRead" },
   { "p00f/nvim-ts-rainbow", event = "BufEnter" },
   { "windwp/nvim-ts-autotag", event = "InsertEnter" },
-  -- { "JoosepAlviste/nvim-ts-context-commentstring", event = "BufEnter" },
   { "romgrk/fzy-lua-native" },
   { "nvim-telescope/telescope-fzy-native.nvim", run = "make" },
   { "nvim-treesitter/nvim-treesitter-textobjects", before = "nvim-treesitter" },
