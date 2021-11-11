@@ -253,21 +253,21 @@ lvim.plugins = {
     end,
     event = "BufRead",
   },
-  -- { -- generate code links
-  --   "ruifm/gitlinker.nvim",
-  --   event = "BufRead",
-  --   config = function()
-  --     require("gitlinker").setup {
-  --       opts = {
-  --         add_current_line_on_normal_mode = true,
-  --         action_callback = require("gitlinker.actions").copy_to_clipboard,
-  --         print_url = false,
-  --         mappings = "<leader>gy",
-  --       },
-  --     }
-  --   end,
-  --   requires = "nvim-lua/plenary.nvim",
-  -- },
+  { -- generate code links
+    "ruifm/gitlinker.nvim",
+    event = "BufRead",
+    config = function()
+      require("gitlinker").setup {
+        opts = {
+          add_current_line_on_normal_mode = true,
+          action_callback = require("gitlinker.actions").copy_to_clipboard,
+          print_url = false,
+          mappings = "<leader>gy",
+        },
+      }
+    end,
+    requires = "nvim-lua/plenary.nvim",
+  },
   {
     "Pocco81/TrueZen.nvim",
     setup = function()
