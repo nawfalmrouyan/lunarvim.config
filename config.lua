@@ -1,7 +1,7 @@
 -- lvim.log.level = "warn"
 lvim.format_on_save = false
 lvim.lint_on_save = false
-lvim.colorscheme = "gruvbox-flat"
+lvim.colorscheme = "tokyonight"
 lvim.shell = "/usr/bin/zsh"
 -- lvim.transparent_window = true
 
@@ -352,13 +352,13 @@ lvim.plugins = {
   --   event = "BufRead",
   -- },
   -- { "github/copilot.vim", },
-  -- {
-  --   "folke/tokyonight.nvim",
-  --   -- event = "BufRead",
-  --   config = function()
-  --     require "user.tokyonight"
-  --   end,
-  -- },
+  {
+    "folke/tokyonight.nvim",
+    -- event = "BufRead",
+    config = function()
+      require "user.tokyonight"
+    end,
+  },
   -- {
   --   "dsznajder/vscode-es7-javascript-react-snippets",
   --   event = "BufRead",
@@ -370,6 +370,22 @@ lvim.plugins = {
     end,
     event = "BufRead",
   },
+  -- {
+  --   "rose-pine/neovim",
+  --   as = "rose-pine",
+  --   config = function()
+  --     -- Options (see available options below)
+  --     vim.g.rose_pine_variant = "base"
+  --     -- Disable italics
+  --     vim.g.rose_pine_disable_italics = false
+  --     -- Use terminal background
+  --     vim.g.rose_pine_disable_background = false
+  --     -- Use bold vertical split line
+  --     vim.g.rose_pine_bold_vertical_split_line = true
+  --     -- Load colorscheme after options
+  --     vim.cmd "colorscheme rose-pine"
+  --   end,
+  -- },
   -- { -- floating terminal
   --   "voldikss/vim-floaterm",
   --   config = function()
