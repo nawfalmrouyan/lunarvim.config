@@ -296,6 +296,7 @@ lvim.plugins = {
     config = function()
       require "user.gruvbox-flat"
     end,
+    event = "BufRead",
   },
   {
     "nvim-neorg/neorg",
