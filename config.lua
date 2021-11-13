@@ -188,21 +188,6 @@ lvim.plugins = {
     end,
     event = "BufRead",
   },
-  -- {
-  --   "jose-elias-alvarez/nvim-lsp-ts-utils",
-  --   event = "BufRead",
-  --   config = function()
-  --     require("user.ts_utils").config()
-  --   end,
-  --   ft = {
-  --     "javascript",
-  --     "javascriptreact",
-  --     "javascript.jsx",
-  --     "typescript",
-  --     "typescriptreact",
-  --     "typescript.tsx",
-  --   },
-  -- },
   {
     "f-person/git-blame.nvim",
     setup = function()
@@ -330,6 +315,35 @@ lvim.plugins = {
     end,
     requires = "vhyrro/neorg-telescope",
   },
+  {
+    "folke/tokyonight.nvim",
+    -- event = "BufRead",
+    config = function()
+      require "user.tokyonight"
+    end,
+  },
+  {
+    "wfxr/minimap.vim",
+    setup = function()
+      lvim.builtin.which_key.mappings["m"] = { "<cmd>MinimapToggle<CR>", "Minimap" }
+    end,
+    event = "BufRead",
+  },
+  -- {
+  --   "jose-elias-alvarez/nvim-lsp-ts-utils",
+  --   event = "BufRead",
+  --   config = function()
+  --     require("user.ts_utils").config()
+  --   end,
+  --   ft = {
+  --     "javascript",
+  --     "javascriptreact",
+  --     "javascript.jsx",
+  --     "typescript",
+  --     "typescriptreact",
+  --     "typescript.tsx",
+  --   },
+  -- },
   -- {
   --   "olambo/vi-viz",
   --   config = function()
@@ -353,24 +367,10 @@ lvim.plugins = {
   --   event = "BufRead",
   -- },
   -- { "github/copilot.vim", },
-  {
-    "folke/tokyonight.nvim",
-    -- event = "BufRead",
-    config = function()
-      require "user.tokyonight"
-    end,
-  },
   -- {
   --   "dsznajder/vscode-es7-javascript-react-snippets",
   --   event = "BufRead",
   -- },
-  {
-    "wfxr/minimap.vim",
-    setup = function()
-      lvim.builtin.which_key.mappings["m"] = { "<cmd>MinimapToggle<CR>", "Minimap" }
-    end,
-    event = "BufRead",
-  },
   -- {
   --   "rose-pine/neovim",
   --   as = "rose-pine",
