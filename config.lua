@@ -88,6 +88,16 @@ lvim.builtin.treesitter.textobjects = {
   },
 }
 
+table.insert(lvim.builtin.cmp.sources, { name = "neorg" })
+local parser_configs = require("nvim-treesitter.parsers").get_parser_configs()
+parser_configs.norg = {
+  install_info = {
+    url = "https://github.com/nvim-neorg/tree-sitter-norg",
+    files = { "src/parser.c", "src/scanner.cc" },
+    branch = "main",
+  },
+}
+
 -- Personal Keymaps
 lvim.keys.insert_mode["<M-o>"] = "<C-o>o"
 lvim.keys.insert_mode["<M-O>"] = "<C-o>O"
