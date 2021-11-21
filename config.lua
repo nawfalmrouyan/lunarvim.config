@@ -1,7 +1,7 @@
 -- lvim.log.level = "warn"
 lvim.format_on_save = false
 lvim.lint_on_save = false
-lvim.colorscheme = "tokyonight"
+lvim.colorscheme = "tokyodark"
 lvim.shell = "/usr/bin/zsh"
 -- lvim.transparent_window = true
 
@@ -122,6 +122,14 @@ lvim.plugins = {
   { "nvim-telescope/telescope-fzy-native.nvim", run = "make" },
   { "nvim-treesitter/nvim-treesitter-textobjects", before = "nvim-treesitter" },
   { "wellle/targets.vim" },
+  -- { "eddyekofo94/gruvbox-flat.nvim", config = function() require "user.gruvbox-flat" end, event = "BufRead", },
+  -- { "folke/tokyonight.nvim", -- event = "BufRead", config = function() require "user.tokyonight" end, },
+  {
+    "tiagovla/tokyodark.nvim",
+    config = function()
+      require "user.tokyodark"
+    end,
+  },
   -- { "iamcco/markdown-preview.nvim", run = "cd app && npm install", ft = "markdown" },
   {
     "ThePrimeagen/harpoon",
@@ -277,13 +285,6 @@ lvim.plugins = {
     end,
   },
   {
-    "eddyekofo94/gruvbox-flat.nvim",
-    config = function()
-      require "user.gruvbox-flat"
-    end,
-    event = "BufRead",
-  },
-  {
     "nvim-neorg/neorg",
     config = function()
       require("neorg").setup {
@@ -314,13 +315,6 @@ lvim.plugins = {
       }
     end,
     requires = "vhyrro/neorg-telescope",
-  },
-  {
-    "folke/tokyonight.nvim",
-    -- event = "BufRead",
-    config = function()
-      require "user.tokyonight"
-    end,
   },
   {
     "wfxr/minimap.vim",
