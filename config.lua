@@ -152,6 +152,7 @@ lvim.plugins = {
     "hrsh7th/cmp-cmdline",
     config = function()
       require("cmp").setup.cmdline(":", { sources = { { name = "cmdline" } } })
+      require("cmp").setup.cmdline("/", { sources = { { name = "buffer" } } })
     end,
   },
   {
