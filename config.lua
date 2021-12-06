@@ -337,39 +337,9 @@ lvim.plugins = {
     end,
     event = "BufRead",
   },
-  -- {
-  --   "jose-elias-alvarez/nvim-lsp-ts-utils",
-  --   event = "BufRead",
-  --   config = function()
-  --     require("user.ts_utils").config()
-  --   end,
-  --   ft = {
-  --     "javascript",
-  --     "javascriptreact",
-  --     "javascript.jsx",
-  --     "typescript",
-  --     "typescriptreact",
-  --     "typescript.tsx",
-  --   },
-  -- },
-  -- { "github/copilot.vim", },
-  -- {
-  --   "dsznajder/vscode-es7-javascript-react-snippets",
-  --   event = "BufRead",
-  -- },
-  -- { -- floating terminal
-  --   "voldikss/vim-floaterm",
-  --   config = function()
-  --     require "user.floaterm"
-  --   end,
-  --   event = "BufEnter",
-  -- },
 }
 
 lvim.autocommands.custom_groups = {
-  -- will check for external file changes on cursor hold
-  -- { "CursorHold", "*", "silent! checktime" },
-  -- will switch between absolute and relative line numbers depending on mode
   {
     "InsertEnter",
     "*",
@@ -378,10 +348,6 @@ lvim.autocommands.custom_groups = {
   { "InsertLeave", "*", 'if exists("g:backtorelative") | setlocal relativenumber cursorline | endif' },
   { "WinEnter", "*", "setlocal cursorline" },
   { "WinLeave", "*", "setlocal nocursorline" },
-  -- Terminal settings
-  -- { "TermOpen", "*", "startinsert" },
-  -- { "TermOpen", "*", "setlocal nonumber norelativenumber" },
-  -- { "TermOpen", "*", "nnoremap <buffer> <C-c> i<C-c>" },
 }
 
 lvim.builtin.which_key.mappings["S"] = {
@@ -390,7 +356,6 @@ lvim.builtin.which_key.mappings["S"] = {
   l = { "<cmd>SessionLoad<cr>", "Load Session" },
 }
 lvim.builtin.which_key.mappings["?"] = { "<cmd>NvimTreeFindFile<CR>", "Open current dir" }
--- lvim.builtin.which_key.mappings["c"] = { "<cmd>bdelete!<CR>", "Close buffer" }
 
 lvim.builtin.dashboard.custom_header = {
   "   ____              ______ _____ ____ ",
