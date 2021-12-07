@@ -30,10 +30,10 @@ lvim.builtin.which_key.mappings["P"] = { "<cmd>Telescope projects<CR>", "Project
 
 lvim.lsp.diagnostics.virtual_text = false
 lvim.lsp.diagnostics.signs.values = {
-  { name = "LspDiagnosticsSignError", text = " " },
-  { name = "LspDiagnosticsSignWarning", text = "" },
-  { name = "LspDiagnosticsSignHint", text = "" },
-  { name = "LspDiagnosticsSignInformation", text = "" },
+  { name = "DiagnosticsSignError", text = " " },
+  { name = "DiagnosticsSignWarning", text = "" },
+  { name = "DiagnosticsSignHint", text = "" },
+  { name = "DiagnosticsSignInformation", text = "" },
 }
 
 lvim.builtin.treesitter.ensure_installed = "maintained"
