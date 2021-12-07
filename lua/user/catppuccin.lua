@@ -1,7 +1,7 @@
-local catppuccino = require "catppuccino"
+local catppuccin = require "catppuccin"
 
 -- configure it
-catppuccino.setup {
+catppuccin.setup {
   colorscheme = "light_melya",
   transparency = false,
   term_colors = true,
@@ -38,10 +38,10 @@ catppuccino.setup {
       enabled = true,
       show_root = true,
     },
-    which_key = false,
+    which_key = true,
     indent_blankline = {
       enabled = true,
-      colored_indent_levels = false,
+      colored_indent_levels = true,
     },
     dashboard = true,
     neogit = false,
