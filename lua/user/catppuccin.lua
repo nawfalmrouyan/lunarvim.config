@@ -2,7 +2,7 @@ local catppuccin = require "catppuccin"
 
 -- configure it
 catppuccin.setup {
-  colorscheme = "light_melya",
+  -- colorscheme = "light_melya",
   transparency = false,
   term_colors = true,
   styles = {
