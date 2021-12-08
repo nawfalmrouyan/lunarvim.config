@@ -21,6 +21,7 @@ vim.cmd "set foldexpr=nvim_treesitter#foldexpr()"
 lvim.builtin.lualine.active = false
 lvim.builtin.bufferline.active = false
 lvim.builtin.dashboard.active = true
+lvim.builtin.notify.active = true
 lvim.builtin.dap.active = false
 lvim.builtin.terminal.active = true
 lvim.builtin.terminal.direction = "horizontal"
