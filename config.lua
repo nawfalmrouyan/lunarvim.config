@@ -30,12 +30,6 @@ lvim.builtin.terminal.shading_factor = 1
 lvim.builtin.which_key.mappings["P"] = { "<cmd>Telescope projects<CR>", "Projects" }
 
 lvim.lsp.diagnostics.virtual_text = false
--- lvim.lsp.diagnostics.signs.values = {
---   { name = "DiagnosticsSignError", text = " " },
---   { name = "DiagnosticsSignWarning", text = "" },
---   { name = "DiagnosticsSignHint", text = "" },
---   { name = "DiagnosticsSignInformation", text = "" },
--- }
 
 lvim.builtin.treesitter.ensure_installed = "maintained"
 lvim.builtin.treesitter.highlight.enabled = true
