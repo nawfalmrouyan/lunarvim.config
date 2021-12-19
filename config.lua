@@ -359,6 +359,7 @@ lvim.builtin.which_key.mappings["S"] = {
   l = { "<cmd>SessionLoad<cr>", "Load Session" },
 }
 lvim.builtin.which_key.mappings["?"] = { "<cmd>NvimTreeFindFile<CR>", "Open current dir" }
+lvim.builtin.which_key.mappings["c"] = { "<cmd>bdelete!<CR>", "Close Buffer" }
 
 lvim.builtin.dashboard.custom_header = {
   "   ____              ______ _____ ____ ",
