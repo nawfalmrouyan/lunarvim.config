@@ -129,14 +129,14 @@ lvim.plugins = {
       require "user.tokyodark"
     end,
   },
-  {
-    "catppuccin/nvim",
-    as = "catppuccin",
-    config = function()
-      require "user.catppuccin"
-    end,
-    event = "BufRead",
-  },
+  -- {
+  --   "catppuccin/nvim",
+  --   as = "catppuccin",
+  --   config = function()
+  --     require "user.catppuccin"
+  --   end,
+  --   event = "BufRead",
+  -- },
   -- { "iamcco/markdown-preview.nvim", run = "cd app && npm install", ft = "markdown" },
   {
     "ThePrimeagen/harpoon",
