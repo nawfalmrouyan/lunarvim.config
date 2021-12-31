@@ -15,7 +15,7 @@ vim.opt.listchars = { eol = "¬", trail = "·", precedes = "…", extends = "…
 vim.opt.scrolloff = 0
 vim.opt.sidescrolloff = 0
 vim.opt.inccommand = "split"
--- vim.cmd "set foldmethod=manual"
+vim.cmd "set foldmethod=manual"
 vim.cmd "set foldexpr=nvim_treesitter#foldexpr()"
 
 lvim.builtin.lualine.active = false
