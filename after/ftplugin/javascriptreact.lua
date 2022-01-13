@@ -1,8 +1,8 @@
 require("lvim.lsp.manager").setup "tailwindcss"
 local formatters = require "lvim.lsp.null-ls.formatters"
-formatters.setup { { exe = "prettier" } }
+formatters.setup { { command = "prettier" } }
 local linters = require "lvim.lsp.null-ls.linters"
-linters.setup { { exe = "eslint_d" } }
+linters.setup { { command = "eslint_d" } }
 
 local lspconfig = require'lspconfig'
 local configs = require'lspconfig.configs'
