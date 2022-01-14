@@ -1,7 +1,7 @@
 -- lvim.log.level = "warn"
 lvim.format_on_save = false
 lvim.lint_on_save = false
-lvim.colorscheme = "tokyodark"
+lvim.colorscheme = "duskfox"
 lvim.shell = "/usr/bin/zsh"
 -- lvim.transparent_window = true
 
@@ -127,11 +127,25 @@ lvim.plugins = {
   -- { "eddyekofo94/gruvbox-flat.nvim", config = function() require "user.gruvbox-flat" end, event = "BufRead", },
   -- { "folke/tokyonight.nvim", -- event = "BufRead", config = function() require "user.tokyonight" end, },
   {
-    "tiagovla/tokyodark.nvim",
+    "EdenEast/nightfox.nvim",
     config = function()
-      require "user.tokyodark"
+      local nightfox = require "nightfox"
+      nightfox.setup {
+        styles = {
+          comments = "italic",
+          keywords = "bold",
+          functions = "italic,bold",
+        },
+      }
+      nightfox.load()
     end,
   },
+  -- {
+  --   "tiagovla/tokyodark.nvim",
+  --   config = function()
+  --     require "user.tokyodark"
+  --   end,
+  -- },
   -- {
   --   "catppuccin/nvim",
   --   as = "catppuccin",
@@ -326,27 +340,27 @@ lvim.plugins = {
       }
       table.insert(lvim.builtin.cmp.sources, { name = "neorg" })
 
-      local parser_configs = require('nvim-treesitter.parsers').get_parser_configs()
+      local parser_configs = require("nvim-treesitter.parsers").get_parser_configs()
       parser_configs.norg = {
-          install_info = {
-              url = "https://github.com/nvim-neorg/tree-sitter-norg",
-              files = { "src/parser.c", "src/scanner.cc" },
-              branch = "main"
-          },
+        install_info = {
+          url = "https://github.com/nvim-neorg/tree-sitter-norg",
+          files = { "src/parser.c", "src/scanner.cc" },
+          branch = "main",
+        },
       }
       parser_configs.norg_meta = {
-          install_info = {
-              url = "https://github.com/nvim-neorg/tree-sitter-norg-meta",
-              files = { "src/parser.c" },
-              branch = "main"
-          },
+        install_info = {
+          url = "https://github.com/nvim-neorg/tree-sitter-norg-meta",
+          files = { "src/parser.c" },
+          branch = "main",
+        },
       }
       parser_configs.norg_table = {
-          install_info = {
-              url = "https://github.com/nvim-neorg/tree-sitter-norg-table",
-              files = { "src/parser.c" },
-              branch = "main"
-          },
+        install_info = {
+          url = "https://github.com/nvim-neorg/tree-sitter-norg-table",
+          files = { "src/parser.c" },
+          branch = "main",
+        },
       }
     end,
     requires = "vhyrro/neorg-telescope",
