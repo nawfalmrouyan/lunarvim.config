@@ -40,49 +40,49 @@ lvim.builtin.telescope.on_config_done = function()
   require("telescope").load_extension "fzy_native"
 end
 
-lvim.builtin.treesitter.textobjects = {
-  lookahead = true,
-  select = {
-    enable = true,
-    keymaps = {
-      ["af"] = "@function.outer",
-      ["if"] = "@function.inner",
-      ["ac"] = "@class.outer",
-      ["ic"] = "@class.inner",
-      ["aC"] = "@conditional.outer",
-      ["iC"] = "@conditional.inner",
-    },
-  },
-  swap = {
-    enable = true,
-    swap_next = {
-      ["[w"] = "@parameter.inner",
-    },
-    swap_previous = {
-      ["]w"] = "@parameter.inner",
-    },
-  },
-  move = {
-    enable = true,
-    set_jumps = true, -- whether to set jumps in the jumplist
-    goto_next_start = {
-      ["]m"] = "@function.outer",
-      ["]]"] = "@class.outer",
-    },
-    goto_previous_start = {
-      ["[m"] = "@function.outer",
-      ["[["] = "@class.outer",
-    },
-  },
-  lsp_interop = {
-    enable = true,
-    border = "rounded",
-    peek_definition_code = {
-      ["df"] = "@function.outer",
-      ["dF"] = "@class.outer",
-    },
-  },
-}
+-- lvim.builtin.treesitter.textobjects = {
+--   lookahead = true,
+--   select = {
+--     enable = true,
+--     keymaps = {
+--       ["af"] = "@function.outer",
+--       ["if"] = "@function.inner",
+--       ["ac"] = "@class.outer",
+--       ["ic"] = "@class.inner",
+--       ["aC"] = "@conditional.outer",
+--       ["iC"] = "@conditional.inner",
+--     },
+--   },
+--   swap = {
+--     enable = true,
+--     swap_next = {
+--       ["[w"] = "@parameter.inner",
+--     },
+--     swap_previous = {
+--       ["]w"] = "@parameter.inner",
+--     },
+--   },
+--   move = {
+--     enable = true,
+--     set_jumps = true, -- whether to set jumps in the jumplist
+--     goto_next_start = {
+--       ["]m"] = "@function.outer",
+--       ["]]"] = "@class.outer",
+--     },
+--     goto_previous_start = {
+--       ["[m"] = "@function.outer",
+--       ["[["] = "@class.outer",
+--     },
+--   },
+--   lsp_interop = {
+--     enable = true,
+--     border = "rounded",
+--     peek_definition_code = {
+--       ["df"] = "@function.outer",
+--       ["dF"] = "@class.outer",
+--     },
+--   },
+-- }
 
 -- Remove tailwindcss from lvim.lsp.override table
 table.remove(lvim.lsp.override, 28)
@@ -113,7 +113,7 @@ lvim.keys.visual_block_mode["P"] = '"_c<c-r>0<esc>'
 
 -- Additional Plugins
 lvim.plugins = {
-  { "nathom/filetype.nvim" },
+  -- { "nathom/filetype.nvim" },
   { "tpope/vim-surround", event = "BufRead" },
   { "michaeljsmith/vim-indent-object", event = "BufRead" },
   { "tweekmonster/startuptime.vim" },
@@ -123,7 +123,7 @@ lvim.plugins = {
   { "windwp/nvim-ts-autotag", event = "InsertEnter" },
   { "romgrk/fzy-lua-native" },
   { "nvim-telescope/telescope-fzy-native.nvim", run = "make" },
-  { "nvim-treesitter/nvim-treesitter-textobjects", before = "nvim-treesitter" },
+  -- { "nvim-treesitter/nvim-treesitter-textobjects", before = "nvim-treesitter" },
   { "wellle/targets.vim" },
   -- { "eddyekofo94/gruvbox-flat.nvim", config = function() require "user.gruvbox-flat" end, event = "BufRead", },
   -- { "folke/tokyonight.nvim", -- event = "BufRead", config = function() require "user.tokyonight" end, },
