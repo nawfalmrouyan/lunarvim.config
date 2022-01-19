@@ -113,7 +113,7 @@ lvim.keys.visual_block_mode["P"] = '"_c<c-r>0<esc>'
 
 -- Additional Plugins
 lvim.plugins = {
-  -- { "nathom/filetype.nvim" },
+  { "nathom/filetype.nvim" },
   { "tpope/vim-surround", event = "BufRead" },
   { "michaeljsmith/vim-indent-object", event = "BufRead" },
   { "tweekmonster/startuptime.vim" },
