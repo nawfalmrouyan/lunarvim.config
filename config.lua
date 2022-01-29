@@ -366,13 +366,6 @@ lvim.plugins = {
     end,
     requires = "vhyrro/neorg-telescope",
   },
-  -- {
-  --   "wfxr/minimap.vim",
-  --   setup = function()
-  --     lvim.builtin.which_key.mappings["m"] = { "<cmd>MinimapToggle<CR>", "Minimap" }
-  --   end,
-  --   event = "BufRead",
-  -- },
 }
 
 lvim.autocommands.custom_groups = {
