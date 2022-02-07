@@ -85,8 +85,9 @@ lvim.builtin.treesitter.textobjects = {
 }
 
 -- Remove tailwindcss from lvim.lsp.override table
-table.remove(lvim.lsp.override, 29)
-table.remove(lvim.lsp.override, 29)
+table.remove(lvim.lsp.override, 30)
+table.remove(lvim.lsp.override, 30)
+table.remove(lvim.lsp.override, 33)
 
 -- Personal Keymaps
 lvim.keys.insert_mode["<M-o>"] = "<C-o>o"
