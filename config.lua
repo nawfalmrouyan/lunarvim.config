@@ -128,6 +128,24 @@ lvim.plugins = {
   -- { "eddyekofo94/gruvbox-flat.nvim", config = function() require "user.gruvbox-flat" end, event = "BufRead", },
   -- { "folke/tokyonight.nvim", -- event = "BufRead", config = function() require "user.tokyonight" end, },
   {
+    "mickael-menu/zk-nvim",
+    config = function()
+      require("zk").setup {
+        picker = "telescope",
+        lsp = {
+          config = {
+            cmd = { "zk", "lsp" },
+            name = "zk",
+          },
+        },
+        auto_attach = {
+          enabled = true,
+          filetypes = { "markdown" },
+        },
+      }
+    end,
+  },
+  {
     "EdenEast/nightfox.nvim",
     config = function()
       local nightfox = require "nightfox"
