@@ -19,7 +19,7 @@ vim.cmd "set foldmethod=manual"
 vim.cmd "set foldexpr=nvim_treesitter#foldexpr()"
 
 lvim.builtin.lualine.active = false
-lvim.builtin.bufferline.active = false
+lvim.builtin.bufferline.active = true
 lvim.builtin.dashboard.active = true
 lvim.builtin.notify.active = true
 lvim.builtin.dap.active = false
@@ -315,13 +315,13 @@ lvim.plugins = {
     end,
     event = "BufRead",
   },
-  {
-    "akinsho/bufferline.nvim",
-    config = function()
-      require("user.bufferline").config()
-    end,
-    requires = "nvim-web-devicons",
-  },
+  -- {
+  --   "akinsho/bufferline.nvim",
+  --   config = function()
+  --     require("user.bufferline").config()
+  --   end,
+  --   requires = "nvim-web-devicons",
+  -- },
   { -- diagnostics
     "folke/trouble.nvim",
     cmd = "TroubleToggle",
