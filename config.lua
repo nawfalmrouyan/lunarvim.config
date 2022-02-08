@@ -126,8 +126,6 @@ lvim.plugins = {
   { "nvim-telescope/telescope-fzy-native.nvim", run = "make" },
   { "nvim-treesitter/nvim-treesitter-textobjects", before = "nvim-treesitter" },
   { "wellle/targets.vim" },
-  -- { "eddyekofo94/gruvbox-flat.nvim", config = function() require "user.gruvbox-flat" end, event = "BufRead", },
-  -- { "folke/tokyonight.nvim", -- event = "BufRead", config = function() require "user.tokyonight" end, },
   {
     "mickael-menu/zk-nvim",
     config = function()
@@ -160,20 +158,6 @@ lvim.plugins = {
       nightfox.load()
     end,
   },
-  -- {
-  --   "tiagovla/tokyodark.nvim",
-  --   config = function()
-  --     require "user.tokyodark"
-  --   end,
-  -- },
-  -- {
-  --   "catppuccin/nvim",
-  --   as = "catppuccin",
-  --   config = function()
-  --     require "user.catppuccin"
-  --   end,
-  --   event = "BufRead",
-  -- },
   -- { "iamcco/markdown-preview.nvim", run = "cd app && npm install", ft = "markdown" },
   {
     "ThePrimeagen/harpoon",
@@ -315,13 +299,6 @@ lvim.plugins = {
     end,
     event = "BufRead",
   },
-  -- {
-  --   "akinsho/bufferline.nvim",
-  --   config = function()
-  --     require("user.bufferline").config()
-  --   end,
-  --   requires = "nvim-web-devicons",
-  -- },
   { -- diagnostics
     "folke/trouble.nvim",
     cmd = "TroubleToggle",
