@@ -1,29 +1,44 @@
 local M = {}
 
 M.config = function()
-  vim.cmd [[
-nmap <C-a> <Plug>(dial-increment)
-nmap <C-x> <Plug>(dial-decrement)
-vmap <C-a> <Plug>(dial-increment)
-vmap <C-x> <Plug>(dial-decrement)
-vmap g<C-a> <Plug>(dial-increment-additional)
-vmap g<C-x> <Plug>(dial-decrement-additional)
-]]
 
-  local dial = require "dial"
-
-  dial.augends["custom#boolean"] = dial.common.enum_cyclic {
-    name = "boolean",
-    strlist = { "true", "false" },
+  local augend = require "dial.augend"
+  require("dial.config").augends:register_group {
+    default = {
+      augend.integer.alias.decimal,
+      augend.integer.alias.decimal_int,
+      augend.integer.alias.hex,
+      augend.integer.alias.binary,
+      augend.integer.alias.octal,
+      augend.date.alias["%Y/%m/%d"],
+      augend.constant.alias.bool,
+      augend.constant.alias.alpha,
+      augend.constant.alias.Alpha,
+      augend.hexcolor.new{
+        case = "lower",
+      },
+      augend.semver.alias.semver,
+    },
+    visual = {
+      augend.integer.alias.decimal,
+      augend.integer.alias.hex,
+      augend.date.alias["%Y/%m/%d"],
+      augend.constant.alias.alpha,
+      augend.constant.alias.Alpha,
+    },
   }
-  table.insert(dial.config.searchlist.normal, "custom#boolean")
 
-  -- For Languages which prefer True/False, e.g. python.
-  dial.augends["custom#Boolean"] = dial.common.enum_cyclic {
-    name = "Boolean",
-    strlist = { "True", "False" },
-  }
-  table.insert(dial.config.searchlist.normal, "custom#Boolean")
+  -- change augends in VISUAL mode
+  vim.api.nvim_set_keymap("v", "<C-a>", require("dial.map").inc_normal "visual", { noremap = true })
+  vim.api.nvim_set_keymap("v", "<C-x>", require("dial.map").dec_normal "visual", { noremap = true })
+
+  vim.api.nvim_set_keymap("n", "<C-a>", require("dial.map").inc_normal(), { noremap = true })
+  vim.api.nvim_set_keymap("n", "<C-x>", require("dial.map").dec_normal(), { noremap = true })
+  vim.api.nvim_set_keymap("v", "<C-a>", require("dial.map").inc_visual(), { noremap = true })
+  vim.api.nvim_set_keymap("v", "<C-x>", require("dial.map").dec_visual(), { noremap = true })
+  vim.api.nvim_set_keymap("v", "g<C-a>", require("dial.map").inc_gvisual(), { noremap = true })
+  vim.api.nvim_set_keymap("v", "g<C-x>", require("dial.map").dec_gvisual(), { noremap = true })
+
 end
 
 return M
