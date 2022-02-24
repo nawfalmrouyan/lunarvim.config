@@ -297,7 +297,7 @@ lvim.plugins = {
     setup = function()
       vim.api.nvim_set_keymap("n", "<M-=>", ":TZFocus<cr>", { noremap = true, silent = true })
       vim.api.nvim_set_keymap("t", "<M-=>", "<C-\\><C-n>:TZFocus<cr>i", { noremap = true, silent = true })
-      lvim.builtin.which_key.mappings["z"] = { "<cmd>TZAtaraxis<CR>", "Zen Mode" }
+      lvim.builtin.which_key.mappings["Z"] = { "<cmd>TZAtaraxis<CR>", "Zen Mode" }
     end,
     event = "BufRead",
   },
@@ -384,6 +384,7 @@ lvim.builtin.which_key.mappings["S"] = {
 }
 lvim.builtin.which_key.mappings["?"] = { "<cmd>NvimTreeFindFile<CR>", "Open current dir" }
 lvim.builtin.which_key.mappings["c"] = { "<cmd>bdelete!<CR>", "Close Buffer" }
+lvim.builtin.which_key.mappings["z"] = { "<cmd>ZkNotes<CR>", "Zk Notes" }
 
 lvim.builtin.dashboard.custom_header = {
   "   ____              ______ _____ ____ ",
