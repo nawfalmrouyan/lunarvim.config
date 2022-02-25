@@ -29,7 +29,7 @@ lvim.builtin.terminal.size = 10
 lvim.builtin.terminal.shading_factor = 1
 lvim.builtin.which_key.mappings["P"] = { "<cmd>Telescope projects<CR>", "Projects" }
 
-lvim.builtin.dashboard.custom_section.g = { description = { "  Notes              " }, command = "ZkNotes" }
+-- lvim.builtin.dashboard.custom_section.g = { description = { "  Notes              " }, command = "ZkNotes" }
 
 lvim.lsp.diagnostics.virtual_text = false
 
@@ -272,6 +272,7 @@ lvim.plugins = {
   },
   { -- better (IMHO) hop, sneak, quickscope
     "ggandor/lightspeed.nvim",
+    commit = "74408c69cc92d74fc450811372675562826d6f2f",
     config = function()
       require "user.lightspeed"
     end,
@@ -385,7 +386,7 @@ lvim.builtin.which_key.mappings["S"] = {
 lvim.builtin.which_key.mappings["?"] = { "<cmd>NvimTreeFindFile<CR>", "Open current dir" }
 lvim.builtin.which_key.mappings["c"] = { "<cmd>bdelete!<CR>", "Close Buffer" }
 lvim.builtin.which_key.mappings["z"] = { "<cmd>ZkNotes<CR>", "Zk Notes" }
-vim.api.nvim_set_keymap('n', '<TAB>', ':BufferLinePick<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<TAB>", ":BufferLinePick<CR>", { noremap = true, silent = true })
 
 lvim.builtin.dashboard.custom_header = {
   "   ____              ______ _____ ____ ",
