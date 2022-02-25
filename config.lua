@@ -385,6 +385,7 @@ lvim.builtin.which_key.mappings["S"] = {
 lvim.builtin.which_key.mappings["?"] = { "<cmd>NvimTreeFindFile<CR>", "Open current dir" }
 lvim.builtin.which_key.mappings["c"] = { "<cmd>bdelete!<CR>", "Close Buffer" }
 lvim.builtin.which_key.mappings["z"] = { "<cmd>ZkNotes<CR>", "Zk Notes" }
+vim.api.nvim_set_keymap('n', '<TAB>', ':BufferLinePick<CR>', { noremap = true, silent = true })
 
 lvim.builtin.dashboard.custom_header = {
   "   ____              ______ _____ ____ ",
