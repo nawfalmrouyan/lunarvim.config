@@ -157,6 +157,8 @@ lvim.plugins = {
 
       commands.add("ZkOrphans", make_edit_fn({ orphan = true }, { title = "Zk Orphans" }))
       commands.add("ZkRecents", make_edit_fn({ createdAfter = "2 weeks ago" }, { title = "Zk Recents" }))
+
+      require("telescope").load_extension "zk"
     end,
   },
   {
@@ -398,8 +400,18 @@ lvim.builtin.which_key.mappings["S"] = {
 }
 lvim.builtin.which_key.mappings["?"] = { "<cmd>NvimTreeFindFile<CR>", "Open current dir" }
 lvim.builtin.which_key.mappings["c"] = { "<cmd>bdelete!<CR>", "Close Buffer" }
-lvim.builtin.which_key.mappings["z"] = { "<cmd>ZkNotes<CR>", "Zk Notes" }
 vim.api.nvim_set_keymap("n", "<TAB>", ":BufferLinePick<CR>", { noremap = true, silent = true })
+lvim.builtin.which_key.mappings["z"] = {
+  name = "Zk",
+  l = { "<cmd>ZkNotes<CR>", "All Notes" },
+  nf = { "<cmd>ZkNew {dir='fleeting'}<CR>", "New fleeting note" },
+  nl = { "<cmd>ZkNew {dir='literature'}<CR>", "New literature note" },
+  np = { "<cmd>ZkNew {dir='permanent'}<CR>", "New permanent note" },
+  o = { "<cmd>ZkOrphans<CR>", "Orphan notes" },
+  r = { "<cmd>ZkRecents<CR>", "Recent notes" },
+  t = { "<cmd>ZkTags<CR>", "Tags" },
+  f = { "<Cmd>ZkNotes { sort = { 'modified' }, match = vim.fn.input('Search: ') }<CR>" },
+}
 
 lvim.builtin.dashboard.custom_header = {
   "   ____              ______ _____ ____ ",
