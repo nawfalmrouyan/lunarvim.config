@@ -99,6 +99,7 @@ lvim.keys.normal_mode["<M-r>"] = ":set relativenumber! relativenumber?<cr>"
 -- disable default keybindings for H/L
 lvim.keys.normal_mode["<S-h>"] = false
 lvim.keys.normal_mode["<S-l>"] = false
+lvim.keys.normal_mode["<TAB>"] = ":BufferLinePick<CR>"
 -- insert blank lines
 lvim.keys.normal_mode["<M-o>"] = "o<esc>"
 lvim.keys.normal_mode["<M-O>"] = "O<esc>"
@@ -400,7 +401,6 @@ lvim.builtin.which_key.mappings["S"] = {
 }
 lvim.builtin.which_key.mappings["?"] = { "<cmd>NvimTreeFindFile<CR>", "Open current dir" }
 lvim.builtin.which_key.mappings["c"] = { "<cmd>bdelete!<CR>", "Close Buffer" }
-vim.api.nvim_set_keymap("n", "<TAB>", ":BufferLinePick<CR>", { noremap = true, silent = true })
 lvim.builtin.which_key.mappings["z"] = {
   name = "Zk",
   l = { "<cmd>ZkNotes<CR>", "All Notes" },
