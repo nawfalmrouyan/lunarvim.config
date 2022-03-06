@@ -313,7 +313,7 @@ lvim.plugins = {
     "Pocco81/TrueZen.nvim",
     setup = function()
       vim.api.nvim_set_keymap("n", "<M-=>", ":TZFocus<cr>", { noremap = true, silent = true })
-      vim.api.nvim_set_keymap("t", "<M-=>", "<C-\\><C-n>:TZFocus<cr>i", { noremap = true, silent = true })
+      vim.api.nvim_set_keymap("t", "<M-=>", "<C-\\><C-n>:TZFocus<cr>", { noremap = true, silent = true })
       lvim.builtin.which_key.mappings["Z"] = { "<cmd>TZAtaraxis<CR>", "Zen Mode" }
     end,
     event = "BufRead",
