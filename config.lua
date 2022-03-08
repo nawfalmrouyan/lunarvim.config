@@ -8,7 +8,7 @@ lvim.shell = "/usr/bin/zsh"
 vim.opt.timeoutlen = 500
 vim.opt.ignorecase = false
 vim.opt.smartcase = false
-vim.opt.guifont = "Iosevka:h16"
+vim.opt.guifont = "OpalSlab:h16"
 vim.opt.relativenumber = true
 vim.opt.list = true
 vim.opt.listchars = { eol = "¬", trail = "·", precedes = "…", extends = "…", tab = "→\\ " }
@@ -129,6 +129,18 @@ lvim.plugins = {
   { "nvim-telescope/telescope-fzy-native.nvim", run = "make" },
   { "nvim-treesitter/nvim-treesitter-textobjects", before = "nvim-treesitter" },
   { "wellle/targets.vim" },
+  -- {
+  --   "glacambre/firenvim",
+  --   run = function()
+  --     vim.fn["firenvim#install"](0)
+  --   end,
+  -- },
+  {
+    "subnut/nvim-ghost.nvim",
+    run = function()
+      vim.fn["nvim_ghost#installer#install"]()
+    end,
+  },
   {
     "mickael-menu/zk-nvim",
     config = function()
