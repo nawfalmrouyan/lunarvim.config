@@ -29,6 +29,7 @@ lvim.builtin.terminal.direction = "horizontal"
 lvim.builtin.terminal.size = 10
 lvim.builtin.terminal.shading_factor = 1
 lvim.builtin.which_key.mappings["P"] = { "<cmd>Telescope projects<CR>", "Projects" }
+lvim.builtin.notify.opts.timeout = 3000
 
 -- lvim.builtin.dashboard.custom_section.g = { description = { "  Notes              " }, command = "ZkNotes" }
 
@@ -42,6 +43,7 @@ lvim.builtin.treesitter.autotag.enable = true
 lvim.builtin.telescope.on_config_done = function()
   require("telescope").load_extension "fzy_native"
 end
+
 
 lvim.builtin.treesitter.textobjects = {
   lookahead = true,
@@ -88,9 +90,9 @@ lvim.builtin.treesitter.textobjects = {
 }
 
 -- Remove tailwindcss from lvim.lsp.override table
-table.remove(lvim.lsp.override, 31) -- stylelint_lsp
-table.remove(lvim.lsp.override, 31) -- tailwindcss
-table.remove(lvim.lsp.override, 35) -- zk
+table.remove(lvim.lsp.override, 32) -- stylelint_lsp
+table.remove(lvim.lsp.override, 32) -- tailwindcss
+table.remove(lvim.lsp.override, 36) -- zk
 
 -- Personal Keymaps
 lvim.keys.insert_mode["<M-o>"] = "<C-o>o"
@@ -98,8 +100,8 @@ lvim.keys.insert_mode["<M-O>"] = "<C-o>O"
 lvim.keys.normal_mode["<M-w>"] = ":set wrap! wrap?<cr>"
 lvim.keys.normal_mode["<M-r>"] = ":set relativenumber! relativenumber?<cr>"
 -- disable default keybindings for H/L
-lvim.keys.normal_mode["<S-h>"] = false
-lvim.keys.normal_mode["<S-l>"] = false
+-- lvim.keys.normal_mode["<S-h>"] = false
+-- lvim.keys.normal_mode["<S-l>"] = false
 lvim.keys.normal_mode["<TAB>"] = ":BufferLinePick<CR>"
 -- insert blank lines
 lvim.keys.normal_mode["<M-o>"] = "o<esc>"
@@ -416,7 +418,7 @@ lvim.builtin.which_key.mappings["?"] = { "<cmd>NvimTreeFindFile<CR>", "Open curr
 lvim.builtin.which_key.mappings["c"] = { "<cmd>bdelete!<CR>", "Close Buffer" }
 lvim.builtin.which_key.mappings["z"] = {
   name = "Zk",
-  l = { "<cmd>ZkNotes<CR>", "All Notes" },
+  T = { "<cmd>ZkNotes<CR>", "All Notes" },
   nf = { "<cmd>ZkNew {dir='fleeting'}<CR>", "New fleeting note" },
   nl = { "<cmd>ZkNew {dir='literature'}<CR>", "New literature note" },
   np = { "<cmd>ZkNew {dir='permanent'}<CR>", "New permanent note" },
