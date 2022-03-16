@@ -179,15 +179,15 @@ lvim.plugins = {
   {
     "EdenEast/nightfox.nvim",
     config = function()
-      local nightfox = require "nightfox"
-      nightfox.setup {
-        styles = {
-          comments = "italic",
-          keywords = "bold",
-          functions = "italic,bold",
+      require("nightfox").setup {
+        options = {
+          styles = {
+            comments = "italic",
+            keywords = "bold",
+            functions = "italic,bold",
+          },
         },
       }
-      nightfox.load()
     end,
   },
   { "iamcco/markdown-preview.nvim", run = "cd app && npm install", ft = "markdown" },
