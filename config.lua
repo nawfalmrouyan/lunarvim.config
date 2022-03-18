@@ -9,7 +9,7 @@ vim.opt.cmdheight = 1
 vim.opt.timeoutlen = 500
 vim.opt.ignorecase = false
 vim.opt.smartcase = false
-vim.opt.guifont = "OpalSlab:h16"
+vim.opt.guifont = "Iosevka Mayukai Codepro:h15"
 vim.opt.relativenumber = true
 vim.opt.list = true
 vim.opt.listchars = { eol = "¬", trail = "·", precedes = "…", extends = "…", tab = "→\\ " }
