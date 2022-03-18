@@ -132,6 +132,15 @@ lvim.plugins = {
   { "nvim-telescope/telescope-fzy-native.nvim", run = "make" },
   { "nvim-treesitter/nvim-treesitter-textobjects", before = "nvim-treesitter" },
   { "wellle/targets.vim" },
+  {
+    "ellisonleao/glow.nvim",
+    config = function()
+      vim.g.glow_border = "rounded"
+      -- vim.g.glow_use_pager = true
+      lvim.builtin.which_key.mappings["m"] = { "<cmd>Glow<CR>", "Markdown Preview" }
+    end,
+    -- ft = "markdown",
+  },
   -- {
   --   "glacambre/firenvim",
   --   run = function()
