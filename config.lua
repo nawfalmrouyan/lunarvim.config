@@ -103,8 +103,8 @@ lvim.keys.normal_mode["<M-r>"] = ":set relativenumber! relativenumber?<cr>"
 lvim.keys.normal_mode["<S-h>"] = false
 lvim.keys.normal_mode["<S-l>"] = false
 lvim.keys.normal_mode["<TAB>"] = ":BufferLinePick<CR>"
-lvim.keys.normal_mode["<leader>j"] = ":bprev<CR>"
-lvim.keys.normal_mode["<leader>k"] = ":bnext<CR>"
+lvim.keys.normal_mode["<leader>j"] = ":BufferLineCycleNext<CR>"
+lvim.keys.normal_mode["<leader>k"] = ":BufferLineCyclePrev<CR>"
 -- insert blank lines
 lvim.keys.normal_mode["<M-o>"] = "o<esc>"
 lvim.keys.normal_mode["<M-O>"] = "O<esc>"
