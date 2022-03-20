@@ -200,6 +200,7 @@ lvim.plugins = {
           },
         },
       }
+      vim.cmd "colorscheme duskfox"
     end,
   },
   { "iamcco/markdown-preview.nvim", run = "cd app && npm install", ft = "markdown" },
