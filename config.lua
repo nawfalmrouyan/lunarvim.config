@@ -22,7 +22,7 @@ vim.go.laststatus = 3
 
 lvim.builtin.lualine.active = false
 lvim.builtin.bufferline.active = true
-lvim.builtin.dashboard.active = true
+lvim.builtin.alpha.mode = "dashboard"
 lvim.builtin.notify.active = true
 lvim.builtin.dap.active = false
 lvim.builtin.terminal.active = true
@@ -439,7 +439,7 @@ lvim.builtin.which_key.mappings["z"] = {
   f = { "<Cmd>ZkNotes { sort = { 'modified' }, match = vim.fn.input('Search: ') }<CR>" },
 }
 
-lvim.builtin.dashboard.custom_header = {
+lvim.builtin.alpha.dashboard.section.header.val = {
   "   ____              ______ _____ ____ ",
   "  / __ \\____  ____ _/ / __ / ___// __ \\",
   " / / / / __ \\/ __ `/ / __  \\__ \\/ / / /",
