@@ -32,8 +32,6 @@ lvim.builtin.terminal.shading_factor = 1
 lvim.builtin.which_key.mappings["P"] = { "<cmd>Telescope projects<CR>", "Projects" }
 lvim.builtin.notify.opts.timeout = 3000
 
--- lvim.builtin.dashboard.custom_section.g = { description = { "  Notes              " }, command = "ZkNotes" }
-
 lvim.lsp.diagnostics.virtual_text = false
 
 lvim.builtin.treesitter.ensure_installed = "maintained"
