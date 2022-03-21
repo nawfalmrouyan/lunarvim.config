@@ -147,12 +147,12 @@ lvim.plugins = {
   --     vim.fn["firenvim#install"](0)
   --   end,
   -- },
-  {
-    "subnut/nvim-ghost.nvim",
-    run = function()
-      vim.fn["nvim_ghost#installer#install"]()
-    end,
-  },
+  -- {
+  --   "subnut/nvim-ghost.nvim",
+  --   run = function()
+  --     vim.fn["nvim_ghost#installer#install"]()
+  --   end,
+  -- },
   {
     "mickael-menu/zk-nvim",
     config = function()
