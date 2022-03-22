@@ -136,17 +136,10 @@ lvim.plugins = {
     "ellisonleao/glow.nvim",
     config = function()
       vim.g.glow_border = "rounded"
-      -- vim.g.glow_use_pager = true
       lvim.builtin.which_key.mappings["m"] = { "<cmd>Glow<CR>", "Markdown Preview" }
     end,
     -- ft = "markdown",
   },
-  -- {
-  --   "glacambre/firenvim",
-  --   run = function()
-  --     vim.fn["firenvim#install"](0)
-  --   end,
-  -- },
   -- {
   --   "subnut/nvim-ghost.nvim",
   --   run = function()
