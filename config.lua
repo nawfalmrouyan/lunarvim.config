@@ -306,7 +306,7 @@ lvim.plugins = {
   },
   { -- better (IMHO) hop, sneak, quickscope
     "ggandor/lightspeed.nvim",
-    commit = "74408c69cc92d74fc450811372675562826d6f2f",
+    -- commit = "74408c69cc92d74fc450811372675562826d6f2f",
     config = function()
       require "user.lightspeed"
     end,
