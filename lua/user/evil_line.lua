@@ -203,14 +203,14 @@ local default = {
   show_last_status = true,
 }
 
-local disable = {
-  -- filetypes = { "dashboard", "terminal", "minimap", "packer" },
-  filetypes = { "dashboard", "terminal", "minimap" },
-  active = {
-    { " ", hl_list.Inactive },
-  },
-  always_active = true,
-}
+-- local disable = {
+--   -- filetypes = { "dashboard", "terminal", "minimap", "packer" },
+--   filetypes = { "dashboard", "terminal", "minimap" },
+--   active = {
+--     { " ", hl_list.Inactive },
+--   },
+--   always_active = true,
+-- }
 
 windline.setup {
   colors_name = function(colors)
@@ -222,6 +222,6 @@ windline.setup {
     default,
     quickfix,
     explorer,
-    disable,
+    -- disable,
   },
 }
