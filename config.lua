@@ -441,8 +441,8 @@ lvim.builtin.alpha.dashboard.section.header.val = {
 }
 
 -- Neovim turns the default cursor to 'Block'  -- when switched back into terminal.  -- This below line fixes that. Uncomment if needed.
--- vim.cmd "autocmd VimLeave,VimSuspend * set guicursor=a:ver90" -- Beam
-vim.cmd "autocmd VimLeave,VimSuspend * set guicursor=a:hor20"
+vim.cmd "autocmd VimLeave,VimSuspend * set guicursor=a:ver90" -- Beam
+-- vim.cmd "autocmd VimLeave,VimSuspend * set guicursor=a:hor20"
 
 -- NOTE: Above code doesn't take a value from the terminal's cursor and
 --       replace it. It hardcodes the cursor shape.
