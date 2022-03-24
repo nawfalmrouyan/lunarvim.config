@@ -304,11 +304,18 @@ lvim.plugins = {
     end,
     event = "BufRead",
   },
-  { -- better (IMHO) hop, sneak, quickscope
-    "ggandor/lightspeed.nvim",
-    -- commit = "74408c69cc92d74fc450811372675562826d6f2f",
+  -- { -- better (IMHO) hop, sneak, quickscope
+  --   "ggandor/lightspeed.nvim",
+  --   -- commit = "74408c69cc92d74fc450811372675562826d6f2f",
+  --   config = function()
+  --     require "user.lightspeed"
+  --   end,
+  --   event = "BufRead",
+  -- },
+  {
+    "ggandor/leap.nvim",
     config = function()
-      require "user.lightspeed"
+      require("leap").set_default_keymaps()
     end,
     event = "BufRead",
   },
