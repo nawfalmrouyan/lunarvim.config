@@ -110,6 +110,8 @@ lvim.keys.normal_mode["<M-O>"] = "O<esc>"
 lvim.keys.normal_mode["<M-$>"] = "g$"
 lvim.keys.normal_mode["/"] = "ms/"
 lvim.keys.term_mode["<Esc>"] = "<C-\\><C-N>"
+-- search / replace word under cursor
+lvim.keys.normal_mode["cg*"] = '*N"_cgn'
 -- resize
 lvim.keys.term_mode["<C-Up>"] = "<C-\\><C-N>resize -2<CR>"
 lvim.keys.term_mode["<C-Down>"] = "<C-\\><C-N>resize +2<CR>"
