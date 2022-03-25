@@ -1,6 +1,6 @@
 require("lvim.lsp.manager").setup "tailwindcss"
 local formatters = require "lvim.lsp.null-ls.formatters"
-formatters.setup { { command = "prettier" } }
+formatters.setup { { command = "prettier_d_slim" } }
 local linters = require "lvim.lsp.null-ls.linters"
 linters.setup { { command = "eslint_d" } }
 
@@ -13,7 +13,7 @@ capabilities.textDocument.completion.completionItem.snippetSupport = true
 if not configs.ls_emmet then
   configs.ls_emmet = {
     default_config = {
-      cmd = { '/home/opal/.nvm/versions/node/v17.7.1/bin/ls_emmet', '--stdio' };
+      cmd = { 'ls_emmet', '--stdio' };
       filetypes = { 'html', 'css', 'scss', 'javascript', 'javascriptreact', 'typescript', 'typescriptreact', 'haml',
         'xml', 'xsl', 'pug', 'slim', 'sass', 'stylus', 'less', 'sss'};
       root_dir = function(fname)
