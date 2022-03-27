@@ -134,6 +134,7 @@ lvim.plugins = {
   { "nvim-telescope/telescope-fzy-native.nvim", run = "make" },
   { "nvim-treesitter/nvim-treesitter-textobjects", before = "nvim-treesitter" },
   { "wellle/targets.vim" },
+  { "github/copilot.vim" },
   {
     "ellisonleao/glow.nvim",
     config = function()
