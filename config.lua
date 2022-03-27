@@ -420,7 +420,7 @@ lvim.autocommands.custom_groups = {
   { "InsertLeave", "*", 'if exists("g:backtorelative") | setlocal relativenumber cursorline | endif' },
   { "WinEnter", "*", "setlocal cursorline" },
   { "WinLeave", "*", "setlocal nocursorline" },
-  { "CursorHold", "<buffer>", "lua vim.diagnostic.open_float({focusable = false})"}
+  { "CursorHold", "<buffer>", "lua vim.diagnostic.open_float({focusable = false})" },
 }
 
 lvim.builtin.which_key.mappings["S"] = {
