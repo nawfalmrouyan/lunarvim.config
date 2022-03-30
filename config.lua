@@ -119,6 +119,7 @@ lvim.keys.term_mode["<C-Left>"] = "<C-\\><C-N>vertical resize -2<CR>"
 lvim.keys.term_mode["<C-Right>"] = "<C-\\><C-N>vertical resize +2<CR>"
 
 lvim.keys.visual_block_mode["P"] = '"_c<c-r>0<esc>'
+lvim.builtin.sell_soul_to_devel = true
 
 -- Additional Plugins
 lvim.plugins = {
@@ -134,7 +135,23 @@ lvim.plugins = {
   { "nvim-telescope/telescope-fzy-native.nvim", run = "make" },
   { "nvim-treesitter/nvim-treesitter-textobjects", before = "nvim-treesitter" },
   { "wellle/targets.vim" },
-  { "github/copilot.vim" },
+	{
+		"gelfand/copilot.vim",
+		disable = not lvim.builtin.sell_soul_to_devel,
+		config = function ()
+			-- copilot assume mapped
+			vim.g.copilot_assume_mapped = true
+			vim.g.copilot_no_tab_map = true
+		end
+	},
+	{
+		"hrsh7th/cmp-copilot",
+		disable = not lvim.builtin.sell_soul_to_devel,
+		config = function ()
+			lvim.builtin.cmp.formatting.source_names["copilot"] = "(Cop)"
+			table.insert(lvim.builtin.cmp.sources, {name = "copilot"})
+		end
+	},
   {
     "ellisonleao/glow.nvim",
     config = function()
