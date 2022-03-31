@@ -88,10 +88,11 @@ lvim.builtin.treesitter.textobjects = {
 }
 
 -- Remove tailwindcss from lvim.lsp.override table
-table.remove(lvim.lsp.override, 32) -- stylelint_lsp
+table.remove(lvim.lsp.override, 8) -- emmet_ls
 table.remove(lvim.lsp.override, 32) -- tailwindcss
 table.remove(lvim.lsp.override, 32) -- tflint
 table.remove(lvim.lsp.override, 35) -- zk
+table.insert(lvim.lsp.override, "eslint") -- not sure why we need to add this :-p
 
 -- Personal Keymaps
 lvim.keys.insert_mode["<M-o>"] = "<C-o>o"
@@ -432,6 +433,7 @@ lvim.plugins = {
     config = function()
       require("user.nvim-lsp-ts-utils").config()
     end,
+    ft = { "typescript", "javascript", "tsx", "jsx", "typescriptreact", "javascriptreact" },
   },
 }
 
