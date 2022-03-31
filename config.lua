@@ -161,12 +161,6 @@ lvim.plugins = {
     end,
     -- ft = "markdown",
   },
-  {
-    "jose-elias-alvarez/nvim-lsp-ts-utils",
-    config = function()
-      require("user.nvim-lsp-ts-utils").config()
-    end,
-  },
   -- {
   --   "subnut/nvim-ghost.nvim",
   --   run = function()
@@ -433,6 +427,12 @@ lvim.plugins = {
   --   end,
   --   requires = "vhyrro/neorg-telescope",
   -- },
+  {
+    "jose-elias-alvarez/nvim-lsp-ts-utils",
+    config = function()
+      require("user.nvim-lsp-ts-utils").config()
+    end,
+  },
 }
 
 lvim.autocommands.custom_groups = {
