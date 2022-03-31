@@ -90,7 +90,8 @@ lvim.builtin.treesitter.textobjects = {
 -- Remove tailwindcss from lvim.lsp.override table
 table.remove(lvim.lsp.override, 32) -- stylelint_lsp
 table.remove(lvim.lsp.override, 32) -- tailwindcss
-table.remove(lvim.lsp.override, 36) -- zk
+table.remove(lvim.lsp.override, 32) -- tflint
+table.remove(lvim.lsp.override, 35) -- zk
 
 -- Personal Keymaps
 lvim.keys.insert_mode["<M-o>"] = "<C-o>o"
@@ -502,3 +503,17 @@ vim.opt.fillchars = {
   vertright = "┣",
   verthoriz = "╋",
 }
+
+local parser_configs = require("nvim-treesitter.parsers").get_parser_configs()
+parser_configs.hcl = {
+  filetype = "hcl",
+  "terraform",
+}
+
+vim.cmd [[
+silent! autocmd! filetypedetect BufRead,BufNewFile *.tf
+autocmd BufRead,BufNewFile *.hcl set filetype=hcl
+autocmd BufRead,BufNewFile .terraformrc,terraform.rc set filetype=hcl
+autocmd BufRead,BufNewFile *.tf,*.tfvars set filetype=terraform
+autocmd BufRead,BufNewFile *.tfstate,*.tfstate.backup set filetype=json
+]]
