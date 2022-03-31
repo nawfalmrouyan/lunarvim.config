@@ -124,7 +124,7 @@ lvim.builtin.sell_soul_to_devel = true
 
 -- Additional Plugins
 lvim.plugins = {
-  { "nathom/filetype.nvim" },
+  -- { "nathom/filetype.nvim" },
   { "tpope/vim-surround", event = "BufRead" },
   { "michaeljsmith/vim-indent-object", event = "BufRead" },
   { "tweekmonster/startuptime.vim" },
@@ -515,11 +515,3 @@ parser_configs.hcl = {
   filetype = "hcl",
   "terraform",
 }
-
-vim.cmd [[
-silent! autocmd! filetypedetect BufRead,BufNewFile *.tf
-autocmd BufRead,BufNewFile *.hcl set filetype=hcl
-autocmd BufRead,BufNewFile .terraformrc,terraform.rc set filetype=hcl
-autocmd BufRead,BufNewFile *.tf,*.tfvars set filetype=terraform
-autocmd BufRead,BufNewFile *.tfstate,*.tfstate.backup set filetype=json
-]]
