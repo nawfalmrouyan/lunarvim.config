@@ -258,7 +258,7 @@ lvim.plugins = {
   {
     "windwp/windline.nvim",
     config = function()
-      require ("user.evil_line").config()
+      require("user.evil_line").config()
     end,
     event = "BufRead",
   },
@@ -308,7 +308,7 @@ lvim.plugins = {
     "karb94/neoscroll.nvim",
     event = "BufRead",
     config = function()
-      require ("user.neoscroll").config()
+      require("user.neoscroll").config()
     end,
   },
   { -- Interactive scratchpad
