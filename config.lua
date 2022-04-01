@@ -88,12 +88,46 @@ lvim.builtin.treesitter.textobjects = {
   },
 }
 
--- Remove tailwindcss from lvim.lsp.override table
-table.remove(lvim.lsp.override, 8) -- emmet_ls
-table.remove(lvim.lsp.override, 32) -- tailwindcss
-table.remove(lvim.lsp.override, 32) -- tflint
-table.remove(lvim.lsp.override, 35) -- zk
-table.insert(lvim.lsp.override, "eslint") -- not sure why we need to add this :-p
+lvim.lsp.override = {
+  "angularls",
+  "ansiblels",
+  "ccls",
+  "csharp_ls",
+  "cssmodules_ls",
+  "denols",
+  "ember",
+  -- "emmet_ls",
+  "eslint",
+  "eslintls",
+  "golangci_lint_ls",
+  "grammarly",
+  "graphql",
+  "jedi_language_server",
+  "ltex",
+  "ocamlls",
+  "phpactor",
+  "psalm",
+  -- "pylsp",
+  "quick_lint_js",
+  "reason_ls",
+  "remark_ls",
+  "rome",
+  "scry",
+  "solang",
+  "solidity_ls",
+  "sorbet",
+  "sourcekit",
+  "spectral",
+  "sqlls",
+  "sqls",
+  "stylelint_lsp",
+  -- "tailwindcss",
+  -- "tflint",
+  "verible",
+  "vuels",
+  "zeta_note",
+  -- "zk",
+}
 
 -- Personal Keymaps
 lvim.keys.insert_mode["<M-o>"] = "<C-o>o"
