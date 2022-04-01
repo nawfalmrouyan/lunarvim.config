@@ -123,7 +123,7 @@ lvim.lsp.override = {
   "sqls",
   "stylelint_lsp",
   -- "tailwindcss",
-  -- "tflint",
+  "tflint",
   "verible",
   "vuels",
   "zeta_note",
