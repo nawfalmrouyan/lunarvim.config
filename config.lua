@@ -108,6 +108,7 @@ lvim.lsp.override = {
   "phpactor",
   "psalm",
   -- "pylsp",
+  "pyright",
   "quick_lint_js",
   "reason_ls",
   "remark_ls",
