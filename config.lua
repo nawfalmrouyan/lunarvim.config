@@ -415,13 +415,6 @@ lvim.plugins = {
   --   end,
   --   requires = "vhyrro/neorg-telescope",
   -- },
-  {
-    "jose-elias-alvarez/nvim-lsp-ts-utils",
-    config = function()
-      require("user.nvim-lsp-ts-utils").config()
-    end,
-    ft = { "typescript", "javascript", "tsx", "jsx", "typescriptreact", "javascriptreact" },
-  },
 }
 
 lvim.autocommands.custom_groups = {
