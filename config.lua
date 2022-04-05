@@ -20,7 +20,7 @@ vim.cmd "set foldmethod=manual"
 vim.cmd "set foldexpr=nvim_treesitter#foldexpr()"
 vim.go.laststatus = 3
 
-lvim.builtin.lualine.active = false
+lvim.builtin.lualine.active = true
 lvim.builtin.bufferline.active = true
 lvim.builtin.alpha.mode = "dashboard"
 lvim.builtin.notify.active = true
@@ -284,13 +284,13 @@ lvim.plugins = {
     end,
     event = "BufRead",
   },
-  {
-    "windwp/windline.nvim",
-    config = function()
-      require("user.evil_line").config()
-    end,
-    event = "BufRead",
-  },
+  -- {
+  --   "windwp/windline.nvim",
+  --   config = function()
+  --     require("user.evil_line").config()
+  --   end,
+  --   event = "BufRead",
+  -- },
   {
     "mbbill/undotree",
     event = "BufRead",
