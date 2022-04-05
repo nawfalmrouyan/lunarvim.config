@@ -108,7 +108,6 @@ lvim.lsp.override = {
   "phpactor",
   "psalm",
   "pylsp",
-  -- "pyright",
   "quick_lint_js",
   "reason_ls",
   "remark_ls",
@@ -198,12 +197,6 @@ lvim.plugins = {
     end,
     -- ft = "markdown",
   },
-  -- {
-  --   "subnut/nvim-ghost.nvim",
-  --   run = function()
-  --     vim.fn["nvim_ghost#installer#install"]()
-  --   end,
-  -- },
   {
     "mickael-menu/zk-nvim",
     config = function()
@@ -362,14 +355,6 @@ lvim.plugins = {
     end,
     event = "BufRead",
   },
-  -- { -- better (IMHO) hop, sneak, quickscope
-  --   "ggandor/lightspeed.nvim",
-  --   -- commit = "74408c69cc92d74fc450811372675562826d6f2f",
-  --   config = function()
-  --     require "user.lightspeed"
-  --   end,
-  --   event = "BufRead",
-  -- },
   {
     "ggandor/leap.nvim",
     config = function()
