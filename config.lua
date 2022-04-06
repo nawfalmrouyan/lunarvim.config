@@ -22,6 +22,7 @@ vim.go.laststatus = 3
 
 lvim.builtin.lualine.active = true
 lvim.builtin.lualine.options.globalstatus = true
+lvim.builtin.lualine.options.theme = "duskfox"
 lvim.builtin.bufferline.active = true
 lvim.builtin.alpha.mode = "dashboard"
 lvim.builtin.notify.active = true
@@ -246,7 +247,14 @@ lvim.plugins = {
       vim.cmd "colorscheme duskfox"
     end,
   },
-  { "iamcco/markdown-preview.nvim", run = "cd app && npm install", ft = "markdown" },
+  {
+    "iamcco/markdown-preview.nvim",
+    run = "cd app && npm install",
+    config = function()
+      vim.g.mkdp_browser = "firefoxMD"
+    end,
+    ft = "markdown",
+  },
   {
     "hrsh7th/cmp-cmdline",
     config = function()
