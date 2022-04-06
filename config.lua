@@ -21,6 +21,7 @@ vim.cmd "set foldexpr=nvim_treesitter#foldexpr()"
 vim.go.laststatus = 3
 
 lvim.builtin.lualine.active = true
+lvim.builtin.lualine.options.globalstatus = true
 lvim.builtin.bufferline.active = true
 lvim.builtin.alpha.mode = "dashboard"
 lvim.builtin.notify.active = true
