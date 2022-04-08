@@ -244,7 +244,7 @@ lvim.plugins = {
           },
         },
       }
-      vim.cmd "colorscheme duskfox"
+      -- vim.cmd "colorscheme duskfox"
     end,
   },
   {
