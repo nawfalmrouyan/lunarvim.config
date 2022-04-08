@@ -400,7 +400,7 @@ lvim.builtin.which_key.mappings["S"] = {
   s = { "<cmd>SessionSave<cr>", "Save Session" },
   l = { "<cmd>SessionLoad<cr>", "Load Session" },
 }
-lvim.builtin.which_key.mappings["?"] = { "<cmd>NvimTreeFindFile<CR>", "Open current dir" }
+lvim.builtin.which_key.mappings["?"] = { "<cmd>NvimTreeFindFile<CR>", "Find file in NvimTree" }
 lvim.builtin.which_key.mappings["c"] = { "<cmd>bdelete!<CR>", "Close Buffer" }
 lvim.builtin.which_key.mappings["z"] = {
   name = "Zk",
