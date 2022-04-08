@@ -390,8 +390,8 @@ lvim.autocommands.custom_groups = {
     "if &relativenumber | let g:backtorelative = 1 | setlocal number norelativenumber nocursorline | endif",
   },
   { "InsertLeave", "*", 'if exists("g:backtorelative") | setlocal relativenumber cursorline | endif' },
-  { "WinEnter", "*", "setlocal cursorline" },
-  { "WinLeave", "*", "setlocal nocursorline" },
+  -- { "WinEnter", "*", "setlocal cursorline" },
+  -- { "WinLeave", "*", "setlocal nocursorline" },
   { "CursorHold", "<buffer>", "lua vim.diagnostic.open_float({focusable = false})" },
 }
 
