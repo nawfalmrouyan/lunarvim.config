@@ -293,12 +293,16 @@ lvim.plugins = {
       vim.g.matchup_matchparen_offscreen = { method = "popup" }
     end,
   },
+  -- {
+  --   "norcalli/nvim-colorizer.lua",
+  --   config = function()
+  --     require("user.colorizer").config()
+  --   end,
+  --   event = "BufRead",
+  -- },
   {
-    "norcalli/nvim-colorizer.lua",
-    config = function()
-      require("user.colorizer").config()
-    end,
-    event = "BufRead",
+    "rrethy/vim-hexokinase",
+    run = "make hexokinase",
   },
   {
     "f-person/git-blame.nvim",
