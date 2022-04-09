@@ -16,7 +16,7 @@ vim.opt.listchars = { eol = "¬", trail = "·", precedes = "…", extends = "…
 vim.opt.scrolloff = 0
 vim.opt.sidescrolloff = 0
 vim.opt.inccommand = "split"
-vim.cmd "set foldmethod=manual"
+-- vim.cmd "set foldmethod=manual"
 vim.cmd "set foldexpr=nvim_treesitter#foldexpr()"
 vim.go.laststatus = 3
 
@@ -384,6 +384,39 @@ lvim.plugins = {
     cmd = "TroubleToggle",
     setup = function()
       lvim.builtin.which_key.mappings.l.t = { "<cmd>TroubleToggle<CR>", "Trouble" }
+    end,
+  },
+  {
+    "anuvyklack/pretty-fold.nvim",
+    branch = "nightly",
+    config = function()
+      require("pretty-fold").setup {
+        keep_indentation = false,
+        fill_char = "━",
+        sections = {
+          left = {
+            "━ ",
+            function()
+              return string.rep("*", vim.v.foldlevel)
+            end,
+            " ━┫",
+            "content",
+            "┣",
+          },
+          right = {
+            "┫ ",
+            "number_of_folded_lines",
+            ": ",
+            "percentage",
+            " ┣━━",
+          },
+        },
+      }
+      require("pretty-fold.preview").setup {
+        config = {
+          key = "h",
+        },
+      }
     end,
   },
 }
