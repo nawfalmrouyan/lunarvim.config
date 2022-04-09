@@ -119,6 +119,7 @@ lvim.lsp.override = {
   "solidity_ls",
   "sorbet",
   "sourcekit",
+  "sourcery",
   "spectral",
   "sqlls",
   "sqls",
