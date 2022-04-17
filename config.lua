@@ -37,7 +37,7 @@ lvim.builtin.notify.opts.timeout = 3000
 lvim.lsp.automatic_servers_installation = true
 lvim.lsp.diagnostics.virtual_text = false
 
-lvim.builtin.treesitter.ensure_installed = "maintained"
+-- lvim.builtin.treesitter.ensure_installed = "maintained"
 lvim.builtin.treesitter.highlight.enabled = true
 lvim.builtin.treesitter.rainbow.enable = true
 lvim.builtin.treesitter.autotag.enable = true
@@ -90,7 +90,7 @@ lvim.builtin.treesitter.textobjects = {
   },
 }
 
-lvim.lsp.override = {
+lvim.lsp.automatic_configuration.skipped_servers = {
   "angularls",
   "ansiblels",
   "ccls",
