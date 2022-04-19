@@ -294,13 +294,6 @@ lvim.plugins = {
       vim.g.matchup_matchparen_offscreen = { method = "popup" }
     end,
   },
-  -- {
-  --   "norcalli/nvim-colorizer.lua",
-  --   config = function()
-  --     require("user.colorizer").config()
-  --   end,
-  --   event = "BufRead",
-  -- },
   {
     "rrethy/vim-hexokinase",
     run = "make hexokinase",
@@ -428,8 +421,6 @@ lvim.autocommands.custom_groups = {
     "if &relativenumber | let g:backtorelative = 1 | setlocal number norelativenumber nocursorline | endif",
   },
   { "InsertLeave", "*", 'if exists("g:backtorelative") | setlocal relativenumber cursorline | endif' },
-  -- { "WinEnter", "*", "setlocal cursorline" },
-  -- { "WinLeave", "*", "setlocal nocursorline" },
   { "CursorHold", "<buffer>", "lua vim.diagnostic.open_float({focusable = false})" },
 }
 
