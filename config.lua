@@ -388,7 +388,7 @@ lvim.plugins = {
   },
   {
     "anuvyklack/pretty-fold.nvim",
-    branch = "nightly",
+    -- branch = "nightly",
     config = function()
       require("pretty-fold").setup {
         keep_indentation = false,
