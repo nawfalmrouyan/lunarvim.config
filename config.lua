@@ -438,6 +438,7 @@ lvim.plugins = {
       vim.api.nvim_set_keymap("n", "N", 'N:lua require("specs").show_specs()<CR>', { noremap = true, silent = true })
     end,
   },
+  { "dbeniamine/cheat.sh-vim" },
 }
 
 lvim.autocommands.custom_groups = {
