@@ -31,7 +31,7 @@ lvim.builtin.terminal.active = true
 lvim.builtin.terminal.direction = "horizontal"
 lvim.builtin.terminal.size = 10
 lvim.builtin.terminal.shading_factor = 1
-lvim.builtin.which_key.mappings["P"] = { "<cmd>Telescope projects<CR>", "Projects" }
+lvim.builtin.which_key.mappings["P"] = { "<CMD>Telescope projects<CR>", "Projects" }
 lvim.builtin.notify.opts.timeout = 500
 
 lvim.lsp.automatic_servers_installation = true
@@ -196,7 +196,7 @@ lvim.plugins = {
     "ellisonleao/glow.nvim",
     config = function()
       vim.g.glow_border = "rounded"
-      lvim.builtin.which_key.mappings["m"] = { "<cmd>Glow<CR>", "Markdown Preview" }
+      lvim.builtin.which_key.mappings["m"] = { "<CMD>Glow<CR>", "Markdown Preview" }
     end,
     -- ft = "markdown",
   },
@@ -273,7 +273,7 @@ lvim.plugins = {
   {
     "lukas-reineke/indent-blankline.nvim",
     setup = function()
-      lvim.builtin.which_key.mappings["i"] = { "<cmd>IndentBlanklineToggle<CR>", "Indent Lines" }
+      lvim.builtin.which_key.mappings["i"] = { "<CMD>IndentBlanklineToggle<CR>", "Indent Lines" }
     end,
     config = function()
       require("user.indentline").config()
@@ -284,7 +284,7 @@ lvim.plugins = {
     "mbbill/undotree",
     event = "BufRead",
     setup = function()
-      lvim.builtin.which_key.mappings["u"] = { "<cmd>UndotreeToggle<CR>", "Undo Tree" }
+      lvim.builtin.which_key.mappings["u"] = { "<CMD>UndotreeToggle<CR>", "Undo Tree" }
     end,
   },
   {
@@ -301,7 +301,7 @@ lvim.plugins = {
   {
     "f-person/git-blame.nvim",
     setup = function()
-      lvim.builtin.which_key.mappings["a"] = { "<cmd>GitBlameToggle<CR>", "Toggle Git Blame" }
+      lvim.builtin.which_key.mappings["a"] = { "<CMD>GitBlameToggle<CR>", "Toggle Git Blame" }
     end,
     event = "BufRead",
   }, -- Git Blame
@@ -330,14 +330,14 @@ lvim.plugins = {
     "metakirby5/codi.vim",
     cmd = "Codi",
     setup = function()
-      lvim.builtin.which_key.mappings["y"] = { "<cmd>Codi<CR>", "Codi" }
-      lvim.builtin.which_key.mappings["Y"] = { "<cmd>Codi!<CR>", "Clear Codi" }
+      lvim.builtin.which_key.mappings["y"] = { "<CMD>Codi<CR>", "Codi" }
+      lvim.builtin.which_key.mappings["Y"] = { "<CMD>Codi!<CR>", "Clear Codi" }
     end,
   },
   { -- Symbol Outline
     "simrat39/symbols-outline.nvim",
     setup = function()
-      lvim.builtin.which_key.mappings.l.o = { "<cmd>SymbolsOutline<cr>", "Outline" }
+      lvim.builtin.which_key.mappings.l.o = { "<CMD>SymbolsOutline<cr>", "Outline" }
     end,
     event = "BufRead",
   },
@@ -368,7 +368,7 @@ lvim.plugins = {
     setup = function()
       vim.api.nvim_set_keymap("n", "<M-=>", ":TZFocus<cr>", { noremap = true, silent = true })
       vim.api.nvim_set_keymap("t", "<M-=>", "<C-\\><C-n>:TZFocus<cr>", { noremap = true, silent = true })
-      lvim.builtin.which_key.mappings["Z"] = { "<cmd>TZAtaraxis<CR>", "Zen Mode" }
+      lvim.builtin.which_key.mappings["Z"] = { "<CMD>TZAtaraxis<CR>", "Zen Mode" }
     end,
     event = "BufRead",
   },
@@ -376,7 +376,7 @@ lvim.plugins = {
     "folke/trouble.nvim",
     cmd = "TroubleToggle",
     setup = function()
-      lvim.builtin.which_key.mappings.l.t = { "<cmd>TroubleToggle<CR>", "Trouble" }
+      lvim.builtin.which_key.mappings.l.t = { "<CMD>TroubleToggle<CR>", "Trouble" }
     end,
   },
   {
@@ -432,7 +432,7 @@ lvim.plugins = {
           nofile = true,
         },
       }
-      lvim.builtin.which_key.mappings["d"] = { "<cmd>lua require('specs').show_specs()<CR>", "Show cursor position" }
+      lvim.builtin.which_key.mappings["d"] = { "<CMD>lua require('specs').show_specs()<CR>", "Show cursor position" }
       -- You can even bind it to search jumping and more, example:
       vim.api.nvim_set_keymap("n", "n", 'n:lua require("specs").show_specs()<CR>', { noremap = true, silent = true })
       vim.api.nvim_set_keymap("n", "N", 'N:lua require("specs").show_specs()<CR>', { noremap = true, silent = true })
@@ -456,17 +456,17 @@ lvim.builtin.which_key.mappings["S"] = {
   s = { "<cmd>SessionSave<cr>", "Save Session" },
   l = { "<cmd>SessionLoad<cr>", "Load Session" },
 }
-lvim.builtin.which_key.mappings["?"] = { "<cmd>NvimTreeFindFile<CR>", "Find file in NvimTree" }
-lvim.builtin.which_key.mappings["c"] = { "<cmd>bdelete!<CR>", "Close Buffer" }
+lvim.builtin.which_key.mappings["?"] = { "<CMD>NvimTreeFindFile<CR>", "Find file in NvimTree" }
+lvim.builtin.which_key.mappings["c"] = { "<CMD>bdelete!<CR>", "Close Buffer" }
 lvim.builtin.which_key.mappings["z"] = {
   name = "Zk",
-  T = { "<cmd>ZkNotes<CR>", "All Notes" },
-  nf = { "<cmd>ZkNew {dir='fleeting'}<CR>", "New fleeting note" },
-  nl = { "<cmd>ZkNew {dir='literature'}<CR>", "New literature note" },
-  np = { "<cmd>ZkNew {dir='permanent'}<CR>", "New permanent note" },
-  o = { "<cmd>ZkOrphans<CR>", "Orphan notes" },
-  r = { "<cmd>ZkRecents<CR>", "Recent notes" },
-  t = { "<cmd>ZkTags<CR>", "Tags" },
+  T = { "<CMD>ZkNotes<CR>", "All Notes" },
+  nf = { "<CMD>ZkNew {dir='fleeting'}<CR>", "New fleeting note" },
+  nl = { "<CMD>ZkNew {dir='literature'}<CR>", "New literature note" },
+  np = { "<CMD>ZkNew {dir='permanent'}<CR>", "New permanent note" },
+  o = { "<CMD>ZkOrphans<CR>", "Orphan notes" },
+  r = { "<CMD>ZkRecents<CR>", "Recent notes" },
+  t = { "<CMD>ZkTags<CR>", "Tags" },
   f = { "<Cmd>ZkNotes { sort = { 'modified' }, match = vim.fn.input('Search: ') }<CR>" },
 }
 
