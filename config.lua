@@ -451,11 +451,11 @@ lvim.autocommands.custom_groups = {
   { "CursorHold", "<buffer>", "lua vim.diagnostic.open_float({focusable = false})" },
 }
 
-lvim.builtin.which_key.mappings["S"] = {
-  name = "Session",
-  s = { "<cmd>SessionSave<cr>", "Save Session" },
-  l = { "<cmd>SessionLoad<cr>", "Load Session" },
-}
+-- lvim.builtin.which_key.mappings["S"] = {
+--   name = "Session",
+--   s = { "<CMD>SessionSave<cr>", "Save Session" },
+--   l = { "<CMD>SessionLoad<cr>", "Load Session" },
+-- }
 lvim.builtin.which_key.mappings["?"] = { "<CMD>NvimTreeFindFile<CR>", "Find file in NvimTree" }
 lvim.builtin.which_key.mappings["c"] = { "<CMD>bdelete!<CR>", "Close Buffer" }
 lvim.builtin.which_key.mappings["z"] = {
