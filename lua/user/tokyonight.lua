@@ -15,6 +15,3 @@ vim.g.tokyonight_hide_inactive_statusline = true
 
 -- Change the "hint" color to the "orange" color, and make the "error" color bright red
 -- vim.g.tokyonight_colors = { hint = "orange", error = "#ff0000" }
-
--- Load the colorscheme
-vim.cmd("colorscheme " .. lvim.colorscheme)
