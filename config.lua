@@ -417,11 +417,6 @@ lvim.plugins = {
           },
         },
       }
-      require("pretty-fold.preview").setup {
-        config = {
-          key = "h",
-        },
-      }
     end,
   },
   {
