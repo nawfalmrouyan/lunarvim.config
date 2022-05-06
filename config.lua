@@ -245,6 +245,7 @@ lvim.plugins = {
       }
     end,
   },
+  { "olimorris/onedarkpro.nvim" },
   {
     "EdenEast/nightfox.nvim",
     config = function()
