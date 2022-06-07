@@ -449,14 +449,19 @@ lvim.plugins = {
   { "dbeniamine/cheat.sh-vim" },
 }
 
-lvim.autocommands.custom_groups = {
+lvim.autocommands = {
   {
     "InsertEnter",
-    "*",
-    "if &relativenumber | let g:backtorelative = 1 | setlocal number norelativenumber nocursorline | endif",
+    {
+      pattern = { "*" },
+      command = "if &relativenumber | let g:backtorelative = 1 | setlocal number norelativenumber nocursorline | endif",
+    },
   },
-  { "InsertLeave", "*", 'if exists("g:backtorelative") | setlocal relativenumber cursorline | endif' },
-  { "CursorHold", "<buffer>", "lua vim.diagnostic.open_float({focusable = false})" },
+  {
+    "InsertLeave",
+    { pattern = { "*" }, command = 'if exists("g:backtorelative") | setlocal relativenumber cursorline | endif' },
+  },
+  { "CursorHold", { pattern = { "<buffer>" }, command = "lua vim.diagnostic.open_float({focusable = false})" } },
 }
 
 -- lvim.builtin.which_key.mappings["S"] = {
