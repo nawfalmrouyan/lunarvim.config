@@ -539,13 +539,3 @@ vim.cmd [[
     \ 'cache_enabled': 1,
     \ }
 ]]
-
-vim.opt.fillchars = {
-  horiz = "━",
-  horizup = "┻",
-  horizdown = "┳",
-  vert = "┃",
-  vertleft = "┫",
-  vertright = "┣",
-  verthoriz = "╋",
-}
