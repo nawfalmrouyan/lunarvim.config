@@ -18,6 +18,7 @@ vim.opt.sidescrolloff = 0
 vim.opt.inccommand = "split"
 -- vim.cmd "set foldmethod=manual"
 -- vim.cmd "set foldexpr=nvim_treesitter#foldexpr()"
+vim.cmd "set foldoptions=nodigits"
 vim.go.laststatus = 3
 
 lvim.builtin.lualine.active = true
