@@ -175,6 +175,13 @@ lvim.plugins = {
   { "romgrk/fzy-lua-native" },
   { "nvim-telescope/telescope-fzy-native.nvim", run = "make" },
   { "nvim-treesitter/nvim-treesitter-textobjects", before = "nvim-treesitter" },
+  -- Lua
+  {
+    "kylechui/nvim-surround",
+    config = function()
+      require("nvim-surround").setup()
+    end,
+  },
   {
     "kevinhwang91/nvim-ufo",
     requires = "kevinhwang91/promise-async",
