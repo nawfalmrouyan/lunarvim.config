@@ -1,4 +1,3 @@
--- lvim.log.level = "warn"
 lvim.format_on_save = false
 lvim.lint_on_save = false
 lvim.colorscheme = "duskfox"
@@ -9,7 +8,6 @@ vim.opt.cmdheight = 0
 vim.opt.timeoutlen = 500
 vim.opt.ignorecase = false
 vim.opt.smartcase = false
--- vim.opt.guifont = "Iosevka Mayukai Codepro:h15"
 vim.opt.relativenumber = true
 vim.opt.list = true
 vim.opt.listchars = { eol = "¬", trail = "·", precedes = "…", extends = "…", tab = "→\\ " }
@@ -164,8 +162,6 @@ lvim.builtin.sell_soul_to_devel = true
 
 -- Additional Plugins
 lvim.plugins = {
-  -- { "tpope/vim-surround", event = "BufRead" },
-  -- { "tpope/vim-repeat", event = "BufRead" },
   -- { "wellle/targets.vim" },
   { "michaeljsmith/vim-indent-object", event = "BufRead" },
   { "tweekmonster/startuptime.vim" },
@@ -175,7 +171,6 @@ lvim.plugins = {
   { "romgrk/fzy-lua-native" },
   { "nvim-telescope/telescope-fzy-native.nvim", run = "make" },
   { "nvim-treesitter/nvim-treesitter-textobjects", before = "nvim-treesitter" },
-  -- Lua
   {
     "kylechui/nvim-surround",
     config = function()
@@ -460,33 +455,6 @@ lvim.plugins = {
       lvim.builtin.which_key.mappings.l.t = { "<CMD>TroubleToggle<CR>", "Trouble" }
     end,
   },
-  -- {
-  --   "edluffy/specs.nvim",
-  --   config = function()
-  --     require("specs").setup {
-  --       show_jumps = true,
-  --       min_jump = 20,
-  --       popup = {
-  --         delay_ms = 0, -- delay before popup displays
-  --         inc_ms = 10, -- time increments used for fade/resize effects
-  --         blend = 70, -- starting blend, between 0-100 (fully transparent), see :h winblend
-  --         width = 30,
-  --         winhl = "PMenu",
-  --         fader = require("specs").linear_fader,
-  --         resizer = require("specs").shrink_resizer,
-  --       },
-  --       ignore_filetypes = {},
-  --       ignore_buftypes = {
-  --         nofile = true,
-  --       },
-  --     }
-  --     lvim.builtin.which_key.mappings["d"] = { "<CMD>lua require('specs').show_specs()<CR>", "Show cursor position" }
-  --     -- You can even bind it to search jumping and more, example:
-  --     vim.api.nvim_set_keymap("n", "n", 'n:lua require("specs").show_specs()<CR>', { noremap = true, silent = true })
-  --     vim.api.nvim_set_keymap("n", "N", 'N:lua require("specs").show_specs()<CR>', { noremap = true, silent = true })
-  --   end,
-  -- },
-  -- { "dbeniamine/cheat.sh-vim" },
 }
 
 lvim.autocommands = {
