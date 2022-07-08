@@ -170,16 +170,18 @@ lvim.plugins = {
   { "windwp/nvim-ts-autotag", event = "InsertEnter" },
   { "romgrk/fzy-lua-native" },
   { "nvim-telescope/telescope-fzy-native.nvim", run = "make" },
-  { "mg979/vim-visual-multi" }, -- vim -Nu ~/.local/share/lunarvim/site/pack/packer/start/vim-visual-multi/tutorialrc
+  { "mg979/vim-visual-multi", event = "BufEnter" }, -- vim -Nu ~/.local/share/lunarvim/site/pack/packer/start/vim-visual-multi/tutorialrc
   { "nvim-treesitter/nvim-treesitter-textobjects", before = "nvim-treesitter" },
   {
     "kylechui/nvim-surround",
+    event = "BufEnter",
     config = function()
       require("nvim-surround").setup()
     end,
   },
   {
     "kevinhwang91/nvim-ufo",
+    event = "BufRead",
     requires = "kevinhwang91/promise-async",
     config = function()
       vim.o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
