@@ -486,6 +486,7 @@ lvim.autocommands = {
 -- }
 lvim.builtin.which_key.mappings["?"] = { "<CMD>NvimTreeFindFile<CR>", "Find file in NvimTree" }
 lvim.builtin.which_key.mappings["c"] = { "<CMD>bdelete!<CR>", "Close Buffer" }
+lvim.builtin.which_key.mappings["M"] = { "<CMD>MarkdownPreview<CR>", "Markdown Preview" }
 
 lvim.builtin.alpha.dashboard.section.header.val = {
   "   ____              ______ _____ ____ ",
