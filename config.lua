@@ -262,7 +262,9 @@ lvim.plugins = {
   {
     "ellisonleao/glow.nvim",
     config = function()
-      vim.g.glow_border = "rounded"
+      require("glow").setup {
+        border = "rounded",
+      }
       lvim.builtin.which_key.mappings["m"] = { "<CMD>Glow<CR>", "Markdown Preview" }
     end,
     -- ft = "markdown",
