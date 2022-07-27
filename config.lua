@@ -1,6 +1,7 @@
 lvim.format_on_save = false
 lvim.lint_on_save = false
-lvim.colorscheme = "duskfox"
+-- lvim.colorscheme = "duskfox"
+lvim.colorscheme = "onedarkpro"
 lvim.shell = "/usr/bin/zsh"
 -- lvim.transparent_window = true
 
