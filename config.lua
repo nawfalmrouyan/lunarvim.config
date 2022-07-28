@@ -174,6 +174,12 @@ lvim.plugins = {
   { "mg979/vim-visual-multi", event = "BufEnter" }, -- vim -Nu ~/.local/share/lunarvim/site/pack/packer/start/vim-visual-multi/tutorialrc
   { "nvim-treesitter/nvim-treesitter-textobjects", before = "nvim-treesitter" },
   {
+    "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
+    config = function()
+      require("lsp_lines").setup()
+    end,
+  },
+  {
     "hlucco/nvim-eswpoch",
     config = function()
       lvim.builtin.which_key.mappings["U"] = { "<CMD>Eswpoch<CR>", "Convert Epoch" }
