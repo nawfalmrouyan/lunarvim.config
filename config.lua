@@ -102,7 +102,6 @@ lvim.lsp.automatic_configuration.skipped_servers = {
   "eslint",
   "eslintls",
   "golangci_lint_ls",
-  "grammarly",
   "graphql",
   "jedi_language_server",
   "ltex",
@@ -111,9 +110,8 @@ lvim.lsp.automatic_configuration.skipped_servers = {
   "psalm",
   "pylsp",
   "quick_lint_js",
-  "reason_ls",
-  "remark_ls",
   "rome",
+  "reason_ls",
   "scry",
   "solang",
   "solidity_ls",
@@ -126,10 +124,9 @@ lvim.lsp.automatic_configuration.skipped_servers = {
   "stylelint_lsp",
   -- "tailwindcss",
   "tflint",
+  "svlangserver",
   "verible",
   "vuels",
-  "zeta_note",
-  -- "zk",
 }
 
 -- Personal Keymaps
