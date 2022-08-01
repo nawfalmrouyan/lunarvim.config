@@ -409,13 +409,13 @@ lvim.plugins = {
       lvim.builtin.which_key.mappings["Y"] = { "<CMD>Codi!<CR>", "Clear Codi" }
     end,
   },
-  { -- Symbol Outline
-    "simrat39/symbols-outline.nvim",
-    setup = function()
-      lvim.builtin.which_key.mappings.l.o = { "<CMD>SymbolsOutline<cr>", "Outline" }
-    end,
-    event = "BufRead",
-  },
+  -- { -- Symbol Outline
+  --   "simrat39/symbols-outline.nvim",
+  --   setup = function()
+  --     lvim.builtin.which_key.mappings.l.o = { "<CMD>SymbolsOutline<cr>", "Outline" }
+  --   end,
+  --   event = "BufRead",
+  -- },
   {
     "ggandor/leap.nvim",
     config = function()
