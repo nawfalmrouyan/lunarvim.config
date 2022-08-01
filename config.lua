@@ -337,13 +337,13 @@ lvim.plugins = {
       require("cmp").setup.cmdline("/", { sources = { { name = "buffer" } } })
     end,
   },
-  {
-    "ray-x/lsp_signature.nvim",
-    event = "BufRead",
-    config = function()
-      require("user.lsp_signature").config()
-    end,
-  },
+  -- {
+  --   "ray-x/lsp_signature.nvim",
+  --   event = "BufRead",
+  --   config = function()
+  --     require("user.lsp_signature").config()
+  --   end,
+  -- },
   {
     "lukas-reineke/indent-blankline.nvim",
     setup = function()
