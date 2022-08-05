@@ -42,6 +42,12 @@ lvim.builtin.treesitter.highlight.enabled = true
 lvim.builtin.treesitter.rainbow.enable = true
 lvim.builtin.treesitter.autotag.enable = true
 
+-- syntax highlighting for .tf
+local parser_configs = require("nvim-treesitter.parsers").get_parser_configs()
+parser_configs.hcl = {
+  filetype = "hcl", "terraform",
+}
+
 lvim.builtin.telescope.on_config_done = function()
   require("telescope").load_extension "fzy_native"
 end
