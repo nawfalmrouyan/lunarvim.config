@@ -45,7 +45,8 @@ lvim.builtin.treesitter.autotag.enable = true
 -- syntax highlighting for .tf
 local parser_configs = require("nvim-treesitter.parsers").get_parser_configs()
 parser_configs.hcl = {
-  filetype = "hcl", "terraform",
+  filetype = "hcl",
+  "terraform",
 }
 
 lvim.builtin.telescope.on_config_done = function()
