@@ -177,6 +177,27 @@ lvim.plugins = {
   { "nvim-telescope/telescope-fzy-native.nvim", run = "make" },
   { "mg979/vim-visual-multi", event = "BufEnter" }, -- vim -Nu ~/.local/share/lunarvim/site/pack/packer/start/vim-visual-multi/tutorialrc
   { "nvim-treesitter/nvim-treesitter-textobjects", before = "nvim-treesitter" },
+  {
+    "ibhagwan/fzf-lua",
+    setup = function()
+      vim.api.nvim_set_keymap(
+        "n",
+        "<c-P>",
+        "<cmd>lua require('fzf-lua').files()<CR>",
+        { noremap = true, silent = true }
+      )
+      lvim.builtin.which_key.mappings["o"] = {
+        name = "FZF",
+        c = { "<cmd>lua require('fzf-lua').grep_cword()<cr>", "Find cword" },
+        C = { "<cmd>lua require('fzf-lua').grep_cWORD()<cr>", "Find cWORD" },
+        g = { "<cmd>lua require('fzf-lua').live_grep()<cr>", "Live grep" },
+        G = { "<cmd>lua require('fzf-lua').live_grep_resume()<cr>", "Live grep resume" },
+        f = { "<cmd>lua require('fzf-lua').files()<cr>", "Find files" },
+        r = { "<cmd>lua require('fzf-lua').resume()<cr>", "Resume last search" },
+      }
+    end,
+    requires = { "kyazdani42/nvim-web-devicons" },
+  },
   -- {
   --   "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
   --   config = function()
