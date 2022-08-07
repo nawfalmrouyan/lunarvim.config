@@ -186,6 +186,12 @@ lvim.plugins = {
         "<cmd>lua require('fzf-lua').files()<CR>",
         { noremap = true, silent = true }
       )
+      vim.api.nvim_set_keymap(
+        "n",
+        "<c-0>",
+        ":FzfLua ",
+        { noremap = true, silent = false }
+      )
       lvim.builtin.which_key.mappings["o"] = {
         name = "FZF",
         c = { "<cmd>lua require('fzf-lua').grep_cword()<cr>", "Find cword" },
@@ -194,6 +200,7 @@ lvim.plugins = {
         G = { "<cmd>lua require('fzf-lua').live_grep_resume()<cr>", "Live grep resume" },
         f = { "<cmd>lua require('fzf-lua').files()<cr>", "Find files" },
         r = { "<cmd>lua require('fzf-lua').resume()<cr>", "Resume last search" },
+        t = { "<cmd>lua require('fzf-lua').tabs()<cr>", "Resume last search" },
       }
     end,
     requires = { "kyazdani42/nvim-web-devicons" },
