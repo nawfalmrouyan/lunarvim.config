@@ -34,7 +34,8 @@ lvim.builtin.terminal.shading_factor = 1
 lvim.builtin.which_key.mappings["P"] = { "<CMD>Telescope projects<CR>", "Projects" }
 lvim.builtin.notify.opts.timeout = 2000
 
-lvim.lsp.automatic_servers_installation = true
+lvim.lsp.installer.setup.automatic_installation = true
+-- lvim.lsp.automatic_servers_installation = true
 lvim.lsp.diagnostics.virtual_text = false
 
 -- lvim.builtin.treesitter.ensure_installed = "maintained"
