@@ -143,8 +143,8 @@ lvim.keys.insert_mode["<M-O>"] = "<C-o>O"
 lvim.keys.normal_mode["<M-w>"] = ":set wrap! wrap?<cr>"
 lvim.keys.normal_mode["<M-r>"] = ":set relativenumber! relativenumber?<cr>"
 -- disable default keybindings for H/L
-lvim.keys.normal_mode["<S-h>"] = false
-lvim.keys.normal_mode["<S-l>"] = false
+-- lvim.keys.normal_mode["<S-h>"] = false
+-- lvim.keys.normal_mode["<S-l>"] = false
 lvim.keys.normal_mode["<TAB>"] = ":BufferLinePick<CR>"
 lvim.keys.normal_mode["<leader>j"] = ":BufferLineCycleNext<CR>"
 lvim.keys.normal_mode["<leader>k"] = ":BufferLineCyclePrev<CR>"
