@@ -227,8 +227,9 @@ lvim.plugins = {
     config = function()
       vim.o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
       vim.o.foldcolumn = "1"
-      vim.wo.foldlevel = 99 -- feel free to decrease the value
-      vim.wo.foldenable = true
+      vim.o.foldlevel = 99 -- feel free to decrease the value
+      vim.o.foldlevelstart = 99
+      vim.o.foldenable = true
 
       local capabilities = vim.lsp.protocol.make_client_capabilities()
       capabilities.textDocument.foldingRange = {
@@ -274,7 +275,31 @@ lvim.plugins = {
       -- global handler
       require("ufo").setup {
         fold_virt_text_handler = handler,
+        open_fold_hl_timeout = 150,
+        close_fold_kinds = { "imports", "comment" },
+        preview = {
+          win_config = {
+            border = { "", "─", "", "", "", "─", "", "" },
+            winhighlight = "Normal:Folded",
+            winblend = 0,
+          },
+          mappings = {
+            scrollU = "<C-u>",
+            scrollD = "<C-d>",
+          },
+        },
       }
+
+      vim.keymap.set("n", "zR", require("ufo").openAllFolds)
+      vim.keymap.set("n", "zM", require("ufo").closeAllFolds)
+      vim.keymap.set("n", "zr", require("ufo").openFoldsExceptKinds)
+      vim.keymap.set("n", "zm", require("ufo").closeFoldsWith) -- closeAllFolds == closeFoldsWith(0)
+      vim.keymap.set("n", "K", function()
+        local winid = require("ufo").peekFoldedLinesUnderCursor()
+        if not winid then
+          vim.lsp.buf.hover()
+        end
+      end)
 
       -- buffer scope handler
       -- will override global handler if it is existed
