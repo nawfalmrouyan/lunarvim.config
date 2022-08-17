@@ -363,6 +363,15 @@ lvim.plugins = {
     end,
   },
   { "olimorris/onedarkpro.nvim" },
+  -- {
+  --   "Everblush/everblush.nvim",
+  --   as = "everblush",
+  --   config = function()
+  --     local everblush = require "everblush"
+  --     everblush.setup()
+  --     -- everblush.setup { nvim_tree = { contrast = true } }
+  --   end,
+  -- },
   {
     "EdenEast/nightfox.nvim",
     config = function()
