@@ -203,18 +203,6 @@ lvim.plugins = {
     end,
     requires = { "kyazdani42/nvim-web-devicons" },
   },
-  -- {
-  --   "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
-  --   config = function()
-  --     require("lsp_lines").setup()
-  --   end,
-  -- },
-  -- {
-  --   "hlucco/nvim-eswpoch",
-  --   config = function()
-  --     lvim.builtin.which_key.mappings["U"] = { "<CMD>Eswpoch<CR>", "Convert Epoch" }
-  --   end,
-  -- },
   {
     "kylechui/nvim-surround",
     event = "BufEnter",
