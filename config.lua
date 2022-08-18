@@ -13,7 +13,7 @@ vim.opt.smartcase = false
 vim.opt.relativenumber = true
 vim.opt.list = true
 vim.opt.listchars = { eol = "¬", trail = "·", precedes = "…", extends = "…", tab = "→\\ " }
-vim.opt.scrolloff = 0
+vim.opt.scrolloff = 1
 vim.opt.sidescrolloff = 0
 vim.opt.inccommand = "split"
 -- vim.cmd "set foldmethod=manual"
@@ -227,86 +227,7 @@ lvim.plugins = {
     event = "BufRead",
     requires = "kevinhwang91/promise-async",
     config = function()
-      vim.o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
-      vim.o.foldcolumn = "1"
-      vim.o.foldlevel = 99 -- feel free to decrease the value
-      vim.o.foldlevelstart = 99
-      vim.o.foldenable = true
-
-      local capabilities = vim.lsp.protocol.make_client_capabilities()
-      capabilities.textDocument.foldingRange = {
-        dynamicRegistration = false,
-        lineFoldingOnly = true,
-      }
-      local language_servers = {} -- like {'gopls', 'clangd'}
-      for _, ls in ipairs(language_servers) do
-        require("lspconfig")[ls].setup {
-          capabilities = capabilities,
-          -- other_fields = ...,
-        }
-      end
-
-      local handler = function(virtText, lnum, endLnum, width, truncate)
-        local newVirtText = {}
-        local suffix = ("  %d "):format(endLnum - lnum)
-        local sufWidth = vim.fn.strdisplaywidth(suffix)
-        local targetWidth = width - sufWidth
-        local curWidth = 0
-        for _, chunk in ipairs(virtText) do
-          local chunkText = chunk[1]
-          local chunkWidth = vim.fn.strdisplaywidth(chunkText)
-          if targetWidth > curWidth + chunkWidth then
-            table.insert(newVirtText, chunk)
-          else
-            chunkText = truncate(chunkText, targetWidth - curWidth)
-            local hlGroup = chunk[2]
-            table.insert(newVirtText, { chunkText, hlGroup })
-            chunkWidth = vim.fn.strdisplaywidth(chunkText)
-            -- str width returned from truncate() may less than 2nd argument, need padding
-            if curWidth + chunkWidth < targetWidth then
-              suffix = suffix .. (" "):rep(targetWidth - curWidth - chunkWidth)
-            end
-            break
-          end
-          curWidth = curWidth + chunkWidth
-        end
-        table.insert(newVirtText, { suffix, "MoreMsg" })
-        return newVirtText
-      end
-
-      -- global handler
-      require("ufo").setup {
-        fold_virt_text_handler = handler,
-        open_fold_hl_timeout = 150,
-        close_fold_kinds = { "imports", "comment" },
-        preview = {
-          win_config = {
-            border = { "", "─", "", "", "", "─", "", "" },
-            winhighlight = "Normal:Folded",
-            winblend = 0,
-          },
-          mappings = {
-            scrollU = "<C-u>",
-            scrollD = "<C-d>",
-          },
-        },
-      }
-
-      vim.keymap.set("n", "zR", require("ufo").openAllFolds)
-      vim.keymap.set("n", "zM", require("ufo").closeAllFolds)
-      vim.keymap.set("n", "zr", require("ufo").openFoldsExceptKinds)
-      vim.keymap.set("n", "zm", require("ufo").closeFoldsWith) -- closeAllFolds == closeFoldsWith(0)
-      vim.keymap.set("n", "K", function()
-        local winid = require("ufo").peekFoldedLinesUnderCursor()
-        if not winid then
-          vim.lsp.buf.hover()
-        end
-      end)
-
-      -- buffer scope handler
-      -- will override global handler if it is existed
-      local bufnr = vim.api.nvim_get_current_buf()
-      require("ufo").setFoldVirtTextHandler(bufnr, handler)
+      require("user.nvim-ufo").config()
     end,
   },
   {
@@ -322,46 +243,7 @@ lvim.plugins = {
   {
     "mickael-menu/zk-nvim",
     config = function()
-      require("zk").setup {
-        picker = "telescope",
-        lsp = {
-          config = {
-            cmd = { "zk", "lsp" },
-            name = "zk",
-          },
-        },
-        auto_attach = {
-          enabled = true,
-          filetypes = { "markdown" },
-        },
-      }
-
-      local zk = require "zk"
-      local commands = require "zk.commands"
-
-      local function make_edit_fn(defaults, picker_options)
-        return function(options)
-          options = vim.tbl_extend("force", defaults, options or {})
-          zk.edit(options, picker_options)
-        end
-      end
-
-      commands.add("ZkOrphans", make_edit_fn({ orphan = true }, { title = "Zk Orphans" }))
-      commands.add("ZkRecents", make_edit_fn({ createdAfter = "2 weeks ago" }, { title = "Zk Recents" }))
-
-      require("telescope").load_extension "zk"
-
-      lvim.builtin.which_key.mappings["z"] = {
-        name = "Zk",
-        T = { "<CMD>ZkNotes<CR>", "All Notes" },
-        nf = { "<CMD>ZkNew {dir='fleeting'}<CR>", "New fleeting note" },
-        nl = { "<CMD>ZkNew {dir='literature'}<CR>", "New literature note" },
-        np = { "<CMD>ZkNew {dir='permanent'}<CR>", "New permanent note" },
-        o = { "<CMD>ZkOrphans<CR>", "Orphan notes" },
-        r = { "<CMD>ZkRecents<CR>", "Recent notes" },
-        t = { "<CMD>ZkTags<CR>", "Tags" },
-        f = { "<Cmd>ZkNotes { sort = { 'modified' }, match = vim.fn.input('Search: ') }<CR>" },
-      }
+      require("user.zk-nvim").config()
     end,
   },
   { "olimorris/onedarkpro.nvim" },
@@ -370,128 +252,9 @@ lvim.plugins = {
     as = "catppuccin",
     run = ":CatppuccinCompile",
     config = function()
-      vim.g.catppuccin_flavour = "mocha"
-      require("catppuccin").setup {
-        dim_inactive = {
-          enabled = false,
-          shade = "dark",
-          percentage = 0.15,
-        },
-        transparent_background = false,
-        term_colors = true,
-        compile = {
-          enabled = true,
-          path = vim.fn.stdpath "cache" .. "/catppuccin",
-        },
-        styles = {
-          comments = { "italic" },
-          conditionals = { "italic" },
-          loops = {},
-          functions = { "bold" },
-          keywords = { "bold" },
-          strings = {},
-          variables = {},
-          numbers = {},
-          booleans = {},
-          properties = {},
-          types = {},
-          operators = {},
-        },
-        integrations = {
-          treesitter = true,
-          native_lsp = {
-            enabled = true,
-            virtual_text = {
-              errors = { "italic" },
-              hints = { "italic" },
-              warnings = { "italic" },
-              information = { "italic" },
-            },
-            underlines = {
-              errors = { "underline" },
-              hints = { "underline" },
-              warnings = { "underline" },
-              information = { "underline" },
-            },
-          },
-          coc_nvim = false,
-          lsp_trouble = true,
-          cmp = true,
-          lsp_saga = true,
-          gitgutter = false,
-          gitsigns = true,
-          leap = true,
-          telescope = true,
-          nvimtree = {
-            enabled = true,
-            show_root = true,
-            transparent_panel = false,
-          },
-          neotree = {
-            enabled = false,
-            show_root = true,
-            transparent_panel = false,
-          },
-          dap = {
-            enabled = false,
-            enable_ui = false,
-          },
-          which_key = true,
-          indent_blankline = {
-            enabled = true,
-            colored_indent_levels = false,
-          },
-          dashboard = true,
-          neogit = false,
-          vim_sneak = false,
-          fern = false,
-          barbar = false,
-          bufferline = true,
-          markdown = true,
-          lightspeed = true,
-          ts_rainbow = true,
-          hop = false,
-          notify = true,
-          telekasten = false,
-          symbols_outline = true,
-          mini = false,
-          aerial = false,
-          vimwiki = false,
-          beacon = false,
-          navic = false,
-          overseer = false,
-        },
-        color_overrides = {},
-        highlight_overrides = {},
-      }
-      vim.api.nvim_create_autocmd("OptionSet", {
-        pattern = "background",
-        callback = function()
-          vim.cmd("Catppuccin " .. (vim.v.option_new == "light" and "latte" or "mocha"))
-        end,
-      })
-      -- Create an autocmd User PackerCompileDone to update it every time packer is compiled
-      vim.api.nvim_create_autocmd("User", {
-        pattern = "PackerCompileDone",
-        callback = function()
-          vim.cmd "CatppuccinCompile"
-          vim.defer_fn(function()
-            vim.cmd "colorscheme catppuccin"
-          end, 0) -- Defered for live reloading
-        end,
-      })
-      vim.cmd [[colorscheme catppuccin]]
+      require("user.catppuccin").config()
     end,
   },
-  -- {
-  --   "Everblush/everblush.nvim",
-  --   as = "everblush",
-  --   config = function()
-  --     local everblush = require "everblush"
-  --     everblush.setup()
-  --     -- everblush.setup { nvim_tree = { contrast = true } }
-  --   end,
-  -- },
   {
     "EdenEast/nightfox.nvim",
     config = function()
@@ -522,13 +285,6 @@ lvim.plugins = {
       require("cmp").setup.cmdline("/", { sources = { { name = "buffer" } } })
     end,
   },
-  -- {
-  --   "ray-x/lsp_signature.nvim",
-  --   event = "BufRead",
-  --   config = function()
-  --     require("user.lsp_signature").config()
-  --   end,
-  -- },
   {
     "lukas-reineke/indent-blankline.nvim",
     setup = function()
@@ -594,13 +350,6 @@ lvim.plugins = {
       lvim.builtin.which_key.mappings["Y"] = { "<CMD>Codi!<CR>", "Clear Codi" }
     end,
   },
-  -- { -- Symbol Outline
-  --   "simrat39/symbols-outline.nvim",
-  --   setup = function()
-  --     lvim.builtin.which_key.mappings.l.o = { "<CMD>SymbolsOutline<cr>", "Outline" }
-  --   end,
-  --   event = "BufRead",
-  -- },
   {
     "ggandor/leap.nvim",
     config = function()
@@ -655,34 +404,7 @@ lvim.plugins = {
     "glepnir/lspsaga.nvim",
     branch = "main",
     config = function()
-      local saga = require "lspsaga"
-      saga.init_lsp_saga()
-      -- lsp finder to find the cursor word definition and reference
-      vim.keymap.set("n", "gh", "<cmd>Lspsaga lsp_finder<CR>", { silent = true })
-
-      -- or command
-      vim.keymap.set("n", "gs", "<Cmd>Lspsaga signature_help<CR>", { silent = true })
-      -- or use command
-      -- vim.keymap.set("n", "gd", "<cmd>Lspsaga preview_definition<CR>", { silent = true })
-      -- jump and show diagnostics
-      -- vim.keymap.set("n", "<leader>cd", "<cmd>Lspsaga show_line_diagnostics<CR>", { silent = true })
-      -- vim.keymap.set("n", "<leader>cd", "<cmd>Lspsaga show_cursor_diagnostics<CR>", { silent = true })
-      -- jump diagnostic
-      -- or jump to error
-      vim.keymap.set("n", "[E", function()
-        require("lspsaga.diagnostic").goto_prev { severity = vim.diagnostic.severity.ERROR }
-      end, { silent = true })
-      vim.keymap.set("n", "]E", function()
-        require("lspsaga.diagnostic").goto_next { severity = vim.diagnostic.severity.ERROR }
-      end, { silent = true })
-      -- or use command
-      vim.keymap.set("n", "[e", "<cmd>Lspsaga diagnostic_jump_next<CR>", { silent = true })
-      vim.keymap.set("n", "]e", "<cmd>Lspsaga diagnostic_jump_prev<CR>", { silent = true })
-
-      -- show signature help
-      vim.keymap.set("n", "gs", require("lspsaga.signaturehelp").signature_help, { silent = true, noremap = true })
-
-      lvim.builtin.which_key.mappings.l.o = { "<CMD>LSoutlineToggle<cr>", "Outline" }
+      require("user.lspsaga").config()
     end,
   },
 }
