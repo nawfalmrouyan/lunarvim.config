@@ -220,13 +220,15 @@ lvim.plugins = {
   },
   {
     "ellisonleao/glow.nvim",
+    setup = function()
+      lvim.builtin.which_key.mappings["m"] = { "<CMD>Glow<CR>", "Markdown Preview" }
+    end,
     config = function()
       require("glow").setup {
         border = "rounded",
       }
-      lvim.builtin.which_key.mappings["m"] = { "<CMD>Glow<CR>", "Markdown Preview" }
     end,
-    -- ft = "markdown",
+    ft = "markdown",
   },
   {
     "mickael-menu/zk-nvim",
