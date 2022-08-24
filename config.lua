@@ -13,7 +13,7 @@ vim.opt.smartcase = false
 vim.opt.relativenumber = true
 vim.opt.list = true
 vim.opt.listchars = { eol = "¬", trail = "·", precedes = "…", extends = "…", tab = "→\\ " }
-vim.opt.scrolloff = 1
+vim.opt.scrolloff = 0
 vim.opt.sidescrolloff = 0
 vim.opt.inccommand = "split"
 -- vim.cmd "set foldmethod=manual"
