@@ -181,6 +181,12 @@ lvim.plugins = {
   { "mg979/vim-visual-multi", event = "BufEnter" }, -- vim -Nu ~/.local/share/lunarvim/site/pack/packer/start/vim-visual-multi/tutorialrc
   { "nvim-treesitter/nvim-treesitter-textobjects", before = "nvim-treesitter" },
   {
+    "doums/suit.nvim",
+    config = function()
+      require("user.suit").config()
+    end,
+  },
+  {
     "ibhagwan/fzf-lua",
     setup = function()
       vim.api.nvim_set_keymap(
