@@ -81,7 +81,11 @@ M.config = function()
       vim_sneak = false,
       fern = false,
       barbar = false,
-      bufferline = true,
+      bufferline = {
+        enabled = true,
+        italics = true,
+        bolds = true,
+      },
       markdown = true,
       lightspeed = true,
       ts_rainbow = true,
