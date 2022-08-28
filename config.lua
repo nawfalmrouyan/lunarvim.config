@@ -16,9 +16,6 @@ vim.opt.listchars = { eol = "¬", trail = "·", precedes = "…", extends = "…
 vim.opt.scrolloff = 0
 vim.opt.sidescrolloff = 0
 vim.opt.inccommand = "split"
--- vim.cmd "set foldmethod=manual"
--- vim.cmd "set foldexpr=nvim_treesitter#foldexpr()"
-vim.cmd "set foldoptions=nodigits"
 vim.go.laststatus = 3
 
 lvim.builtin.lualine.active = true
@@ -369,7 +366,6 @@ lvim.plugins = {
     requires = "nvim-lua/plenary.nvim",
   },
   {
-    -- "Pocco81/TrueZen.nvim",
     "Pocco81/true-zen.nvim",
     setup = function()
       vim.api.nvim_set_keymap("n", "<M-=>", ":TZFocus<cr>", { noremap = true, silent = true })
@@ -420,11 +416,6 @@ lvim.autocommands = {
   { "CursorHold", { pattern = { "<buffer>" }, command = "lua vim.diagnostic.open_float({focusable = false})" } },
 }
 
--- lvim.builtin.which_key.mappings["S"] = {
---   name = "Session",
---   s = { "<CMD>SessionSave<cr>", "Save Session" },
---   l = { "<CMD>SessionLoad<cr>", "Load Session" },
--- }
 lvim.builtin.which_key.mappings["?"] = { "<CMD>NvimTreeFindFile<CR>", "Find file in NvimTree" }
 lvim.builtin.which_key.mappings["c"] = { "<CMD>bdelete!<CR>", "Close Buffer" }
 lvim.builtin.which_key.mappings["M"] = { "<CMD>MarkdownPreview<CR>", "Markdown Preview" }
