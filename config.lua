@@ -183,6 +183,7 @@ lvim.plugins = {
     config = function()
       require("user.suit").config()
     end,
+    event = "BufRead",
   },
   {
     "ibhagwan/fzf-lua",
@@ -206,6 +207,7 @@ lvim.plugins = {
       }
     end,
     requires = { "kyazdani42/nvim-web-devicons" },
+    event = "BufRead",
   },
   {
     "kylechui/nvim-surround",
@@ -239,6 +241,7 @@ lvim.plugins = {
     config = function()
       require("user.zk-nvim").config()
     end,
+    event = "BufRead",
   },
   { "olimorris/onedarkpro.nvim" },
   {
