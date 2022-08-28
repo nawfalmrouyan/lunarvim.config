@@ -16,6 +16,7 @@ vim.opt.listchars = { eol = "¬", trail = "·", precedes = "…", extends = "…
 vim.opt.scrolloff = 0
 vim.opt.sidescrolloff = 0
 vim.opt.inccommand = "split"
+-- vim.cmd "set foldoptions=nodigits"
 vim.go.laststatus = 3
 
 lvim.builtin.lualine.active = true
