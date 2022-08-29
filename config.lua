@@ -341,7 +341,7 @@ lvim.plugins = {
   { -- Interactive scratchpad
     "metakirby5/codi.vim",
     cmd = "Codi",
-    filetypes = { "python", "javascript", "php" },
+    ft = { "python", "javascript", "php" },
     setup = function()
       lvim.builtin.which_key.mappings["y"] = { "<CMD>Codi<CR>", "Codi" }
       lvim.builtin.which_key.mappings["Y"] = { "<CMD>Codi!<CR>", "Clear Codi" }
