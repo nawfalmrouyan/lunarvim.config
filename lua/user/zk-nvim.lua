@@ -33,18 +33,6 @@ M.config = function()
   commands.add("ZkRecents", make_edit_fn({ createdAfter = "2 weeks ago" }, { title = "Zk Recents" }))
 
   require("telescope").load_extension "zk"
-
-  lvim.builtin.which_key.mappings["z"] = {
-    name = "Zk",
-    T = { "<CMD>ZkNotes<CR>", "All Notes" },
-    nf = { "<CMD>ZkNew {dir='fleeting'}<CR>", "New fleeting note" },
-    nl = { "<CMD>ZkNew {dir='literature'}<CR>", "New literature note" },
-    np = { "<CMD>ZkNew {dir='permanent'}<CR>", "New permanent note" },
-    o = { "<CMD>ZkOrphans<CR>", "Orphan notes" },
-    r = { "<CMD>ZkRecents<CR>", "Recent notes" },
-    t = { "<CMD>ZkTags<CR>", "Tags" },
-    f = { "<Cmd>ZkNotes { sort = { 'modified' }, match = vim.fn.input('Search: ') }<CR>" },
-  }
 end
 
 return M
