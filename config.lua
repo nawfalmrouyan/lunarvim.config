@@ -169,6 +169,12 @@ lvim.builtin.sell_soul_to_devel = true
 -- Additional Plugins
 lvim.plugins = {
   -- { "wellle/targets.vim" },
+  {
+    "ray-x/lsp_signature.nvim",
+    config = function()
+      require("user.lsp_signature").config()
+    end,
+  },
   { "michaeljsmith/vim-indent-object", event = "BufRead" },
   { "tweekmonster/startuptime.vim" },
   { "kevinhwang91/nvim-bqf", event = "BufRead" },
