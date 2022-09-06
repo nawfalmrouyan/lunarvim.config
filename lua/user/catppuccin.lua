@@ -20,7 +20,7 @@ M.config = function()
     },
     styles = {
       comments = { "italic" },
-      conditionals = { "italic" },
+      conditionals = {},
       loops = { "italic" },
       functions = { "italic", "bold" },
       keywords = { "italic", "bold" },
@@ -30,7 +30,7 @@ M.config = function()
       booleans = { "italic" },
       properties = { "italic" },
       types = { "italic" },
-      operators = { "italic" },
+      operators = {},
     },
     integrations = {
       treesitter = true,
