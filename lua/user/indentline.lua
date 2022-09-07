@@ -30,24 +30,24 @@ M.config = function()
   -- vim.g.indent_blankline_buftype_exclude = { "qf", "terminal", "NvimTree" }
   vim.g.indent_blankline_buftype_exclude = { "terminal", "nofile" }
 
-  vim.cmd [[highlight Indent1 guifg=#BF616A guibg=NONE gui=nocombine]]
-  vim.cmd [[highlight Indent2 guifg=#D08770 guibg=NONE gui=nocombine]]
-  vim.cmd [[highlight Indent3 guifg=#EBCB8B guibg=NONE gui=nocombine]]
-  vim.cmd [[highlight Indent4 guifg=#A3BE8C guibg=NONE gui=nocombine]]
-  vim.cmd [[highlight Indent5 guifg=#5E81AC guibg=NONE gui=nocombine]]
-  vim.cmd [[highlight Indent6 guifg=#88C0D0 guibg=NONE gui=nocombine]]
-  vim.cmd [[highlight Indent7 guifg=#B48EAD guibg=NONE gui=nocombine]]
-  -- vim.g.indent_blankline_char = "│"
-  -- vim.g.indent_blankline_char = "▏"
-  vim.g.indent_blankline_char_highlight_list = {
-    "Indent1",
-    "Indent2",
-    "Indent3",
-    "Indent4",
-    "Indent5",
-    "Indent6",
-    "Indent7",
-  }
+  -- vim.cmd [[highlight Indent1 guifg=#BF616A guibg=NONE gui=nocombine]]
+  -- vim.cmd [[highlight Indent2 guifg=#D08770 guibg=NONE gui=nocombine]]
+  -- vim.cmd [[highlight Indent3 guifg=#EBCB8B guibg=NONE gui=nocombine]]
+  -- vim.cmd [[highlight Indent4 guifg=#A3BE8C guibg=NONE gui=nocombine]]
+  -- vim.cmd [[highlight Indent5 guifg=#5E81AC guibg=NONE gui=nocombine]]
+  -- vim.cmd [[highlight Indent6 guifg=#88C0D0 guibg=NONE gui=nocombine]]
+  -- vim.cmd [[highlight Indent7 guifg=#B48EAD guibg=NONE gui=nocombine]]
+  -- -- vim.g.indent_blankline_char = "│"
+  -- -- vim.g.indent_blankline_char = "▏"
+  -- vim.g.indent_blankline_char_highlight_list = {
+  --   "Indent1",
+  --   "Indent2",
+  --   "Indent3",
+  --   "Indent4",
+  --   "Indent5",
+  --   "Indent6",
+  --   "Indent7",
+  -- }
   -- vim.g.indent_blankline_show_first_indent_level = true
   -- vim.g.indent_blankline_show_trailing_blankline_indent = false
   -- vim.g.indent_blankline_use_treesitter = true
