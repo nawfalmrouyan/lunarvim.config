@@ -474,6 +474,7 @@ lvim.autocommands = {
     { pattern = { "*" }, command = 'if exists("g:backtorelative") | setlocal relativenumber cursorline | endif' },
   },
   { "CursorHold", { pattern = { "<buffer>" }, command = "lua vim.diagnostic.open_float({focusable = false})" } },
+  -- { "VimLeave,VimSuspend", { pattern = { "*" }, command = "guicursor=a:hor20" } },
 }
 
 lvim.builtin.which_key.mappings["?"] = { "<CMD>NvimTreeFindFile<CR>", "Find file in NvimTree" }
@@ -491,7 +492,7 @@ lvim.builtin.alpha.dashboard.section.header.val = {
 
 -- Neovim turns the default cursor to 'Block'  -- when switched back into terminal.  -- This below line fixes that.
 -- Uncomment if needed.
-vim.cmd "autocmd VimLeave,VimSuspend * set guicursor=a:ver90" -- Beam
+-- vim.cmd "autocmd VimLeave,VimSuspend * set guicursor=a:ver90" -- Beam
 -- vim.cmd "autocmd VimLeave,VimSuspend * set guicursor=a:hor20"
 
 -- NOTE: Above code doesn't take a value from the terminal's cursor and
