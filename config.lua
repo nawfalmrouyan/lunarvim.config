@@ -52,6 +52,7 @@ parser_configs.hcl = {
 
 lvim.builtin.telescope.on_config_done = function()
   require("telescope").load_extension "fzy_native"
+  require("telescope").load_extension "media_files"
 end
 
 lvim.builtin.treesitter.textobjects = {
@@ -182,8 +183,43 @@ lvim.plugins = {
   { "windwp/nvim-ts-autotag", event = "InsertEnter" },
   { "romgrk/fzy-lua-native" },
   { "nvim-telescope/telescope-fzy-native.nvim", run = "make" },
+  { "nvim-telescope/telescope-media-files.nvim" },
   { "mg979/vim-visual-multi", event = "BufEnter" }, -- vim -Nu ~/.local/share/lunarvim/site/pack/packer/start/vim-visual-multi/tutorialrc
   { "nvim-treesitter/nvim-treesitter-textobjects", before = "nvim-treesitter" },
+  {
+    "renerocksai/telekasten.nvim",
+    setup = function()
+      lvim.builtin.which_key.mappings["z"] = {
+        name = "Telekasten",
+        f = { "<cmd>lua require('telekasten').find_notes()<CR>", "Find Notes" },
+        d = { "<cmd>lua require('telekasten').find_daily_notes()<CR>", "Find Daily Notes" },
+        g = { "<cmd>lua require('telekasten').search_notes()<CR>", "Search Notes" },
+        l = { "<cmd>lua require('telekasten').follow_link()<CR>", "Follow Link" },
+        T = { "<cmd>lua require('telekasten').goto_today()<CR>", "Goto Today" },
+        W = { "<cmd>lua require('telekasten').goto_thisweek()<CR>", "Goto This Week" },
+        w = { "<cmd>lua require('telekasten').find_weekly_notes()<CR>", "Find Weekly Notes" },
+        n = { "<cmd>lua require('telekasten').new_note()<CR>", "New Note" },
+        N = { "<cmd>lua require('telekasten').new_templated_note()<CR>", "New Templated Note" },
+        y = { "<cmd>lua require('telekasten').yank_notelink()<CR>", "Yank Note Link" },
+        c = { "<cmd>lua require('telekasten').show_calendar()<CR>", "Show Calendar" },
+        C = { "<cmd>CalendarT<CR>", "Calendar" },
+        i = { "<cmd>lua require('telekasten').paste_img_and_link()<CR>", "Paste Image and Link" },
+        t = { "<cmd>lua require('telekasten').toggle_todo()<CR>", "Toggle Todo" },
+        b = { "<cmd>lua require('telekasten').show_backlinks()<CR>", "Show Backlinks" },
+        F = { "<cmd>lua require('telekasten').find_friends()<CR>", "Find Friends" },
+        I = { "<cmd>lua require('telekasten').insert_img_link({ i=true })<CR>", "Insert Image Link" },
+        p = { "<cmd>lua require('telekasten').preview_img()<CR>", "Preview Image" },
+        m = { "<cmd>lua require('telekasten').browse_media()<CR>", "Browse Media" },
+        a = { "<cmd>lua require('telekasten').show_tags()<CR>", "Show Tags" },
+        r = { "<cmd>lua require('telekasten').rename_note()<CR>", "Rename Note" },
+        z = { "<cmd>lua require('telekasten').panel()<CR>", "Panel" },
+      }
+    end,
+    config = function()
+      require("user.telekasten").config()
+    end,
+  },
+  { "renerocksai/calendar-vim" },
   {
     "doums/suit.nvim",
     config = function()
@@ -191,6 +227,7 @@ lvim.plugins = {
     end,
     event = "BufRead",
   },
+  { "mzlogin/vim-markdown-toc" },
   {
     "ibhagwan/fzf-lua",
     setup = function()
