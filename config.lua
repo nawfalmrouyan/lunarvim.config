@@ -16,7 +16,7 @@ vim.opt.listchars = { eol = "¬", trail = "·", precedes = "…", extends = "…
 vim.opt.scrolloff = 0
 vim.opt.sidescrolloff = 0
 vim.opt.inccommand = "split"
-vim.opt.guifont = "PragmataPro Nerd Font Mono:h15"
+vim.opt.guifont = "PragmataPro Nerd Font Mono:h13"
 -- vim.cmd "set foldoptions=nodigits"
 vim.go.laststatus = 3
 
