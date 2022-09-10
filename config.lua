@@ -176,6 +176,7 @@ lvim.plugins = {
     config = function()
       require("user.lsp_signature").config()
     end,
+    event = "BufRead",
   },
   { "michaeljsmith/vim-indent-object", event = "BufRead" },
   { "tweekmonster/startuptime.vim" },
@@ -219,8 +220,9 @@ lvim.plugins = {
     config = function()
       require("user.telekasten").config()
     end,
+    event = "BufRead",
   },
-  { "renerocksai/calendar-vim" },
+  { "renerocksai/calendar-vim", event = "BufRead" },
   {
     "doums/suit.nvim",
     config = function()
@@ -228,7 +230,7 @@ lvim.plugins = {
     end,
     event = "BufRead",
   },
-  { "mzlogin/vim-markdown-toc" },
+  { "mzlogin/vim-markdown-toc", event = "BufRead" },
   {
     "ibhagwan/fzf-lua",
     setup = function()
