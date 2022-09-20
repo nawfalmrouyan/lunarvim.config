@@ -2,7 +2,7 @@ lvim.format_on_save = false
 lvim.lint_on_save = false
 -- lvim.colorscheme = "duskfox"
 lvim.colorscheme = "catppuccin"
--- lvim.colorscheme = "onedarkpro"
+-- lvim.colorscheme = "tokyonight-night"
 lvim.shell = "/usr/bin/zsh"
 -- lvim.transparent_window = true
 
