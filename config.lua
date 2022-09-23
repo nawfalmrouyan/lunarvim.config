@@ -371,9 +371,18 @@ lvim.plugins = {
       vim.g.matchup_matchparen_offscreen = { method = "popup" }
     end,
   },
+  -- {
+  --   "rrethy/vim-hexokinase",
+  --   run = "make hexokinase",
+  -- },
   {
-    "rrethy/vim-hexokinase",
-    run = "make hexokinase",
+    "uga-rosa/ccc.nvim",
+    event = "BufRead",
+    -- branch = "0.7.2",
+    config = function()
+      -- require("user.ccc").config()
+      vim.cmd("CccHighlighterEnable")
+    end,
   },
   {
     "f-person/git-blame.nvim",
