@@ -33,7 +33,7 @@ lvim.builtin.terminal.direction = "horizontal"
 lvim.builtin.terminal.size = 10
 lvim.builtin.terminal.shading_factor = 1
 -- lvim.builtin.which_key.mappings["P"] = { "<CMD>Telescope projects<CR>", "Projects" }
-lvim.builtin.notify.opts.timeout = 2000
+lvim.builtin.notify.opts.timeout = 3000
 
 -- lvim.lsp.installer.setup.automatic_installation = true
 -- lvim.lsp.automatic_servers_installation = true
