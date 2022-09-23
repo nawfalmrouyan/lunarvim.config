@@ -7,7 +7,7 @@ lvim.shell = "/usr/bin/zsh"
 -- lvim.transparent_window = true
 
 -- vim.opt.cmdheight = 0
-vim.opt.timeoutlen = 500
+-- vim.opt.timeoutlen = 500
 vim.opt.ignorecase = false
 vim.opt.smartcase = false
 vim.opt.relativenumber = true
@@ -18,10 +18,10 @@ vim.opt.sidescrolloff = 0
 vim.opt.inccommand = "split"
 vim.opt.guifont = "PragmataPro Nerd Font Mono:h13"
 -- vim.cmd "set foldoptions=nodigits"
-vim.go.laststatus = 3
+-- vim.go.laststatus = 3
 
 lvim.builtin.lualine.active = true
-lvim.builtin.lualine.options.globalstatus = true
+-- lvim.builtin.lualine.options.globalstatus = true
 -- lvim.builtin.lualine.options.theme = "duskfox"
 lvim.builtin.lualine.options.theme = "catppuccin"
 lvim.builtin.bufferline.active = true
@@ -347,16 +347,16 @@ lvim.plugins = {
       require("cmp").setup.cmdline("/", { sources = { { name = "buffer" } } })
     end,
   },
-  {
-    "lukas-reineke/indent-blankline.nvim",
-    setup = function()
-      lvim.builtin.which_key.mappings["i"] = { "<CMD>IndentBlanklineToggle<CR>", "Indent Lines" }
-    end,
-    config = function()
-      require("user.indentline").config()
-    end,
-    event = "BufRead",
-  },
+  -- {
+  --   "lukas-reineke/indent-blankline.nvim",
+  --   setup = function()
+  --     lvim.builtin.which_key.mappings["i"] = { "<CMD>IndentBlanklineToggle<CR>", "Indent Lines" }
+  --   end,
+  --   config = function()
+  --     require("user.indentline").config()
+  --   end,
+  --   event = "BufRead",
+  -- },
   {
     "mbbill/undotree",
     event = "BufRead",
