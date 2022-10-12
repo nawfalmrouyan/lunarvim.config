@@ -6,6 +6,9 @@ M.config = function()
     return
   end
   ccc.setup {
+    highlighter = {
+      auto_enable = true,
+    }
   }
 end
 
