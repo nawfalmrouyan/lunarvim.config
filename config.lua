@@ -380,8 +380,8 @@ lvim.plugins = {
     event = "BufRead",
     -- branch = "0.7.2",
     config = function()
-      -- require("user.ccc").config()
-      vim.cmd("CccHighlighterEnable")
+      require("user.ccc").config()
+      -- vim.cmd("CccHighlighterEnable")
     end,
   },
   {
