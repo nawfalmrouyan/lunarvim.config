@@ -26,14 +26,14 @@ lvim.builtin.lualine.active = true
 lvim.builtin.lualine.options.theme = "catppuccin"
 lvim.builtin.bufferline.active = true
 lvim.builtin.alpha.mode = "dashboard"
-lvim.builtin.notify.active = true
+-- lvim.builtin.notify.active = true
 lvim.builtin.dap.active = false
 lvim.builtin.terminal.active = true
 lvim.builtin.terminal.direction = "horizontal"
 lvim.builtin.terminal.size = 10
 lvim.builtin.terminal.shading_factor = 1
 -- lvim.builtin.which_key.mappings["P"] = { "<CMD>Telescope projects<CR>", "Projects" }
-lvim.builtin.notify.opts.timeout = 3000
+-- lvim.builtin.notify.opts.timeout = 3000
 
 -- lvim.lsp.installer.setup.automatic_installation = true
 -- lvim.lsp.automatic_servers_installation = true
