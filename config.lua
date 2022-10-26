@@ -1,10 +1,9 @@
 lvim.format_on_save = false
 lvim.lint_on_save = false
 -- lvim.colorscheme = "duskfox"
-lvim.colorscheme = "catppuccin"
 -- lvim.colorscheme = "tokyonight-night"
+lvim.colorscheme = "catppuccin"
 lvim.shell = "/usr/bin/zsh"
--- lvim.transparent_window = true
 
 -- vim.opt.cmdheight = 0
 -- vim.opt.timeoutlen = 500
@@ -19,27 +18,21 @@ vim.opt.inccommand = "split"
 vim.opt.guifont = "PragmataPro Nerd Font Mono:h15"
 -- vim.cmd "set foldoptions=nodigits"
 -- vim.go.laststatus = 3
+-- lvim.builtin.lualine.options.globalstatus = true
 
 lvim.builtin.lualine.active = true
--- lvim.builtin.lualine.options.globalstatus = true
 -- lvim.builtin.lualine.options.theme = "duskfox"
 lvim.builtin.lualine.options.theme = "catppuccin"
 lvim.builtin.bufferline.active = true
 lvim.builtin.alpha.mode = "dashboard"
--- lvim.builtin.notify.active = true
 lvim.builtin.dap.active = false
 lvim.builtin.terminal.active = true
 lvim.builtin.terminal.direction = "horizontal"
 lvim.builtin.terminal.size = 10
 lvim.builtin.terminal.shading_factor = 1
--- lvim.builtin.which_key.mappings["P"] = { "<CMD>Telescope projects<CR>", "Projects" }
--- lvim.builtin.notify.opts.timeout = 3000
 
--- lvim.lsp.installer.setup.automatic_installation = true
--- lvim.lsp.automatic_servers_installation = true
 lvim.lsp.diagnostics.virtual_text = false
 
--- lvim.builtin.treesitter.ensure_installed = "maintained"
 lvim.builtin.treesitter.highlight.enabled = true
 lvim.builtin.treesitter.rainbow.enable = true
 lvim.builtin.treesitter.autotag.enable = true
@@ -373,17 +366,12 @@ lvim.plugins = {
       vim.g.matchup_matchparen_offscreen = { method = "popup" }
     end,
   },
-  -- {
-  --   "rrethy/vim-hexokinase",
-  --   run = "make hexokinase",
-  -- },
   {
     "uga-rosa/ccc.nvim",
     event = "BufRead",
     -- branch = "0.7.2",
     config = function()
       require("user.ccc").config()
-      -- vim.cmd("CccHighlighterEnable")
     end,
   },
   {
@@ -400,7 +388,7 @@ lvim.plugins = {
       require("user.dial").config()
     end,
   },
-  { -- Peek changes live
+  {
     "nacro90/numb.nvim",
     event = "BufRead",
     config = function()
