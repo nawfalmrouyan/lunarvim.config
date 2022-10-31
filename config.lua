@@ -104,6 +104,7 @@ lvim.lsp.automatic_configuration.skipped_servers = {
   -- "emmet_ls",
   "eslint",
   "eslintls",
+  "glint",
   "golangci_lint_ls",
   "gradle_ls",
   "graphql",
