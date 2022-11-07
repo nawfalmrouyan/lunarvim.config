@@ -119,7 +119,7 @@ M.config = function()
   --     end, 0) -- Defered for live reloading
   --   end,
   -- })
-  vim.cmd [[colorscheme catppuccin]]
+  -- vim.cmd [[colorscheme catppuccin]]
 end
 
 return M
