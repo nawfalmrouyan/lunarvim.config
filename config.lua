@@ -1,8 +1,7 @@
 lvim.format_on_save = false
 lvim.lint_on_save = false
--- lvim.colorscheme = "duskfox"
--- lvim.colorscheme = "tokyonight-night"
-lvim.colorscheme = "catppuccin"
+-- lvim.colorscheme = "catppuccin"
+-- lvim.builtin.lualine.options.theme = "catppuccin"
 lvim.shell = "/usr/bin/zsh"
 
 -- vim.opt.cmdheight = 0
@@ -17,32 +16,18 @@ vim.opt.sidescrolloff = 0
 vim.opt.inccommand = "split"
 vim.opt.guifont = "PragmataPro Nerd Font Mono:h15"
 -- vim.cmd "set foldoptions=nodigits"
--- vim.go.laststatus = 3
--- lvim.builtin.lualine.options.globalstatus = true
 
 lvim.builtin.lualine.active = true
--- lvim.builtin.lualine.options.theme = "duskfox"
-lvim.builtin.lualine.options.theme = "catppuccin"
 lvim.builtin.bufferline.active = true
 lvim.builtin.alpha.mode = "dashboard"
 lvim.builtin.dap.active = false
 lvim.builtin.terminal.active = true
-lvim.builtin.terminal.direction = "horizontal"
-lvim.builtin.terminal.size = 10
-lvim.builtin.terminal.shading_factor = 1
 
 lvim.lsp.diagnostics.virtual_text = false
 
 lvim.builtin.treesitter.highlight.enabled = true
 lvim.builtin.treesitter.rainbow.enable = true
 lvim.builtin.treesitter.autotag.enable = true
-
--- syntax highlighting for .tf
-local parser_configs = require("nvim-treesitter.parsers").get_parser_configs()
-parser_configs.hcl = {
-  filetype = "hcl",
-  "terraform",
-}
 
 lvim.builtin.telescope.on_config_done = function()
   require("telescope").load_extension "fzy_native"
@@ -166,7 +151,6 @@ lvim.builtin.sell_soul_to_devel = true
 
 -- Additional Plugins
 lvim.plugins = {
-  -- { "wellle/targets.vim" },
   {
     "ray-x/lsp_signature.nvim",
     config = function()
@@ -190,48 +174,6 @@ lvim.plugins = {
   { "nvim-telescope/telescope-media-files.nvim" },
   { "mg979/vim-visual-multi", event = "BufEnter" }, -- vim -Nu ~/.local/share/lunarvim/site/pack/packer/start/vim-visual-multi/tutorialrc
   { "nvim-treesitter/nvim-treesitter-textobjects", before = "nvim-treesitter" },
-  {
-    "renerocksai/telekasten.nvim",
-    setup = function()
-      lvim.builtin.which_key.mappings["z"] = {
-        name = "Telekasten",
-        f = { "<cmd>lua require('telekasten').find_notes()<CR>", "Find Notes" },
-        d = { "<cmd>lua require('telekasten').find_daily_notes()<CR>", "Find Daily Notes" },
-        g = { "<cmd>lua require('telekasten').search_notes()<CR>", "Search Notes" },
-        l = { "<cmd>lua require('telekasten').follow_link()<CR>", "Follow Link" },
-        T = { "<cmd>lua require('telekasten').goto_today()<CR>", "Goto Today" },
-        W = { "<cmd>lua require('telekasten').goto_thisweek()<CR>", "Goto This Week" },
-        w = { "<cmd>lua require('telekasten').find_weekly_notes()<CR>", "Find Weekly Notes" },
-        n = { "<cmd>lua require('telekasten').new_note()<CR>", "New Note" },
-        N = { "<cmd>lua require('telekasten').new_templated_note()<CR>", "New Templated Note" },
-        y = { "<cmd>lua require('telekasten').yank_notelink()<CR>", "Yank Note Link" },
-        c = { "<cmd>lua require('telekasten').show_calendar()<CR>", "Show Calendar" },
-        C = { "<cmd>CalendarT<CR>", "Calendar" },
-        i = { "<cmd>lua require('telekasten').paste_img_and_link()<CR>", "Paste Image and Link" },
-        t = { "<cmd>lua require('telekasten').toggle_todo()<CR>", "Toggle Todo" },
-        b = { "<cmd>lua require('telekasten').show_backlinks()<CR>", "Show Backlinks" },
-        F = { "<cmd>lua require('telekasten').find_friends()<CR>", "Find Friends" },
-        I = { "<cmd>lua require('telekasten').insert_img_link({ i=true })<CR>", "Insert Image Link" },
-        p = { "<cmd>lua require('telekasten').preview_img()<CR>", "Preview Image" },
-        m = { "<cmd>lua require('telekasten').browse_media()<CR>", "Browse Media" },
-        a = { "<cmd>lua require('telekasten').show_tags()<CR>", "Show Tags" },
-        r = { "<cmd>lua require('telekasten').rename_note()<CR>", "Rename Note" },
-        z = { "<cmd>lua require('telekasten').panel()<CR>", "Panel" },
-      }
-    end,
-    config = function()
-      require("user.telekasten").config()
-    end,
-    event = "BufRead",
-  },
-  { "renerocksai/calendar-vim", event = "BufRead" },
-  {
-    "doums/suit.nvim",
-    config = function()
-      require("user.suit").config()
-    end,
-    event = "BufRead",
-  },
   { "mzlogin/vim-markdown-toc", event = "BufRead" },
   {
     "ibhagwan/fzf-lua",
@@ -284,26 +226,26 @@ lvim.plugins = {
     end,
     ft = "markdown",
   },
-  -- {
-  --   "mickael-menu/zk-nvim",
-  --   setup = function()
-  --     lvim.builtin.which_key.mappings["z"] = {
-  --       name = "Zk",
-  --       T = { "<CMD>ZkNotes<CR>", "All Notes" },
-  --       nf = { "<CMD>ZkNew {dir='fleeting'}<CR>", "New fleeting note" },
-  --       nl = { "<CMD>ZkNew {dir='literature'}<CR>", "New literature note" },
-  --       np = { "<CMD>ZkNew {dir='permanent'}<CR>", "New permanent note" },
-  --       o = { "<CMD>ZkOrphans<CR>", "Orphan notes" },
-  --       r = { "<CMD>ZkRecents<CR>", "Recent notes" },
-  --       t = { "<CMD>ZkTags<CR>", "Tags" },
-  --       f = { "<Cmd>ZkNotes { sort = { 'modified' }, match = vim.fn.input('Search: ') }<CR>" },
-  --     }
-  --   end,
-  --   config = function()
-  --     require("user.zk-nvim").config()
-  --   end,
-  --   event = "BufRead",
-  -- },
+  {
+    "mickael-menu/zk-nvim",
+    setup = function()
+      lvim.builtin.which_key.mappings["z"] = {
+        name = "Zk",
+        T = { "<CMD>ZkNotes<CR>", "All Notes" },
+        nf = { "<CMD>ZkNew {dir='fleeting'}<CR>", "New fleeting note" },
+        nl = { "<CMD>ZkNew {dir='literature'}<CR>", "New literature note" },
+        np = { "<CMD>ZkNew {dir='permanent'}<CR>", "New permanent note" },
+        o = { "<CMD>ZkOrphans<CR>", "Orphan notes" },
+        r = { "<CMD>ZkRecents<CR>", "Recent notes" },
+        t = { "<CMD>ZkTags<CR>", "Tags" },
+        f = { "<Cmd>ZkNotes { sort = { 'modified' }, match = vim.fn.input('Search: ') }<CR>" },
+      }
+    end,
+    config = function()
+      require("user.zk-nvim").config()
+    end,
+    event = "BufRead",
+  },
   { "olimorris/onedarkpro.nvim" },
   {
     "catppuccin/nvim",
@@ -325,7 +267,6 @@ lvim.plugins = {
           },
         },
       }
-      -- vim.cmd "colorscheme duskfox"
     end,
   },
   {
@@ -343,16 +284,6 @@ lvim.plugins = {
       require("cmp").setup.cmdline("/", { sources = { { name = "buffer" } } })
     end,
   },
-  -- {
-  --   "lukas-reineke/indent-blankline.nvim",
-  --   setup = function()
-  --     lvim.builtin.which_key.mappings["i"] = { "<CMD>IndentBlanklineToggle<CR>", "Indent Lines" }
-  --   end,
-  --   config = function()
-  --     require("user.indentline").config()
-  --   end,
-  --   event = "BufRead",
-  -- },
   {
     "mbbill/undotree",
     event = "BufRead",
