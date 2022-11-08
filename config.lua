@@ -1,7 +1,7 @@
 lvim.format_on_save = false
 lvim.lint_on_save = false
--- lvim.colorscheme = "catppuccin"
--- lvim.builtin.lualine.options.theme = "catppuccin"
+lvim.colorscheme = "catppuccin"
+lvim.builtin.lualine.options.theme = "catppuccin"
 lvim.shell = "/usr/bin/zsh"
 
 -- vim.opt.cmdheight = 0
@@ -14,7 +14,7 @@ vim.opt.listchars = { eol = "¬", trail = "·", precedes = "…", extends = "…
 vim.opt.scrolloff = 0
 vim.opt.sidescrolloff = 0
 vim.opt.inccommand = "split"
-vim.opt.guifont = "PragmataPro Nerd Font Mono:h15"
+vim.opt.guifont = "PragmataPro Nerd Font Mono:h11"
 -- vim.cmd "set foldoptions=nodigits"
 
 lvim.builtin.lualine.active = true
