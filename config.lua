@@ -449,17 +449,17 @@ lvim.builtin.alpha.dashboard.section.header.val = {
 --       The numbers didn't make a difference in alacritty. Please change
 --       the number to something that suits your needs if it looks weird.
 
-vim.cmd [[
-  let g:clipboard = {
-    \ 'name': 'xsel',
-    \ 'copy': {
-    \    '+': 'xsel --nodetach -i -b',
-    \    '*': 'xsel --nodetach -i -p',
-    \  },
-    \ 'paste': {
-    \    '+': 'xsel -o -b',
-    \    '*': 'xsel -o -p',
-    \ },
-    \ 'cache_enabled': 1,
-    \ }
-]]
+-- vim.cmd [[
+--   let g:clipboard = {
+--     \ 'name': 'xsel',
+--     \ 'copy': {
+--     \    '+': 'xsel --nodetach -i -b',
+--     \    '*': 'xsel --nodetach -i -p',
+--     \  },
+--     \ 'paste': {
+--     \    '+': 'xsel -o -b',
+--     \    '*': 'xsel -o -p',
+--     \ },
+--     \ 'cache_enabled': 1,
+--     \ }
+-- ]]
