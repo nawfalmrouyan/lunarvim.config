@@ -400,6 +400,13 @@ lvim.plugins = {
       require("user.lspsaga").config()
     end,
   },
+  {
+    "j-hui/fidget.nvim",
+    config = function()
+      require("fidget").setup()
+    end,
+  },
+  { "christoomey/vim-tmux-navigator" },
 }
 
 lvim.autocommands = {
