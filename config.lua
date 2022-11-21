@@ -365,6 +365,18 @@ lvim.plugins = {
     end,
     event = "BufRead",
   },
+  {
+    "ggandor/flit.nvim",
+    requires = "ggandor/leap.nvim",
+    config = function()
+      require("flit").setup {
+        keys = { f = "f", F = "F", t = "t", T = "T" },
+        labeled_modes = "v",
+        multiline = true,
+        opts = {},
+      }
+    end,
+  },
   { -- generate code links
     "ruifm/gitlinker.nvim",
     event = "BufRead",
