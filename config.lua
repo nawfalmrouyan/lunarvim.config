@@ -3,6 +3,7 @@ lvim.lint_on_save = false
 lvim.colorscheme = "catppuccin"
 lvim.builtin.lualine.options.theme = "catppuccin"
 lvim.shell = "/usr/bin/zsh"
+lvim.transparent_window = true
 
 -- vim.opt.cmdheight = 0
 -- vim.opt.timeoutlen = 500
@@ -459,6 +460,20 @@ lvim.builtin.alpha.dashboard.section.header.val = {
 --     \ 'paste': {
 --     \    '+': 'xsel -o -b',
 --     \    '*': 'xsel -o -p',
+--     \ },
+--     \ 'cache_enabled': 1,
+--     \ }
+-- ]]
+-- vim.cmd [[
+--   let g:clipboard = {
+--     \ 'name': 'wl-copy',
+--     \ 'copy': {
+--     \    '+': 'wl-copy -f',
+--     \    '*': 'wl-copy -f -p',
+--     \  },
+--     \ 'paste': {
+--     \    '+': 'wl-paste ',
+--     \    '*': 'wl-paste -p',
 --     \ },
 --     \ 'cache_enabled': 1,
 --     \ }
