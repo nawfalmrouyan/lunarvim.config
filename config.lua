@@ -11,7 +11,8 @@ vim.opt.ignorecase = false
 vim.opt.smartcase = false
 vim.opt.relativenumber = true
 vim.opt.list = true
-vim.opt.listchars = { eol = "¬", trail = "·", precedes = "…", extends = "…", tab = "→\\ " }
+vim.opt.listchars =
+  { eol = "¬", trail = "·", precedes = "…", extends = "…", tab = "→\\ ", leadmultispace = "·" }
 vim.opt.scrolloff = 0
 vim.opt.sidescrolloff = 0
 vim.opt.inccommand = "split"
