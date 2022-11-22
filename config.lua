@@ -392,7 +392,17 @@ lvim.plugins = {
       }
     end,
   },
-  { -- generate code links
+  {
+    "notjedi/nvim-rooter.lua",
+    config = function()
+      require("nvim-rooter").setup {
+        rooter_patterns = { ".git", ".hg", ".svn", "*.conf" },
+        trigger_patterns = { "*" },
+        manual = false,
+      }
+    end,
+  },
+  {
     "ruifm/gitlinker.nvim",
     event = "BufRead",
     config = function()
@@ -448,6 +458,10 @@ lvim.plugins = {
     end,
   },
   { "christoomey/vim-tmux-navigator" },
+  {
+    "folke/lsp-colors.nvim",
+    event = "BufRead",
+  },
 }
 
 lvim.autocommands = {
