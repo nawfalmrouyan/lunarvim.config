@@ -12,7 +12,7 @@ M.config = function()
       shade = "dark",
       percentage = 0.15,
     },
-    transparent_background = false,
+    transparent_background = true,
     term_colors = true,
     compile = {
       enabled = true,
@@ -20,17 +20,17 @@ M.config = function()
     },
     styles = {
       comments = { "italic" },
-      conditionals = {},
+      conditionals = { "bold" },
       loops = { "italic" },
       functions = { "italic", "bold" },
       keywords = { "italic", "bold" },
       strings = { "italic" },
-      variables = {},
-      numbers = {},
+      variables = { "bold" },
+      numbers = { "bold" },
       booleans = { "italic" },
       properties = { "italic" },
       types = { "italic" },
-      operators = {},
+      operators = { "bold" },
     },
     require("catppuccin").setup {
       integrations = {
