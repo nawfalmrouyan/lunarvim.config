@@ -342,7 +342,7 @@ lvim.plugins = {
       vim.g.gitblame_enabled = 0
     end,
     event = "BufRead",
-  }, -- Git Blame
+  },
   {
     "monaqa/dial.nvim",
     event = "BufRead",
@@ -357,14 +357,14 @@ lvim.plugins = {
       require("user.numb").config()
     end,
   },
-  { -- smooth scroll
+  {
     "karb94/neoscroll.nvim",
     event = "BufRead",
     config = function()
       require("user.neoscroll").config()
     end,
   },
-  { -- Interactive scratchpad
+  {
     "metakirby5/codi.vim",
     cmd = "Codi",
     ft = { "python", "javascript", "php" },
@@ -419,7 +419,7 @@ lvim.plugins = {
     end,
     event = "BufRead",
   },
-  { -- diagnostics
+  {
     "folke/trouble.nvim",
     cmd = "TroubleToggle",
     setup = function()
