@@ -287,27 +287,12 @@ lvim.plugins = {
     end,
     event = "BufRead",
   },
-  { "olimorris/onedarkpro.nvim" },
   {
     "catppuccin/nvim",
     as = "catppuccin",
     run = ":CatppuccinCompile",
     config = function()
       require("user.catppuccin").config()
-    end,
-  },
-  {
-    "EdenEast/nightfox.nvim",
-    config = function()
-      require("nightfox").setup {
-        options = {
-          styles = {
-            comments = "italic",
-            keywords = "bold",
-            functions = "italic,bold",
-          },
-        },
-      }
     end,
   },
   {
