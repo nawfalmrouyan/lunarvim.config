@@ -32,9 +32,9 @@ lvim.builtin.treesitter.highlight.enabled = true
 lvim.builtin.treesitter.rainbow.enable = true
 lvim.builtin.treesitter.autotag.enable = true
 
-lvim.builtin.telescope.on_config_done = function()
-  require("telescope").load_extension "fzy_native"
-  require("telescope").load_extension "media_files"
+lvim.builtin.telescope.on_config_done = function(telescope)
+  pcall(telescope.load_extension, "fzy_native")
+  pcall(telescope.load_extension, "media_files")
 end
 
 lvim.builtin.treesitter.textobjects = {
@@ -156,10 +156,10 @@ lvim.builtin.sell_soul_to_devel = true
 lvim.plugins = {
   {
     "ray-x/lsp_signature.nvim",
-    config = function()
-      require("user.lsp_signature").config()
-    end,
     event = "BufRead",
+    config = function()
+      require("lsp_signature").on_attach()
+    end,
   },
   {
     "glacambre/firenvim",
@@ -169,7 +169,32 @@ lvim.plugins = {
   },
   { "michaeljsmith/vim-indent-object", event = "BufRead" },
   { "tweekmonster/startuptime.vim" },
-  { "kevinhwang91/nvim-bqf", event = "BufRead" },
+  {
+    "kevinhwang91/nvim-bqf",
+    event = { "BufRead", "BufNew" },
+    config = function()
+      require("bqf").setup {
+        auto_enable = true,
+        preview = {
+          win_height = 12,
+          win_vheight = 12,
+          delay_syntax = 80,
+          border_chars = { "┃", "┃", "━", "━", "┏", "┓", "┗", "┛", "█" },
+        },
+        func_map = {
+          vsplit = "",
+          ptogglemode = "z,",
+          stoggleup = "",
+        },
+        filter = {
+          fzf = {
+            action_for = { ["ctrl-s"] = "split" },
+            extra_opts = { "--bind", "ctrl-o:toggle-all", "--prompt", "> " },
+          },
+        },
+      }
+    end,
+  },
   { "p00f/nvim-ts-rainbow", event = "BufEnter" },
   { "windwp/nvim-ts-autotag", event = "InsertEnter" },
   { "romgrk/fzy-lua-native" },
@@ -326,6 +351,10 @@ lvim.plugins = {
     "f-person/git-blame.nvim",
     setup = function()
       lvim.builtin.which_key.mappings["a"] = { "<CMD>GitBlameToggle<CR>", "Toggle Git Blame" }
+    end,
+    config = function()
+      vim.cmd "highlight default link gitblame SpecialComment"
+      vim.g.gitblame_enabled = 0
     end,
     event = "BufRead",
   }, -- Git Blame
