@@ -22,7 +22,7 @@ vim.opt.guifont = "PragmataPro Nerd Font Mono:h11"
 lvim.builtin.lualine.active = true
 lvim.builtin.bufferline.active = true
 lvim.builtin.alpha.mode = "dashboard"
--- lvim.builtin.dap.active = false
+lvim.builtin.dap.active = false
 lvim.builtin.terminal.active = true
 
 lvim.lsp.diagnostics.virtual_text = false
