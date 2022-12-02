@@ -213,7 +213,7 @@ lvim.plugins = {
         { noremap = true, silent = true }
       )
       vim.api.nvim_set_keymap("n", "<c-0>", ":FzfLua ", { noremap = true, silent = false })
-      lvim.builtin.which_key.mappings["o"] = {
+      lvim.builtin.which_key.mappings["f"] = {
         name = "FZF",
         c = { "<cmd>lua require('fzf-lua').grep_cword()<cr>", "Find cword" },
         C = { "<cmd>lua require('fzf-lua').grep_cWORD()<cr>", "Find cWORD" },
