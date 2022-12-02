@@ -8,6 +8,7 @@ local opts = {
   filetypes = { "html", "css", "scss", "javascript", "javascriptreact", "typescript", "typescriptreact" },
 }
 require("lvim.lsp.manager").setup("emmet_ls", opts)
+require("lsp_signature").on_attach()
 -- local lspconfig = require'lspconfig'
 -- local configs = require'lspconfig.configs'
 
