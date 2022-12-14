@@ -500,3 +500,20 @@ lvim.builtin.alpha.dashboard.section.header.val = {
   "\\____/ .___/\\__,_/_/_____/____/_____/  ",
   "    /_/                                ",
 }
+
+-- vim.cmd [[
+-- if !empty($WAYLAND_DISPLAY)
+--   let g:clipboard = {
+--         \   'name': 'wayland-strip-carriage',
+--         \   'copy': {
+--         \      '+': 'wl-copy --foreground --type text/plain',
+--         \      '*': 'wl-copy --foreground --type text/plain --primary',
+--         \    },
+--         \   'paste': {
+--         \      '+': {-> systemlist('wl-paste --no-newline | tr -d "\r"')},
+--         \      '*': {-> systemlist('wl-paste --no-newline --primary | tr -d "\r"')},
+--         \   },
+--         \   'cache_enabled': 1,
+--         \ }
+-- endif
+-- ]]
