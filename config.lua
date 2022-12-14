@@ -99,6 +99,7 @@ lvim.lsp.automatic_configuration.skipped_servers = {
   "graphql",
   "jedi_language_server",
   "ltex",
+  "neocmake",
   "ocamlls",
   "phpactor",
   "psalm",
