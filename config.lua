@@ -158,7 +158,7 @@ lvim.builtin.sell_soul_to_devel = true
 lvim.plugins = {
   {
     "ray-x/lsp_signature.nvim",
-    -- event = "BufRead",
+    event = "BufRead",
     -- config = function()
     --   require("lsp_signature").on_attach()
     -- end,
