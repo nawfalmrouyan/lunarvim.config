@@ -162,12 +162,12 @@ lvim.plugins = {
     --   require("lsp_signature").on_attach()
     -- end,
   },
-  {
-    "glacambre/firenvim",
-    run = function()
-      vim.fn["firenvim#install"](0)
-    end,
-  },
+  -- {
+  --   "glacambre/firenvim",
+  --   run = function()
+  --     vim.fn["firenvim#install"](0)
+  --   end,
+  -- },
   { "michaeljsmith/vim-indent-object", event = "BufRead" },
   { "tweekmonster/startuptime.vim" },
   {
@@ -204,30 +204,30 @@ lvim.plugins = {
   { "mg979/vim-visual-multi", event = "BufEnter" }, -- vim -Nu ~/.local/share/lunarvim/site/pack/packer/start/vim-visual-multi/tutorialrc
   { "nvim-treesitter/nvim-treesitter-textobjects", before = "nvim-treesitter" },
   { "mzlogin/vim-markdown-toc", event = "BufRead" },
-  {
-    "ibhagwan/fzf-lua",
-    setup = function()
-      vim.api.nvim_set_keymap(
-        "n",
-        "<c-P>",
-        "<cmd>lua require('fzf-lua').files()<CR>",
-        { noremap = true, silent = true }
-      )
-      vim.api.nvim_set_keymap("n", "<c-0>", ":FzfLua ", { noremap = true, silent = false })
-      lvim.builtin.which_key.mappings["f"] = {
-        name = "FZF",
-        c = { "<cmd>lua require('fzf-lua').grep_cword()<cr>", "Find cword" },
-        C = { "<cmd>lua require('fzf-lua').grep_cWORD()<cr>", "Find cWORD" },
-        g = { "<cmd>lua require('fzf-lua').live_grep()<cr>", "Live grep" },
-        G = { "<cmd>lua require('fzf-lua').live_grep_resume()<cr>", "Live grep resume" },
-        f = { "<cmd>lua require('fzf-lua').files()<cr>", "Find files" },
-        r = { "<cmd>lua require('fzf-lua').resume()<cr>", "Resume last search" },
-        t = { "<cmd>lua require('fzf-lua').tabs()<cr>", "Resume last search" },
-      }
-    end,
-    requires = { "kyazdani42/nvim-web-devicons" },
-    event = "BufRead",
-  },
+  -- {
+  --   "ibhagwan/fzf-lua",
+  --   setup = function()
+  --     vim.api.nvim_set_keymap(
+  --       "n",
+  --       "<c-P>",
+  --       "<cmd>lua require('fzf-lua').files()<CR>",
+  --       { noremap = true, silent = true }
+  --     )
+  --     vim.api.nvim_set_keymap("n", "<c-0>", ":FzfLua ", { noremap = true, silent = false })
+  --     lvim.builtin.which_key.mappings["f"] = {
+  --       name = "FZF",
+  --       c = { "<cmd>lua require('fzf-lua').grep_cword()<cr>", "Find cword" },
+  --       C = { "<cmd>lua require('fzf-lua').grep_cWORD()<cr>", "Find cWORD" },
+  --       g = { "<cmd>lua require('fzf-lua').live_grep()<cr>", "Live grep" },
+  --       G = { "<cmd>lua require('fzf-lua').live_grep_resume()<cr>", "Live grep resume" },
+  --       f = { "<cmd>lua require('fzf-lua').files()<cr>", "Find files" },
+  --       r = { "<cmd>lua require('fzf-lua').resume()<cr>", "Resume last search" },
+  --       t = { "<cmd>lua require('fzf-lua').tabs()<cr>", "Resume last search" },
+  --     }
+  --   end,
+  --   requires = { "kyazdani42/nvim-web-devicons" },
+  --   event = "BufRead",
+  -- },
   {
     "kylechui/nvim-surround",
     event = "BufEnter",
@@ -387,18 +387,18 @@ lvim.plugins = {
     end,
     event = "BufRead",
   },
-  {
-    "ggandor/flit.nvim",
-    requires = "ggandor/leap.nvim",
-    config = function()
-      require("flit").setup {
-        keys = { f = "f", F = "F", t = "t", T = "T" },
-        labeled_modes = "v",
-        multiline = true,
-        opts = {},
-      }
-    end,
-  },
+  -- {
+  --   "ggandor/flit.nvim",
+  --   requires = "ggandor/leap.nvim",
+  --   config = function()
+  --     require("flit").setup {
+  --       keys = { f = "f", F = "F", t = "t", T = "T" },
+  --       labeled_modes = "v",
+  --       multiline = true,
+  --       opts = {},
+  --     }
+  --   end,
+  -- },
   {
     "notjedi/nvim-rooter.lua",
     config = function()
