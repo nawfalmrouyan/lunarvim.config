@@ -310,12 +310,6 @@ lvim.plugins = {
       require("cmp").setup.cmdline("/", { sources = { { name = "buffer" } } })
     end,
   },
-  -- {
-  --   "hrsh7th/cmp-nvim-lsp-signature-help",
-  --   config = function()
-  --     require("cmp").setup { sources = { { name = "nvim_lsp_signature_help" } } }
-  --   end,
-  -- },
   {
     "mbbill/undotree",
     event = "BufRead",
@@ -333,7 +327,6 @@ lvim.plugins = {
   {
     "uga-rosa/ccc.nvim",
     event = "BufRead",
-    -- branch = "0.7.2",
     config = function()
       require("user.ccc").config()
     end,
