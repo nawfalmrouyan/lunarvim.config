@@ -1,1 +1,4 @@
 plugin
+after/ftdetect/
+after/ftplugin/hypr.vim
+after/syntax/
