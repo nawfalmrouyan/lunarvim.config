@@ -379,18 +379,18 @@ lvim.plugins = {
     end,
     event = "BufRead",
   },
-  -- {
-  --   "ggandor/flit.nvim",
-  --   requires = "ggandor/leap.nvim",
-  --   config = function()
-  --     require("flit").setup {
-  --       keys = { f = "f", F = "F", t = "t", T = "T" },
-  --       labeled_modes = "v",
-  --       multiline = true,
-  --       opts = {},
-  --     }
-  --   end,
-  -- },
+  {
+    "ggandor/flit.nvim",
+    requires = "ggandor/leap.nvim",
+    config = function()
+      require("flit").setup {
+        keys = { f = "f", F = "F", t = "t", T = "T" },
+        labeled_modes = "v",
+        multiline = true,
+        opts = {},
+      }
+    end,
+  },
   {
     "notjedi/nvim-rooter.lua",
     config = function()
