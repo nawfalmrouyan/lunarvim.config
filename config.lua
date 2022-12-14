@@ -5,7 +5,7 @@ lvim.builtin.lualine.options.theme = "catppuccin"
 lvim.shell = "/usr/bin/zsh"
 lvim.transparent_window = true
 
-vim.opt.cmdheight = 0
+-- vim.opt.cmdheight = 0
 -- vim.opt.timeoutlen = 500
 vim.opt.ignorecase = false
 vim.opt.smartcase = false
