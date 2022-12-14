@@ -35,7 +35,6 @@ lvim.builtin.treesitter.autotag.enable = true
 lvim.builtin.telescope.theme = "center"
 lvim.builtin.telescope.on_config_done = function(telescope)
   pcall(telescope.load_extension, "fzy_native")
-  pcall(telescope.load_extension, "media_files")
 end
 
 lvim.builtin.treesitter.textobjects = {
@@ -201,7 +200,6 @@ lvim.plugins = {
   { "windwp/nvim-ts-autotag", event = "InsertEnter" },
   { "romgrk/fzy-lua-native" },
   { "nvim-telescope/telescope-fzy-native.nvim", run = "make" },
-  { "nvim-telescope/telescope-media-files.nvim" },
   { "mg979/vim-visual-multi", event = "BufEnter" }, -- vim -Nu ~/.local/share/lunarvim/site/pack/packer/start/vim-visual-multi/tutorialrc
   { "nvim-treesitter/nvim-treesitter-textobjects", before = "nvim-treesitter" },
   { "mzlogin/vim-markdown-toc", event = "BufRead" },
