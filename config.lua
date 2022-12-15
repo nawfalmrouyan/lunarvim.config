@@ -382,6 +382,7 @@ lvim.plugins = {
   {
     "ggandor/flit.nvim",
     requires = "ggandor/leap.nvim",
+    event = "BufRead",
     config = function()
       require("flit").setup {
         keys = { f = "f", F = "F", t = "t", T = "T" },
