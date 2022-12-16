@@ -61,6 +61,7 @@ lvim.builtin.telescope.theme = "center"
 lvim.builtin.telescope.on_config_done = function(telescope)
   pcall(telescope.load_extension, "fzy_native")
   pcall(telescope.load_extension, "zk")
+  pcall(telescope.load_extension, "media_files")
 end
 
 lvim.builtin.treesitter.textobjects = {
@@ -180,6 +181,7 @@ lvim.builtin.sell_soul_to_devel = true
 
 -- Additional Plugins
 lvim.plugins = {
+  { "nvim-telescope/telescope-media-files.nvim", event = "BufRead" },
   {
     "lmburns/lf.nvim",
     config = function()
