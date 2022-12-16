@@ -59,6 +59,7 @@ lvim.builtin.mason.ensure_installed = {
 lvim.builtin.telescope.theme = "center"
 lvim.builtin.telescope.on_config_done = function(telescope)
   pcall(telescope.load_extension, "fzy_native")
+  pcall(telescope.load_extension, "zk")
 end
 
 lvim.builtin.treesitter.textobjects = {
