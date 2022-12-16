@@ -17,7 +17,7 @@ vim.opt.listchars =
 -- vim.opt.sidescrolloff = 0
 vim.opt.inccommand = "split"
 vim.opt.guifont = "PragmataPro Nerd Font Mono:h11"
--- vim.cmd "set foldoptions=nodigits"
+vim.opt.foldoptions = "nodigits"
 
 lvim.builtin.lualine.active = true
 lvim.builtin.bufferline.active = true
