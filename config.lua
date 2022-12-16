@@ -21,6 +21,8 @@ vim.opt.guifont = "PragmataPro Nerd Font Mono:h11"
 
 lvim.builtin.lualine.active = true
 lvim.builtin.bufferline.active = true
+lvim.builtin.bufferline.options.show_buffer_close_icons = false
+lvim.builtin.bufferline.options.show_close_icon = false
 lvim.builtin.alpha.mode = "dashboard"
 lvim.builtin.dap.active = false
 lvim.builtin.terminal.active = true
