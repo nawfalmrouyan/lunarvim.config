@@ -34,8 +34,8 @@ M.config = function()
     },
     require("catppuccin").setup {
       integrations = {
-        aerial = false,
-        barbar = true,
+        aerial = true,
+        barbar = false,
         beacon = false,
         cmp = true,
         coc_nvim = false,
@@ -64,7 +64,7 @@ M.config = function()
         telekasten = false,
         telescope = true,
         treesitter = true,
-        treesitter_context = false,
+        treesitter_context = true,
         ts_rainbow = true,
         vim_sneak = false,
         vimwiki = false,
@@ -72,12 +72,12 @@ M.config = function()
 
         -- Special integrations, see https://github.com/catppuccin/nvim#special-integrations
         dap = {
-          enabled = false,
-          enable_ui = false,
+          enabled = true,
+          enable_ui = true,
         },
         indent_blankline = {
           enabled = true,
-          colored_indent_levels = false,
+          colored_indent_levels = true,
         },
         native_lsp = {
           enabled = true,
@@ -101,7 +101,42 @@ M.config = function()
       },
     },
     color_overrides = {},
-    highlight_overrides = {},
+    highlight_overrides = {
+      --VS code cmp
+      CmpItemKindConstructor = { fg = "#f28b25" },
+      CmpItemKindUnit = { fg = "#D4D4D4" },
+      CmpItemKindProperty = { fg = "#D4D4D4" },
+      CmpItemKindKeyword = { fg = "#D4D4D4" },
+      CmpItemKindMethod = { fg = "#C586C0" },
+      CmpItemKindFunction = { fg = "#C586C0" },
+      CmpItemKindColor = { fg = "#C586C0" },
+      CmpItemKindText = { fg = "#9CDCFE" },
+      CmpItemKindInterface = { fg = "#9CDCFE" },
+      CmpItemKindVariable = { fg = "#9CDCFE" },
+      CmpItemKindField = { fg = "#9CDCFE" },
+      CmpItemKindValue = { fg = "#9CDCFE" },
+      CmpItemKindEnum = { fg = "#9CDCFE" },
+      CmpItemKindEnumMember = { fg = "#9CDCFE" },
+      CmpItemKindStruct = { fg = "#9CDCFE" },
+      CmpItemKindReference = { fg = "#9CDCFE" },
+      CmpItemKindTypeParameter = { fg = "#9CDCFE" },
+      CmpItemKindSnippet = { fg = "#D4D4D4" },
+      CmpItemKindClass = { fg = "#f28b25" },
+      CmpItemKindModule = { fg = "#D4D4D4" },
+      CmpItemKindOperator = { fg = "#D4D4D4" },
+      CmpItemKindConstant = { fg = "#D4D4D4" },
+      CmpItemKindFile = { fg = "#D4D4D4" },
+      CmpItemKindFolder = { fg = "#D4D4D4" },
+      CmpItemKindEvent = { fg = "#D4D4D4" },
+      CmpItemAbbrMatch = { fg = "#18a2fe", bold = true },
+      CmpItemAbbrMatchFuzzy = { fg = "#18a2fe", bold = true },
+      CmpItemMenu = { fg = "#777d86" },
+      -- Spell
+      SpellBad = { sp = "#ffbba6", undercurl = true },
+      SpellCap = { sp = "#ffbba6", undercurl = true },
+      SpellLocal = { sp = "#ffbba6", undercurl = true },
+      SpellRare = { sp = "#ffbba6", undercurl = true },
+    },
   }
   vim.api.nvim_create_autocmd("OptionSet", {
     pattern = "background",
