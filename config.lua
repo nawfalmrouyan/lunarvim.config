@@ -254,7 +254,7 @@ lvim.plugins = {
   { "p00f/nvim-ts-rainbow", event = "BufEnter" },
   { "windwp/nvim-ts-autotag", event = "InsertEnter" },
   { "romgrk/fzy-lua-native" },
-  { "nvim-telescope/telescope-fzy-native.nvim", run = "make" },
+  { "nvim-telescope/telescope-fzy-native.nvim", run = "make", event = "BufRead" },
   { "mg979/vim-visual-multi", event = "BufEnter" }, -- vim -Nu ~/.local/share/lunarvim/site/pack/packer/start/vim-visual-multi/tutorialrc
   { "nvim-treesitter/nvim-treesitter-textobjects", before = "nvim-treesitter" },
   { "mzlogin/vim-markdown-toc", event = "BufRead" },
@@ -502,6 +502,7 @@ lvim.plugins = {
   {
     "glepnir/lspsaga.nvim",
     branch = "main",
+    event = "BufRead",
     config = function()
       require("user.lspsaga").config()
     end,
