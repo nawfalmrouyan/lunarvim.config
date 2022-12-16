@@ -13,8 +13,8 @@ vim.opt.relativenumber = true
 vim.opt.list = true
 vim.opt.listchars =
   { eol = "¬", trail = "·", precedes = "…", extends = "…", tab = "→\\ ", leadmultispace = "·" }
-vim.opt.scrolloff = 0
-vim.opt.sidescrolloff = 0
+-- vim.opt.scrolloff = 0
+-- vim.opt.sidescrolloff = 0
 vim.opt.inccommand = "split"
 vim.opt.guifont = "PragmataPro Nerd Font Mono:h11"
 -- vim.cmd "set foldoptions=nodigits"
