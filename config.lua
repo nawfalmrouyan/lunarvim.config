@@ -33,6 +33,28 @@ lvim.builtin.treesitter.ensure_installed = "all"
 lvim.builtin.treesitter.highlight.enabled = true
 lvim.builtin.treesitter.rainbow.enable = true
 lvim.builtin.treesitter.autotag.enable = true
+lvim.builtin.mason.ensure_installed = {
+  "bashls",
+  "black",
+  "clangd",
+  "cssls",
+  "emmet_ls",
+  "eslint_d",
+  "flake8",
+  "html",
+  "isort",
+  "jsonls",
+  "prettierd",
+  "pyright",
+  "shellcheck",
+  "shfmt",
+  "stylua",
+  "sumneko_lua",
+  "tailwindcss",
+  "tsserver",
+  "yamlls",
+  "zk",
+}
 
 lvim.builtin.telescope.theme = "center"
 lvim.builtin.telescope.on_config_done = function(telescope)
