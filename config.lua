@@ -183,6 +183,17 @@ lvim.builtin.sell_soul_to_devel = true
 lvim.plugins = {
   { "nvim-telescope/telescope-media-files.nvim", event = "BufRead" },
   {
+    "stevearc/aerial.nvim",
+    setup = function()
+      lvim.builtin.which_key.mappings.l.o = { "<cmd>AerialToggle!<cr>", "Outline" }
+    end,
+    config = function()
+      require("aerial").setup {
+        show_guides = true,
+      }
+    end,
+  },
+  {
     "lmburns/lf.nvim",
     config = function()
       -- This feature will not work if the plugin is lazy-loaded
