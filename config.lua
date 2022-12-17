@@ -157,11 +157,11 @@ lvim.keys.insert_mode["<M-o>"] = "<C-o>o"
 lvim.keys.insert_mode["<M-O>"] = "<C-o>O"
 lvim.keys.normal_mode["<M-w>"] = ":set wrap! wrap?<cr>"
 lvim.keys.normal_mode["<M-r>"] = ":set relativenumber! relativenumber?<cr>"
-lvim.keys.normal_mode["<S-h>"] = ":BufferLineCyclePrev<cr>"
-lvim.keys.normal_mode["<S-l>"] = ":BufferLineCycleNext<cr>"
-lvim.keys.normal_mode["<TAB>"] = ":BufferLinePick<CR>"
-lvim.keys.normal_mode["<leader>j"] = ":BufferLineCycleNext<CR>"
-lvim.keys.normal_mode["<leader>k"] = ":BufferLineCyclePrev<CR>"
+lvim.keys.normal_mode["<M-h>"] = ":BufferLineCyclePrev<cr>"
+lvim.keys.normal_mode["<M-l>"] = ":BufferLineCycleNext<cr>"
+lvim.keys.normal_mode["<TAB>"] = ":BufferLinePick<cr>"
+lvim.keys.normal_mode["<leader>j"] = ":BufferLineCycleNext<cr>"
+lvim.keys.normal_mode["<leader>k"] = ":BufferLineCyclePrev<cr>"
 -- insert blank lines
 lvim.keys.normal_mode["<M-o>"] = "o<esc>"
 lvim.keys.normal_mode["<M-O>"] = "O<esc>"
@@ -172,10 +172,10 @@ lvim.keys.term_mode["<Esc>"] = "<C-\\><C-N>"
 -- search / replace word under cursor
 lvim.keys.normal_mode["cg*"] = '*N"_cgn'
 -- resize
-lvim.keys.term_mode["<C-Up>"] = "<C-\\><C-N>resize -2<CR>"
-lvim.keys.term_mode["<C-Down>"] = "<C-\\><C-N>resize +2<CR>"
-lvim.keys.term_mode["<C-Left>"] = "<C-\\><C-N>vertical resize -2<CR>"
-lvim.keys.term_mode["<C-Right>"] = "<C-\\><C-N>vertical resize +2<CR>"
+lvim.keys.term_mode["<C-Up>"] = "<C-\\><C-N>resize -2<cr>"
+lvim.keys.term_mode["<C-Down>"] = "<C-\\><C-N>resize +2<cr>"
+lvim.keys.term_mode["<C-Left>"] = "<C-\\><C-N>vertical resize -2<cr>"
+lvim.keys.term_mode["<C-Right>"] = "<C-\\><C-N>vertical resize +2<cr>"
 
 lvim.keys.visual_block_mode["P"] = '"_c<c-r>0<esc>'
 lvim.builtin.sell_soul_to_devel = true
@@ -311,7 +311,7 @@ lvim.plugins = {
       vim.api.nvim_set_keymap(
         "n",
         "<c-P>",
-        "<cmd>lua require('fzf-lua').files()<CR>",
+        "<cmd>lua require('fzf-lua').files()<cr>",
         { noremap = true, silent = true }
       )
       vim.api.nvim_set_keymap("n", "<c-0>", ":FzfLua ", { noremap = true, silent = false })
@@ -360,7 +360,7 @@ lvim.plugins = {
   {
     "ellisonleao/glow.nvim",
     setup = function()
-      lvim.builtin.which_key.mappings["m"] = { "<CMD>Glow<CR>", "Markdown Preview" }
+      lvim.builtin.which_key.mappings["m"] = { "<cmd>Glow<cr>", "Markdown Preview" }
     end,
     config = function()
       require("glow").setup {
@@ -374,14 +374,14 @@ lvim.plugins = {
     setup = function()
       lvim.builtin.which_key.mappings["z"] = {
         name = "Zk",
-        T = { "<CMD>ZkNotes<CR>", "All Notes" },
-        nf = { "<CMD>ZkNew {dir='fleeting'}<CR>", "New fleeting note" },
-        nl = { "<CMD>ZkNew {dir='literature'}<CR>", "New literature note" },
-        np = { "<CMD>ZkNew {dir='permanent'}<CR>", "New permanent note" },
-        o = { "<CMD>ZkOrphans<CR>", "Orphan notes" },
-        r = { "<CMD>ZkRecents<CR>", "Recent notes" },
-        t = { "<CMD>ZkTags<CR>", "Tags" },
-        f = { "<Cmd>ZkNotes { sort = { 'modified' }, match = vim.fn.input('Search: ') }<CR>" },
+        T = { "<cmd>ZkNotes<cr>", "All Notes" },
+        nf = { "<cmd>ZkNew {dir='fleeting'}<cr>", "New fleeting note" },
+        nl = { "<cmd>ZkNew {dir='literature'}<cr>", "New literature note" },
+        np = { "<cmd>ZkNew {dir='permanent'}<cr>", "New permanent note" },
+        o = { "<cmd>ZkOrphans<cr>", "Orphan notes" },
+        r = { "<cmd>ZkRecents<cr>", "Recent notes" },
+        t = { "<cmd>ZkTags<cr>", "Tags" },
+        f = { "<Cmd>ZkNotes { sort = { 'modified' }, match = vim.fn.input('Search: ') }<cr>" },
       }
     end,
     config = function()
@@ -429,7 +429,7 @@ lvim.plugins = {
   {
     "f-person/git-blame.nvim",
     setup = function()
-      lvim.builtin.which_key.mappings["a"] = { "<CMD>GitBlameToggle<CR>", "Toggle Git Blame" }
+      lvim.builtin.which_key.mappings["a"] = { "<cmd>GitBlameToggle<cr>", "Toggle Git Blame" }
     end,
     config = function()
       vim.cmd "highlight default link gitblame SpecialComment"
@@ -463,8 +463,8 @@ lvim.plugins = {
     cmd = "Codi",
     ft = { "python", "javascript", "php" },
     setup = function()
-      lvim.builtin.which_key.mappings["y"] = { "<CMD>Codi<CR>", "Codi" }
-      lvim.builtin.which_key.mappings["Y"] = { "<CMD>Codi!<CR>", "Clear Codi" }
+      lvim.builtin.which_key.mappings["y"] = { "<cmd>Codi<cr>", "Codi" }
+      lvim.builtin.which_key.mappings["Y"] = { "<cmd>Codi!<cr>", "Clear Codi" }
     end,
   },
   {
@@ -517,7 +517,7 @@ lvim.plugins = {
     setup = function()
       vim.api.nvim_set_keymap("n", "<M-=>", ":TZFocus<cr>", { noremap = true, silent = true })
       vim.api.nvim_set_keymap("t", "<M-=>", "<C-\\><C-n>:TZFocus<cr>", { noremap = true, silent = true })
-      lvim.builtin.which_key.mappings["Z"] = { "<CMD>TZAtaraxis<CR>", "Zen Mode" }
+      lvim.builtin.which_key.mappings["Z"] = { "<cmd>TZAtaraxis<cr>", "Zen Mode" }
     end,
     config = function()
       require("true-zen").setup {}
@@ -577,9 +577,9 @@ lvim.autocommands = {
   -- { "VimLeave,VimSuspend", { pattern = { "*" }, command = "guicursor=a:hor20" } },
 }
 
-lvim.builtin.which_key.mappings["?"] = { "<CMD>NvimTreeFindFile<CR>", "Find file in NvimTree" }
-lvim.builtin.which_key.mappings["c"] = { "<CMD>bdelete!<CR>", "Close Buffer" }
-lvim.builtin.which_key.mappings["M"] = { "<CMD>MarkdownPreview<CR>", "Markdown Preview" }
+lvim.builtin.which_key.mappings["?"] = { "<cmd>NvimTreeFindFile<cr>", "Find file in NvimTree" }
+lvim.builtin.which_key.mappings["c"] = { "<cmd>bdelete!<cr>", "Close Buffer" }
+lvim.builtin.which_key.mappings["M"] = { "<cmd>MarkdownPreview<cr>", "Markdown Preview" }
 
 lvim.builtin.alpha.dashboard.section.header.val = {
   "   ____              ______ _____ ____ ",
