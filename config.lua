@@ -241,6 +241,9 @@ lvim.plugins = {
   },
   {
     "lmburns/lf.nvim",
+    setup = function()
+      lvim.builtin.which_key.mappings["m"] = { "<cmd>Lf<cr>", "File Manager" }
+    end,
     config = function()
       -- This feature will not work if the plugin is lazy-loaded
       vim.g.lf_netrw = 1
@@ -251,8 +254,6 @@ lvim.plugins = {
         highlights = { FloatBorder = { guifg = "#819c3b" } },
         winblend = 0,
       }
-
-      vim.keymap.set("n", "<C-o>", ":Lf<CR>")
     end,
     requires = { "plenary.nvim", "toggleterm.nvim" },
   },
