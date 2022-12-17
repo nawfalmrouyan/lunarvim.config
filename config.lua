@@ -34,6 +34,7 @@ lvim.builtin.treesitter.ensure_installed = "all"
 lvim.builtin.treesitter.highlight.enabled = true
 lvim.builtin.treesitter.rainbow.enable = true
 lvim.builtin.treesitter.autotag.enable = true
+lvim.builtin.treesitter.textsubjects.enable = true
 lvim.builtin.mason.ensure_installed = {
   "bashls",
   "black",
@@ -192,6 +193,7 @@ lvim.builtin.sell_soul_to_devel = true
 
 -- Additional Plugins
 lvim.plugins = {
+  { "RRethy/nvim-treesitter-textsubjects", before = "nvim-treesitter" },
   {
     "debugloop/telescope-undo.nvim",
     requires = { "nvim-telescope/telescope.nvim" },
