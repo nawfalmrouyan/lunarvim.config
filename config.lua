@@ -14,8 +14,8 @@ vim.opt.list = true
 vim.opt.listchars = { eol = "¬", trail = "·", precedes = "…", extends = "…", tab = "→\\ " }
 vim.opt.showbreak = "﬌ "
 vim.opt.wrap = true
--- vim.opt.scrolloff = 0
--- vim.opt.sidescrolloff = 0
+vim.opt.scrolloff = 0
+vim.opt.sidescrolloff = 0
 vim.opt.inccommand = "split"
 vim.opt.guifont = "PragmataPro Nerd Font Mono:h11"
 vim.opt.foldoptions = "nodigits"
