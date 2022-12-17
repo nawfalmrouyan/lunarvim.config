@@ -14,8 +14,8 @@ vim.opt.list = true
 vim.opt.listchars = { eol = "¬", trail = "·", precedes = "…", extends = "…", tab = "→\\ " }
 vim.opt.showbreak = "﬌ "
 vim.opt.wrap = true
-vim.opt.scrolloff = 0
-vim.opt.sidescrolloff = 0
+-- vim.opt.scrolloff = 0
+-- vim.opt.sidescrolloff = 0
 vim.opt.inccommand = "split"
 vim.opt.guifont = "PragmataPro Nerd Font Mono:h11"
 vim.opt.foldoptions = "nodigits"
@@ -168,9 +168,19 @@ lvim.keys.normal_mode["<M-O>"] = "O<esc>"
 -- move to end line in wrap mode
 lvim.keys.normal_mode["<M-$>"] = "g$"
 lvim.keys.normal_mode["/"] = "ms/"
-lvim.keys.term_mode["<Esc>"] = "<C-\\><C-N>"
+
+-- From the primeagen
+lvim.keys.normal_mode["J"] = "mzJ`z"
+lvim.keys.normal_mode["<C-d>"] = "<C-d>zz"
+lvim.keys.normal_mode["<C-u>"] = "<C-u>zz"
+lvim.keys.normal_mode["n"] = "nzzzv"
+lvim.keys.normal_mode["N"] = "Nzzzv"
+lvim.keys.normal_mode["Q"] = "<nop>"
+lvim.keys.normal_mode["<leader>x"] = "<cmd>!chmod +x %<cr>"
+
 -- search / replace word under cursor
 lvim.keys.normal_mode["cg*"] = '*N"_cgn'
+lvim.keys.term_mode["<Esc>"] = "<C-\\><C-N>"
 -- resize
 lvim.keys.term_mode["<C-Up>"] = "<C-\\><C-N>resize -2<cr>"
 lvim.keys.term_mode["<C-Down>"] = "<C-\\><C-N>resize +2<cr>"
