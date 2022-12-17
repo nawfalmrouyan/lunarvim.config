@@ -252,7 +252,7 @@ lvim.plugins = {
   {
     "lmburns/lf.nvim",
     setup = function()
-      lvim.builtin.which_key.mappings["m"] = { "<cmd>Lf<cr>", "File Manager" }
+      lvim.builtin.which_key.mappings["r"] = { "<cmd>Lf<cr>", "File Manager" }
     end,
     config = function()
       -- This feature will not work if the plugin is lazy-loaded
