@@ -62,6 +62,7 @@ lvim.builtin.telescope.on_config_done = function(telescope)
   pcall(telescope.load_extension, "fzy_native")
   pcall(telescope.load_extension, "zk")
   pcall(telescope.load_extension, "media_files")
+  pcall(telescope.load_extension, "undo")
 end
 
 lvim.builtin.treesitter.textobjects = {
@@ -181,6 +182,10 @@ lvim.builtin.sell_soul_to_devel = true
 
 -- Additional Plugins
 lvim.plugins = {
+  {
+    "debugloop/telescope-undo.nvim",
+    requires = { "nvim-telescope/telescope.nvim" },
+  },
   { "nvim-telescope/telescope-media-files.nvim", event = "BufRead" },
   {
     "stevearc/aerial.nvim",
@@ -363,13 +368,6 @@ lvim.plugins = {
     config = function()
       require("cmp").setup.cmdline(":", { sources = { { name = "cmdline" } } })
       require("cmp").setup.cmdline("/", { sources = { { name = "buffer" } } })
-    end,
-  },
-  {
-    "mbbill/undotree",
-    event = "BufRead",
-    setup = function()
-      lvim.builtin.which_key.mappings["u"] = { "<CMD>UndotreeToggle<CR>", "Undo Tree" }
     end,
   },
   {
