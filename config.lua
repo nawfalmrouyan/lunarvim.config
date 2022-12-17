@@ -186,6 +186,47 @@ lvim.plugins = {
     "debugloop/telescope-undo.nvim",
     requires = { "nvim-telescope/telescope.nvim" },
   },
+  { "tpope/vim-repeat" },
+  {
+    "folke/persistence.nvim",
+    event = "BufReadPre", -- this will only start session saving when an actual file was opened
+    module = "persistence",
+    setup = function()
+      lvim.builtin.which_key.mappings["S"] = {
+        name = "Session",
+        c = { "<cmd>lua require('persistence').load()<cr>", "Restore last session for current dir" },
+        l = { "<cmd>lua require('persistence').load({ last = true })<cr>", "Restore last session" },
+        Q = { "<cmd>lua require('persistence').stop()<cr>", "Quit without saving session" },
+      }
+    end,
+    config = function()
+      require("persistence").setup {
+        dir = vim.fn.expand(vim.fn.stdpath "config" .. "/session/"),
+        options = { "buffers", "curdir", "tabpages", "winsize" },
+      }
+    end,
+  },
+  {
+    "romgrk/nvim-treesitter-context",
+    config = function()
+      require("treesitter-context").setup {
+        enable = true, -- Enable this plugin (Can be enabled/disabled later via commands)
+        throttle = true, -- Throttles plugin updates (may improve performance)
+        max_lines = 0, -- How many lines the window should span. Values <= 0 mean no limit.
+        patterns = { -- Match patterns for TS nodes. These get wrapped to match at word boundaries.
+          -- For all filetypes
+          -- Note that setting an entry here replaces all other patterns for this entry.
+          -- By setting the 'default' entry below, you can control which nodes you want to
+          -- appear in the context window.
+          default = {
+            "class",
+            "function",
+            "method",
+          },
+        },
+      }
+    end,
+  },
   { "nvim-telescope/telescope-media-files.nvim", event = "BufRead" },
   {
     "stevearc/aerial.nvim",
