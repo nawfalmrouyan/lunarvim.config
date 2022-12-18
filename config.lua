@@ -196,6 +196,9 @@ lvim.plugins = {
   { "RRethy/nvim-treesitter-textsubjects", before = "nvim-treesitter" },
   {
     "debugloop/telescope-undo.nvim",
+    setup = function()
+      lvim.builtin.which_key.mappings.u = { "<cmd>Telescope undo<cr>", "Undo" }
+    end,
     requires = { "nvim-telescope/telescope.nvim" },
   },
   { "tpope/vim-repeat" },
