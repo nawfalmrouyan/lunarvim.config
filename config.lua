@@ -159,15 +159,11 @@ lvim.keys.insert_mode["<M-o>"] = "<C-o>o"
 lvim.keys.insert_mode["<M-O>"] = "<C-o>O"
 lvim.keys.normal_mode["<M-w>"] = ":set wrap! wrap?<cr>"
 lvim.keys.normal_mode["<M-r>"] = ":set relativenumber! relativenumber?<cr>"
-lvim.keys.normal_mode["<M-h>"] = ":BufferLineCyclePrev<cr>"
-lvim.keys.normal_mode["<M-l>"] = ":BufferLineCycleNext<cr>"
+lvim.keys.normal_mode["<S-h>"] = ":BufferLineCyclePrev<cr>"
+lvim.keys.normal_mode["<S-l>"] = ":BufferLineCycleNext<cr>"
 lvim.keys.normal_mode["<TAB>"] = ":BufferLinePick<cr>"
-lvim.keys.normal_mode["<leader>j"] = ":BufferLineCycleNext<cr>"
-lvim.keys.normal_mode["<leader>k"] = ":BufferLineCyclePrev<cr>"
--- insert blank lines
 lvim.keys.normal_mode["<M-o>"] = "o<esc>"
 lvim.keys.normal_mode["<M-O>"] = "O<esc>"
--- move to end line in wrap mode
 lvim.keys.normal_mode["<M-$>"] = "g$"
 lvim.keys.normal_mode["/"] = "ms/"
 
