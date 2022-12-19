@@ -63,7 +63,6 @@ lvim.builtin.telescope.on_config_done = function(telescope)
   pcall(telescope.load_extension, "fzy_native")
   pcall(telescope.load_extension, "zk")
   pcall(telescope.load_extension, "media_files")
-  pcall(telescope.load_extension, "undo")
 end
 
 lvim.builtin.cmp.cmdline.enable = true
@@ -208,11 +207,11 @@ lvim.plugins = {
   },
   { "RRethy/nvim-treesitter-textsubjects", before = "nvim-treesitter" },
   {
-    "debugloop/telescope-undo.nvim",
+    "mbbill/undotree",
+    event = "BufRead",
     setup = function()
-      lvim.builtin.which_key.mappings.u = { "<cmd>Telescope undo<cr>", "Undo" }
+      lvim.builtin.which_key.mappings.u = { "<cmd>UndotreeToggle<cr>", "Undo" }
     end,
-    requires = { "nvim-telescope/telescope.nvim" },
   },
   { "tpope/vim-repeat" },
   {
