@@ -1,3 +1,4 @@
+.luarc.json
 plugin
 after/ftdetect/
 after/ftplugin/hypr.vim
