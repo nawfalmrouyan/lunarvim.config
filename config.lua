@@ -193,6 +193,17 @@ lvim.builtin.sell_soul_to_devel = true
 
 -- Additional Plugins
 lvim.plugins = {
+  {
+    "ethanholz/nvim-lastplace",
+    event = "BufRead",
+    config = function()
+      require("nvim-lastplace").setup {
+        lastplace_ignore_buftype = { "quickfix", "nofile", "help" },
+        lastplace_ignore_filetype = { "gitcommit", "gitrebase" },
+        lastplace_open_folds = true,
+      }
+    end,
+  },
   { "RRethy/nvim-treesitter-textsubjects", before = "nvim-treesitter" },
   {
     "debugloop/telescope-undo.nvim",
