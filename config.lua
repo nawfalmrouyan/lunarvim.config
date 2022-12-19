@@ -176,10 +176,7 @@ lvim.keys.normal_mode["N"] = "Nzzzv"
 lvim.keys.normal_mode["Q"] = "<nop>"
 lvim.keys.normal_mode["<leader>x"] = "<cmd>!chmod +x %<cr>"
 
--- search / replace word under cursor
-lvim.keys.normal_mode["cg*"] = '*N"_cgn'
 lvim.keys.term_mode["<Esc>"] = "<C-\\><C-N>"
--- resize
 lvim.keys.term_mode["<C-Up>"] = "<C-\\><C-N>resize -2<cr>"
 lvim.keys.term_mode["<C-Down>"] = "<C-\\><C-N>resize +2<cr>"
 lvim.keys.term_mode["<C-Left>"] = "<C-\\><C-N>vertical resize -2<cr>"
