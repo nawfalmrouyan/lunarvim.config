@@ -66,6 +66,8 @@ lvim.builtin.telescope.on_config_done = function(telescope)
   pcall(telescope.load_extension, "undo")
 end
 
+lvim.builtin.cmp.cmdline.enable = true
+
 lvim.builtin.treesitter.textobjects = {
   lookahead = true,
   select = {
@@ -433,10 +435,10 @@ lvim.plugins = {
   },
   {
     "hrsh7th/cmp-cmdline",
-    config = function()
-      require("cmp").setup.cmdline(":", { sources = { { name = "cmdline" } } })
-      require("cmp").setup.cmdline("/", { sources = { { name = "buffer" } } })
-    end,
+    -- config = function()
+    --   require("cmp").setup.cmdline(":", { sources = { { name = "cmdline" } } })
+    --   require("cmp").setup.cmdline("/", { sources = { { name = "buffer" } } })
+    -- end,
   },
   {
     "andymass/vim-matchup",
