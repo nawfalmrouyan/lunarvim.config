@@ -541,15 +541,15 @@ lvim.plugins = {
   },
   {
     "Pocco81/true-zen.nvim",
+    event = "BufRead",
     setup = function()
-      vim.api.nvim_set_keymap("n", "<M-=>", ":TZFocus<cr>", { noremap = true, silent = true })
-      vim.api.nvim_set_keymap("t", "<M-=>", "<C-\\><C-n>:TZFocus<cr>", { noremap = true, silent = true })
       lvim.builtin.which_key.mappings["Z"] = { "<cmd>TZAtaraxis<cr>", "Zen Mode" }
     end,
     config = function()
-      require("true-zen").setup {}
+      require("true-zen").setup()
+      lvim.keys.normal_mode["<M-=>"] = "<cmd>TZFocus<cr>"
+      lvim.keys.term_mode["<M-=>"] = "<C-\\><C-n>:TZFocus<cr>"
     end,
-    event = "BufRead",
   },
   {
     "folke/trouble.nvim",
