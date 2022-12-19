@@ -334,6 +334,8 @@ lvim.plugins = {
   { "mzlogin/vim-markdown-toc", event = "BufRead" },
   {
     "ibhagwan/fzf-lua",
+    event = "BufRead",
+    requires = { "kyazdani42/nvim-web-devicons" },
     setup = function()
       vim.api.nvim_set_keymap(
         "n",
@@ -353,8 +355,6 @@ lvim.plugins = {
         t = { "<cmd>lua require('fzf-lua').tabs()<cr>", "Resume last search" },
       }
     end,
-    requires = { "kyazdani42/nvim-web-devicons" },
-    event = "BufRead",
   },
   {
     "kylechui/nvim-surround",
