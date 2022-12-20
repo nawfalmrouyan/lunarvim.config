@@ -482,10 +482,10 @@ lvim.plugins = {
     "f-person/git-blame.nvim",
     setup = function()
       lvim.builtin.which_key.mappings["a"] = { "<cmd>GitBlameToggle<cr>", "Toggle Git Blame" }
+      vim.g.gitblame_enabled = 0
     end,
     config = function()
       vim.cmd "highlight default link gitblame SpecialComment"
-      vim.g.gitblame_enabled = 0
     end,
     event = "BufRead",
   },
