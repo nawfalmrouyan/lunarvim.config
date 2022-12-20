@@ -552,13 +552,16 @@ lvim.plugins = {
   {
     "ruifm/gitlinker.nvim",
     event = "BufRead",
+    setup = function()
+      lvim.builtin.which_key.mappings["gy"] = { "<cmd>lua require'gitlinker'.get_buf_range_url('n')<cr>", "Generate git link"}
+    end,
     config = function()
       require("gitlinker").setup {
         opts = {
           add_current_line_on_normal_mode = true,
           action_callback = require("gitlinker.actions").copy_to_clipboard,
           print_url = false,
-          mappings = "<leader>gy",
+          -- mappings = "<leader>gy",
         },
       }
     end,
