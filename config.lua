@@ -455,7 +455,7 @@ lvim.plugins = {
   {
     "mickael-menu/zk-nvim",
     setup = function()
-      lvim.builtin.which_key.mappings["z"] = {
+      lvim.builtin.which_key.mappings["Z"] = {
         name = "Zk",
         T = { "<cmd>ZkNotes<cr>", "All Notes" },
         nf = { "<cmd>ZkNew {dir='fleeting'}<cr>", "New fleeting note" },
@@ -588,7 +588,8 @@ lvim.plugins = {
     "ruifm/gitlinker.nvim",
     event = "BufRead",
     setup = function()
-      lvim.builtin.which_key.mappings["gy"] = { "<cmd>lua require'gitlinker'.get_buf_range_url('n')<cr>", "Generate git link"}
+      lvim.builtin.which_key.mappings["gy"] =
+        { "<cmd>lua require'gitlinker'.get_buf_range_url('n')<cr>", "Generate git link" }
     end,
     config = function()
       require("gitlinker").setup {
@@ -606,7 +607,8 @@ lvim.plugins = {
     "Pocco81/true-zen.nvim",
     event = "BufRead",
     setup = function()
-      lvim.builtin.which_key.mappings["Z"] = { "<cmd>TZAtaraxis<cr>", "Zen Mode" }
+      lvim.builtin.which_key.mappings["z"] =
+        { name = "Zen", z = { "<cmd>TZAtaraxis<cr>", "Zen Mode" }, f = { "<cmd>TZFocus<cr>", "Focus window" } }
     end,
     config = function()
       require("true-zen").setup()
