@@ -188,6 +188,37 @@ lvim.builtin.sell_soul_to_devel = true
 -- Additional Plugins
 lvim.plugins = {
   {
+    "echasnovski/mini.map",
+    branch = "stable",
+    setup = function()
+      lvim.builtin.which_key.mappings["mm"] = { "<cmd>lua MiniMap.toggle()<cr>", "Minimap" }
+    end,
+    config = function()
+      require("mini.map").setup()
+      local map = require "mini.map"
+      map.setup {
+        integrations = {
+          map.gen_integration.builtin_search(),
+          map.gen_integration.diagnostic {
+            error = "DiagnosticFloatingError",
+            warn = "DiagnosticFloatingWarn",
+            info = "DiagnosticFloatingInfo",
+            hint = "DiagnosticFloatingHint",
+          },
+        },
+        symbols = {
+          encode = map.gen_encode_symbols.dot "4x2",
+        },
+        window = {
+          side = "right",
+          width = 20, -- set to 1 for a pure scrollbar :)
+          winblend = 0,
+          show_integration_count = false,
+        },
+      }
+    end,
+  },
+  {
     "tpope/vim-fugitive",
     cmd = {
       "G",
@@ -412,7 +443,7 @@ lvim.plugins = {
   {
     "ellisonleao/glow.nvim",
     setup = function()
-      lvim.builtin.which_key.mappings["m"] = { "<cmd>Glow<cr>", "Markdown Preview" }
+      lvim.builtin.which_key.mappings["mg"] = { "<cmd>Glow<cr>", "Markdown Preview" }
     end,
     config = function()
       require("glow").setup {
@@ -452,6 +483,10 @@ lvim.plugins = {
   {
     "iamcco/markdown-preview.nvim",
     run = "cd app && npm install",
+    setup = function()
+      lvim.builtin.which_key.mappings["m"] =
+        { name = "Markdown & Minimap", M = { "<cmd>MarkdownPreview<cr>", "Markdown Preview" } }
+    end,
     config = function()
       vim.g.mkdp_browser = "firefoxMD"
     end,
@@ -634,7 +669,6 @@ lvim.autocommands = {
 
 lvim.builtin.which_key.mappings["?"] = { "<cmd>NvimTreeFindFile<cr>", "Find file in NvimTree" }
 lvim.builtin.which_key.mappings["c"] = { "<cmd>bdelete!<cr>", "Close Buffer" }
-lvim.builtin.which_key.mappings["M"] = { "<cmd>MarkdownPreview<cr>", "Markdown Preview" }
 
 lvim.builtin.alpha.dashboard.section.header.val = {
   "   ____              ______ _____ ____ ",
