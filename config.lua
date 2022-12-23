@@ -609,11 +609,11 @@ lvim.plugins = {
     setup = function()
       lvim.builtin.which_key.mappings["z"] =
         { name = "Zen", z = { "<cmd>TZAtaraxis<cr>", "Zen Mode" }, f = { "<cmd>TZFocus<cr>", "Focus window" } }
+      vim.api.nvim_set_keymap("n", "<M-=>", ":TZFocus<cr>", { noremap = true, silent = false })
+      vim.api.nvim_set_keymap("t", "<M-=>", "<C-\\><C-n>:TZFocus<cr>i", { noremap = true, silent = false })
     end,
     config = function()
       require("true-zen").setup()
-      lvim.keys.normal_mode["<M-=>"] = "<cmd>TZFocus<cr>"
-      lvim.keys.term_mode["<M-=>"] = "<C-\\><C-n>:TZFocus<cr>"
     end,
   },
   {
