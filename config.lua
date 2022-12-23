@@ -354,7 +354,6 @@ lvim.plugins = {
   --     vim.fn["firenvim#install"](0)
   --   end,
   -- },
-  { "michaeljsmith/vim-indent-object", event = "BufRead" },
   { "tweekmonster/startuptime.vim" },
   {
     "kevinhwang91/nvim-bqf",
