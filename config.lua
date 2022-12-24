@@ -385,7 +385,7 @@ lvim.plugins = {
   { "windwp/nvim-ts-autotag", event = "InsertEnter" },
   { "romgrk/fzy-lua-native" },
   { "nvim-telescope/telescope-fzy-native.nvim", run = "make", event = "BufRead" },
-  { "mg979/vim-visual-multi", event = "BufEnter" }, -- vim -Nu ~/.local/share/lunarvim/site/pack/packer/start/vim-visual-multi/tutorialrc
+  { "mg979/vim-visual-multi", event = "BufEnter", setup = function() vim.cmd("let g:VM_default_mappings = 0") end }, -- vim -Nu ~/.local/share/lunarvim/site/pack/packer/start/vim-visual-multi/tutorialrc
   { "nvim-treesitter/nvim-treesitter-textobjects", before = "nvim-treesitter" },
   { "mzlogin/vim-markdown-toc", event = "BufRead" },
   -- {
