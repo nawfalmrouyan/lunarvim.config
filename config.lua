@@ -30,7 +30,15 @@ lvim.builtin.terminal.active = true
 
 lvim.lsp.diagnostics.virtual_text = false
 
-lvim.builtin.treesitter.ensure_installed = "all"
+-- lvim.builtin.treesitter.ensure_installed = "all"
+lvim.builtin.treesitter.ensure_installed = {
+  "python",
+  "lua",
+  "html",
+  "css",
+  "javascript",
+  "typescript",
+}
 lvim.builtin.treesitter.highlight.enabled = true
 lvim.builtin.treesitter.rainbow.enable = true
 lvim.builtin.treesitter.autotag.enable = true
