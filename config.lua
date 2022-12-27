@@ -30,7 +30,7 @@ lvim.builtin.terminal.active = true
 
 lvim.lsp.diagnostics.virtual_text = false
 
-lvim.builtin.treesitter.ensure_installed = "all"
+-- lvim.builtin.treesitter.ensure_installed = { "python,lua,bash,javascript,typescript" }
 lvim.builtin.treesitter.highlight.enabled = true
 lvim.builtin.treesitter.rainbow.enable = true
 lvim.builtin.treesitter.autotag.enable = true
@@ -191,7 +191,7 @@ lvim.plugins = {
   {
     "echasnovski/mini.map",
     branch = "stable",
-    setup = function()
+    init = function()
       lvim.builtin.which_key.mappings["mm"] = { "<cmd>lua MiniMap.toggle()<cr>", "Minimap" }
     end,
     config = function()
@@ -241,7 +241,7 @@ lvim.plugins = {
   {
     "mattn/vim-gist",
     event = "BufRead",
-    requires = "mattn/webapi-vim",
+    dependencies = "mattn/webapi-vim",
   },
   {
     "max397574/better-escape.nvim",
@@ -266,7 +266,7 @@ lvim.plugins = {
   {
     "mbbill/undotree",
     event = "BufRead",
-    setup = function()
+    init = function()
       lvim.builtin.which_key.mappings.u = { "<cmd>UndotreeToggle<cr>", "Undo" }
     end,
   },
@@ -274,8 +274,9 @@ lvim.plugins = {
   {
     "folke/persistence.nvim",
     event = "BufReadPre", -- this will only start session saving when an actual file was opened
-    module = "persistence",
-    setup = function()
+    -- module = "persistence",
+    lazy = true,
+    init = function()
       lvim.builtin.which_key.mappings["S"] = {
         name = "Session",
         c = { "<cmd>lua require('persistence').load()<cr>", "Restore last session for current dir" },
@@ -314,7 +315,7 @@ lvim.plugins = {
   { "nvim-telescope/telescope-media-files.nvim", event = "BufRead" },
   {
     "stevearc/aerial.nvim",
-    setup = function()
+    init = function()
       lvim.builtin.which_key.mappings.l.o = { "<cmd>AerialToggle!<cr>", "Outline" }
     end,
     config = function()
@@ -325,7 +326,7 @@ lvim.plugins = {
   },
   {
     "lmburns/lf.nvim",
-    setup = function()
+    init = function()
       lvim.builtin.which_key.mappings["r"] = { "<cmd>Lf<cr>", "File Manager" }
     end,
     config = function()
@@ -339,7 +340,7 @@ lvim.plugins = {
         winblend = 0,
       }
     end,
-    requires = { "plenary.nvim", "toggleterm.nvim" },
+    dependencies = { "plenary.nvim", "toggleterm.nvim" },
   },
   {
     "ray-x/lsp_signature.nvim",
@@ -384,15 +385,21 @@ lvim.plugins = {
   { "p00f/nvim-ts-rainbow", event = "BufEnter" },
   { "windwp/nvim-ts-autotag", event = "InsertEnter" },
   { "romgrk/fzy-lua-native" },
-  { "nvim-telescope/telescope-fzy-native.nvim", run = "make", event = "BufRead" },
-  { "mg979/vim-visual-multi", event = "BufEnter", setup = function() vim.cmd("let g:VM_default_mappings = 0") end }, -- vim -Nu ~/.local/share/lunarvim/site/pack/packer/start/vim-visual-multi/tutorialrc
+  { "nvim-telescope/telescope-fzy-native.nvim", build = "make", event = "BufRead" },
+  {
+    "mg979/vim-visual-multi",
+    event = "BufEnter",
+    init = function()
+      vim.cmd "let g:VM_default_mappings = 0"
+    end,
+  }, -- vim -Nu ~/.local/share/lunarvim/site/pack/packer/start/vim-visual-multi/tutorialrc
   { "nvim-treesitter/nvim-treesitter-textobjects", before = "nvim-treesitter" },
   { "mzlogin/vim-markdown-toc", event = "BufRead" },
   -- {
   --   "ibhagwan/fzf-lua",
   --   event = "BufRead",
-  --   requires = { "kyazdani42/nvim-web-devicons" },
-  --   setup = function()
+  --   dependencies = { "kyazdani42/nvim-web-devicons" },
+  --   init = function()
   --     vim.api.nvim_set_keymap(
   --       "n",
   --       "<c-P>",
@@ -435,14 +442,14 @@ lvim.plugins = {
   {
     "kevinhwang91/nvim-ufo",
     event = "BufRead",
-    requires = "kevinhwang91/promise-async",
+    dependencies = "kevinhwang91/promise-async",
     config = function()
       require("user.nvim-ufo").config()
     end,
   },
   {
     "ellisonleao/glow.nvim",
-    setup = function()
+    init = function()
       lvim.builtin.which_key.mappings["mg"] = { "<cmd>Glow<cr>", "Markdown Preview" }
     end,
     config = function()
@@ -454,7 +461,7 @@ lvim.plugins = {
   },
   {
     "mickael-menu/zk-nvim",
-    setup = function()
+    init = function()
       lvim.builtin.which_key.mappings["Z"] = {
         name = "Zk",
         T = { "<cmd>ZkNotes<cr>", "All Notes" },
@@ -474,16 +481,16 @@ lvim.plugins = {
   },
   {
     "catppuccin/nvim",
-    as = "catppuccin",
-    run = ":CatppuccinCompile",
+    name = "catppuccin",
+    build = ":CatppuccinCompile",
     config = function()
       require("user.catppuccin").config()
     end,
   },
   {
     "iamcco/markdown-preview.nvim",
-    run = "cd app && npm install",
-    setup = function()
+    build = "cd app && npm install",
+    init = function()
       lvim.builtin.which_key.mappings["m"] =
         { name = "Markdown & Minimap", M = { "<cmd>MarkdownPreview<cr>", "Markdown Preview" } }
     end,
@@ -509,7 +516,7 @@ lvim.plugins = {
   },
   {
     "f-person/git-blame.nvim",
-    setup = function()
+    init = function()
       lvim.builtin.which_key.mappings["a"] = { "<cmd>GitBlameToggle<cr>", "Toggle Git Blame" }
       vim.g.gitblame_enabled = 0
     end,
@@ -543,7 +550,7 @@ lvim.plugins = {
     "metakirby5/codi.vim",
     cmd = "Codi",
     ft = { "python", "javascript", "php" },
-    setup = function()
+    init = function()
       lvim.builtin.which_key.mappings["y"] = { "<cmd>Codi<cr>", "Codi" }
       lvim.builtin.which_key.mappings["Y"] = { "<cmd>Codi!<cr>", "Clear Codi" }
     end,
@@ -557,7 +564,7 @@ lvim.plugins = {
   },
   {
     "ggandor/flit.nvim",
-    requires = "ggandor/leap.nvim",
+    dependencies = "ggandor/leap.nvim",
     event = "BufRead",
     config = function()
       require("flit").setup {
@@ -581,7 +588,7 @@ lvim.plugins = {
   {
     "ruifm/gitlinker.nvim",
     event = "BufRead",
-    setup = function()
+    init = function()
       lvim.builtin.which_key.mappings["gy"] =
         { "<cmd>lua require'gitlinker'.get_buf_range_url('n')<cr>", "Generate git link" }
     end,
@@ -595,12 +602,12 @@ lvim.plugins = {
         },
       }
     end,
-    requires = "nvim-lua/plenary.nvim",
+    dependencies = "nvim-lua/plenary.nvim",
   },
   {
     "Pocco81/true-zen.nvim",
     event = "BufRead",
-    setup = function()
+    init = function()
       lvim.builtin.which_key.mappings["z"] =
         { name = "Zen", z = { "<cmd>TZAtaraxis<cr>", "Zen Mode" }, f = { "<cmd>TZFocus<cr>", "Focus window" } }
       vim.api.nvim_set_keymap("n", "<M-=>", ":TZFocus<cr>", { noremap = true, silent = false })
@@ -613,7 +620,7 @@ lvim.plugins = {
   {
     "folke/trouble.nvim",
     cmd = "TroubleToggle",
-    setup = function()
+    init = function()
       lvim.builtin.which_key.mappings["t"] = {
         name = "Diagnostics",
         t = { "<cmd>TroubleToggle<cr>", "trouble" },
