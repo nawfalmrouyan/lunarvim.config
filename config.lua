@@ -197,6 +197,11 @@ lvim.builtin.sell_soul_to_devel = true
 
 -- Additional Plugins
 lvim.plugins = {
+{ "rebelot/kanagawa.nvim",
+  config = function()
+    require("user.kanagawa").config()
+  end
+  },
   {
     "echasnovski/mini.map",
     branch = "stable",
