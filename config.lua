@@ -333,24 +333,24 @@ lvim.plugins = {
       }
     end,
   },
-  {
-    "lmburns/lf.nvim",
-    init = function()
-      lvim.builtin.which_key.mappings["r"] = { "<cmd>Lf<cr>", "File Manager" }
-    end,
-    config = function()
-      -- This feature will not work if the plugin is lazy-loaded
-      vim.g.lf_netrw = 1
+  -- {
+  --   "lmburns/lf.nvim",
+  --   init = function()
+  --     lvim.builtin.which_key.mappings["r"] = { "<cmd>Lf<cr>", "File Manager" }
+  --   end,
+  --   config = function()
+  --     -- This feature will not work if the plugin is lazy-loaded
+  --     vim.g.lf_netrw = 1
 
-      require("lf").setup {
-        escape_quit = false,
-        border = "rounded",
-        highlights = { FloatBorder = { guifg = "#819c3b" } },
-        winblend = 0,
-      }
-    end,
-    dependencies = { "plenary.nvim", "toggleterm.nvim" },
-  },
+  --     require("lf").setup {
+  --       escape_quit = false,
+  --       border = "rounded",
+  --       highlights = { FloatBorder = { guifg = "#819c3b" } },
+  --       winblend = 0,
+  --     }
+  --   end,
+  --   dependencies = { "plenary.nvim", "toggleterm.nvim" },
+  -- },
   {
     "ray-x/lsp_signature.nvim",
     event = "BufRead",
