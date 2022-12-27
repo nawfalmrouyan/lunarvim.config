@@ -197,10 +197,18 @@ lvim.builtin.sell_soul_to_devel = true
 
 -- Additional Plugins
 lvim.plugins = {
-{ "rebelot/kanagawa.nvim",
-  config = function()
-    require("user.kanagawa").config()
-  end
+  {
+    "chrisgrieser/nvim-various-textobjs",
+    event = "BufRead",
+    config = function()
+      require("various-textobjs").setup { useDefaultKeymaps = true }
+    end,
+  },
+  {
+    "rebelot/kanagawa.nvim",
+    config = function()
+      require("user.kanagawa").config()
+    end,
   },
   {
     "echasnovski/mini.map",
