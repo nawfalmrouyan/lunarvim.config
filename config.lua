@@ -193,6 +193,7 @@ lvim.keys.term_mode["<C-Left>"] = "<C-\\><C-N>vertical resize -2<cr>"
 lvim.keys.term_mode["<C-Right>"] = "<C-\\><C-N>vertical resize +2<cr>"
 
 lvim.keys.visual_block_mode["P"] = '"_c<c-r>0<esc>'
+lvim.builtin.which_key.mappings["pp"] = {"<cmd>Lazy profile<cr>", "Profile"}
 lvim.builtin.sell_soul_to_devel = true
 
 -- Additional Plugins
