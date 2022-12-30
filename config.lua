@@ -407,7 +407,7 @@ lvim.plugins = {
   --     vim.fn["firenvim#install"](0)
   --   end,
   -- },
-  { "tweekmonster/startuptime.vim" },
+  -- { "tweekmonster/startuptime.vim" },
   {
     "kevinhwang91/nvim-bqf",
     -- event = { "BufRead", "BufNew" },
@@ -475,7 +475,6 @@ lvim.plugins = {
   -- },
   {
     "kylechui/nvim-surround",
-    -- event = "BufEnter",
     event = "VeryLazy",
     config = function()
       require("nvim-surround").setup {
