@@ -201,7 +201,7 @@ lvim.plugins = {
     "tzachar/cmp-tabnine",
     build = "./install.sh",
     dependencies = "hrsh7th/nvim-cmp",
-    -- event = "InsertEnter",
+    event = "InsertEnter",
     config = function()
       local tabnine = require "cmp_tabnine.config"
 
@@ -220,7 +220,8 @@ lvim.plugins = {
   },
   {
     "chrisgrieser/nvim-various-textobjs",
-    event = "BufRead",
+    -- event = "BufRead",
+    event = "VeryLazy",
     config = function()
       require("various-textobjs").setup { useDefaultKeymaps = true }
     end,
@@ -234,6 +235,7 @@ lvim.plugins = {
   {
     "echasnovski/mini.map",
     branch = "stable",
+    event = "VeryLazy",
     init = function()
       lvim.builtin.which_key.mappings["mm"] = { "<cmd>lua MiniMap.toggle()<cr>", "Minimap" }
     end,
@@ -264,6 +266,7 @@ lvim.plugins = {
   },
   {
     "tpope/vim-fugitive",
+    lazy = true,
     cmd = {
       "G",
       "Git",
@@ -283,11 +286,13 @@ lvim.plugins = {
   },
   {
     "mattn/vim-gist",
-    event = "BufRead",
+    -- event = "BufRead",
+    event = "VeryLazy",
     dependencies = "mattn/webapi-vim",
   },
   {
     "max397574/better-escape.nvim",
+    lazy = true,
     config = function()
       require("better_escape").setup {
         mapping = { "jk", "jj", "kj" },
@@ -296,7 +301,8 @@ lvim.plugins = {
   },
   {
     "ethanholz/nvim-lastplace",
-    event = "BufRead",
+    -- event = "BufRead",
+    lazy = true,
     config = function()
       require("nvim-lastplace").setup {
         lastplace_ignore_buftype = { "quickfix", "nofile", "help" },
@@ -308,15 +314,15 @@ lvim.plugins = {
   { "RRethy/nvim-treesitter-textsubjects", before = "nvim-treesitter" },
   {
     "mbbill/undotree",
-    event = "BufRead",
+    event = "VeryLazy",
     init = function()
       lvim.builtin.which_key.mappings.u = { "<cmd>UndotreeToggle<cr>", "Undo" }
     end,
   },
-  { "tpope/vim-repeat" },
+  { "tpope/vim-repeat", lazy = true },
   {
     "folke/persistence.nvim",
-    event = "BufReadPre", -- this will only start session saving when an actual file was opened
+    -- event = "BufReadPre", -- this will only start session saving when an actual file was opened
     -- module = "persistence",
     lazy = true,
     init = function()
@@ -336,6 +342,7 @@ lvim.plugins = {
   },
   {
     "romgrk/nvim-treesitter-context",
+    lazy = true,
     config = function()
       require("treesitter-context").setup {
         enable = true, -- Enable this plugin (Can be enabled/disabled later via commands)
@@ -355,9 +362,10 @@ lvim.plugins = {
       }
     end,
   },
-  { "nvim-telescope/telescope-media-files.nvim", event = "BufRead" },
+  { "nvim-telescope/telescope-media-files.nvim", event = "VeryLazy" },
   {
     "stevearc/aerial.nvim",
+    event = "VeryLazy",
     init = function()
       lvim.builtin.which_key.mappings.l.o = { "<cmd>AerialToggle!<cr>", "Outline" }
     end,
@@ -369,6 +377,7 @@ lvim.plugins = {
   },
   {
     "lmburns/lf.nvim",
+    event = "VeryLazy",
     init = function()
       lvim.builtin.which_key.mappings["r"] = { "<cmd>Lf<cr>", "File Manager" }
     end,
@@ -387,7 +396,7 @@ lvim.plugins = {
   },
   {
     "ray-x/lsp_signature.nvim",
-    event = "BufRead",
+    event = "VeryLazy",
     config = function()
       require("lsp_signature").setup()
     end,
@@ -401,7 +410,8 @@ lvim.plugins = {
   { "tweekmonster/startuptime.vim" },
   {
     "kevinhwang91/nvim-bqf",
-    event = { "BufRead", "BufNew" },
+    -- event = { "BufRead", "BufNew" },
+    event = "VeryLazy",
     config = function()
       require("bqf").setup {
         auto_enable = true,
@@ -425,19 +435,20 @@ lvim.plugins = {
       }
     end,
   },
-  { "p00f/nvim-ts-rainbow", event = "BufEnter" },
+  { "p00f/nvim-ts-rainbow", event = "VeryLazy" },
   { "windwp/nvim-ts-autotag", event = "InsertEnter" },
-  { "romgrk/fzy-lua-native" },
-  { "nvim-telescope/telescope-fzy-native.nvim", build = "make", event = "BufRead" },
+  { "romgrk/fzy-lua-native", lazy = true },
+  { "nvim-telescope/telescope-fzy-native.nvim", build = "make", event = "VeryLazy" },
   {
     "mg979/vim-visual-multi",
-    event = "BufEnter",
+    -- event = "BufEnter",
+    event = "VeryLazy",
     init = function()
       vim.cmd "let g:VM_default_mappings = 0"
     end,
   }, -- vim -Nu ~/.local/share/lunarvim/site/pack/packer/start/vim-visual-multi/tutorialrc
-  { "nvim-treesitter/nvim-treesitter-textobjects", before = "nvim-treesitter" },
-  { "mzlogin/vim-markdown-toc", event = "BufRead" },
+  { "nvim-treesitter/nvim-treesitter-textobjects", lazy = true, before = "nvim-treesitter" },
+  -- { "mzlogin/vim-markdown-toc", event = "VeryLazy" },
   -- {
   --   "ibhagwan/fzf-lua",
   --   event = "BufRead",
@@ -464,7 +475,8 @@ lvim.plugins = {
   -- },
   {
     "kylechui/nvim-surround",
-    event = "BufEnter",
+    -- event = "BufEnter",
+    event = "VeryLazy",
     config = function()
       require("nvim-surround").setup {
         keymaps = {
@@ -482,16 +494,17 @@ lvim.plugins = {
       }
     end,
   },
-  {
-    "kevinhwang91/nvim-ufo",
-    event = "BufRead",
-    dependencies = "kevinhwang91/promise-async",
-    config = function()
-      require("user.nvim-ufo").config()
-    end,
-  },
+  -- {
+  --   "kevinhwang91/nvim-ufo",
+  --   event = "BufRead",
+  --   dependencies = "kevinhwang91/promise-async",
+  --   config = function()
+  --     require("user.nvim-ufo").config()
+  --   end,
+  -- },
   {
     "ellisonleao/glow.nvim",
+    event = "VeryLazy",
     init = function()
       lvim.builtin.which_key.mappings["mg"] = { "<cmd>Glow<cr>", "Markdown Preview" }
     end,
@@ -504,6 +517,7 @@ lvim.plugins = {
   },
   {
     "mickael-menu/zk-nvim",
+    event = "VeryLazy",
     init = function()
       lvim.builtin.which_key.mappings["Z"] = {
         name = "Zk",
@@ -520,7 +534,6 @@ lvim.plugins = {
     config = function()
       require("user.zk-nvim").config()
     end,
-    event = "BufRead",
   },
   {
     "catppuccin/nvim",
@@ -532,6 +545,7 @@ lvim.plugins = {
   },
   {
     "iamcco/markdown-preview.nvim",
+    event = "VeryLazy",
     build = "cd app && npm install",
     init = function()
       lvim.builtin.which_key.mappings["m"] =
@@ -542,7 +556,7 @@ lvim.plugins = {
     end,
     ft = "markdown",
   },
-  { "hrsh7th/cmp-cmdline" },
+  { "hrsh7th/cmp-cmdline", lazy = true },
   {
     "andymass/vim-matchup",
     event = "CursorMoved",
@@ -552,7 +566,7 @@ lvim.plugins = {
   },
   {
     "uga-rosa/ccc.nvim",
-    event = "BufRead",
+    event = "VeryLazy",
     config = function()
       require("user.ccc").config()
     end,
@@ -566,31 +580,32 @@ lvim.plugins = {
     config = function()
       vim.cmd "highlight default link gitblame SpecialComment"
     end,
-    event = "BufRead",
+    event = "VeryLazy",
   },
   {
     "monaqa/dial.nvim",
-    event = "BufRead",
+    event = "VeryLazy",
     config = function()
       require("user.dial").config()
     end,
   },
   {
     "nacro90/numb.nvim",
-    event = "BufRead",
+    event = "VeryLazy",
     config = function()
       require("user.numb").config()
     end,
   },
   {
     "karb94/neoscroll.nvim",
-    event = "BufRead",
+    event = "VeryLazy",
     config = function()
       require("user.neoscroll").config()
     end,
   },
   {
     "metakirby5/codi.vim",
+    event = "VeryLazy",
     cmd = "Codi",
     ft = { "python", "javascript", "php" },
     init = function()
@@ -603,12 +618,12 @@ lvim.plugins = {
     config = function()
       require("leap").set_default_keymaps()
     end,
-    event = "BufRead",
+    event = "VeryLazy",
   },
   {
     "ggandor/flit.nvim",
     dependencies = "ggandor/leap.nvim",
-    event = "BufRead",
+    event = "VeryLazy",
     config = function()
       require("flit").setup {
         keys = { f = "f", F = "F", t = "t", T = "T" },
@@ -620,6 +635,7 @@ lvim.plugins = {
   },
   {
     "notjedi/nvim-rooter.lua",
+    lazy = true,
     config = function()
       require("nvim-rooter").setup {
         rooter_patterns = { ".git", ".hg", ".svn", "*.conf" },
@@ -630,7 +646,7 @@ lvim.plugins = {
   },
   {
     "ruifm/gitlinker.nvim",
-    event = "BufRead",
+    event = "VeryLazy",
     init = function()
       lvim.builtin.which_key.mappings["gy"] =
         { "<cmd>lua require'gitlinker'.get_buf_range_url('n')<cr>", "Generate git link" }
@@ -649,7 +665,7 @@ lvim.plugins = {
   },
   {
     "Pocco81/true-zen.nvim",
-    event = "BufRead",
+    event = "VeryLazy",
     init = function()
       lvim.builtin.which_key.mappings["z"] =
         { name = "Zen", z = { "<cmd>TZAtaraxis<cr>", "Zen Mode" }, f = { "<cmd>TZFocus<cr>", "Focus window" } }
@@ -662,6 +678,7 @@ lvim.plugins = {
   },
   {
     "folke/trouble.nvim",
+    event = "VeryLazy",
     cmd = "TroubleToggle",
     init = function()
       lvim.builtin.which_key.mappings["t"] = {
@@ -678,22 +695,23 @@ lvim.plugins = {
   {
     "glepnir/lspsaga.nvim",
     branch = "main",
-    event = "BufRead",
+    event = "VeryLazy",
     config = function()
       require("user.lspsaga").config()
     end,
   },
   {
     "j-hui/fidget.nvim",
+    event = "VeryLazy",
     config = function()
       require("fidget").setup()
     end,
   },
-  { "christoomey/vim-tmux-navigator" },
-  {
-    "folke/lsp-colors.nvim",
-    event = "BufRead",
-  },
+  { "christoomey/vim-tmux-navigator", lazy = true },
+  -- {
+  --   "folke/lsp-colors.nvim",
+  --   event = "VeryLazy",
+  -- },
   { "wakatime/vim-wakatime" },
 }
 
