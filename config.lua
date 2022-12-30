@@ -71,7 +71,7 @@ lvim.builtin.telescope.theme = "center"
 lvim.builtin.telescope.on_config_done = function(telescope)
   pcall(telescope.load_extension, "fzy_native")
   pcall(telescope.load_extension, "zk")
-  pcall(telescope.load_extension, "media_files")
+  -- pcall(telescope.load_extension, "media_files")
 end
 
 lvim.builtin.cmp.cmdline.enable = true
@@ -226,44 +226,44 @@ lvim.plugins = {
       require("various-textobjs").setup { useDefaultKeymaps = true }
     end,
   },
-  {
-    "rebelot/kanagawa.nvim",
-    config = function()
-      require("user.kanagawa").config()
-    end,
-  },
-  {
-    "echasnovski/mini.map",
-    branch = "stable",
-    event = "VeryLazy",
-    init = function()
-      lvim.builtin.which_key.mappings["mm"] = { "<cmd>lua MiniMap.toggle()<cr>", "Minimap" }
-    end,
-    config = function()
-      require("mini.map").setup()
-      local map = require "mini.map"
-      map.setup {
-        integrations = {
-          map.gen_integration.builtin_search(),
-          map.gen_integration.diagnostic {
-            error = "DiagnosticFloatingError",
-            warn = "DiagnosticFloatingWarn",
-            info = "DiagnosticFloatingInfo",
-            hint = "DiagnosticFloatingHint",
-          },
-        },
-        symbols = {
-          encode = map.gen_encode_symbols.dot "4x2",
-        },
-        window = {
-          side = "right",
-          width = 20, -- set to 1 for a pure scrollbar :)
-          winblend = 0,
-          show_integration_count = false,
-        },
-      }
-    end,
-  },
+  -- {
+  --   "rebelot/kanagawa.nvim",
+  --   config = function()
+  --     require("user.kanagawa").config()
+  --   end,
+  -- },
+  -- {
+  --   "echasnovski/mini.map",
+  --   branch = "stable",
+  --   event = "VeryLazy",
+  --   init = function()
+  --     lvim.builtin.which_key.mappings["mm"] = { "<cmd>lua MiniMap.toggle()<cr>", "Minimap" }
+  --   end,
+  --   config = function()
+  --     require("mini.map").setup()
+  --     local map = require "mini.map"
+  --     map.setup {
+  --       integrations = {
+  --         map.gen_integration.builtin_search(),
+  --         map.gen_integration.diagnostic {
+  --           error = "DiagnosticFloatingError",
+  --           warn = "DiagnosticFloatingWarn",
+  --           info = "DiagnosticFloatingInfo",
+  --           hint = "DiagnosticFloatingHint",
+  --         },
+  --       },
+  --       symbols = {
+  --         encode = map.gen_encode_symbols.dot "4x2",
+  --       },
+  --       window = {
+  --         side = "right",
+  --         width = 20, -- set to 1 for a pure scrollbar :)
+  --         winblend = 0,
+  --         show_integration_count = false,
+  --       },
+  --     }
+  --   end,
+  -- },
   {
     "tpope/vim-fugitive",
     lazy = true,
@@ -322,8 +322,6 @@ lvim.plugins = {
   { "tpope/vim-repeat", lazy = true },
   {
     "folke/persistence.nvim",
-    -- event = "BufReadPre", -- this will only start session saving when an actual file was opened
-    -- module = "persistence",
     lazy = true,
     init = function()
       lvim.builtin.which_key.mappings["S"] = {
@@ -362,7 +360,7 @@ lvim.plugins = {
       }
     end,
   },
-  { "nvim-telescope/telescope-media-files.nvim", event = "VeryLazy" },
+  -- { "nvim-telescope/telescope-media-files.nvim", event = "VeryLazy" },
   {
     "stevearc/aerial.nvim",
     event = "VeryLazy",
@@ -441,7 +439,6 @@ lvim.plugins = {
   { "nvim-telescope/telescope-fzy-native.nvim", build = "make", event = "VeryLazy" },
   {
     "mg979/vim-visual-multi",
-    -- event = "BufEnter",
     event = "VeryLazy",
     init = function()
       vim.cmd "let g:VM_default_mappings = 0"
@@ -501,19 +498,19 @@ lvim.plugins = {
   --     require("user.nvim-ufo").config()
   --   end,
   -- },
-  {
-    "ellisonleao/glow.nvim",
-    event = "VeryLazy",
-    init = function()
-      lvim.builtin.which_key.mappings["mg"] = { "<cmd>Glow<cr>", "Markdown Preview" }
-    end,
-    config = function()
-      require("glow").setup {
-        border = "rounded",
-      }
-    end,
-    ft = "markdown",
-  },
+  -- {
+  --   "ellisonleao/glow.nvim",
+  --   event = "VeryLazy",
+  --   init = function()
+  --     lvim.builtin.which_key.mappings["mg"] = { "<cmd>Glow<cr>", "Markdown Preview" }
+  --   end,
+  --   config = function()
+  --     require("glow").setup {
+  --       border = "rounded",
+  --     }
+  --   end,
+  --   ft = "markdown",
+  -- },
   {
     "mickael-menu/zk-nvim",
     event = "VeryLazy",
