@@ -266,7 +266,7 @@ lvim.plugins = {
   -- },
   {
     "tpope/vim-fugitive",
-    lazy = true,
+    event = "VeryLazy",
     cmd = {
       "G",
       "Git",
@@ -292,7 +292,7 @@ lvim.plugins = {
   },
   {
     "max397574/better-escape.nvim",
-    lazy = true,
+    event = "VeryLazy",
     config = function()
       require("better_escape").setup {
         mapping = { "jk", "jj", "kj" },
@@ -302,7 +302,7 @@ lvim.plugins = {
   {
     "ethanholz/nvim-lastplace",
     -- event = "BufRead",
-    lazy = true,
+    event = "VeryLazy",
     config = function()
       require("nvim-lastplace").setup {
         lastplace_ignore_buftype = { "quickfix", "nofile", "help" },
@@ -322,7 +322,7 @@ lvim.plugins = {
   { "tpope/vim-repeat", lazy = true },
   {
     "folke/persistence.nvim",
-    lazy = true,
+    event = "VeryLazy",
     init = function()
       lvim.builtin.which_key.mappings["S"] = {
         name = "Session",
@@ -340,7 +340,7 @@ lvim.plugins = {
   },
   {
     "romgrk/nvim-treesitter-context",
-    lazy = true,
+    event = "VeryLazy",
     config = function()
       require("treesitter-context").setup {
         enable = true, -- Enable this plugin (Can be enabled/disabled later via commands)
@@ -435,7 +435,7 @@ lvim.plugins = {
   },
   { "p00f/nvim-ts-rainbow", event = "VeryLazy" },
   { "windwp/nvim-ts-autotag", event = "InsertEnter" },
-  { "romgrk/fzy-lua-native", lazy = true },
+  { "romgrk/fzy-lua-native", event = "VeryLazy" },
   { "nvim-telescope/telescope-fzy-native.nvim", build = "make", event = "VeryLazy" },
   {
     "mg979/vim-visual-multi",
@@ -444,7 +444,7 @@ lvim.plugins = {
       vim.cmd "let g:VM_default_mappings = 0"
     end,
   }, -- vim -Nu ~/.local/share/lunarvim/site/pack/packer/start/vim-visual-multi/tutorialrc
-  { "nvim-treesitter/nvim-treesitter-textobjects", lazy = true, before = "nvim-treesitter" },
+  { "nvim-treesitter/nvim-treesitter-textobjects", event = "VeryLazy", before = "nvim-treesitter" },
   -- { "mzlogin/vim-markdown-toc", event = "VeryLazy" },
   -- {
   --   "ibhagwan/fzf-lua",
@@ -552,7 +552,7 @@ lvim.plugins = {
     end,
     ft = "markdown",
   },
-  { "hrsh7th/cmp-cmdline", lazy = true },
+  { "hrsh7th/cmp-cmdline", event = "VeryLazy" },
   {
     "andymass/vim-matchup",
     event = "CursorMoved",
@@ -631,7 +631,7 @@ lvim.plugins = {
   },
   {
     "notjedi/nvim-rooter.lua",
-    lazy = true,
+    event = "VeryLazy",
     config = function()
       require("nvim-rooter").setup {
         rooter_patterns = { ".git", ".hg", ".svn", "*.conf" },
@@ -703,7 +703,7 @@ lvim.plugins = {
       require("fidget").setup()
     end,
   },
-  { "christoomey/vim-tmux-navigator", lazy = true },
+  { "christoomey/vim-tmux-navigator", event = "VeryLazy" },
   -- {
   --   "folke/lsp-colors.nvim",
   --   event = "VeryLazy",
