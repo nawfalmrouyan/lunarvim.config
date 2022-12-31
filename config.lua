@@ -319,7 +319,7 @@ lvim.plugins = {
       lvim.builtin.which_key.mappings.u = { "<cmd>UndotreeToggle<cr>", "Undo" }
     end,
   },
-  { "tpope/vim-repeat", lazy = true },
+  -- { "tpope/vim-repeat", lazy = true },
   {
     "folke/persistence.nvim",
     event = "VeryLazy",
