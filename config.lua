@@ -72,7 +72,6 @@ lvim.builtin.telescope.theme = "center"
 lvim.builtin.telescope.on_config_done = function(telescope)
   pcall(telescope.load_extension, "fzy_native")
   pcall(telescope.load_extension, "zk")
-  -- pcall(telescope.load_extension, "media_files")
 end
 
 lvim.builtin.cmp.cmdline.enable = true
@@ -372,7 +371,6 @@ lvim.plugins = {
       }
     end,
   },
-  -- { "nvim-telescope/telescope-media-files.nvim", event = "VeryLazy" },
   {
     "stevearc/aerial.nvim",
     event = "VeryLazy",
