@@ -19,6 +19,7 @@ vim.opt.wrap = true
 vim.opt.inccommand = "split"
 vim.opt.guifont = "PragmataPro Nerd Font Mono:h11"
 -- vim.opt.foldoptions = "nodigits"
+vim.opt.colorcolumn = "100"
 
 lvim.builtin.lualine.active = true
 lvim.builtin.bufferline.active = true
