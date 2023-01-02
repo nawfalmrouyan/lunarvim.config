@@ -199,6 +199,17 @@ lvim.builtin.sell_soul_to_devel = true
 -- Additional Plugins
 lvim.plugins = {
   {
+    "simrat39/symbols-outline.nvim",
+    event = "VeryLazy",
+    init = function()
+      lvim.builtin.which_key.mappings.l.o = { "<cmd>SymbolsOutline<cr>", "Outline" }
+    end,
+    config = function()
+      -- require("user.symbolsoutline").config()
+      require("symbols-outline").setup()
+    end,
+  },
+  {
     "tzachar/cmp-tabnine",
     build = "./install.sh",
     dependencies = "hrsh7th/nvim-cmp",
