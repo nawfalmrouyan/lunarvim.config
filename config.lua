@@ -765,10 +765,6 @@ lvim.plugins = {
     end,
   },
   { "christoomey/vim-tmux-navigator", event = "VeryLazy" },
-  -- {
-  --   "folke/lsp-colors.nvim",
-  --   event = "VeryLazy",
-  -- },
   { "wakatime/vim-wakatime" },
 }
 
