@@ -26,7 +26,7 @@ M.config = function()
   vim.keymap.set("n", "[e", "<cmd>Lspsaga diagnostic_jump_next<CR>", { silent = true })
   vim.keymap.set("n", "]e", "<cmd>Lspsaga diagnostic_jump_prev<CR>", { silent = true })
 
-  lvim.builtin.which_key.mappings.l.o = { "<CMD>LSoutlineToggle<cr>", "Outline" }
+  -- lvim.builtin.which_key.mappings.l.o = { "<CMD>Lspsaga outline<cr>", "Outline" }
 end
 
 return M
