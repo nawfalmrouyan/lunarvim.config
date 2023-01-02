@@ -226,44 +226,44 @@ lvim.plugins = {
       require("various-textobjs").setup { useDefaultKeymaps = true }
     end,
   },
-  -- {
-  --   "rebelot/kanagawa.nvim",
-  --   config = function()
-  --     require("user.kanagawa").config()
-  --   end,
-  -- },
-  -- {
-  --   "echasnovski/mini.map",
-  --   branch = "stable",
-  --   event = "VeryLazy",
-  --   init = function()
-  --     lvim.builtin.which_key.mappings["mm"] = { "<cmd>lua MiniMap.toggle()<cr>", "Minimap" }
-  --   end,
-  --   config = function()
-  --     require("mini.map").setup()
-  --     local map = require "mini.map"
-  --     map.setup {
-  --       integrations = {
-  --         map.gen_integration.builtin_search(),
-  --         map.gen_integration.diagnostic {
-  --           error = "DiagnosticFloatingError",
-  --           warn = "DiagnosticFloatingWarn",
-  --           info = "DiagnosticFloatingInfo",
-  --           hint = "DiagnosticFloatingHint",
-  --         },
-  --       },
-  --       symbols = {
-  --         encode = map.gen_encode_symbols.dot "4x2",
-  --       },
-  --       window = {
-  --         side = "right",
-  --         width = 20, -- set to 1 for a pure scrollbar :)
-  --         winblend = 0,
-  --         show_integration_count = false,
-  --       },
-  --     }
-  --   end,
-  -- },
+  {
+    "rebelot/kanagawa.nvim",
+    config = function()
+      require("user.kanagawa").config()
+    end,
+  },
+  {
+    "echasnovski/mini.map",
+    branch = "stable",
+    event = "VeryLazy",
+    init = function()
+      lvim.builtin.which_key.mappings["mm"] = { "<cmd>lua MiniMap.toggle()<cr>", "Minimap" }
+    end,
+    config = function()
+      require("mini.map").setup()
+      local map = require "mini.map"
+      map.setup {
+        integrations = {
+          map.gen_integration.builtin_search(),
+          map.gen_integration.diagnostic {
+            error = "DiagnosticFloatingError",
+            warn = "DiagnosticFloatingWarn",
+            info = "DiagnosticFloatingInfo",
+            hint = "DiagnosticFloatingHint",
+          },
+        },
+        symbols = {
+          encode = map.gen_encode_symbols.dot "4x2",
+        },
+        window = {
+          side = "right",
+          width = 20, -- set to 1 for a pure scrollbar :)
+          winblend = 0,
+          show_integration_count = false,
+        },
+      }
+    end,
+  },
   {
     "tpope/vim-fugitive",
     event = "VeryLazy",
