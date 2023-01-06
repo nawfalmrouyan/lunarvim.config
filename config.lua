@@ -5,7 +5,7 @@ lvim.builtin.lualine.options.theme = "catppuccin"
 lvim.shell = "/usr/bin/zsh"
 lvim.transparent_window = true
 
--- vim.opt.cmdheight = 0
+vim.opt.cmdheight = 0
 -- vim.opt.timeoutlen = 500
 vim.opt.ignorecase = false
 vim.opt.smartcase = false
@@ -17,8 +17,7 @@ vim.opt.wrap = true
 -- vim.opt.scrolloff = 0
 -- vim.opt.sidescrolloff = 0
 vim.opt.inccommand = "split"
-vim.opt.guifont = "PragmataPro Nerd Font Mono:h11"
--- vim.opt.foldoptions = "nodigits"
+vim.opt.guifont = "PragmataPro Nerd Font Mono:h10"
 vim.opt.colorcolumn = "100"
 
 lvim.builtin.lualine.active = true
@@ -28,6 +27,8 @@ lvim.builtin.bufferline.options.show_close_icon = false
 lvim.builtin.alpha.mode = "dashboard"
 lvim.builtin.dap.active = false
 lvim.builtin.terminal.active = true
+lvim.builtin.indentlines.active = false
+lvim.builtin.illuminate.active = false
 
 lvim.lsp.diagnostics.virtual_text = false
 
@@ -40,6 +41,7 @@ lvim.builtin.treesitter.ensure_installed = {
   "lua",
   "python",
   "typescript",
+  "svelte",
 }
 lvim.builtin.treesitter.highlight.enabled = true
 lvim.builtin.treesitter.rainbow.enable = true
@@ -178,7 +180,7 @@ lvim.keys.normal_mode["<M-$>"] = "g$"
 lvim.keys.normal_mode["/"] = "ms/"
 
 -- From the primeagen
-lvim.keys.normal_mode["J"] = "mzJ`z"
+-- lvim.keys.normal_mode["J"] = "mzJ`z"
 lvim.keys.normal_mode["<C-d>"] = "<C-d>zz"
 lvim.keys.normal_mode["<C-u>"] = "<C-u>zz"
 lvim.keys.normal_mode["n"] = "nzzzv"
@@ -296,7 +298,6 @@ lvim.plugins = {
   },
   {
     "mattn/vim-gist",
-    -- event = "BufRead",
     event = "VeryLazy",
     dependencies = "mattn/webapi-vim",
   },
@@ -311,8 +312,6 @@ lvim.plugins = {
   },
   {
     "ethanholz/nvim-lastplace",
-    -- event = "BufRead",
-    event = "VeryLazy",
     config = function()
       require("nvim-lastplace").setup {
         lastplace_ignore_buftype = { "quickfix", "nofile", "help" },
@@ -381,13 +380,6 @@ lvim.plugins = {
       require("lsp_signature").setup()
     end,
   },
-  -- {
-  --   "glacambre/firenvim",
-  --   run = function()
-  --     vim.fn["firenvim#install"](0)
-  --   end,
-  -- },
-  -- { "tweekmonster/startuptime.vim" },
   {
     "kevinhwang91/nvim-bqf",
     -- event = { "BufRead", "BufNew" },
@@ -415,9 +407,15 @@ lvim.plugins = {
       }
     end,
   },
-  { "p00f/nvim-ts-rainbow", event = "VeryLazy" },
+  {
+    "p00f/nvim-ts-rainbow",
+    event = "VeryLazy",
+  },
   { "windwp/nvim-ts-autotag", event = "InsertEnter" },
-  { "romgrk/fzy-lua-native", event = "VeryLazy" },
+  {
+    "romgrk/fzy-lua-native",
+    event = "VeryLazy",
+  },
   { "nvim-telescope/telescope-fzy-native.nvim", build = "make", event = "VeryLazy" },
   {
     "mg979/vim-visual-multi",
@@ -426,7 +424,11 @@ lvim.plugins = {
       vim.cmd "let g:VM_default_mappings = 0"
     end,
   }, -- vim -Nu ~/.local/share/lunarvim/site/pack/packer/start/vim-visual-multi/tutorialrc
-  { "nvim-treesitter/nvim-treesitter-textobjects", event = "VeryLazy", before = "nvim-treesitter" },
+  {
+    "nvim-treesitter/nvim-treesitter-textobjects",
+    event = "VeryLazy",
+    before = "nvim-treesitter",
+  },
   -- { "mzlogin/vim-markdown-toc", event = "VeryLazy" },
   -- {
   --   "ibhagwan/fzf-lua",
@@ -599,7 +601,10 @@ lvim.plugins = {
     end,
     ft = "markdown",
   },
-  { "hrsh7th/cmp-cmdline", event = "VeryLazy" },
+  {
+    "hrsh7th/cmp-cmdline",
+    event = "VeryLazy",
+  },
   {
     "andymass/vim-matchup",
     event = "CursorMoved",
@@ -609,7 +614,7 @@ lvim.plugins = {
   },
   {
     "uga-rosa/ccc.nvim",
-    event = "VeryLazy",
+    ft = { "conf", "css", "svelte" },
     config = function()
       require("user.ccc").config()
     end,
@@ -746,7 +751,10 @@ lvim.plugins = {
       require("fidget").setup()
     end,
   },
-  { "christoomey/vim-tmux-navigator", event = "VeryLazy" },
+  {
+    "christoomey/vim-tmux-navigator",
+    event = "VeryLazy",
+  },
   { "wakatime/vim-wakatime" },
 }
 
