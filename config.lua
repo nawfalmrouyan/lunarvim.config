@@ -200,6 +200,16 @@ lvim.builtin.sell_soul_to_devel = true
 -- Additional Plugins
 lvim.plugins = {
   {
+    "nvim-neorg/neorg",
+    -- ft = "norg",
+    -- event = "VeryLazy",
+    build = ":Neorg sync-parsers",
+    config = function()
+      require("user.neorg").config()
+    end,
+    dependencies = { "nvim-neorg/neorg-telescope", "nvim-lua/plenary.nvim" },
+  },
+  {
     "simrat39/symbols-outline.nvim",
     event = "VeryLazy",
     init = function()
