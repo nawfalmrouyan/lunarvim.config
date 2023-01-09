@@ -149,6 +149,7 @@ lvim.lsp.automatic_configuration.skipped_servers = {
   "rnix",
   "rome",
   "ruby_ls",
+  "ruff_lsp",
   "scry",
   "solang",
   "solc",
