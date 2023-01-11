@@ -210,17 +210,17 @@ lvim.plugins = {
     end,
     dependencies = { "nvim-neorg/neorg-telescope", "nvim-lua/plenary.nvim" },
   },
-  {
-    "simrat39/symbols-outline.nvim",
-    event = "VeryLazy",
-    init = function()
-      lvim.builtin.which_key.mappings.l.o = { "<cmd>SymbolsOutline<cr>", "Outline" }
-    end,
-    config = function()
-      -- require("user.symbolsoutline").config()
-      require("symbols-outline").setup()
-    end,
-  },
+  -- {
+  --   "simrat39/symbols-outline.nvim",
+  --   event = "VeryLazy",
+  --   init = function()
+  --     lvim.builtin.which_key.mappings.l.o = { "<cmd>SymbolsOutline<cr>", "Outline" }
+  --   end,
+  --   config = function()
+  --     -- require("user.symbolsoutline").config()
+  --     require("symbols-outline").setup()
+  --   end,
+  -- },
   {
     "tzachar/cmp-tabnine",
     build = "./install.sh",
