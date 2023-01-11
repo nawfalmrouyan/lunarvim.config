@@ -174,7 +174,7 @@ lvim.keys.normal_mode["<M-w>"] = ":set wrap! wrap?<cr>"
 lvim.keys.normal_mode["<M-r>"] = ":set relativenumber! relativenumber?<cr>"
 lvim.keys.normal_mode["<S-h>"] = ":BufferLineCyclePrev<cr>"
 lvim.keys.normal_mode["<S-l>"] = ":BufferLineCycleNext<cr>"
-lvim.keys.normal_mode["<TAB>"] = ":BufferLinePick<cr>"
+-- lvim.keys.normal_mode["<TAB>"] = ":BufferLinePick<cr>"
 lvim.keys.normal_mode["<M-o>"] = "o<esc>"
 lvim.keys.normal_mode["<M-O>"] = "O<esc>"
 lvim.keys.normal_mode["<M-$>"] = "g$"
@@ -200,6 +200,13 @@ lvim.builtin.sell_soul_to_devel = true
 
 -- Additional Plugins
 lvim.plugins = {
+  {
+    "ckolkey/ts-node-action",
+    dependencies = { "nvim-treesitter" },
+    init = function()
+      vim.keymap.set({ "n" }, "<TAB>", require("ts-node-action").node_action, { desc = "Trigger Node Action" })
+    end,
+  },
   {
     "nvim-neorg/neorg",
     -- ft = "norg",
