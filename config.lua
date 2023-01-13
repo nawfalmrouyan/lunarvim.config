@@ -209,8 +209,7 @@ lvim.plugins = {
   },
   {
     "nvim-neorg/neorg",
-    -- ft = "norg",
-    -- event = "VeryLazy",
+    ft = "norg",
     build = ":Neorg sync-parsers",
     config = function()
       require("user.neorg").config()
@@ -219,7 +218,7 @@ lvim.plugins = {
   },
   {
     "simrat39/symbols-outline.nvim",
-    event = "VeryLazy",
+    lazy = true,
     init = function()
       lvim.builtin.which_key.mappings.l.o = { "<cmd>SymbolsOutline<cr>", "Outline" }
     end,
@@ -280,7 +279,7 @@ lvim.plugins = {
   },
   {
     "chrisgrieser/nvim-various-textobjs",
-    event = "VeryLazy",
+    lazy = true,
     config = function()
       require("various-textobjs").setup { useDefaultKeymaps = true }
     end,
@@ -294,7 +293,7 @@ lvim.plugins = {
   {
     "echasnovski/mini.map",
     branch = "stable",
-    event = "VeryLazy",
+    lazy = true,
     init = function()
       lvim.builtin.which_key.mappings["mm"] = { "<cmd>lua MiniMap.toggle()<cr>", "Minimap" }
     end,
@@ -325,7 +324,7 @@ lvim.plugins = {
   },
   {
     "tpope/vim-fugitive",
-    event = "VeryLazy",
+    lazy = true,
     cmd = {
       "G",
       "Git",
@@ -343,14 +342,10 @@ lvim.plugins = {
     },
     ft = { "fugitive" },
   },
-  {
-    "mattn/vim-gist",
-    event = "VeryLazy",
-    dependencies = "mattn/webapi-vim",
-  },
+  { "mattn/vim-gist", lazy = true, dependencies = "mattn/webapi-vim",  },
   {
     "max397574/better-escape.nvim",
-    event = "VeryLazy",
+    lazy = true,
     config = function()
       require("better_escape").setup {
         mapping = { "jk", "jj", "kj" },
@@ -370,7 +365,7 @@ lvim.plugins = {
   { "RRethy/nvim-treesitter-textsubjects", before = "nvim-treesitter" },
   {
     "mbbill/undotree",
-    event = "VeryLazy",
+    lazy = true,
     init = function()
       lvim.builtin.which_key.mappings.u = { "<cmd>UndotreeToggle<cr>", "Undo" }
     end,
@@ -378,7 +373,7 @@ lvim.plugins = {
   -- { "tpope/vim-repeat", lazy = true },
   {
     "folke/persistence.nvim",
-    event = "VeryLazy",
+    lazy = true,
     init = function()
       lvim.builtin.which_key.mappings["S"] = {
         name = "Session",
@@ -396,21 +391,18 @@ lvim.plugins = {
   },
   {
     "romgrk/nvim-treesitter-context",
-    event = "VeryLazy",
+    lazy = true,
     config = function()
       require("user.treesitter-context").config()
     end,
   },
   {
     "lmburns/lf.nvim",
-    event = "VeryLazy",
+    lazy = true,
     init = function()
       lvim.builtin.which_key.mappings["r"] = { "<cmd>Lf<cr>", "File Manager" }
     end,
     config = function()
-      -- This feature will not work if the plugin is lazy-loaded
-      -- vim.g.lf_netrw = 1
-
       require("lf").setup {
         escape_quit = false,
         border = "rounded",
@@ -422,15 +414,14 @@ lvim.plugins = {
   },
   {
     "ray-x/lsp_signature.nvim",
-    event = "VeryLazy",
+    lazy = true,
     config = function()
       require("lsp_signature").setup()
     end,
   },
   {
     "kevinhwang91/nvim-bqf",
-    -- event = { "BufRead", "BufNew" },
-    event = "VeryLazy",
+    event = { "BufRead", "BufNew" },
     config = function()
       require("bqf").setup {
         auto_enable = true,
@@ -454,56 +445,21 @@ lvim.plugins = {
       }
     end,
   },
-  {
-    "p00f/nvim-ts-rainbow",
-    event = "VeryLazy",
-  },
+  { "p00f/nvim-ts-rainbow", lazy = true },
   { "windwp/nvim-ts-autotag", event = "InsertEnter" },
-  {
-    "romgrk/fzy-lua-native",
-    event = "VeryLazy",
-  },
-  { "nvim-telescope/telescope-fzy-native.nvim", build = "make", event = "VeryLazy" },
+  { "romgrk/fzy-lua-native", lazy = true },
+  { "nvim-telescope/telescope-fzy-native.nvim", build = "make", lazy = true },
   {
     "mg979/vim-visual-multi",
-    event = "VeryLazy",
+    lazy = true,
     init = function()
       vim.cmd "let g:VM_default_mappings = 0"
     end,
   }, -- vim -Nu ~/.local/share/lunarvim/site/pack/packer/start/vim-visual-multi/tutorialrc
-  {
-    "nvim-treesitter/nvim-treesitter-textobjects",
-    event = "VeryLazy",
-    before = "nvim-treesitter",
-  },
-  -- { "mzlogin/vim-markdown-toc", event = "VeryLazy" },
-  -- {
-  --   "ibhagwan/fzf-lua",
-  --   event = "BufRead",
-  --   dependencies = { "kyazdani42/nvim-web-devicons" },
-  --   init = function()
-  --     vim.api.nvim_set_keymap(
-  --       "n",
-  --       "<c-P>",
-  --       "<cmd>lua require('fzf-lua').files()<cr>",
-  --       { noremap = true, silent = true }
-  --     )
-  --     vim.api.nvim_set_keymap("n", "<c-0>", ":FzfLua ", { noremap = true, silent = false })
-  --     lvim.builtin.which_key.mappings["f"] = {
-  --       name = "FZF",
-  --       c = { "<cmd>lua require('fzf-lua').grep_cword()<cr>", "Find cword" },
-  --       C = { "<cmd>lua require('fzf-lua').grep_cWORD()<cr>", "Find cWORD" },
-  --       g = { "<cmd>lua require('fzf-lua').live_grep()<cr>", "Live grep" },
-  --       G = { "<cmd>lua require('fzf-lua').live_grep_resume()<cr>", "Live grep resume" },
-  --       f = { "<cmd>lua require('fzf-lua').files()<cr>", "Find files" },
-  --       r = { "<cmd>lua require('fzf-lua').resume()<cr>", "Resume last search" },
-  --       t = { "<cmd>lua require('fzf-lua').tabs()<cr>", "Resume last search" },
-  --     }
-  --   end,
-  -- },
+  { "nvim-treesitter/nvim-treesitter-textobjects", lazy = true, before = "nvim-treesitter" },
   {
     "echasnovski/mini.ai",
-    event = "VeryLazy",
+    lazy = true,
     config = function()
       require("mini.ai").setup {
         -- Table with textobject id as fields, textobject specification as values.
@@ -537,46 +493,9 @@ lvim.plugins = {
       }
     end,
   },
-  -- {
-  --   "echasnovski/mini.surround",
-  --   event = "VeryLazy",
-  --   config = function()
-  --     require("mini.surround").setup {
-  --       -- Add custom surroundings to be used on top of builtin ones. For more
-  --       -- information with examples, see `:h MiniSurround.config`.
-  --       custom_surroundings = nil,
-
-  --       -- Duration (in ms) of highlight when calling `MiniSurround.highlight()`
-  --       highlight_duration = 500,
-
-  --       -- Module mappings. Use `''` (empty string) to disable one.
-  --       mappings = {
-  --         add = "gza", -- Add surrounding in Normal and Visual modes
-  --         delete = "gzd", -- Delete surrounding
-  --         find = "gzf", -- Find surrounding (to the right)
-  --         find_left = "gzF", -- Find surrounding (to the left)
-  --         highlight = "gzh", -- Highlight surrounding
-  --         replace = "gzr", -- Replace surrounding
-  --         update_n_lines = "gzn", -- Update `n_lines`
-
-  --         suffix_last = "l", -- Suffix to search with "prev" method
-  --         suffix_next = "n", -- Suffix to search with "next" method
-  --       },
-
-  --       -- Number of lines within which surrounding is searched
-  --       n_lines = 20,
-
-  --       -- How to search for surrounding (first inside current line, then inside
-  --       -- neighborhood). One of 'cover', 'cover_or_next', 'cover_or_prev',
-  --       -- 'cover_or_nearest', 'next', 'prev', 'nearest'. For more details,
-  --       -- see `:h MiniSurround.config`.
-  --       search_method = "cover",
-  --     }
-  --   end,
-  -- },
   {
     "kylechui/nvim-surround",
-    event = "VeryLazy",
+    lazy = true,
     config = function()
       require("nvim-surround").setup {
         keymaps = {
@@ -596,7 +515,7 @@ lvim.plugins = {
   },
   {
     "ellisonleao/glow.nvim",
-    event = "VeryLazy",
+    lazy = true,
     init = function()
       lvim.builtin.which_key.mappings["mg"] = { "<cmd>Glow<cr>", "Markdown Preview" }
     end,
@@ -609,7 +528,7 @@ lvim.plugins = {
   },
   {
     "mickael-menu/zk-nvim",
-    event = "VeryLazy",
+    lazy = true,
     init = function()
       lvim.builtin.which_key.mappings["Z"] = {
         name = "Zk",
@@ -637,7 +556,7 @@ lvim.plugins = {
   },
   {
     "iamcco/markdown-preview.nvim",
-    event = "VeryLazy",
+    lazy = true,
     build = "cd app && npm install",
     init = function()
       lvim.builtin.which_key.mappings["m"] =
@@ -648,10 +567,10 @@ lvim.plugins = {
     end,
     ft = "markdown",
   },
-  {
-    "hrsh7th/cmp-cmdline",
-    event = "VeryLazy",
-  },
+  -- {
+  --   "hrsh7th/cmp-cmdline",
+  --   event = "VeryLazy",
+  -- },
   {
     "andymass/vim-matchup",
     event = "CursorMoved",
@@ -668,6 +587,7 @@ lvim.plugins = {
   },
   {
     "f-person/git-blame.nvim",
+    lazy = true,
     init = function()
       lvim.builtin.which_key.mappings["a"] = { "<cmd>GitBlameToggle<cr>", "Toggle Git Blame" }
       vim.g.gitblame_enabled = 0
@@ -675,32 +595,30 @@ lvim.plugins = {
     config = function()
       vim.cmd "highlight default link gitblame SpecialComment"
     end,
-    event = "VeryLazy",
   },
   {
     "monaqa/dial.nvim",
-    event = "VeryLazy",
+    lazy = true,
     config = function()
       require("user.dial").config()
     end,
   },
   {
     "nacro90/numb.nvim",
-    event = "VeryLazy",
+    lazy = true,
     config = function()
       require("user.numb").config()
     end,
   },
   {
     "karb94/neoscroll.nvim",
-    event = "VeryLazy",
+    lazy = true,
     config = function()
       require("user.neoscroll").config()
     end,
   },
   {
     "metakirby5/codi.vim",
-    event = "VeryLazy",
     cmd = "Codi",
     ft = { "python", "javascript", "php" },
     init = function()
@@ -710,15 +628,15 @@ lvim.plugins = {
   },
   {
     "ggandor/leap.nvim",
+    lazy = true,
     config = function()
       require("leap").set_default_keymaps()
     end,
-    event = "VeryLazy",
   },
   {
     "ggandor/flit.nvim",
     dependencies = "ggandor/leap.nvim",
-    event = "VeryLazy",
+    lazy = true,
     config = function()
       require("flit").setup {
         keys = { f = "f", F = "F", t = "t", T = "T" },
@@ -730,7 +648,7 @@ lvim.plugins = {
   },
   {
     "notjedi/nvim-rooter.lua",
-    event = "VeryLazy",
+    lazy = true,
     config = function()
       require("nvim-rooter").setup {
         rooter_patterns = { ".git", ".hg", ".svn", "*.conf" },
@@ -741,7 +659,7 @@ lvim.plugins = {
   },
   {
     "ruifm/gitlinker.nvim",
-    event = "VeryLazy",
+    lazy = true,
     config = function()
       require("gitlinker").setup {
         opts = {
@@ -756,7 +674,7 @@ lvim.plugins = {
   },
   {
     "Pocco81/true-zen.nvim",
-    event = "VeryLazy",
+    lazy = true,
     init = function()
       lvim.builtin.which_key.mappings["z"] =
         { name = "Zen", z = { "<cmd>TZAtaraxis<cr>", "Zen Mode" }, f = { "<cmd>TZFocus<cr>", "Focus window" } }
@@ -769,7 +687,7 @@ lvim.plugins = {
   },
   {
     "folke/trouble.nvim",
-    event = "VeryLazy",
+    lazy = true,
     cmd = "TroubleToggle",
     init = function()
       lvim.builtin.which_key.mappings["t"] = {
@@ -792,15 +710,12 @@ lvim.plugins = {
   -- },
   {
     "j-hui/fidget.nvim",
-    event = "VeryLazy",
+    lazy = true,
     config = function()
       require("fidget").setup()
     end,
   },
-  {
-    "christoomey/vim-tmux-navigator",
-    event = "VeryLazy",
-  },
+  { "christoomey/vim-tmux-navigator", lazy = true },
   { "wakatime/vim-wakatime" },
 }
 
