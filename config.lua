@@ -783,14 +783,13 @@ lvim.plugins = {
       }
     end,
   },
-  {
-    "glepnir/lspsaga.nvim",
-    branch = "main",
-    event = "VeryLazy",
-    config = function()
-      require("user.lspsaga").config()
-    end,
-  },
+  -- {
+  --   "glepnir/lspsaga.nvim",
+  --   event = "BufRead",
+  --   config = function()
+  --     require("user.lspsaga").config()
+  --   end,
+  -- },
   {
     "j-hui/fidget.nvim",
     event = "VeryLazy",
