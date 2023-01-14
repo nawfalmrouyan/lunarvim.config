@@ -202,6 +202,7 @@ lvim.builtin.sell_soul_to_devel = true
 lvim.plugins = {
   {
     "ckolkey/ts-node-action",
+    event = "BufRead",
     dependencies = { "nvim-treesitter" },
     init = function()
       vim.keymap.set({ "n" }, "<TAB>", require("ts-node-action").node_action, { desc = "Trigger Node Action" })
@@ -209,7 +210,7 @@ lvim.plugins = {
   },
   {
     "nvim-neorg/neorg",
-    -- ft = "norg",
+    ft = "norg",
     build = ":Neorg sync-parsers",
     config = function()
       require("user.neorg").config()
@@ -218,6 +219,7 @@ lvim.plugins = {
   },
   {
     "simrat39/symbols-outline.nvim",
+    event = "BufRead",
     init = function()
       lvim.builtin.which_key.mappings.l.o = { "<cmd>SymbolsOutline<cr>", "Outline" }
     end,
@@ -278,6 +280,7 @@ lvim.plugins = {
   },
   {
     "chrisgrieser/nvim-various-textobjs",
+    event = "BufRead",
     config = function()
       require("various-textobjs").setup { useDefaultKeymaps = true }
     end,
@@ -290,6 +293,7 @@ lvim.plugins = {
   },
   {
     "echasnovski/mini.map",
+    event = "BufRead",
     branch = "stable",
     init = function()
       lvim.builtin.which_key.mappings["mm"] = { "<cmd>lua MiniMap.toggle()<cr>", "Minimap" }
@@ -338,9 +342,10 @@ lvim.plugins = {
     },
     ft = { "fugitive" },
   },
-  { "mattn/vim-gist", dependencies = "mattn/webapi-vim",  },
+  { "mattn/vim-gist", event = "BufRead", dependencies = "mattn/webapi-vim",  },
   {
     "max397574/better-escape.nvim",
+    event = "BufRead",
     config = function()
       require("better_escape").setup {
         mapping = { "jk", "jj", "kj" },
@@ -349,6 +354,7 @@ lvim.plugins = {
   },
   {
     "ethanholz/nvim-lastplace",
+    event = "BufRead",
     config = function()
       require("nvim-lastplace").setup {
         lastplace_ignore_buftype = { "quickfix", "nofile", "help" },
@@ -357,9 +363,10 @@ lvim.plugins = {
       }
     end,
   },
-  { "RRethy/nvim-treesitter-textsubjects", before = "nvim-treesitter" },
+  { "RRethy/nvim-treesitter-textsubjects", event = "BufRead", before = "nvim-treesitter" },
   {
     "mbbill/undotree",
+    event = "BufRead",
     init = function()
       lvim.builtin.which_key.mappings.u = { "<cmd>UndotreeToggle<cr>", "Undo" }
     end,
@@ -367,6 +374,7 @@ lvim.plugins = {
   -- { "tpope/vim-repeat" },
   {
     "folke/persistence.nvim",
+    event = "BufRead",
     init = function()
       lvim.builtin.which_key.mappings["S"] = {
         name = "Session",
@@ -384,12 +392,14 @@ lvim.plugins = {
   },
   {
     "romgrk/nvim-treesitter-context",
+    event = "BufRead",
     config = function()
       require("user.treesitter-context").config()
     end,
   },
   {
     "lmburns/lf.nvim",
+    cmd = "Lf",
     init = function()
       lvim.builtin.which_key.mappings["r"] = { "<cmd>Lf<cr>", "File Manager" }
     end,
@@ -405,6 +415,7 @@ lvim.plugins = {
   },
   {
     "ray-x/lsp_signature.nvim",
+    event = "BufRead",
     config = function()
       require("lsp_signature").setup()
     end,
@@ -435,19 +446,21 @@ lvim.plugins = {
       }
     end,
   },
-  { "p00f/nvim-ts-rainbow" },
+  { "p00f/nvim-ts-rainbow", event = "BufRead" },
   { "windwp/nvim-ts-autotag", event = "InsertEnter" },
   { "romgrk/fzy-lua-native" },
   { "nvim-telescope/telescope-fzy-native.nvim", build = "make" },
   {
     "mg979/vim-visual-multi",
+    event = "BufRead",
     init = function()
       vim.cmd "let g:VM_default_mappings = 0"
     end,
   }, -- vim -Nu ~/.local/share/lunarvim/site/pack/packer/start/vim-visual-multi/tutorialrc
-  { "nvim-treesitter/nvim-treesitter-textobjects", before = "nvim-treesitter" },
+  { "nvim-treesitter/nvim-treesitter-textobjects", before = "nvim-treesitter", event = "BufRead", },
   {
     "echasnovski/mini.ai",
+    event = "BufRead",
     config = function()
       require("mini.ai").setup {
         -- Table with textobject id as fields, textobject specification as values.
@@ -483,6 +496,7 @@ lvim.plugins = {
   },
   {
     "kylechui/nvim-surround",
+    event = "BufRead",
     config = function()
       require("nvim-surround").setup {
         keymaps = {
@@ -502,6 +516,7 @@ lvim.plugins = {
   },
   {
     "ellisonleao/glow.nvim",
+    ft = "markdown",
     init = function()
       lvim.builtin.which_key.mappings["mg"] = { "<cmd>Glow<cr>", "Markdown Preview" }
     end,
@@ -510,10 +525,10 @@ lvim.plugins = {
         border = "rounded",
       }
     end,
-    ft = "markdown",
   },
   {
     "mickael-menu/zk-nvim",
+    cmd = "ZkNotes",
     init = function()
       lvim.builtin.which_key.mappings["Z"] = {
         name = "Zk",
@@ -541,6 +556,7 @@ lvim.plugins = {
   },
   {
     "iamcco/markdown-preview.nvim",
+    ft = "markdown",
     build = "cd app && npm install",
     init = function()
       lvim.builtin.which_key.mappings["m"] =
@@ -549,12 +565,7 @@ lvim.plugins = {
     config = function()
       vim.g.mkdp_browser = "firefoxMD"
     end,
-    ft = "markdown",
   },
-  -- {
-  --   "hrsh7th/cmp-cmdline",
-  --   event = "VeryLazy",
-  -- },
   {
     "andymass/vim-matchup",
     event = "CursorMoved",
@@ -571,6 +582,7 @@ lvim.plugins = {
   },
   {
     "f-person/git-blame.nvim",
+    cmd = "GitBlameToggle",
     init = function()
       lvim.builtin.which_key.mappings["a"] = { "<cmd>GitBlameToggle<cr>", "Toggle Git Blame" }
       vim.g.gitblame_enabled = 0
@@ -581,18 +593,21 @@ lvim.plugins = {
   },
   {
     "monaqa/dial.nvim",
+    event = "BufRead",
     config = function()
       require("user.dial").config()
     end,
   },
   {
     "nacro90/numb.nvim",
+    event = "BufRead",
     config = function()
       require("user.numb").config()
     end,
   },
   {
     "karb94/neoscroll.nvim",
+    event = "BufRead",
     config = function()
       require("user.neoscroll").config()
     end,
@@ -608,6 +623,7 @@ lvim.plugins = {
   },
   {
     "ggandor/leap.nvim",
+    event = "BufRead",
     config = function()
       require("leap").set_default_keymaps()
     end,
@@ -626,6 +642,7 @@ lvim.plugins = {
   },
   {
     "notjedi/nvim-rooter.lua",
+    event = "BufRead",
     config = function()
       require("nvim-rooter").setup {
         rooter_patterns = { ".git", ".hg", ".svn", "*.conf" },
@@ -636,6 +653,7 @@ lvim.plugins = {
   },
   {
     "ruifm/gitlinker.nvim",
+    event = "BufRead",
     config = function()
       require("gitlinker").setup {
         opts = {
@@ -650,6 +668,7 @@ lvim.plugins = {
   },
   {
     "Pocco81/true-zen.nvim",
+    event = "BufRead",
     init = function()
       lvim.builtin.which_key.mappings["z"] =
         { name = "Zen", z = { "<cmd>TZAtaraxis<cr>", "Zen Mode" }, f = { "<cmd>TZFocus<cr>", "Focus window" } }
@@ -684,6 +703,7 @@ lvim.plugins = {
   -- },
   {
     "j-hui/fidget.nvim",
+    event = "BufRead",
     config = function()
       require("fidget").setup()
     end,
