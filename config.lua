@@ -209,7 +209,7 @@ lvim.plugins = {
   },
   {
     "nvim-neorg/neorg",
-    ft = "norg",
+    -- ft = "norg",
     build = ":Neorg sync-parsers",
     config = function()
       require("user.neorg").config()
@@ -218,7 +218,6 @@ lvim.plugins = {
   },
   {
     "simrat39/symbols-outline.nvim",
-    lazy = true,
     init = function()
       lvim.builtin.which_key.mappings.l.o = { "<cmd>SymbolsOutline<cr>", "Outline" }
     end,
@@ -279,7 +278,6 @@ lvim.plugins = {
   },
   {
     "chrisgrieser/nvim-various-textobjs",
-    lazy = true,
     config = function()
       require("various-textobjs").setup { useDefaultKeymaps = true }
     end,
@@ -293,7 +291,6 @@ lvim.plugins = {
   {
     "echasnovski/mini.map",
     branch = "stable",
-    lazy = true,
     init = function()
       lvim.builtin.which_key.mappings["mm"] = { "<cmd>lua MiniMap.toggle()<cr>", "Minimap" }
     end,
@@ -324,7 +321,6 @@ lvim.plugins = {
   },
   {
     "tpope/vim-fugitive",
-    lazy = true,
     cmd = {
       "G",
       "Git",
@@ -342,10 +338,9 @@ lvim.plugins = {
     },
     ft = { "fugitive" },
   },
-  { "mattn/vim-gist", lazy = true, dependencies = "mattn/webapi-vim",  },
+  { "mattn/vim-gist", dependencies = "mattn/webapi-vim",  },
   {
     "max397574/better-escape.nvim",
-    lazy = true,
     config = function()
       require("better_escape").setup {
         mapping = { "jk", "jj", "kj" },
@@ -365,15 +360,13 @@ lvim.plugins = {
   { "RRethy/nvim-treesitter-textsubjects", before = "nvim-treesitter" },
   {
     "mbbill/undotree",
-    lazy = true,
     init = function()
       lvim.builtin.which_key.mappings.u = { "<cmd>UndotreeToggle<cr>", "Undo" }
     end,
   },
-  -- { "tpope/vim-repeat", lazy = true },
+  -- { "tpope/vim-repeat" },
   {
     "folke/persistence.nvim",
-    lazy = true,
     init = function()
       lvim.builtin.which_key.mappings["S"] = {
         name = "Session",
@@ -391,14 +384,12 @@ lvim.plugins = {
   },
   {
     "romgrk/nvim-treesitter-context",
-    lazy = true,
     config = function()
       require("user.treesitter-context").config()
     end,
   },
   {
     "lmburns/lf.nvim",
-    lazy = true,
     init = function()
       lvim.builtin.which_key.mappings["r"] = { "<cmd>Lf<cr>", "File Manager" }
     end,
@@ -414,7 +405,6 @@ lvim.plugins = {
   },
   {
     "ray-x/lsp_signature.nvim",
-    lazy = true,
     config = function()
       require("lsp_signature").setup()
     end,
@@ -445,21 +435,19 @@ lvim.plugins = {
       }
     end,
   },
-  { "p00f/nvim-ts-rainbow", lazy = true },
+  { "p00f/nvim-ts-rainbow" },
   { "windwp/nvim-ts-autotag", event = "InsertEnter" },
-  { "romgrk/fzy-lua-native", lazy = true },
-  { "nvim-telescope/telescope-fzy-native.nvim", build = "make", lazy = true },
+  { "romgrk/fzy-lua-native" },
+  { "nvim-telescope/telescope-fzy-native.nvim", build = "make" },
   {
     "mg979/vim-visual-multi",
-    lazy = true,
     init = function()
       vim.cmd "let g:VM_default_mappings = 0"
     end,
   }, -- vim -Nu ~/.local/share/lunarvim/site/pack/packer/start/vim-visual-multi/tutorialrc
-  { "nvim-treesitter/nvim-treesitter-textobjects", lazy = true, before = "nvim-treesitter" },
+  { "nvim-treesitter/nvim-treesitter-textobjects", before = "nvim-treesitter" },
   {
     "echasnovski/mini.ai",
-    lazy = true,
     config = function()
       require("mini.ai").setup {
         -- Table with textobject id as fields, textobject specification as values.
@@ -489,13 +477,12 @@ lvim.plugins = {
         -- How to search for object (first inside current line, then inside
         -- neighborhood). One of 'cover', 'cover_or_next', 'cover_or_prev',
         -- 'cover_or_nearest', 'next', 'previous', 'nearest'.
-        search_method = "cover_or_next",
+        search_method = "cover_or_nearest",
       }
     end,
   },
   {
     "kylechui/nvim-surround",
-    lazy = true,
     config = function()
       require("nvim-surround").setup {
         keymaps = {
@@ -515,7 +502,6 @@ lvim.plugins = {
   },
   {
     "ellisonleao/glow.nvim",
-    lazy = true,
     init = function()
       lvim.builtin.which_key.mappings["mg"] = { "<cmd>Glow<cr>", "Markdown Preview" }
     end,
@@ -528,7 +514,6 @@ lvim.plugins = {
   },
   {
     "mickael-menu/zk-nvim",
-    lazy = true,
     init = function()
       lvim.builtin.which_key.mappings["Z"] = {
         name = "Zk",
@@ -556,7 +541,6 @@ lvim.plugins = {
   },
   {
     "iamcco/markdown-preview.nvim",
-    lazy = true,
     build = "cd app && npm install",
     init = function()
       lvim.builtin.which_key.mappings["m"] =
@@ -587,7 +571,6 @@ lvim.plugins = {
   },
   {
     "f-person/git-blame.nvim",
-    lazy = true,
     init = function()
       lvim.builtin.which_key.mappings["a"] = { "<cmd>GitBlameToggle<cr>", "Toggle Git Blame" }
       vim.g.gitblame_enabled = 0
@@ -598,21 +581,18 @@ lvim.plugins = {
   },
   {
     "monaqa/dial.nvim",
-    lazy = true,
     config = function()
       require("user.dial").config()
     end,
   },
   {
     "nacro90/numb.nvim",
-    lazy = true,
     config = function()
       require("user.numb").config()
     end,
   },
   {
     "karb94/neoscroll.nvim",
-    lazy = true,
     config = function()
       require("user.neoscroll").config()
     end,
@@ -628,7 +608,6 @@ lvim.plugins = {
   },
   {
     "ggandor/leap.nvim",
-    lazy = true,
     config = function()
       require("leap").set_default_keymaps()
     end,
@@ -636,7 +615,6 @@ lvim.plugins = {
   {
     "ggandor/flit.nvim",
     dependencies = "ggandor/leap.nvim",
-    lazy = true,
     config = function()
       require("flit").setup {
         keys = { f = "f", F = "F", t = "t", T = "T" },
@@ -648,7 +626,6 @@ lvim.plugins = {
   },
   {
     "notjedi/nvim-rooter.lua",
-    lazy = true,
     config = function()
       require("nvim-rooter").setup {
         rooter_patterns = { ".git", ".hg", ".svn", "*.conf" },
@@ -659,7 +636,6 @@ lvim.plugins = {
   },
   {
     "ruifm/gitlinker.nvim",
-    lazy = true,
     config = function()
       require("gitlinker").setup {
         opts = {
@@ -674,7 +650,6 @@ lvim.plugins = {
   },
   {
     "Pocco81/true-zen.nvim",
-    lazy = true,
     init = function()
       lvim.builtin.which_key.mappings["z"] =
         { name = "Zen", z = { "<cmd>TZAtaraxis<cr>", "Zen Mode" }, f = { "<cmd>TZFocus<cr>", "Focus window" } }
@@ -687,7 +662,6 @@ lvim.plugins = {
   },
   {
     "folke/trouble.nvim",
-    lazy = true,
     cmd = "TroubleToggle",
     init = function()
       lvim.builtin.which_key.mappings["t"] = {
@@ -710,12 +684,11 @@ lvim.plugins = {
   -- },
   {
     "j-hui/fidget.nvim",
-    lazy = true,
     config = function()
       require("fidget").setup()
     end,
   },
-  { "christoomey/vim-tmux-navigator", lazy = true },
+  { "christoomey/vim-tmux-navigator" },
   { "wakatime/vim-wakatime" },
 }
 
