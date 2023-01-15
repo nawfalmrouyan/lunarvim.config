@@ -607,7 +607,7 @@ lvim.plugins = {
   },
   {
     "karb94/neoscroll.nvim",
-    event = "BufRead",
+    event = "BufEnter",
     config = function()
       require("user.neoscroll").config()
     end,
