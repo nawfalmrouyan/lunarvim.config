@@ -342,7 +342,7 @@ lvim.plugins = {
     },
     ft = { "fugitive" },
   },
-  { "mattn/vim-gist", event = "BufRead", dependencies = "mattn/webapi-vim",  },
+  { "mattn/vim-gist", event = "BufRead", dependencies = "mattn/webapi-vim" },
   {
     "max397574/better-escape.nvim",
     event = "BufRead",
@@ -457,7 +457,7 @@ lvim.plugins = {
       vim.cmd "let g:VM_default_mappings = 0"
     end,
   }, -- vim -Nu ~/.local/share/lunarvim/site/pack/packer/start/vim-visual-multi/tutorialrc
-  { "nvim-treesitter/nvim-treesitter-textobjects", before = "nvim-treesitter", event = "BufRead", },
+  { "nvim-treesitter/nvim-treesitter-textobjects", before = "nvim-treesitter", event = "BufRead" },
   {
     "echasnovski/mini.ai",
     event = "BufRead",
