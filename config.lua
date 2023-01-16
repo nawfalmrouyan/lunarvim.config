@@ -495,6 +495,21 @@ lvim.plugins = {
     end,
   },
   {
+    "echasnovski/mini.nvim",
+    event = "BufRead",
+    init = function()
+      lvim.keys.insert_mode["<A-j>"] = nil
+      lvim.keys.insert_mode["<A-k>"] = nil
+      lvim.keys.normal_mode["<A-j>"] = nil
+      lvim.keys.normal_mode["<A-k>"] = nil
+      lvim.keys.visual_block_mode["<A-j>"] = nil
+      lvim.keys.visual_block_mode["<A-k>"] = nil
+    end,
+    config = function()
+      require("mini.move").setup()
+    end,
+  },
+  {
     "kylechui/nvim-surround",
     event = "BufRead",
     config = function()
