@@ -6,6 +6,8 @@ M.config = function()
     return
   end
 
+  saga.setup {}
+
   local keymap = vim.keymap.set
 
   -- Lsp finder find the symbol definition implement reference
@@ -15,7 +17,7 @@ M.config = function()
   keymap("n", "gh", "<cmd>Lspsaga lsp_finder<CR>")
 
   -- Code action
-  keymap({"n","v"}, "<leader>oca", "<cmd>Lspsaga code_action<CR>")
+  keymap({ "n", "v" }, "<leader>oca", "<cmd>Lspsaga code_action<CR>")
 
   -- Rename
   keymap("n", "gr", "<cmd>Lspsaga rename<CR>")
@@ -27,7 +29,7 @@ M.config = function()
   keymap("n", "gd", "<cmd>Lspsaga peek_definition<CR>")
 
   -- Go to Definition
-  keymap("n","gd", "<cmd>Lspsaga goto_definition<CR>")
+  keymap("n", "gd", "<cmd>Lspsaga goto_definition<CR>")
 
   -- Show line diagnostics you can pass arugment ++unfocus to make
   -- show_line_diagnsotic float window unfocus
@@ -46,14 +48,14 @@ M.config = function()
 
   -- Diagnostic jump with filter like Only jump to error
   keymap("n", "[E", function()
-    require("lspsaga.diagnostic").goto_prev({ severity = vim.diagnostic.severity.ERROR })
+    require("lspsaga.diagnostic").goto_prev { severity = vim.diagnostic.severity.ERROR }
   end)
   keymap("n", "]E", function()
-    require("lspsaga.diagnostic").goto_next({ severity = vim.diagnostic.severity.ERROR })
+    require("lspsaga.diagnostic").goto_next { severity = vim.diagnostic.severity.ERROR }
   end)
 
   -- Outline
-  keymap("n","<leader>olo", "<cmd>Lspsaga outline<CR>")
+  keymap("n", "<leader>olo", "<cmd>Lspsaga outline<CR>")
 
   -- Hover Doc
   keymap("n", "K", "<cmd>Lspsaga hover_doc<CR>")
@@ -63,19 +65,7 @@ M.config = function()
   keymap("n", "<Leader>oco", "<cmd>Lspsaga outgoing_calls<cr>")
 
   -- Float terminal
-  -- keymap({"n", "t"}, "<A-d>", "<cmd>Lspsaga term_toggle<CR>")
-  -- keymap("", "gh", "<cmd>Lspsaga lsp_finder<CR>")
-  -- keymap("n", "[E", function()
-  --   require("lspsaga.diagnostic").goto_prev { severity = vim.diagnostic.severity.ERROR }
-  -- end, { silent = true })
-  -- keymap("n", "]E", function()
-  --   require("lspsaga.diagnostic").goto_next { severity = vim.diagnostic.severity.ERROR }
-  -- end, { silent = true })
-  -- -- or use command
-  -- keymap("n", "[e", "<cmd>Lspsaga diagnostic_jump_next<CR>", { silent = true })
-  -- keymap("n", "]e", "<cmd>Lspsaga diagnostic_jump_prev<CR>", { silent = true })
-
-  -- lvim.builtin.which_key.mappings.l.o = { "<CMD>Lspsaga outline<cr>", "Outline" }
+  keymap({ "n", "t" }, "<A-d>", "<cmd>Lspsaga term_toggle<CR>")
 end
 
 return M

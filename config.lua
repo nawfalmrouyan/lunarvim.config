@@ -201,6 +201,12 @@ lvim.builtin.sell_soul_to_devel = true
 -- Additional Plugins
 lvim.plugins = {
   {
+    "glacambre/firenvim",
+    build = function()
+      vim.fn["firenvim#install"](0)
+    end,
+  },
+  {
     "ckolkey/ts-node-action",
     event = "BufRead",
     dependencies = { "nvim-treesitter" },
@@ -595,17 +601,17 @@ lvim.plugins = {
       require("user.ccc").config()
     end,
   },
-  {
-    "f-person/git-blame.nvim",
-    cmd = "GitBlameToggle",
-    init = function()
-      lvim.builtin.which_key.mappings["a"] = { "<cmd>GitBlameToggle<cr>", "Toggle Git Blame" }
-      vim.g.gitblame_enabled = 0
-    end,
-    config = function()
-      vim.cmd "highlight default link gitblame SpecialComment"
-    end,
-  },
+  -- {
+  --   "f-person/git-blame.nvim",
+  --   cmd = "GitBlameToggle",
+  --   init = function()
+  --     lvim.builtin.which_key.mappings["a"] = { "<cmd>GitBlameToggle<cr>", "Toggle Git Blame" }
+  --     vim.g.gitblame_enabled = 0
+  --   end,
+  --   config = function()
+  --     vim.cmd "highlight default link gitblame SpecialComment"
+  --   end,
+  -- },
   {
     "monaqa/dial.nvim",
     event = "BufRead",
