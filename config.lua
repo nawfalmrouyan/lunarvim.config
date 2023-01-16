@@ -200,6 +200,7 @@ lvim.builtin.sell_soul_to_devel = true
 
 -- Additional Plugins
 lvim.plugins = {
+  { "kmonad/kmonad-vim" },
   {
     "glacambre/firenvim",
     build = function()
