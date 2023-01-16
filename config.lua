@@ -754,6 +754,15 @@ lvim.builtin.alpha.dashboard.section.header.val = {
   "    /_/                                ",
 }
 
+vim.opt.guicursor = {
+    "n-v:block-block-Cursor/lCursor",
+    "i-c-ci-ve:ver25-Cursor/lCursor",
+    "r-cr:hor20",
+    "o:hor50",
+    "i:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor",
+    "sm:block-blinkwait175-blinkoff150-blinkon175",
+}
+-- ]]
 -- vim.cmd [[
 -- if !empty($WAYLAND_DISPLAY)
 --   let g:clipboard = {
