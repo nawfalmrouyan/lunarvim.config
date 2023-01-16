@@ -601,17 +601,17 @@ lvim.plugins = {
       require("user.ccc").config()
     end,
   },
-  -- {
-  --   "f-person/git-blame.nvim",
-  --   cmd = "GitBlameToggle",
-  --   init = function()
-  --     lvim.builtin.which_key.mappings["a"] = { "<cmd>GitBlameToggle<cr>", "Toggle Git Blame" }
-  --     vim.g.gitblame_enabled = 0
-  --   end,
-  --   config = function()
-  --     vim.cmd "highlight default link gitblame SpecialComment"
-  --   end,
-  -- },
+  {
+    "f-person/git-blame.nvim",
+    cmd = "GitBlameToggle",
+    init = function()
+      lvim.builtin.which_key.mappings["a"] = { "<cmd>GitBlameToggle<cr>", "Toggle Git Blame" }
+      vim.g.gitblame_enabled = 0
+    end,
+    config = function()
+      vim.cmd "highlight default link gitblame SpecialComment"
+    end,
+  },
   {
     "monaqa/dial.nvim",
     event = "BufRead",
@@ -715,13 +715,6 @@ lvim.plugins = {
       }
     end,
   },
-  -- {
-  --   "glepnir/lspsaga.nvim",
-  --   event = "BufRead",
-  --   config = function()
-  --     require("user.lspsaga").config()
-  --   end,
-  -- },
   {
     "j-hui/fidget.nvim",
     event = "BufRead",
