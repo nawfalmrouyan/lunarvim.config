@@ -741,6 +741,7 @@ lvim.autocommands = {
   },
   { "CursorHold", { pattern = { "*" }, command = "lua vim.diagnostic.open_float({focusable = false})" } },
   -- { "VimLeave,VimSuspend", { pattern = { "*" }, command = "guicursor=a:hor20" } },
+  { "ColorScheme", { pattern = { "*" }, command = "hi Cursor guifg=red guibg=red" } },
 }
 
 lvim.builtin.which_key.mappings["?"] = { "<cmd>NvimTreeFindFile<cr>", "Find file in NvimTree" }
@@ -756,12 +757,12 @@ lvim.builtin.alpha.dashboard.section.header.val = {
 }
 
 vim.opt.guicursor = {
-    "n-v:block-block-Cursor/lCursor",
-    "i-c-ci-ve:ver25-Cursor/lCursor",
-    "r-cr:hor20",
-    "o:hor50",
-    "i:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor",
-    "sm:block-blinkwait175-blinkoff150-blinkon175",
+  "n-v:block-block-Cursor/lCursor",
+  "i-c-ci-ve:ver25-Cursor/lCursor",
+  "r-cr:hor20",
+  "o:hor50",
+  "i:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor",
+  "sm:block-blinkwait175-blinkoff150-blinkon175",
 }
 -- ]]
 -- vim.cmd [[
