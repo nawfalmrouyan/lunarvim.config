@@ -46,7 +46,7 @@ M.config = function()
         gitsigns = true,
         harpoon = false,
         hop = false,
-        illuminate = false,
+        illuminate = true,
         leap = true,
         lightspeed = false,
         lsp_saga = false,
@@ -77,8 +77,8 @@ M.config = function()
           enable_ui = true,
         },
         indent_blankline = {
-          enabled = false,
-          colored_indent_levels = false,
+          enabled = true,
+          colored_indent_levels = true,
         },
         native_lsp = {
           enabled = true,

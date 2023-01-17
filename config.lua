@@ -27,8 +27,8 @@ lvim.builtin.bufferline.options.show_close_icon = false
 lvim.builtin.alpha.mode = "dashboard"
 lvim.builtin.dap.active = false
 lvim.builtin.terminal.active = true
-lvim.builtin.indentlines.active = false
-lvim.builtin.illuminate.active = false
+lvim.builtin.indentlines.active = true
+lvim.builtin.illuminate.active = true
 
 lvim.lsp.diagnostics.virtual_text = false
 
@@ -70,13 +70,14 @@ lvim.builtin.mason.ensure_installed = {
   "zk",
 }
 
-lvim.builtin.telescope.theme = "ivy"
+lvim.builtin.telescope.theme = "center"
 lvim.builtin.telescope.on_config_done = function(telescope)
   pcall(telescope.load_extension, "fzy_native")
   pcall(telescope.load_extension, "zk")
 end
 
 lvim.builtin.cmp.cmdline.enable = true
+lvim.builtin.cmp.experimental.ghost_text = true
 
 lvim.builtin.treesitter.textobjects = {
   lookahead = true,
@@ -113,7 +114,7 @@ lvim.builtin.treesitter.textobjects = {
     },
   },
   lsp_interop = {
-    enable = true,
+    enable = false,
     border = "rounded",
     peek_definition_code = {
       ["df"] = "@function.outer",
@@ -200,7 +201,90 @@ lvim.builtin.sell_soul_to_devel = true
 
 -- Additional Plugins
 lvim.plugins = {
-  { "kmonad/kmonad-vim" },
+  {
+    "jackMort/pommodoro-clock.nvim",
+    event = "BufRead",
+    init = function()
+      local function pc(func)
+        return "<Cmd>lua require('pommodoro-clock')." .. func .. "()<CR>"
+      end
+      lvim.builtin.which_key.mappings["P"] = {
+        name = "Pommodoro",
+        w = { pc "start_work", "Start Pommodoro" },
+        s = { pc "start_short_break", "Short Break" },
+        l = { pc "start_long_break", "Long Break" },
+        p = { pc "toggle_pause", "Toggle Pause" },
+        c = { pc "close", "Close" },
+      }
+    end,
+    config = function()
+      require("pommodoro-clock").setup {}
+    end,
+    dependencies = {
+      "MunifTanjim/nui.nvim",
+    },
+  },
+  {
+    "roobert/tailwindcss-colorizer-cmp.nvim",
+    ft = { "html", "typescript", "javascript", "svelte", "css", "javascriptreact", "typescriptreact" },
+    config = function()
+      require("tailwindcss-colorizer-cmp").setup {
+        color_square_width = 2,
+      }
+      lvim.builtin.cmp.formatting = {
+        format = require("tailwindcss-colorizer-cmp").formatter,
+      }
+    end,
+  },
+  {
+    "luukvbaal/statuscol.nvim",
+    config = function()
+      require("statuscol").setup()
+    end,
+  },
+  {
+    "chrisgrieser/nvim-recorder",
+    event = "BufRead",
+    config = function()
+      require("recorder").setup {
+        -- Named registers where macros are saved. The first register is the default
+        -- register/macro-slot used after startup.
+        slots = { "a", "b" },
+
+        -- default keymaps, see README for description what the commands do
+        mapping = {
+          startStopRecording = "q",
+          playMacro = "Q",
+          switchSlot = "<C-q>",
+          editMacro = "cq",
+          yankMacro = "yq", -- also decodes it for turning macros to mappings
+          addBreakPoint = "##", -- ⚠️ this should be a string you don't use in insert mode during a macro
+        },
+
+        -- clears all macros-slots on startup
+        clear = false,
+
+        -- log level used for any notification, mostly relevant for nvim-notify
+        -- (note that by default, nvim-notify does not show the levels trace and debug.)
+        logLevel = vim.log.levels.INFO,
+
+        -- experimental, see README
+        dapSharedKeymaps = false,
+      }
+
+      lvim.builtin.lualine.sections.lualine_y = { { require("recorder").displaySlots } }
+      lvim.builtin.lualine.sections.lualine_z = { { require("recorder").recordingStatus } }
+    end,
+  },
+  {
+    "luukvbaal/statuscol.nvim",
+    event = "BufRead",
+    config = function()
+      local cfg = { setopt = true }
+      require("statuscol").setup(cfg)
+    end,
+  },
+  { "kmonad/kmonad-vim", ft = "kbd" },
   {
     "glacambre/firenvim",
     build = function()
