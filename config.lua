@@ -17,7 +17,7 @@ vim.opt.wrap = true
 -- vim.opt.scrolloff = 0
 -- vim.opt.sidescrolloff = 0
 vim.opt.inccommand = "split"
-vim.opt.guifont = "IosevkaLyteTerm:h10"
+vim.opt.guifont = "Iosevka Medium:h10"
 vim.opt.colorcolumn = "100"
 
 lvim.builtin.lualine.active = true
