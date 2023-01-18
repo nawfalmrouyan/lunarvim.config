@@ -76,6 +76,7 @@ lvim.builtin.telescope.on_config_done = function(telescope)
   pcall(telescope.load_extension, "zk")
 end
 
+lvim.builtin.autopairs.active = false
 lvim.builtin.cmp.cmdline.enable = true
 lvim.builtin.cmp.experimental.ghost_text = true
 
@@ -201,6 +202,13 @@ lvim.builtin.sell_soul_to_devel = true
 
 -- Additional Plugins
 lvim.plugins = {
+  {
+    "hrsh7th/nvim-insx",
+    event = "InsertEnter",
+    config = function()
+      require("insx.preset.standard").setup()
+    end,
+  },
   {
     "jackMort/pommodoro-clock.nvim",
     event = "BufRead",
