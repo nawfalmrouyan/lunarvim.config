@@ -8,11 +8,11 @@ M.config = function()
   vim.g.catppuccin_flavour = "mocha"
   catppuccin.setup {
     dim_inactive = {
-      enabled = false,
+      enabled = true,
       shade = "dark",
       percentage = 0.15,
     },
-    transparent_background = false,
+    transparent_background = true,
     term_colors = true,
     compile = {
       enabled = true,
@@ -42,11 +42,11 @@ M.config = function()
         dashboard = true,
         fern = false,
         fidget = true,
-        gitgutter = false,
+        gitgutter = true,
         gitsigns = true,
         harpoon = false,
         hop = false,
-        illuminate = true,
+        illuminate = false,
         leap = true,
         lightspeed = false,
         lsp_saga = false,
