@@ -203,6 +203,25 @@ lvim.builtin.sell_soul_to_devel = true
 -- Additional Plugins
 lvim.plugins = {
   {
+    "nvim-telescope/telescope-frecency.nvim",
+    config = function()
+      require("telescope").load_extension "frecency"
+      vim.api.nvim_set_keymap(
+        "n",
+        "<leader>so",
+        "<Cmd>lua require('telescope').extensions.frecency.frecency()<CR>",
+        { noremap = true, silent = true }
+      )
+      vim.api.nvim_set_keymap(
+        "n",
+        "<leader>sO",
+        "<Cmd>lua require('telescope').extensions.frecency.frecency({ workspace = 'CWD' })<CR>",
+        { noremap = true, silent = true }
+      )
+    end,
+    dependencies = { "kkharji/sqlite.lua" },
+  },
+  {
     "hrsh7th/nvim-insx",
     event = "InsertEnter",
     config = function()
