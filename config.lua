@@ -317,6 +317,34 @@ lvim.plugins = {
     build = function()
       vim.fn["firenvim#install"](0)
     end,
+    init = function()
+      vim.cmd [[
+        let g:firenvim_config = { 
+          \ 'globalSettings': {
+            \ 'alt': 'all',
+          \  },
+          \ 'localSettings': {
+            \ '.*': {
+              \ 'cmdline': 'neovim',
+              \ 'content': 'text',
+              \ 'priority': 0,
+              \ 'selector': 'textarea',
+              \ 'takeover': 'always',
+            \ },
+          \ }
+        \ }
+        let fc = g:firenvim_config['localSettings']
+        " let fc['https?://[^/]+\.co\.uk/'] = { 'takeover': 'never', 'priority': 1 }
+        let fc['https?://camsyscrm\.mmu\.edu\.my/'] = { 'takeover': 'never', 'priority': 1 }
+        function! OnUIEnter(event) abort
+          if 'Firenvim' ==# get(get(nvim_get_chan_info(a:event.chan), 'client', {}), 'name', '')
+            set laststatus=0
+          endif
+        endfunction
+        autocmd UIEnter * call OnUIEnter(deepcopy(v:event))
+        au BufEnter github.com_*.txt set filetype=markdown
+        ]]
+    end,
   },
   {
     "ckolkey/ts-node-action",
