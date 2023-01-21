@@ -526,6 +526,12 @@ lvim.plugins = {
         l = { "<cmd>lua require('persistence').load({ last = true })<cr>", "Restore last session" },
         Q = { "<cmd>lua require('persistence').stop()<cr>", "Quit without saving session" },
       }
+      local entry = {
+        "s",
+        lvim.icons.ui.Fire .. "  Restore last session",
+        "<CMD>lua require('persistence').load({ last = true })<CR>",
+      }
+      table.insert(lvim.builtin.alpha.dashboard.section.buttons.entries, entry)
     end,
     config = function()
       require("persistence").setup {
