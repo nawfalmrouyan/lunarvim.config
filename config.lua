@@ -74,6 +74,7 @@ lvim.builtin.telescope.theme = "center"
 lvim.builtin.telescope.on_config_done = function(telescope)
   pcall(telescope.load_extension, "fzy_native")
   pcall(telescope.load_extension, "zk")
+  pcall(telescope.load_extension "frecency")
 end
 
 lvim.builtin.autopairs.active = false
@@ -204,20 +205,14 @@ lvim.builtin.sell_soul_to_devel = true
 lvim.plugins = {
   {
     "nvim-telescope/telescope-frecency.nvim",
-    config = function()
-      require("telescope").load_extension "frecency"
-      vim.api.nvim_set_keymap(
-        "n",
-        "<leader>so",
-        "<Cmd>lua require('telescope').extensions.frecency.frecency()<CR>",
-        { noremap = true, silent = true }
-      )
-      vim.api.nvim_set_keymap(
-        "n",
-        "<leader>sO",
-        "<Cmd>lua require('telescope').extensions.frecency.frecency({ workspace = 'CWD' })<CR>",
-        { noremap = true, silent = true }
-      )
+    event = "BufRead",
+    init = function()
+      lvim.builtin.which_key.mappings.s.o =
+        { "<CMD>lua require('telescope').extensions.frecency.frecency()<CR>", "Frecency" }
+      lvim.builtin.which_key.mappings.s.O = {
+        "<CMD>lua require('telescope').extensions.frecency.frecency({ workspace = 'CWD' })<CR>",
+        "Current Workspace Frecency",
+      }
     end,
     dependencies = { "kkharji/sqlite.lua" },
   },
