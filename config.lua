@@ -204,6 +204,12 @@ lvim.builtin.sell_soul_to_devel = true
 -- Additional Plugins
 lvim.plugins = {
   {
+    "navarasu/onedark.nvim",
+    config = function()
+      require("user.onedark").config()
+    end,
+  },
+  {
     "nvim-telescope/telescope-frecency.nvim",
     event = "BufRead",
     init = function()
