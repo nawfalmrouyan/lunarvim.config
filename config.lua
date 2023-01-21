@@ -228,15 +228,16 @@ lvim.plugins = {
     event = "BufRead",
     init = function()
       local function pc(func)
-        return "<Cmd>lua require('pommodoro-clock')." .. func .. "()<CR>"
+        return "<Cmd>lua require('pommodoro-clock')." .. func .. "<CR>"
       end
-      lvim.builtin.which_key.mappings["P"] = {
+
+      lvim.builtin.which_key.mappings.P = {
         name = "Pommodoro",
-        w = { pc "start_work", "Start Pommodoro" },
-        s = { pc "start_short_break", "Short Break" },
-        l = { pc "start_long_break", "Long Break" },
-        p = { pc "toggle_pause", "Toggle Pause" },
-        c = { pc "close", "Close" },
+        w = { pc 'start("work")', "Start Pommodoro" },
+        s = { pc 'start("short_break")', "Short Break" },
+        l = { pc 'start("long_break")', "Long Break" },
+        p = { pc "toggle_pause()", "Toggle Pause" },
+        c = { pc "close()", "Close" },
       }
     end,
     config = function()
