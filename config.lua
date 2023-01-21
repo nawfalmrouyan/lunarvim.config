@@ -213,6 +213,14 @@ lvim.plugins = {
         "<CMD>lua require('telescope').extensions.frecency.frecency({ workspace = 'CWD' })<CR>",
         "Current Workspace Frecency",
       }
+      local dashentry = lvim.builtin.alpha.dashboard.section.buttons.entries
+      local entry = {
+        "r",
+        lvim.icons.ui.History .. "  Recent files",
+        "<CMD>lua require('telescope').extensions.frecency.frecency()<CR>",
+      }
+      table.remove(dashentry, 4)
+      table.insert(dashentry, 4, entry)
     end,
     dependencies = { "kkharji/sqlite.lua" },
   },
