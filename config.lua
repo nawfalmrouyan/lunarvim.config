@@ -250,12 +250,14 @@ lvim.plugins = {
   {
     "roobert/tailwindcss-colorizer-cmp.nvim",
     ft = { "html", "typescript", "javascript", "svelte", "css", "javascriptreact", "typescriptreact" },
+    init = function()
+      lvim.builtin.cmp.formatting = {
+        format = require("tailwindcss-colorizer-cmp").formatter,
+      }
+    end,
     config = function()
       require("tailwindcss-colorizer-cmp").setup {
         color_square_width = 2,
-      }
-      lvim.builtin.cmp.formatting = {
-        format = require("tailwindcss-colorizer-cmp").formatter,
       }
     end,
   },
