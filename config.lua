@@ -75,6 +75,7 @@ lvim.builtin.telescope.on_config_done = function(telescope)
   pcall(telescope.load_extension, "fzy_native")
   pcall(telescope.load_extension, "zk")
   pcall(telescope.load_extension "frecency")
+  pcall(telescope.load_extension "notify")
 end
 
 lvim.builtin.autopairs.active = false
@@ -203,12 +204,53 @@ lvim.builtin.sell_soul_to_devel = true
 
 -- Additional Plugins
 lvim.plugins = {
+  { "rcarriga/nvim-notify" },
   {
-    "navarasu/onedark.nvim",
+    "mrded/nvim-lsp-notify",
     config = function()
-      require("user.onedark").config()
+      require("lsp-notify").setup {}
     end,
   },
+  {
+    "folke/noice.nvim",
+    config = function()
+      require("noice").setup {
+        lsp = {
+          signature = { enabled = false },
+          override = {
+            ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
+            ["vim.lsp.util.stylize_markdown"] = true,
+            ["cmp.entry.get_documentation"] = true,
+          },
+        },
+        presets = {
+          bottom_search = true, -- use a classic bottom cmdline for search
+          command_palette = true, -- position the cmdline and popupmenu together
+          long_message_to_split = true, -- long messages will be sent to a split
+          inc_rename = true, -- enables an input dialog for inc-rename.nvim
+          lsp_doc_border = true, -- add a border to hover docs and signature help
+        },
+      }
+    end,
+    dependencies = { "MunifTanjim/nui.nvim" },
+  },
+  { "preservim/vim-markdown", ft = "markdown", dependencies = "godlygeek/tabular" },
+  -- {
+  --   "navarasu/onedark.nvim",
+  --   config = function()
+  --     require("user.onedark").config()
+  --   end,
+  -- },
+  -- {
+  --   "chomosuke/term-edit.nvim",
+  --   -- ft = "toggleterm",
+  --   version = "1.*",
+  --   config = function()
+  --     require("term-edit").setup {
+  --       prompt_end = "%$ ",
+  --     }
+  --   end,
+  -- },
   {
     "nvim-telescope/telescope-frecency.nvim",
     event = "BufRead",
@@ -230,6 +272,15 @@ lvim.plugins = {
     end,
     dependencies = { "kkharji/sqlite.lua" },
   },
+  -- {
+  --   "Exafunction/codeium.vim",
+  --   config = function()
+  --     -- Change '<C-g>' here to any keycode you like.
+  --     vim.keymap.set("i", "<C-g>", function()
+  --       return vim.fn["codeium#Accept"]()
+  --     end, { expr = true })
+  --   end,
+  -- },
   {
     "hrsh7th/nvim-insx",
     event = "InsertEnter",
@@ -273,12 +324,6 @@ lvim.plugins = {
       require("tailwindcss-colorizer-cmp").setup {
         color_square_width = 2,
       }
-    end,
-  },
-  {
-    "luukvbaal/statuscol.nvim",
-    config = function()
-      require("statuscol").setup()
     end,
   },
   {
@@ -444,12 +489,6 @@ lvim.plugins = {
     end,
   },
   {
-    "rebelot/kanagawa.nvim",
-    config = function()
-      require("user.kanagawa").config()
-    end,
-  },
-  {
     "echasnovski/mini.map",
     event = "BufRead",
     branch = "stable",
@@ -529,7 +568,6 @@ lvim.plugins = {
       lvim.builtin.which_key.mappings.u = { "<cmd>UndotreeToggle<cr>", "Undo" }
     end,
   },
-  -- { "tpope/vim-repeat" },
   {
     "folke/persistence.nvim",
     event = "BufRead",
@@ -752,13 +790,6 @@ lvim.plugins = {
       vim.g.matchup_matchparen_offscreen = { method = "popup" }
     end,
   },
-  -- {
-  --   "uga-rosa/ccc.nvim",
-  --   ft = { "html", "conf", "css", "svelte", "javascript", "javascriptreact", "typescript", "typescriptreact" },
-  --   config = function()
-  --     require("user.ccc").config()
-  --   end,
-  -- },
   {
     "NvChad/nvim-colorizer.lua",
     config = function()
@@ -789,7 +820,7 @@ lvim.plugins = {
           -- True is same as normal
           tailwind = true, -- Enable tailwind colors
           -- parsers can contain values used in |user_default_options|
-          sass = { enable = true, parsers = { css } }, -- Enable sass colors
+          -- sass = { enable = true, parsers = { css } }, -- Enable sass colors
           virtualtext = "■",
         },
         -- all the sub-options of filetypes apply to buftypes
@@ -942,6 +973,7 @@ lvim.autocommands = {
   { "CursorHold", { pattern = { "*" }, command = "lua vim.diagnostic.open_float({focusable = false})" } },
   -- { "VimLeave,VimSuspend", { pattern = { "*" }, command = "guicursor=a:hor20" } },
   { "ColorScheme", { pattern = { "*" }, command = "hi Cursor guifg=red guibg=red" } },
+  { "ColorScheme", { pattern = { "*" }, command = "hi NotifyBackground guibg='#000000'" } },
 }
 
 lvim.builtin.which_key.mappings["?"] = { "<cmd>NvimTreeFindFile<cr>", "Find file in NvimTree" }
