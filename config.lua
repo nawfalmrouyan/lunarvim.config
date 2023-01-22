@@ -204,7 +204,15 @@ lvim.builtin.sell_soul_to_devel = true
 
 -- Additional Plugins
 lvim.plugins = {
-  { "rcarriga/nvim-notify" },
+  {
+    "rcarriga/nvim-notify",
+    init = function()
+      lvim.builtin.which_key.mappings.s.n = { "<CMD>Telescope notify<CR>", "Notifications history" }
+    end,
+    config = function()
+      require("notify").setup { stages = "fade", render = "compact" }
+    end,
+  },
   {
     "mrded/nvim-lsp-notify",
     config = function()
