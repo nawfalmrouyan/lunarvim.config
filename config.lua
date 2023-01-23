@@ -32,16 +32,21 @@ lvim.builtin.illuminate.active = true
 
 lvim.lsp.diagnostics.virtual_text = false
 
+lvim.builtin.treesitter.auto_install = true
 lvim.builtin.treesitter.ensure_installed = {
   "bash",
   "css",
+  "git_rebase",
+  "gitattributes",
+  "gitcommit",
+  "gitignore",
   "html",
   "javascript",
   "json",
   "lua",
   "python",
-  "typescript",
   "svelte",
+  "typescript",
 }
 lvim.builtin.treesitter.highlight.enabled = true
 lvim.builtin.treesitter.rainbow.enable = true
