@@ -79,8 +79,8 @@ lvim.builtin.telescope.theme = "center"
 lvim.builtin.telescope.on_config_done = function(telescope)
   pcall(telescope.load_extension, "fzy_native")
   pcall(telescope.load_extension, "zk")
-  pcall(telescope.load_extension "frecency")
-  pcall(telescope.load_extension "notify")
+  pcall(telescope.load_extension, "frecency")
+  pcall(telescope.load_extension, "notify")
 end
 
 lvim.builtin.autopairs.active = false
