@@ -249,22 +249,6 @@ lvim.plugins = {
     dependencies = { "MunifTanjim/nui.nvim" },
   },
   { "preservim/vim-markdown", ft = "markdown", dependencies = "godlygeek/tabular" },
-  -- {
-  --   "navarasu/onedark.nvim",
-  --   config = function()
-  --     require("user.onedark").config()
-  --   end,
-  -- },
-  -- {
-  --   "chomosuke/term-edit.nvim",
-  --   -- ft = "toggleterm",
-  --   version = "1.*",
-  --   config = function()
-  --     require("term-edit").setup {
-  --       prompt_end = "%$ ",
-  --     }
-  --   end,
-  -- },
   {
     "nvim-telescope/telescope-frecency.nvim",
     event = "BufRead",
@@ -286,15 +270,6 @@ lvim.plugins = {
     end,
     dependencies = { "kkharji/sqlite.lua" },
   },
-  -- {
-  --   "Exafunction/codeium.vim",
-  --   config = function()
-  --     -- Change '<C-g>' here to any keycode you like.
-  --     vim.keymap.set("i", "<C-g>", function()
-  --       return vim.fn["codeium#Accept"]()
-  --     end, { expr = true })
-  --   end,
-  -- },
   {
     "hrsh7th/nvim-insx",
     event = "InsertEnter",
