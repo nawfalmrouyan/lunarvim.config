@@ -86,6 +86,7 @@ end
 lvim.builtin.autopairs.active = false
 lvim.builtin.cmp.cmdline.enable = true
 lvim.builtin.cmp.experimental.ghost_text = true
+lvim.builtin.luasnip.sources.friendly_snippets = true
 
 lvim.builtin.treesitter.textobjects = {
   lookahead = true,
@@ -353,7 +354,7 @@ lvim.plugins = {
     "luukvbaal/statuscol.nvim",
     event = "BufRead",
     config = function()
-      local cfg = { setopt = true }
+      local cfg = { order = "FNSs", setopt = true }
       require("statuscol").setup(cfg)
     end,
   },
