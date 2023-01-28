@@ -574,7 +574,7 @@ lvim.plugins = {
         lvim.icons.ui.Fire .. "  Restore last session",
         "<CMD>lua require('persistence').load({ last = true })<CR>",
       }
-      table.insert(lvim.builtin.alpha.dashboard.section.buttons.entries, entry)
+      table.insert(lvim.builtin.alpha.dashboard.section.buttons.entries, 7, entry)
     end,
     config = function()
       require("persistence").setup {
