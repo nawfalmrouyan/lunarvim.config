@@ -232,6 +232,7 @@ lvim.plugins = {
       require("noice").setup {
         lsp = {
           signature = { enabled = false },
+          -- hover = { enabled = false },
           override = {
             ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
             ["vim.lsp.util.stylize_markdown"] = true,
@@ -240,7 +241,7 @@ lvim.plugins = {
         },
         presets = {
           bottom_search = true, -- use a classic bottom cmdline for search
-          command_palette = true, -- position the cmdline and popupmenu together
+          command_palette = false, -- position the cmdline and popupmenu together
           long_message_to_split = true, -- long messages will be sent to a split
           inc_rename = true, -- enables an input dialog for inc-rename.nvim
           lsp_doc_border = true, -- add a border to hover docs and signature help
@@ -262,11 +263,11 @@ lvim.plugins = {
       }
       local dashentry = lvim.builtin.alpha.dashboard.section.buttons.entries
       local entry = {
-        "y",
+        "r",
         lvim.icons.ui.History .. "  Frecency files",
         "<CMD>lua require('telescope').extensions.frecency.frecency()<CR>",
       }
-      -- table.remove(dashentry, 4)
+      table.remove(dashentry, 4)
       table.insert(dashentry, 5, entry)
     end,
     dependencies = { "kkharji/sqlite.lua" },
@@ -640,8 +641,8 @@ lvim.plugins = {
   },
   { "p00f/nvim-ts-rainbow", event = "BufRead" },
   { "windwp/nvim-ts-autotag", event = "InsertEnter" },
-  { "romgrk/fzy-lua-native" },
-  { "nvim-telescope/telescope-fzy-native.nvim", build = "make" },
+  { "romgrk/fzy-lua-native", build = "make" },
+  { "nvim-telescope/telescope-fzy-native.nvim" },
   {
     "mg979/vim-visual-multi",
     event = "BufRead",
