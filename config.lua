@@ -198,7 +198,7 @@ lvim.keys.normal_mode["n"] = "nzzzv"
 lvim.keys.normal_mode["N"] = "Nzzzv"
 lvim.keys.normal_mode["Q"] = "<nop>"
 -- lvim.keys.normal_mode["<leader>x"] = "<cmd>!chmod +x %<cr>"
-lvim.builtin.which_key.mappings.x = { "<CMD>!chmod +x %<CR>", "Make it executable" }
+lvim.builtin.which_key.mappings["x"] = { "<CMD>!chmod +x %<CR>", "Make it executable" }
 
 lvim.keys.term_mode["<Esc>"] = "<C-\\><C-N>"
 lvim.keys.term_mode["<C-Up>"] = "<C-\\><C-N>resize -2<cr>"
@@ -214,7 +214,7 @@ lvim.plugins = {
   {
     "rcarriga/nvim-notify",
     init = function()
-      lvim.builtin.which_key.mappings.s.n = { "<CMD>Telescope notify<CR>", "Notifications history" }
+      lvim.builtin.which_key.mappings["sn"] = { "<CMD>Telescope notify<CR>", "Notifications history" }
     end,
     config = function()
       require("notify").setup { stages = "fade", render = "compact" }
@@ -255,9 +255,9 @@ lvim.plugins = {
     "nvim-telescope/telescope-frecency.nvim",
     event = "BufRead",
     init = function()
-      lvim.builtin.which_key.mappings.s.o =
+      lvim.builtin.which_key.mappings["so"] =
         { "<CMD>lua require('telescope').extensions.frecency.frecency()<CR>", "Frecency" }
-      lvim.builtin.which_key.mappings.s.O = {
+      lvim.builtin.which_key.mappings["sO"] = {
         "<CMD>lua require('telescope').extensions.frecency.frecency({ workspace = 'CWD' })<CR>",
         "Current Workspace Frecency",
       }
@@ -415,7 +415,7 @@ lvim.plugins = {
     "simrat39/symbols-outline.nvim",
     event = "BufRead",
     init = function()
-      lvim.builtin.which_key.mappings.l.o = { "<cmd>SymbolsOutline<cr>", "Outline" }
+      lvim.builtin.which_key.mappings["lo"] = { "<cmd>SymbolsOutline<cr>", "Outline" }
     end,
     config = function()
       -- require("user.symbolsoutline").config()
@@ -556,7 +556,7 @@ lvim.plugins = {
     "mbbill/undotree",
     event = "BufRead",
     init = function()
-      lvim.builtin.which_key.mappings.u = { "<cmd>UndotreeToggle<cr>", "Undo" }
+      lvim.builtin.which_key.mappings["u"] = { "<cmd>UndotreeToggle<cr>", "Undo" }
     end,
   },
   {
