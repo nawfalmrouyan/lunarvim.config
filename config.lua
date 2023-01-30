@@ -212,6 +212,13 @@ lvim.builtin.sell_soul_to_devel = true
 -- Additional Plugins
 lvim.plugins = {
   {
+    "eandrju/cellular-automaton.nvim",
+    event = "BufRead",
+    init = function()
+      lvim.builtin.which_key.mappings["ml"] = { "<CMD>CellularAutomaton make_it_rain<CR>", "Make it RAIN" }
+    end,
+  },
+  {
     "rcarriga/nvim-notify",
     init = function()
       lvim.builtin.which_key.mappings["sn"] = { "<CMD>Telescope notify<CR>", "Notifications history" }
