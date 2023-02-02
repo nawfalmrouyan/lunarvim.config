@@ -212,6 +212,15 @@ lvim.builtin.sell_soul_to_devel = true
 -- Additional Plugins
 lvim.plugins = {
   {
+    "kevinhwang91/nvim-ufo",
+    event = "BufRead",
+    lazy = true,
+    dependencies = "kevinhwang91/promise-async",
+    config = function()
+      require("user.nvim-ufo").config()
+    end,
+  },
+  {
     "eandrju/cellular-automaton.nvim",
     event = "BufRead",
     lazy = true,
