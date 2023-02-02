@@ -46,7 +46,9 @@ lvim.builtin.treesitter.ensure_installed = {
   "lua",
   "python",
   "svelte",
+  "terraform",
   "typescript",
+  "yaml",
 }
 lvim.builtin.treesitter.highlight.enabled = true
 lvim.builtin.treesitter.rainbow.enable = true
@@ -71,6 +73,8 @@ lvim.builtin.mason.ensure_installed = {
   "sumneko_lua",
   "tailwindcss",
   "tsserver",
+  "yamlfmt",
+  "yamllint",
   "yamlls",
   "zk",
 }
@@ -247,7 +251,6 @@ lvim.plugins = {
   },
   {
     "folke/noice.nvim",
-    lazy = true,
     config = function()
       require("noice").setup {
         lsp = {
