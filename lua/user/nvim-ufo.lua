@@ -17,16 +17,16 @@ M.config = function()
     lineFoldingOnly = true,
   }
   local language_servers = {
-    "bashls",
-    "clangd",
-    "cssls",
-    "html",
-    "jsonls",
-    "pyright",
-    "sumneko_lua",
-    "tsserver",
+    -- "bashls",
+    -- "clangd",
+    -- "cssls",
+    -- "html",
+    -- "jsonls",
+    -- "pyright",
+    -- "sumneko_lua",
+    -- "tsserver",
     "yamlls",
-  } -- like {'gopls', 'clangd'}
+  }
   for _, ls in ipairs(language_servers) do
     require("lspconfig")[ls].setup {
       capabilities = capabilities,
