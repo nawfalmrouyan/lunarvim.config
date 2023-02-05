@@ -831,6 +831,7 @@ lvim.plugins = {
   },
   {
     "catppuccin/nvim",
+    lazy = false,
     name = "catppuccin",
     build = ":CatppuccinCompile",
     config = function()
@@ -933,7 +934,7 @@ lvim.plugins = {
   {
     "karb94/neoscroll.nvim",
     event = "BufEnter",
-    lazy = true,
+    lazy = false,
     config = function()
       require("user.neoscroll").config()
     end,
