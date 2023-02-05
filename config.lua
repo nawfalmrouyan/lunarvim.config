@@ -218,6 +218,14 @@ lvim.builtin.sell_soul_to_devel = true
 -- Additional Plugins
 lvim.plugins = {
   {
+    "Aasim-A/scrollEOF.nvim",
+    event = "BufRead",
+    lazy = true,
+    config = function()
+      require("scrollEOF").setup {}
+    end,
+  },
+  {
     "kevinhwang91/nvim-ufo",
     event = "BufRead",
     lazy = true,
