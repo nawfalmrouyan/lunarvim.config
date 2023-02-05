@@ -746,7 +746,7 @@ lvim.plugins = {
     end,
   },
   {
-    "echasnovski/mini.nvim",
+    "echasnovski/mini.move",
     event = "BufRead",
     lazy = true,
     init = function()
