@@ -837,6 +837,7 @@ lvim.plugins = {
       "ZkMatch",
       "ZkNew",
     },
+    ft = "markdown",
     lazy = true,
     init = function()
       lvim.builtin.which_key.vmappings["z"] = {
