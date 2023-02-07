@@ -1026,11 +1026,11 @@ lvim.plugins = {
   },
   {
     "Pocco81/true-zen.nvim",
-    event = "BufRead",
+    cmd = { "TZFocus", "TZAtaraxis" },
     lazy = true,
     init = function()
-      lvim.builtin.which_key.mappings["z"] =
-        { name = "Zen", z = { "<cmd>TZAtaraxis<cr>", "Zen Mode" }, f = { "<cmd>TZFocus<cr>", "Focus window" } }
+      lvim.builtin.which_key.mappings["Z"] =
+        { name = "Zen", Z = { "<cmd>TZAtaraxis<cr>", "Zen Mode" }, f = { "<cmd>TZFocus<cr>", "Focus window" } }
       vim.api.nvim_set_keymap("n", "<M-=>", ":TZFocus<cr>", { noremap = true, silent = false })
       vim.api.nvim_set_keymap("t", "<M-=>", "<C-\\><C-n>:TZFocus<cr>i", { noremap = true, silent = false })
     end,
