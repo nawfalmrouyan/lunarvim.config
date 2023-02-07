@@ -800,7 +800,7 @@ lvim.plugins = {
     cmd = "Glow",
     lazy = true,
     init = function()
-      lvim.builtin.which_key.mappings["mg"] = { "<cmd>Glow<cr>", "Markdown Preview" }
+      lvim.builtin.which_key.mappings["mg"] = { "<cmd>Glow<cr>", "Glow Markdown Preview" }
     end,
     config = function()
       require("glow").setup {
