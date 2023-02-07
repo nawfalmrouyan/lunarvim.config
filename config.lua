@@ -810,19 +810,45 @@ lvim.plugins = {
   },
   {
     "mickael-menu/zk-nvim",
-    cmd = "ZkNotes",
+    cmd = {
+      "ZkNewFromTitleSelection",
+      "ZkNewFromContentSelection",
+      "ZkNotes",
+      "ZkTags",
+      "ZkMatch",
+      "ZkNew",
+    },
+    ft = "markdown",
     lazy = true,
     init = function()
-      lvim.builtin.which_key.mappings["Z"] = {
-        name = "Zk",
-        T = { "<cmd>ZkNotes<cr>", "All Notes" },
-        nf = { "<cmd>ZkNew {dir='fleeting'}<cr>", "New fleeting note" },
-        nl = { "<cmd>ZkNew {dir='literature'}<cr>", "New literature note" },
-        np = { "<cmd>ZkNew {dir='permanent'}<cr>", "New permanent note" },
-        o = { "<cmd>ZkOrphans<cr>", "Orphan notes" },
-        r = { "<cmd>ZkRecents<cr>", "Recent notes" },
-        t = { "<cmd>ZkTags<cr>", "Tags" },
-        f = { "<Cmd>ZkNotes { sort = { 'modified' }, match = vim.fn.input('Search: ') }<cr>" },
+      lvim.builtin.which_key.vmappings["z"] = {
+        name = "Zettelkasten",
+        c = { ":'<'>ZkNewFromContentSelection<CR>" },
+        l = { ":'<'>ZkInsertLinkAtSelection { matchSelected = true }<CR>", "Insert link using selected text" },
+        s = { ":'<'>ZkMatch<CR>", "Search using selected text" },
+        t = { ":'<'>ZkNewFromTitleSelection<CR>", "New note with selection as Title" },
+      }
+      lvim.builtin.which_key.mappings["z"] = {
+        name = "Zettelkasten",
+        f = {
+          name = "Find notes",
+          n = { "<cmd>ZkNotes<CR>", "List all notes" },
+          o = { "<cmd>ZkOrphans<CR>", "List orphans" },
+          r = { "<cmd>ZkRecents<CR>", "List recents" },
+          t = { "<cmd>ZkTags<CR>", "List all tags" },
+        },
+        l = {
+          name = "Links",
+          b = { "<cmd>ZkBacklinks<CR>", "List backlinks" },
+          i = { "<cmd>ZkInsertLink<CR>", "Insert link" },
+          l = { "<cmd>ZkLinks<CR>", "List links" },
+        },
+        n = {
+          name = "New Note",
+          f = { "<cmd>ZkNew { dir = 'fleeting' }<CR>", "New fleeting note" },
+          l = { "<cmd>ZkNew { dir = 'literature' }<CR>", "New literature note" },
+          p = { "<cmd>ZkNew { dir = 'permanent' }<CR>", "New permanent note" },
+        },
       }
     end,
     config = function()
