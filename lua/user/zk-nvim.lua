@@ -19,7 +19,6 @@ M.config = function()
     },
   }
 
-  local zk = require "zk"
   local commands = require "zk.commands"
 
   local function make_edit_fn(defaults, picker_options)
