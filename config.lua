@@ -655,13 +655,13 @@ lvim.plugins = {
       }
     end,
   },
-  {
-    "romgrk/nvim-treesitter-context",
-    event = "BufRead",
-    config = function()
-      require("user.treesitter-context").config()
-    end,
-  },
+  -- {
+  --   "romgrk/nvim-treesitter-context",
+  --   event = "BufRead",
+  --   config = function()
+  --     require("user.treesitter-context").config()
+  --   end,
+  -- },
   -- {
   --   "lmburns/lf.nvim",
   --   cmd = "Lf",
