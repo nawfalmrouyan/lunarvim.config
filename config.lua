@@ -35,6 +35,7 @@ lvim.lsp.diagnostics.virtual_text = false
 lvim.builtin.treesitter.auto_install = true
 lvim.builtin.treesitter.ensure_installed = {
   "bash",
+  "comment",
   "css",
   "git_rebase",
   "gitattributes",
@@ -44,7 +45,10 @@ lvim.builtin.treesitter.ensure_installed = {
   "javascript",
   "json",
   "lua",
+  "markdown",
+  "markdown_inline",
   "python",
+  "regex",
   "svelte",
   "terraform",
   "typescript",
@@ -178,6 +182,7 @@ lvim.lsp.automatic_configuration.skipped_servers = {
   "stylelint_lsp",
   "svlangserver",
   "tflint",
+  "unocss",
   "verible",
   "vtsls",
   "vuels",
