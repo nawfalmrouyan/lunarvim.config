@@ -662,23 +662,22 @@ lvim.plugins = {
       require("user.treesitter-context").config()
     end,
   },
-  {
-    "lmburns/lf.nvim",
-    cmd = "Lf",
-    lazy = true,
-    init = function()
-      lvim.builtin.which_key.mappings["r"] = { "<cmd>Lf<cr>", "File Manager" }
-    end,
-    config = function()
-      require("lf").setup {
-        escape_quit = false,
-        border = "rounded",
-        highlights = { FloatBorder = { guifg = "#819c3b" } },
-        winblend = 0,
-      }
-    end,
-    dependencies = { "plenary.nvim", "toggleterm.nvim" },
-  },
+  -- {
+  --   "lmburns/lf.nvim",
+  --   cmd = "Lf",
+  --   init = function()
+  --     lvim.builtin.which_key.mappings["r"] = { "<cmd>Lf<cr>", "File Manager" }
+  --   end,
+  --   config = function()
+  --     require("lf").setup {
+  --       escape_quit = false,
+  --       border = "rounded",
+  --       highlights = { FloatBorder = { guifg = "#819c3b" } },
+  --       winblend = 0,
+  --     }
+  --   end,
+  --   dependencies = { "plenary.nvim", "toggleterm.nvim" },
+  -- },
   {
     "ray-x/lsp_signature.nvim",
     event = "BufRead",
