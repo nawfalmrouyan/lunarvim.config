@@ -1,7 +1,7 @@
 lvim.format_on_save = false
 lvim.lint_on_save = false
-lvim.colorscheme = "catppuccin"
-lvim.builtin.lualine.options.theme = "catppuccin"
+lvim.colorscheme = "kanagawa"
+lvim.builtin.lualine.options.theme = "kanagawa"
 lvim.shell = "/usr/bin/zsh"
 lvim.transparent_window = true
 
@@ -217,6 +217,12 @@ lvim.builtin.sell_soul_to_devel = true
 
 -- Additional Plugins
 lvim.plugins = {
+  {
+    "rebelot/kanagawa.nvim",
+    config = function()
+      require("user.kanagawa").config()
+    end,
+  },
   {
     "Exafunction/codeium.vim",
     event = "BufRead",
