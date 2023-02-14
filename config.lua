@@ -1,7 +1,7 @@
 lvim.format_on_save = false
 lvim.lint_on_save = false
-lvim.colorscheme = "kanagawa"
-lvim.builtin.lualine.options.theme = "kanagawa"
+lvim.colorscheme = "catppuccin"
+lvim.builtin.lualine.options.theme = "catppuccin"
 lvim.shell = "/usr/bin/zsh"
 lvim.transparent_window = true
 
@@ -655,13 +655,13 @@ lvim.plugins = {
       }
     end,
   },
-  -- {
-  --   "romgrk/nvim-treesitter-context",
-  --   event = "BufRead",
-  --   config = function()
-  --     require("user.treesitter-context").config()
-  --   end,
-  -- },
+  {
+    "romgrk/nvim-treesitter-context",
+    event = "BufRead",
+    config = function()
+      require("user.treesitter-context").config()
+    end,
+  },
   -- {
   --   "lmburns/lf.nvim",
   --   cmd = "Lf",
@@ -867,7 +867,7 @@ lvim.plugins = {
   },
   {
     "catppuccin/nvim",
-    cmd = { " Catppuccin", "CatppuccinCompile" },
+    -- cmd = { " Catppuccin", "CatppuccinCompile" },
     name = "catppuccin",
     build = ":CatppuccinCompile",
     config = function()
