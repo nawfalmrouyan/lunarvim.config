@@ -91,7 +91,7 @@ lvim.builtin.telescope.on_config_done = function(telescope)
   pcall(telescope.load_extension, "notify")
 end
 
-lvim.builtin.autopairs.active = false
+lvim.builtin.autopairs.active = true
 lvim.builtin.cmp.cmdline.enable = true
 lvim.builtin.cmp.experimental.ghost_text = true
 lvim.builtin.luasnip.sources.friendly_snippets = true
@@ -342,13 +342,13 @@ lvim.plugins = {
     end,
     dependencies = { "kkharji/sqlite.lua" },
   },
-  {
-    "hrsh7th/nvim-insx",
-    event = "InsertEnter",
-    config = function()
-      require("insx.preset.standard").setup()
-    end,
-  },
+  -- {
+  --   "hrsh7th/nvim-insx",
+  --   event = "InsertEnter",
+  --   config = function()
+  --     require("insx.preset.standard").setup()
+  --   end,
+  -- },
   {
     "roobert/tailwindcss-colorizer-cmp.nvim",
     ft = { "html", "typescript", "javascript", "svelte", "css", "javascriptreact", "typescriptreact" },
