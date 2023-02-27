@@ -226,7 +226,7 @@ lvim.builtin.sell_soul_to_devel = true
 lvim.plugins = {
   {
     "laytan/tailwind-sorter.nvim",
-    ft = {"html", "css", "javascript", "typescript", "javascriptreact", "typescriptreact", "svelte" },
+    ft = { "html", "css", "javascript", "typescript", "javascriptreact", "typescriptreact", "svelte" },
     dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-lua/plenary.nvim" },
     build = "cd formatter && npm i && npm run build",
     config = function()
