@@ -582,6 +582,14 @@ lvim.plugins = {
     end,
   },
   {
+    "echasnovski/mini.bracketed",
+    version = false,
+    event = "BufRead",
+    config = function()
+      require("mini.bracketed").setup()
+    end,
+  },
+  {
     "tpope/vim-fugitive",
     cmd = {
       "G",
