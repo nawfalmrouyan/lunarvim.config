@@ -9,7 +9,9 @@ M.config = function()
     load = {
       ["core.defaults"] = {},
       ["core.upgrade"] = {},
-      ["core.norg.concealer"] = {},
+      ["core.norg.concealer"] = {
+        config = { icon_preset = "diamond" },
+      },
       ["core.integrations.telescope"] = {},
       ["core.norg.completion"] = { config = { engine = "nvim-cmp" } },
       ["core.presenter"] = { config = { zen_mode = "truezen" } },
@@ -21,6 +23,7 @@ M.config = function()
             work = "~/adata/notes/work",
             home = "~/adata/notes/home",
           },
+          default_workspace = "work",
         },
       },
     },
