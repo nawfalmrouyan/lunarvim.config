@@ -237,12 +237,12 @@ lvim.plugins = {
       }
     end,
   },
-  {
-    "rebelot/kanagawa.nvim",
-    config = function()
-      require("user.kanagawa").config()
-    end,
-  },
+  -- {
+  --   "rebelot/kanagawa.nvim",
+  --   config = function()
+  --     require("user.kanagawa").config()
+  --   end,
+  -- },
   {
     "Exafunction/codeium.vim",
     event = "BufRead",
@@ -344,13 +344,6 @@ lvim.plugins = {
     end,
     dependencies = { "kkharji/sqlite.lua" },
   },
-  -- {
-  --   "hrsh7th/nvim-insx",
-  --   event = "InsertEnter",
-  --   config = function()
-  --     require("insx.preset.standard").setup()
-  --   end,
-  -- },
   {
     "roobert/tailwindcss-colorizer-cmp.nvim",
     ft = { "html", "typescript", "javascript", "svelte", "css", "javascriptreact", "typescriptreact" },
@@ -365,40 +358,40 @@ lvim.plugins = {
       }
     end,
   },
-  {
-    "chrisgrieser/nvim-recorder",
-    event = "BufRead",
-    config = function()
-      require("recorder").setup {
-        -- Named registers where macros are saved. The first register is the default
-        -- register/macro-slot used after startup.
-        slots = { "a", "b" },
+  -- {
+  --   "chrisgrieser/nvim-recorder",
+  --   event = "BufRead",
+  --   config = function()
+  --     require("recorder").setup {
+  --       -- Named registers where macros are saved. The first register is the default
+  --       -- register/macro-slot used after startup.
+  --       slots = { "a", "b" },
 
-        -- default keymaps, see README for description what the commands do
-        mapping = {
-          startStopRecording = "q",
-          playMacro = "Q",
-          switchSlot = "<C-q>",
-          editMacro = "cq",
-          yankMacro = "yq", -- also decodes it for turning macros to mappings
-          addBreakPoint = "##", -- ⚠️ this should be a string you don't use in insert mode during a macro
-        },
+  --       -- default keymaps, see README for description what the commands do
+  --       mapping = {
+  --         startStopRecording = "q",
+  --         playMacro = "Q",
+  --         switchSlot = "<C-q>",
+  --         editMacro = "cq",
+  --         yankMacro = "yq", -- also decodes it for turning macros to mappings
+  --         addBreakPoint = "##", -- ⚠️ this should be a string you don't use in insert mode during a macro
+  --       },
 
-        -- clears all macros-slots on startup
-        clear = false,
+  --       -- clears all macros-slots on startup
+  --       clear = false,
 
-        -- log level used for any notification, mostly relevant for nvim-notify
-        -- (note that by default, nvim-notify does not show the levels trace and debug.)
-        logLevel = vim.log.levels.INFO,
+  --       -- log level used for any notification, mostly relevant for nvim-notify
+  --       -- (note that by default, nvim-notify does not show the levels trace and debug.)
+  --       logLevel = vim.log.levels.INFO,
 
-        -- experimental, see README
-        dapSharedKeymaps = false,
-      }
+  --       -- experimental, see README
+  --       dapSharedKeymaps = false,
+  --     }
 
-      lvim.builtin.lualine.sections.lualine_y = { { require("recorder").displaySlots } }
-      lvim.builtin.lualine.sections.lualine_z = { { require("recorder").recordingStatus } }
-    end,
-  },
+  --     lvim.builtin.lualine.sections.lualine_y = { { require("recorder").displaySlots } }
+  --     lvim.builtin.lualine.sections.lualine_z = { { require("recorder").recordingStatus } }
+  --   end,
+  -- },
   {
     "luukvbaal/statuscol.nvim",
     event = "BufRead",
@@ -407,45 +400,44 @@ lvim.plugins = {
       require("statuscol").setup(cfg)
     end,
   },
-  { "kmonad/kmonad-vim", ft = "kbd" },
-  {
-    "glacambre/firenvim",
-    -- Lazy load firenvim
-    -- Explanation: https://github.com/folke/lazy.nvim/discussions/463#discussioncomment-4819297
-    cond = not not vim.g.started_by_firenvim,
-    build = function()
-      require("lazy").load { plugins = "firenvim", wait = true }
-      vim.fn["firenvim#install"](0)
-    end,
-    init = function()
-      vim.cmd [[
-        let g:firenvim_config = { 
-          \ 'globalSettings': {
-            \ 'alt': 'all',
-          \  },
-          \ 'localSettings': {
-            \ '.*': {
-              \ 'cmdline': 'neovim',
-              \ 'content': 'text',
-              \ 'priority': 0,
-              \ 'selector': 'textarea',
-              \ 'takeover': 'always',
-            \ },
-          \ }
-        \ }
-        let fc = g:firenvim_config['localSettings']
-        " let fc['https?://[^/]+\.co\.uk/'] = { 'takeover': 'never', 'priority': 1 }
-        let fc['https?://camsyscrm\.mmu\.edu\.my/'] = { 'takeover': 'never', 'priority': 1 }
-        function! OnUIEnter(event) abort
-          if 'Firenvim' ==# get(get(nvim_get_chan_info(a:event.chan), 'client', {}), 'name', '')
-            set laststatus=0
-          endif
-        endfunction
-        autocmd UIEnter * call OnUIEnter(deepcopy(v:event))
-        au BufEnter github.com_*.txt set filetype=markdown
-        ]]
-    end,
-  },
+  -- {
+  --   "glacambre/firenvim",
+  --   -- Lazy load firenvim
+  --   -- Explanation: https://github.com/folke/lazy.nvim/discussions/463#discussioncomment-4819297
+  --   cond = not not vim.g.started_by_firenvim,
+  --   build = function()
+  --     require("lazy").load { plugins = "firenvim", wait = true }
+  --     vim.fn["firenvim#install"](0)
+  --   end,
+  --   init = function()
+  --     vim.cmd [[
+  --       let g:firenvim_config = {
+  --         \ 'globalSettings': {
+  --           \ 'alt': 'all',
+  --         \  },
+  --         \ 'localSettings': {
+  --           \ '.*': {
+  --             \ 'cmdline': 'neovim',
+  --             \ 'content': 'text',
+  --             \ 'priority': 0,
+  --             \ 'selector': 'textarea',
+  --             \ 'takeover': 'always',
+  --           \ },
+  --         \ }
+  --       \ }
+  --       let fc = g:firenvim_config['localSettings']
+  --       " let fc['https?://[^/]+\.co\.uk/'] = { 'takeover': 'never', 'priority': 1 }
+  --       let fc['https?://camsyscrm\.mmu\.edu\.my/'] = { 'takeover': 'never', 'priority': 1 }
+  --       function! OnUIEnter(event) abort
+  --         if 'Firenvim' ==# get(get(nvim_get_chan_info(a:event.chan), 'client', {}), 'name', '')
+  --           set laststatus=0
+  --         endif
+  --       endfunction
+  --       autocmd UIEnter * call OnUIEnter(deepcopy(v:event))
+  --       au BufEnter github.com_*.txt set filetype=markdown
+  --       ]]
+  --   end,
+  -- },
   {
     "ckolkey/ts-node-action",
     event = "BufRead",
@@ -668,22 +660,6 @@ lvim.plugins = {
       require("user.treesitter-context").config()
     end,
   },
-  -- {
-  --   "lmburns/lf.nvim",
-  --   cmd = "Lf",
-  --   init = function()
-  --     lvim.builtin.which_key.mappings["r"] = { "<cmd>Lf<cr>", "File Manager" }
-  --   end,
-  --   config = function()
-  --     require("lf").setup {
-  --       escape_quit = false,
-  --       border = "rounded",
-  --       highlights = { FloatBorder = { guifg = "#819c3b" } },
-  --       winblend = 0,
-  --     }
-  --   end,
-  --   dependencies = { "plenary.nvim", "toggleterm.nvim" },
-  -- },
   {
     "ray-x/lsp_signature.nvim",
     event = "BufRead",
@@ -800,18 +776,6 @@ lvim.plugins = {
       }
     end,
   },
-  -- {
-  --   "roobert/surround-ui.nvim",
-  --   dependencies = {
-  --     "kylechui/nvim-surround",
-  --     "folke/which-key.nvim",
-  --   },
-  --   config = function()
-  --     require("surround-ui").setup {
-  --       root_key = "gz",
-  --     }
-  --   end,
-  -- },
   {
     "ellisonleao/glow.nvim",
     ft = "markdown",
