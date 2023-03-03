@@ -224,7 +224,7 @@ lvim.builtin.sell_soul_to_devel = true
 
 -- https://stackoverflow.com/a/42071865/516188
 -- to close all buffers and "clean up" my workspace. Every couple of hours let's say, otherwise I do see slowness.
-lvim.builtin.which_key.mappings["bo"] = { "<cmd>%bd|e#<cr>", "Close all buffers but the current one" }
+lvim.builtin.which_key.mappings["bo"] = { "<cmd>%bd|e#|bd#<cr>", "Close all buffers but the current one" }
 
 -- Additional Plugins
 lvim.plugins = {
