@@ -222,6 +222,7 @@ lvim.keys.term_mode["<C-Right>"] = "<C-\\><C-N>vertical resize +2<cr>"
 lvim.keys.visual_block_mode["P"] = '"_c<c-r>0<esc>'
 lvim.builtin.sell_soul_to_devel = true
 
+lvim.builtin.which_key.mappings["bo"] = { "<cmd>%bd|e#<cr>", "Close all buffers but the current one" }
 -- Additional Plugins
 lvim.plugins = {
   {
