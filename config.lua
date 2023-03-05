@@ -57,7 +57,8 @@ lvim.builtin.treesitter.ensure_installed = {
 lvim.builtin.treesitter.highlight.enabled = true
 lvim.builtin.treesitter.rainbow.enable = true
 lvim.builtin.treesitter.autotag.enable = true
-lvim.builtin.treesitter.textsubjects.enable = true
+-- lvim.builtin.treesitter.textsubjects.enable = true
+
 lvim.builtin.mason.ensure_installed = {
   "bashls",
   "black",
@@ -633,7 +634,7 @@ lvim.plugins = {
       }
     end,
   },
-  { "RRethy/nvim-treesitter-textsubjects", event = "BufRead", before = "nvim-treesitter" },
+  -- { "RRethy/nvim-treesitter-textsubjects", event = "BufRead", before = "nvim-treesitter" },
   {
     "mbbill/undotree",
     event = "BufRead",
