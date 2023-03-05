@@ -706,7 +706,25 @@ lvim.plugins = {
       }
     end,
   },
-  { "p00f/nvim-ts-rainbow", event = "BufRead" },
+  -- { "p00f/nvim-ts-rainbow", event = "BufRead" },
+  {
+    "HiPhish/nvim-ts-rainbow2",
+    event = "BufRead",
+    dependencies = { "nvim-treesitter" },
+    init = function()
+      lvim.builtin.treesitter.on_config_done = function()
+        lvim.builtin.treesitter.rainbow = {
+          query = {
+            "rainbow-parens",
+            html = "rainbow-tags",
+          },
+          strategy = {
+            require("ts-rainbow").strategy.global,
+          },
+        }
+      end
+    end,
+  },
   { "windwp/nvim-ts-autotag", event = "InsertEnter" },
   { "romgrk/fzy-lua-native", build = "make" },
   { "nvim-telescope/telescope-fzy-native.nvim" },
