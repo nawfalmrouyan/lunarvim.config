@@ -294,7 +294,11 @@ lvim.plugins = {
       lvim.builtin.which_key.mappings["sn"] = { "<CMD>Telescope notify<CR>", "Notifications history" }
     end,
     config = function()
-      require("notify").setup { stages = "fade", render = "compact" }
+      require("notify").setup {
+        stages = "fade",
+        render = "compact",
+        background_colour = "#000000"
+      }
     end,
   },
   {
@@ -1080,7 +1084,6 @@ lvim.autocommands = {
   { "CursorHold", { pattern = { "*" }, command = "lua vim.diagnostic.open_float({focusable = false})" } },
   -- { "VimLeave,VimSuspend", { pattern = { "*" }, command = "guicursor=a:hor20" } },
   { "ColorScheme", { pattern = { "*" }, command = "hi Cursor guifg=red guibg=red" } },
-  { "ColorScheme", { pattern = { "*" }, command = "hi NotifyBackground guibg='#000000'" } },
 }
 
 lvim.builtin.which_key.mappings["?"] = { "<cmd>NvimTreeFindFile<cr>", "Find file in NvimTree" }
