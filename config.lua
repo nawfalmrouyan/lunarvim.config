@@ -242,12 +242,6 @@ lvim.plugins = {
       }
     end,
   },
-  -- {
-  --   "rebelot/kanagawa.nvim",
-  --   config = function()
-  --     require("user.kanagawa").config()
-  --   end,
-  -- },
   {
     "Exafunction/codeium.vim",
     event = "BufRead",
@@ -281,13 +275,6 @@ lvim.plugins = {
       require("user.nvim-ufo").config()
     end,
   },
-  -- {
-  --   "eandrju/cellular-automaton.nvim",
-  --   event = "BufRead",
-  --   init = function()
-  --     lvim.builtin.which_key.mappings["ml"] = { "<CMD>CellularAutomaton make_it_rain<CR>", "Make it RAIN" }
-  --   end,
-  -- },
   {
     "rcarriga/nvim-notify",
     init = function()
@@ -367,40 +354,6 @@ lvim.plugins = {
       }
     end,
   },
-  -- {
-  --   "chrisgrieser/nvim-recorder",
-  --   event = "BufRead",
-  --   config = function()
-  --     require("recorder").setup {
-  --       -- Named registers where macros are saved. The first register is the default
-  --       -- register/macro-slot used after startup.
-  --       slots = { "a", "b" },
-
-  --       -- default keymaps, see README for description what the commands do
-  --       mapping = {
-  --         startStopRecording = "q",
-  --         playMacro = "Q",
-  --         switchSlot = "<C-q>",
-  --         editMacro = "cq",
-  --         yankMacro = "yq", -- also decodes it for turning macros to mappings
-  --         addBreakPoint = "##", -- ⚠️ this should be a string you don't use in insert mode during a macro
-  --       },
-
-  --       -- clears all macros-slots on startup
-  --       clear = false,
-
-  --       -- log level used for any notification, mostly relevant for nvim-notify
-  --       -- (note that by default, nvim-notify does not show the levels trace and debug.)
-  --       logLevel = vim.log.levels.INFO,
-
-  --       -- experimental, see README
-  --       dapSharedKeymaps = false,
-  --     }
-
-  --     lvim.builtin.lualine.sections.lualine_y = { { require("recorder").displaySlots } }
-  --     lvim.builtin.lualine.sections.lualine_z = { { require("recorder").recordingStatus } }
-  --   end,
-  -- },
   {
     "luukvbaal/statuscol.nvim",
     event = "BufRead",
@@ -409,44 +362,6 @@ lvim.plugins = {
       require("statuscol").setup(cfg)
     end,
   },
-  -- {
-  --   "glacambre/firenvim",
-  --   -- Lazy load firenvim
-  --   -- Explanation: https://github.com/folke/lazy.nvim/discussions/463#discussioncomment-4819297
-  --   cond = not not vim.g.started_by_firenvim,
-  --   build = function()
-  --     require("lazy").load { plugins = "firenvim", wait = true }
-  --     vim.fn["firenvim#install"](0)
-  --   end,
-  --   init = function()
-  --     vim.cmd [[
-  --       let g:firenvim_config = {
-  --         \ 'globalSettings': {
-  --           \ 'alt': 'all',
-  --         \  },
-  --         \ 'localSettings': {
-  --           \ '.*': {
-  --             \ 'cmdline': 'neovim',
-  --             \ 'content': 'text',
-  --             \ 'priority': 0,
-  --             \ 'selector': 'textarea',
-  --             \ 'takeover': 'always',
-  --           \ },
-  --         \ }
-  --       \ }
-  --       let fc = g:firenvim_config['localSettings']
-  --       " let fc['https?://[^/]+\.co\.uk/'] = { 'takeover': 'never', 'priority': 1 }
-  --       let fc['https?://camsyscrm\.mmu\.edu\.my/'] = { 'takeover': 'never', 'priority': 1 }
-  --       function! OnUIEnter(event) abort
-  --         if 'Firenvim' ==# get(get(nvim_get_chan_info(a:event.chan), 'client', {}), 'name', '')
-  --           set laststatus=0
-  --         endif
-  --       endfunction
-  --       autocmd UIEnter * call OnUIEnter(deepcopy(v:event))
-  --       au BufEnter github.com_*.txt set filetype=markdown
-  --       ]]
-  --   end,
-  -- },
   {
     "ckolkey/ts-node-action",
     event = "BufRead",
@@ -465,68 +380,6 @@ lvim.plugins = {
     end,
     dependencies = { "nvim-neorg/neorg-telescope", "nvim-lua/plenary.nvim" },
   },
-  -- {
-  --   "simrat39/symbols-outline.nvim",
-  --   event = "BufRead",
-  --   cmd = { "SymbolsOutline", "SymbolsOutlineOpen", "SymbolsOutlineClose" },
-  --   init = function()
-  --     lvim.builtin.which_key.mappings["lo"] = { "<cmd>SymbolsOutline<cr>", "Outline" }
-  --   end,
-  --   config = function()
-  --     -- require("user.symbolsoutline").config()
-  --     require("symbols-outline").setup {
-  --       symbols = {
-  --         File = { hl = "@text.uri" },
-  --         Module = { hl = "@namespace" },
-  --         Namespace = { hl = "@namespace" },
-  --         Package = { hl = "@namespace" },
-  --         Class = { hl = "@type" },
-  --         Method = { hl = "@method" },
-  --         Property = { hl = "@method" },
-  --         Field = { hl = "@field" },
-  --         Constructor = { hl = "@constructor" },
-  --         Enum = { hl = "@type" },
-  --         Interface = { hl = "@type" },
-  --         Function = { hl = "@function" },
-  --         Variable = { hl = "@constant" },
-  --         Constant = { hl = "@constant" },
-  --         String = { hl = "@string" },
-  --         Number = { hl = "@number" },
-  --         Boolean = { hl = "@boolean" },
-  --         Array = { hl = "@constant" },
-  --         Object = { hl = "@type" },
-  --         Key = { hl = "@type" },
-  --         Null = { hl = "@type" },
-  --         EnumMember = { hl = "@field" },
-  --         Struct = { hl = "@type" },
-  --         Event = { hl = "@type" },
-  --         Operator = { hl = "@operator" },
-  --         TypeParameter = { hl = "@parameter" },
-  --       },
-  --     }
-  --   end,
-  -- },
-  -- {
-  --   "tzachar/cmp-tabnine",
-  --   build = "./install.sh",
-  --   dependencies = "hrsh7th/nvim-cmp",
-  --   event = "InsertEnter",
-  --   config = function()
-  --     local tabnine = require "cmp_tabnine.config"
-
-  --     tabnine:setup {
-  --       max_lines = 1000,
-  --       max_num_results = 20,
-  --       sort = true,
-  --       run_on_every_keystroke = true,
-  --       snippet_placeholder = "..",
-  --       ignored_file_types = {
-  --         -- lua = true
-  --       },
-  --       show_prediction_strength = false,
-  --     }
-  --   end,
-  -- },
   {
     "chrisgrieser/nvim-various-textobjs",
     event = "BufRead",
@@ -558,38 +411,6 @@ lvim.plugins = {
       }
     end,
   },
-  -- {
-  --   "echasnovski/mini.map",
-  --   event = "BufRead",
-  --   branch = "stable",
-  --   init = function()
-  --     lvim.builtin.which_key.mappings["mm"] = { "<cmd>lua MiniMap.toggle()<cr>", "Minimap" }
-  --   end,
-  --   config = function()
-  --     require("mini.map").setup()
-  --     local map = require "mini.map"
-  --     map.setup {
-  --       integrations = {
-  --         map.gen_integration.builtin_search(),
-  --         map.gen_integration.diagnostic {
-  --           error = "DiagnosticFloatingError",
-  --           warn = "DiagnosticFloatingWarn",
-  --           info = "DiagnosticFloatingInfo",
-  --           hint = "DiagnosticFloatingHint",
-  --         },
-  --       },
-  --       symbols = {
-  --         encode = map.gen_encode_symbols.dot "4x2",
-  --       },
-  --       window = {
-  --         side = "right",
-  --         width = 20, -- set to 1 for a pure scrollbar :)
-  --         winblend = 0,
-  --         show_integration_count = false,
-  --       },
-  --     }
-  --   end,
-  -- },
   {
     "echasnovski/mini.bracketed",
     version = false,
@@ -617,7 +438,6 @@ lvim.plugins = {
     },
     ft = { "fugitive" },
   },
-  -- { "mattn/vim-gist", event = "BufRead", dependencies = "mattn/webapi-vim" },
   {
     "max397574/better-escape.nvim",
     event = "BufRead",
@@ -638,7 +458,6 @@ lvim.plugins = {
       }
     end,
   },
-  -- { "RRethy/nvim-treesitter-textsubjects", event = "BufRead", before = "nvim-treesitter" },
   {
     "mbbill/undotree",
     event = "BufRead",
@@ -670,20 +489,6 @@ lvim.plugins = {
       }
     end,
   },
-  -- {
-  --   "romgrk/nvim-treesitter-context",
-  --   event = "BufRead",
-  --   config = function()
-  --     require("user.treesitter-context").config()
-  --   end,
-  -- },
-  -- {
-  --   "ray-x/lsp_signature.nvim",
-  --   event = "BufRead",
-  --   config = function()
-  --     require("lsp_signature").setup()
-  --   end,
-  -- },
   {
     "kevinhwang91/nvim-bqf",
     event = { "BufRead", "BufNew" },
@@ -710,7 +515,6 @@ lvim.plugins = {
       }
     end,
   },
-  -- { "p00f/nvim-ts-rainbow", event = "BufRead" },
   {
     "HiPhish/nvim-ts-rainbow2",
     event = "BufRead",
@@ -739,7 +543,6 @@ lvim.plugins = {
       vim.cmd "let g:VM_default_mappings = 0"
     end,
   }, -- vim -Nu ~/.local/share/lunarvim/site/pack/packer/start/vim-visual-multi/tutorialrc
-  -- { "nvim-treesitter/nvim-treesitter-textobjects", before = "nvim-treesitter", event = "BufRead" },
   {
     "echasnovski/mini.ai",
     event = "BufRead",
@@ -891,13 +694,6 @@ lvim.plugins = {
       vim.g.mkdp_browser = "firefoxMD"
     end,
   },
-  -- {
-  --   "andymass/vim-matchup",
-  --   event = "CursorMoved",
-  --   config = function()
-  --     vim.g.matchup_matchparen_offscreen = { method = "popup" }
-  --   end,
-  -- },
   {
     "NvChad/nvim-colorizer.lua",
     config = function()
@@ -941,17 +737,6 @@ lvim.plugins = {
       }
     end,
   },
-  -- {
-  --   "f-person/git-blame.nvim",
-  --   cmd = "GitBlameToggle",
-  --   init = function()
-  --     lvim.builtin.which_key.mappings["a"] = { "<cmd>GitBlameToggle<cr>", "Toggle Git Blame" }
-  --     vim.g.gitblame_enabled = 0
-  --   end,
-  --   config = function()
-  --     vim.cmd "highlight default link gitblame SpecialComment"
-  --   end,
-  -- },
   {
     "monaqa/dial.nvim",
     event = "BufRead",
@@ -973,15 +758,6 @@ lvim.plugins = {
       require("user.neoscroll").config()
     end,
   },
-  -- {
-  --   "metakirby5/codi.vim",
-  --   cmd = "Codi",
-  --   ft = { "python", "javascript", "php" },
-  --   init = function()
-  --     lvim.builtin.which_key.mappings["y"] = { "<cmd>Codi<cr>", "Codi" }
-  --     lvim.builtin.which_key.mappings["Y"] = { "<cmd>Codi!<cr>", "Clear Codi" }
-  --   end,
-  -- },
   {
     "ggandor/leap.nvim",
     event = "BufRead",
@@ -1012,21 +788,6 @@ lvim.plugins = {
       }
     end,
   },
-  -- {
-  --   "ruifm/gitlinker.nvim",
-  --   event = "BufRead",
-  --   config = function()
-  --     require("gitlinker").setup {
-  --       opts = {
-  --         add_current_line_on_normal_mode = true,
-  --         action_callback = require("gitlinker.actions").copy_to_clipboard,
-  --         print_url = false,
-  --         mappings = "<leader>gy",
-  --       },
-  --     }
-  --   end,
-  --   dependencies = "nvim-lua/plenary.nvim",
-  -- },
   {
     "Pocco81/true-zen.nvim",
     cmd = { "TZFocus", "TZAtaraxis" },
@@ -1055,6 +816,235 @@ lvim.plugins = {
       }
     end,
   },
+  {
+    "christoomey/vim-tmux-navigator",
+    event = "BufRead",
+  },
+  { "wakatime/vim-wakatime" },
+  -- {
+  --   "rebelot/kanagawa.nvim",
+  --   config = function()
+  --     require("user.kanagawa").config()
+  --   end,
+  -- },
+  -- {
+  --   "eandrju/cellular-automaton.nvim",
+  --   event = "BufRead",
+  --   init = function()
+  --     lvim.builtin.which_key.mappings["ml"] = { "<CMD>CellularAutomaton make_it_rain<CR>", "Make it RAIN" }
+  --   end,
+  -- },
+  -- {
+  --   "chrisgrieser/nvim-recorder",
+  --   event = "BufRead",
+  --   config = function()
+  --     require("recorder").setup {
+  --       -- Named registers where macros are saved. The first register is the default
+  --       -- register/macro-slot used after startup.
+  --       slots = { "a", "b" },
+
+  --       -- default keymaps, see README for description what the commands do
+  --       mapping = {
+  --         startStopRecording = "q",
+  --         playMacro = "Q",
+  --         switchSlot = "<C-q>",
+  --         editMacro = "cq",
+  --         yankMacro = "yq", -- also decodes it for turning macros to mappings
+  --         addBreakPoint = "##", -- ⚠️ this should be a string you don't use in insert mode during a macro
+  --       },
+
+  --       -- clears all macros-slots on startup
+  --       clear = false,
+
+  --       -- log level used for any notification, mostly relevant for nvim-notify
+  --       -- (note that by default, nvim-notify does not show the levels trace and debug.)
+  --       logLevel = vim.log.levels.INFO,
+
+  --       -- experimental, see README
+  --       dapSharedKeymaps = false,
+  --     }
+
+  --     lvim.builtin.lualine.sections.lualine_y = { { require("recorder").displaySlots } }
+  --     lvim.builtin.lualine.sections.lualine_z = { { require("recorder").recordingStatus } }
+  --   end,
+  -- },
+  -- {
+  --   "glacambre/firenvim",
+  --   -- Lazy load firenvim
+  --   -- Explanation: https://github.com/folke/lazy.nvim/discussions/463#discussioncomment-4819297
+  --   cond = not not vim.g.started_by_firenvim,
+  --   build = function()
+  --     require("lazy").load { plugins = "firenvim", wait = true }
+  --     vim.fn["firenvim#install"](0)
+  --   end,
+  --   init = function()
+  --     vim.cmd [[
+  --       let g:firenvim_config = {
+  --         \ 'globalSettings': {
+  --           \ 'alt': 'all',
+  --         \  },
+  --         \ 'localSettings': {
+  --           \ '.*': {
+  --             \ 'cmdline': 'neovim',
+  --             \ 'content': 'text',
+  --             \ 'priority': 0,
+  --             \ 'selector': 'textarea',
+  --             \ 'takeover': 'always',
+  --           \ },
+  --         \ }
+  --       \ }
+  --       let fc = g:firenvim_config['localSettings']
+  --       " let fc['https?://[^/]+\.co\.uk/'] = { 'takeover': 'never', 'priority': 1 }
+  --       let fc['https?://camsyscrm\.mmu\.edu\.my/'] = { 'takeover': 'never', 'priority': 1 }
+  --       function! OnUIEnter(event) abort
+  --         if 'Firenvim' ==# get(get(nvim_get_chan_info(a:event.chan), 'client', {}), 'name', '')
+  --           set laststatus=0
+  --         endif
+  --       endfunction
+  --       autocmd UIEnter * call OnUIEnter(deepcopy(v:event))
+  --       au BufEnter github.com_*.txt set filetype=markdown
+  --       ]]
+  --   end,
+  -- },
+  -- { "mattn/vim-gist", event = "BufRead", dependencies = "mattn/webapi-vim" },
+  -- { "RRethy/nvim-treesitter-textsubjects", event = "BufRead", before = "nvim-treesitter" },
+  -- { "p00f/nvim-ts-rainbow", event = "BufRead" },
+  -- {
+  --   "simrat39/symbols-outline.nvim",
+  --   event = "BufRead",
+  --   cmd = { "SymbolsOutline", "SymbolsOutlineOpen", "SymbolsOutlineClose" },
+  --   init = function()
+  --     lvim.builtin.which_key.mappings["lo"] = { "<cmd>SymbolsOutline<cr>", "Outline" }
+  --   end,
+  --   config = function()
+  --     -- require("user.symbolsoutline").config()
+  --     require("symbols-outline").setup {
+  --       symbols = {
+  --         File = { hl = "@text.uri" },
+  --         Module = { hl = "@namespace" },
+  --         Namespace = { hl = "@namespace" },
+  --         Package = { hl = "@namespace" },
+  --         Class = { hl = "@type" },
+  --         Method = { hl = "@method" },
+  --         Property = { hl = "@method" },
+  --         Field = { hl = "@field" },
+  --         Constructor = { hl = "@constructor" },
+  --         Enum = { hl = "@type" },
+  --         Interface = { hl = "@type" },
+  --         Function = { hl = "@function" },
+  --         Variable = { hl = "@constant" },
+  --         Constant = { hl = "@constant" },
+  --         String = { hl = "@string" },
+  --         Number = { hl = "@number" },
+  --         Boolean = { hl = "@boolean" },
+  --         Array = { hl = "@constant" },
+  --         Object = { hl = "@type" },
+  --         Key = { hl = "@type" },
+  --         Null = { hl = "@type" },
+  --         EnumMember = { hl = "@field" },
+  --         Struct = { hl = "@type" },
+  --         Event = { hl = "@type" },
+  --         Operator = { hl = "@operator" },
+  --         TypeParameter = { hl = "@parameter" },
+  --       },
+  --     }
+  --   end,
+  -- },
+  -- {
+  --   "tzachar/cmp-tabnine",
+  --   build = "./install.sh",
+  --   dependencies = "hrsh7th/nvim-cmp",
+  --   event = "InsertEnter",
+  --   config = function()
+  --     local tabnine = require "cmp_tabnine.config"
+
+  --     tabnine:setup {
+  --       max_lines = 1000,
+  --       max_num_results = 20,
+  --       sort = true,
+  --       run_on_every_keystroke = true,
+  --       snippet_placeholder = "..",
+  --       ignored_file_types = {
+  --         -- lua = true
+  --       },
+  --       show_prediction_strength = false,
+  --     }
+  --   end,
+  -- },
+  -- {
+  --   "echasnovski/mini.map",
+  --   event = "BufRead",
+  --   branch = "stable",
+  --   init = function()
+  --     lvim.builtin.which_key.mappings["mm"] = { "<cmd>lua MiniMap.toggle()<cr>", "Minimap" }
+  --   end,
+  --   config = function()
+  --     require("mini.map").setup()
+  --     local map = require "mini.map"
+  --     map.setup {
+  --       integrations = {
+  --         map.gen_integration.builtin_search(),
+  --         map.gen_integration.diagnostic {
+  --           error = "DiagnosticFloatingError",
+  --           warn = "DiagnosticFloatingWarn",
+  --           info = "DiagnosticFloatingInfo",
+  --           hint = "DiagnosticFloatingHint",
+  --         },
+  --       },
+  --       symbols = {
+  --         encode = map.gen_encode_symbols.dot "4x2",
+  --       },
+  --       window = {
+  --         side = "right",
+  --         width = 20, -- set to 1 for a pure scrollbar :)
+  --         winblend = 0,
+  --         show_integration_count = false,
+  --       },
+  --     }
+  --   end,
+  -- },
+  -- {
+  --   "romgrk/nvim-treesitter-context",
+  --   event = "BufRead",
+  --   config = function()
+  --     require("user.treesitter-context").config()
+  --   end,
+  -- },
+  -- {
+  --   "ray-x/lsp_signature.nvim",
+  --   event = "BufRead",
+  --   config = function()
+  --     require("lsp_signature").setup()
+  --   end,
+  -- },
+  -- {
+  --   "andymass/vim-matchup",
+  --   event = "CursorMoved",
+  --   config = function()
+  --     vim.g.matchup_matchparen_offscreen = { method = "popup" }
+  --   end,
+  -- },
+  -- {
+  --   "f-person/git-blame.nvim",
+  --   cmd = "GitBlameToggle",
+  --   init = function()
+  --     lvim.builtin.which_key.mappings["a"] = { "<cmd>GitBlameToggle<cr>", "Toggle Git Blame" }
+  --     vim.g.gitblame_enabled = 0
+  --   end,
+  --   config = function()
+  --     vim.cmd "highlight default link gitblame SpecialComment"
+  --   end,
+  -- },
+  -- {
+  --   "metakirby5/codi.vim",
+  --   cmd = "Codi",
+  --   ft = { "python", "javascript", "php" },
+  --   init = function()
+  --     lvim.builtin.which_key.mappings["y"] = { "<cmd>Codi<cr>", "Codi" }
+  --     lvim.builtin.which_key.mappings["Y"] = { "<cmd>Codi!<cr>", "Clear Codi" }
+  --   end,
+  -- },
+  -- { "nvim-treesitter/nvim-treesitter-textobjects", before = "nvim-treesitter", event = "BufRead" },
   -- {
   --   "j-hui/fidget.nvim",
   --   event = "BufRead",
@@ -1062,11 +1052,21 @@ lvim.plugins = {
   --     require("fidget").setup()
   --   end,
   -- },
-  {
-    "christoomey/vim-tmux-navigator",
-    event = "BufRead",
-  },
-  { "wakatime/vim-wakatime" },
+  -- {
+  --   "ruifm/gitlinker.nvim",
+  --   event = "BufRead",
+  --   config = function()
+  --     require("gitlinker").setup {
+  --       opts = {
+  --         add_current_line_on_normal_mode = true,
+  --         action_callback = require("gitlinker.actions").copy_to_clipboard,
+  --         print_url = false,
+  --         mappings = "<leader>gy",
+  --       },
+  --     }
+  --   end,
+  --   dependencies = "nvim-lua/plenary.nvim",
+  -- },
 }
 
 lvim.autocommands = {
