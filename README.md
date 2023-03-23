@@ -1,8 +1,7 @@
 # My Personal [LunarVim](https://github.com/ChristianChiarulli/LunarVim/ "LunarVim") Config Files
 
-1. You'll need Neovim HEAD (0.8-dev) with PR17446 merged. (git fetch origin pull/17446/head:nvim-ufo && git merge nvim-ufo)
-2. Install my fork of [LunarVim](https://github.com/nawfalmrouyan/LunarVim/).
-3. Clone this repo to your `~/.config/lvim` directory.
+1. Install [LunarVim](https://github.com/nawfalmrouyan/LunarVim/).
+2. Clone this repo to your `~/.config/lvim` directory.
 
 # Screenshots
 ![image](https://user-images.githubusercontent.com/10271030/178931492-71f8aaf9-3350-47cb-b713-88eae4e7c59b.png)
