@@ -284,7 +284,7 @@ lvim.plugins = {
       require("notify").setup {
         stages = "fade",
         render = "compact",
-        background_colour = "#000000"
+        background_colour = "#000000",
       }
     end,
   },
