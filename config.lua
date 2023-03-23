@@ -291,7 +291,7 @@ lvim.plugins = {
   {
     "mrded/nvim-lsp-notify",
     config = function()
-      require("lsp-notify").setup {}
+      require("lsp-notify").setup()
     end,
   },
   {
