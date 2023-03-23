@@ -299,6 +299,7 @@ lvim.plugins = {
     config = function()
       require("noice").setup {
         lsp = {
+          progress = { enabled = false },
           signature = { enabled = false },
           hover = { enabled = false },
           override = {
@@ -821,6 +822,13 @@ lvim.plugins = {
     event = "BufRead",
   },
   { "wakatime/vim-wakatime" },
+  {
+    "j-hui/fidget.nvim",
+    event = "BufRead",
+    config = function()
+      require("fidget").setup()
+    end,
+  },
   -- {
   --   "rebelot/kanagawa.nvim",
   --   config = function()
@@ -1045,13 +1053,6 @@ lvim.plugins = {
   --   end,
   -- },
   -- { "nvim-treesitter/nvim-treesitter-textobjects", before = "nvim-treesitter", event = "BufRead" },
-  -- {
-  --   "j-hui/fidget.nvim",
-  --   event = "BufRead",
-  --   config = function()
-  --     require("fidget").setup()
-  --   end,
-  -- },
   -- {
   --   "ruifm/gitlinker.nvim",
   --   event = "BufRead",
