@@ -20,6 +20,10 @@ vim.opt.inccommand = "split"
 vim.opt.guifont = "Iosevka Medium:h9"
 vim.opt.colorcolumn = "100"
 
+-- #22668 adds lua-loader. A builtin Lua module which byte-compiles and caches Lua files
+-- (speeds up load times).
+vim.loader.enable()
+
 lvim.builtin.lualine.active = true
 lvim.builtin.bufferline.active = true
 lvim.builtin.bufferline.options.show_buffer_close_icons = false
