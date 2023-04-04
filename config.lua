@@ -231,6 +231,9 @@ lvim.builtin.sell_soul_to_devel = true
 -- to close all buffers and "clean up" my workspace. Every couple of hours let's say, otherwise I do see slowness.
 lvim.builtin.which_key.mappings["bo"] = { "<cmd>%bd|e#|bd#<cr>", "Close all buffers but the current one" }
 
+lvim.builtin.which_key.mappings["?"] = { "<cmd>NvimTreeFindFile<cr>", "Find file in NvimTree" }
+lvim.builtin.which_key.mappings["c"] = { "<cmd>bdelete!<cr>", "Close Buffer" }
+
 -- Additional Plugins
 lvim.plugins = {
   {
@@ -1099,9 +1102,6 @@ lvim.autocommands = {
   -- { "VimLeave,VimSuspend", { pattern = { "*" }, command = "guicursor=a:hor20" } },
   { "ColorScheme", { pattern = { "*" }, command = "hi Cursor guifg=red guibg=red" } },
 }
-
-lvim.builtin.which_key.mappings["?"] = { "<cmd>NvimTreeFindFile<cr>", "Find file in NvimTree" }
-lvim.builtin.which_key.mappings["c"] = { "<cmd>bdelete!<cr>", "Close Buffer" }
 
 lvim.builtin.alpha.dashboard.section.header.val = {
   "   ____              ______ _____ ____ ",
