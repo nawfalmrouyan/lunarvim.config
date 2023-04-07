@@ -215,8 +215,6 @@ lvim.keys.normal_mode["<C-u>"] = "<C-u>zz"
 lvim.keys.normal_mode["n"] = "nzzzv"
 lvim.keys.normal_mode["N"] = "Nzzzv"
 lvim.keys.normal_mode["Q"] = "<nop>"
--- lvim.keys.normal_mode["<leader>x"] = "<cmd>!chmod +x %<cr>"
-lvim.builtin.which_key.mappings["x"] = { "<CMD>!chmod +x %<CR>", "Make it executable" }
 
 lvim.keys.term_mode["<Esc>"] = "<C-\\><C-N>"
 lvim.keys.term_mode["<C-Up>"] = "<C-\\><C-N>resize -2<cr>"
@@ -233,6 +231,7 @@ lvim.builtin.which_key.mappings["bo"] = { "<cmd>%bd|e#|bd#<cr>", "Close all buff
 
 lvim.builtin.which_key.mappings["?"] = { "<cmd>NvimTreeFindFile<cr>", "Find file in NvimTree" }
 lvim.builtin.which_key.mappings["c"] = { "<cmd>bdelete!<cr>", "Close Buffer" }
+lvim.builtin.which_key.mappings["x"] = { "<cmd>!chmod +x %<cr>", "Make it executable" }
 
 -- Additional Plugins
 lvim.plugins = {
