@@ -483,7 +483,7 @@ lvim.plugins = {
   },
   {
     "folke/persistence.nvim",
-    event = "BufRead",
+    -- event = "BufRead",
     init = function()
       lvim.builtin.which_key.mappings["S"] = {
         name = "Session",
@@ -494,7 +494,7 @@ lvim.plugins = {
       local entry = {
         "s",
         lvim.icons.ui.Fire .. "  Restore last session",
-        "<CMD>lua require('persistence').load({ last = true })<CR>",
+        "<cmd>lua require('persistence').load({ last = true })<cr>",
       }
       table.insert(lvim.builtin.alpha.dashboard.section.buttons.entries, 7, entry)
     end,
