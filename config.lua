@@ -22,7 +22,7 @@ vim.opt.colorcolumn = "100"
 
 -- #22668 adds lua-loader. A builtin Lua module which byte-compiles and caches Lua files
 -- (speeds up load times).
-vim.loader.enable()
+-- vim.loader.enable()
 
 lvim.builtin.lualine.active = true
 lvim.builtin.bufferline.active = true
