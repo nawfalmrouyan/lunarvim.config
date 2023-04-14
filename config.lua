@@ -1,4 +1,9 @@
-lvim.format_on_save = false
+-- lvim.format_on_save = false
+lvim.format_on_save = {
+  enabled = true,
+  pattern = "*.lua",
+  timeout = 1000,
+}
 lvim.lint_on_save = false
 lvim.colorscheme = "catppuccin"
 lvim.builtin.lualine.options.theme = "catppuccin"
