@@ -852,44 +852,63 @@ lvim.plugins = {
   --     lvim.builtin.lualine.sections.lualine_z = { { require("recorder").recordingStatus } }
   --   end,
   -- },
-  -- {
-  --   "glacambre/firenvim",
-  --   -- Lazy load firenvim
-  --   -- Explanation: https://github.com/folke/lazy.nvim/discussions/463#discussioncomment-4819297
-  --   cond = not not vim.g.started_by_firenvim,
-  --   build = function()
-  --     require("lazy").load { plugins = "firenvim", wait = true }
-  --     vim.fn["firenvim#install"](0)
-  --   end,
-  --   init = function()
-  --     vim.cmd [[
-  --       let g:firenvim_config = {
-  --         \ 'globalSettings': {
-  --           \ 'alt': 'all',
-  --         \  },
-  --         \ 'localSettings': {
-  --           \ '.*': {
-  --             \ 'cmdline': 'neovim',
-  --             \ 'content': 'text',
-  --             \ 'priority': 0,
-  --             \ 'selector': 'textarea',
-  --             \ 'takeover': 'always',
-  --           \ },
-  --         \ }
-  --       \ }
-  --       let fc = g:firenvim_config['localSettings']
-  --       " let fc['https?://[^/]+\.co\.uk/'] = { 'takeover': 'never', 'priority': 1 }
-  --       let fc['https?://camsyscrm\.mmu\.edu\.my/'] = { 'takeover': 'never', 'priority': 1 }
-  --       function! OnUIEnter(event) abort
-  --         if 'Firenvim' ==# get(get(nvim_get_chan_info(a:event.chan), 'client', {}), 'name', '')
-  --           set laststatus=0
-  --         endif
-  --       endfunction
-  --       autocmd UIEnter * call OnUIEnter(deepcopy(v:event))
-  --       au BufEnter github.com_*.txt set filetype=markdown
-  --       ]]
-  --   end,
-  -- },
+  {
+    "glacambre/firenvim",
+    -- Lazy load firenvim
+    -- Explanation: https://github.com/fofreelke/lazy.nvim/discussions/463#discussioncomment-4819297
+    cond = not not vim.g.started_by_firenvim,
+    build = function()
+      require("lazy").load { plugins = "firenvim", wait = true }
+      vim.fn["firenvim#install"](0)
+    end,
+    config = function()
+      vim.g.firenvim_config = {
+        globalSettings = { alt = "all" },
+        localSettings = {
+          [".*"] = {
+            cmdline = "neovim",
+            content = "text",
+            priority = 0,
+            selector = "textarea",
+            takeover = "never",
+          },
+          ["'https?://[^/]+.co.uk/'"] = {
+            priority = 1,
+            takeover = "never",
+          },
+          ["https?://camsyscrm.mmu.edu.my/"] = {
+            priority = 1,
+            takeover = "never",
+          },
+        },
+      }
+      vim.api.nvim_create_autocmd({ "UIEnter" }, {
+        callback = function(event)
+          local client = vim.api.nvim_get_chan_info(vim.v.event.chan).client
+          if client ~= nil and client.name == "Firenvim" then
+            if vim.o.lines < 4 then
+              vim.o.lines = 4
+            end
+            if vim.o.columns < 80 then
+              vim.o.columns = 80
+            end
+          end
+        end,
+      })
+      vim.api.nvim_create_autocmd({ "BufEnter" }, {
+        pattern = "github.com_*.txt",
+        cmd = "set filetype=markdown",
+      })
+      vim.api.nvim_create_autocmd({ "UIEnter" }, {
+        callback = function(event)
+          local client = vim.api.nvim_get_chan_info(vim.v.event.chan).client
+          if client ~= nil and client.name == "Firenvim" then
+            vim.o.laststatus = 0
+          end
+        end,
+      })
+    end,
+  },
   -- { "mattn/vim-gist", event = "BufRead", dependencies = "mattn/webapi-vim" },
   -- { "RRethy/nvim-treesitter-textsubjects", event = "BufRead", before = "nvim-treesitter" },
   -- { "p00f/nvim-ts-rainbow", event = "BufRead" },
