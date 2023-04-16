@@ -1,4 +1,4 @@
-require("lvim.lsp.manager").setup "tailwindcss"
+-- require("lvim.lsp.manager").setup "tailwindcss"
 local formatters = require "lvim.lsp.null-ls.formatters"
 formatters.setup { { command = "prettierd" } }
 local linters = require "lvim.lsp.null-ls.linters"
