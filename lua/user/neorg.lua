@@ -9,15 +9,15 @@ M.config = function()
     load = {
       ["core.defaults"] = {},
       ["core.upgrade"] = {},
-      ["core.norg.concealer"] = {
+      ["core.concealer"] = {
         config = { icon_preset = "diamond" },
       },
       ["core.integrations.telescope"] = {},
-      ["core.norg.completion"] = { config = { engine = "nvim-cmp" } },
+      ["core.completion"] = { config = { engine = "nvim-cmp" } },
       ["core.presenter"] = { config = { zen_mode = "truezen" } },
       ["core.export.markdown"] = {},
-      ["core.norg.manoeuvre"] = {},
-      ["core.norg.dirman"] = {
+      ["core.manoeuvre"] = {},
+      ["core.dirman"] = {
         config = {
           workspaces = {
             work = "~/adata/notes/work",
