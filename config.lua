@@ -39,7 +39,7 @@ lvim.builtin.terminal.active = true
 lvim.builtin.indentlines.active = true
 lvim.builtin.illuminate.active = true
 
-lvim.lsp.diagnostics.virtual_text = false
+vim.diagnostic.config { virtual_text = false }
 
 lvim.builtin.treesitter.auto_install = true
 lvim.builtin.treesitter.ensure_installed = {
