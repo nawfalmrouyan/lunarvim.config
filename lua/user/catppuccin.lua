@@ -34,41 +34,22 @@ M.config = function()
     },
     require("catppuccin").setup {
       integrations = {
-        aerial = false,
-        barbar = false,
-        beacon = false,
         cmp = true,
-        coc_nvim = false,
         dashboard = true,
-        fern = false,
-        fidget = false,
-        gitgutter = false,
+        fidget = true,
         gitsigns = true,
-        harpoon = false,
-        hop = false,
         illuminate = true,
         leap = true,
-        lightspeed = false,
-        lsp_saga = false,
         lsp_trouble = true,
         markdown = true,
         mason = true,
         mini = true,
-        neogit = false,
-        neotest = false,
-        neotree = false,
+        noice = true,
         notify = true,
         nvimtree = true,
-        overseer = false,
-        pounce = false,
-        symbols_outline = false,
-        telekasten = false,
         telescope = true,
         treesitter = true,
-        treesitter_context = false,
-        ts_rainbow = true,
-        vim_sneak = false,
-        vimwiki = false,
+        ts_rainbow2 = true,
         which_key = true,
 
         -- Special integrations, see https://github.com/catppuccin/nvim#special-integrations
@@ -148,7 +129,6 @@ M.config = function()
 
   local mocha = require("catppuccin.palettes").get_palette "mocha"
   lvim.builtin.bufferline.highlights = require("catppuccin.groups.integrations.bufferline").get()
-
 end
 
 return M
