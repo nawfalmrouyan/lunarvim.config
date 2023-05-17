@@ -519,7 +519,7 @@ lvim.plugins = {
   },
   { "windwp/nvim-ts-autotag", event = "InsertEnter" },
   { "romgrk/fzy-lua-native", build = "make" },
-  { "nvim-telescope/telescope-fzy-native.nvim" },
+  -- { "nvim-telescope/telescope-fzy-native.nvim" },
   {
     "mg979/vim-visual-multi",
     event = "BufRead",
