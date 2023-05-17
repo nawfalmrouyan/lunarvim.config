@@ -38,6 +38,7 @@ lvim.builtin.dap.active = false
 lvim.builtin.terminal.active = true
 lvim.builtin.indentlines.active = true
 lvim.builtin.illuminate.active = true
+lvim.builtin.lir.active = false
 
 vim.diagnostic.config { virtual_text = false }
 
@@ -196,6 +197,12 @@ lvim.builtin.which_key.mappings["x"] = { "<cmd>!chmod +x %<cr>", "Make it execut
 
 -- Additional Plugins
 lvim.plugins = {
+  {
+    "stevearc/oil.nvim",
+    opts = {},
+    -- Optional dependencies
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+  },
   {
     "laytan/tailwind-sorter.nvim",
     ft = { "html", "css", "javascript", "typescript", "javascriptreact", "typescriptreact", "svelte" },
