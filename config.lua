@@ -85,7 +85,7 @@ lvim.builtin.mason.ensure_installed = {
   "shellcheck",
   "shfmt",
   "stylua",
-  "sumneko_lua",
+  "lua_ls",
   "tailwindcss",
   "tsserver",
   "yamlfmt",
