@@ -170,6 +170,7 @@ lvim.keys.normal_mode["<M-o>"] = "o<esc>"
 lvim.keys.normal_mode["<M-O>"] = "O<esc>"
 lvim.keys.normal_mode["<M-$>"] = "g$"
 lvim.keys.normal_mode["/"] = "ms/"
+lvim.keys.normal_mode["<C-p>"] = ":FzfLua files<cr>"
 
 -- From the primeagen
 -- lvim.keys.normal_mode["J"] = "mzJ`z"
@@ -811,6 +812,73 @@ lvim.plugins = {
     event = "BufRead",
     config = function()
       require("fidget").setup { window = { blend = 0 } }
+    end,
+  },
+  {
+    "ibhagwan/fzf-lua",
+    init = function()
+      lvim.builtin.which_key.mappings["F"] = {
+        name = "Fzf",
+        F = { "<cmd>FzfLua<cr>", "FZF" },
+        d = { "<cmd>lua _G.fzf_dirs()<cr>", "Custom directories" },
+        f = { "<cmd>FzfLua files<cr>", "Files" },
+        g = { "<cmd>FzfLua grep<cr>", "Grep" },
+        l = { "<cmd>FzfLua live_grep<cr>", "Live Grep" },
+      }
+    end,
+    -- optional for icon support
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+    config = function()
+      -- calling `setup` is optional for customization
+      require("fzf-lua").setup { "telescope" }
+
+      _G.fzf_dirs = function(opts)
+        local fzf_lua = require "fzf-lua"
+        opts = opts or {}
+        opts.prompt = "Directories> "
+        opts.fn_transform = function(x)
+          return fzf_lua.utils.ansi_codes.magenta(x)
+        end
+        opts.actions = {
+          ["default"] = function(selected)
+            vim.cmd("cd " .. selected[1])
+          end,
+        }
+        fzf_lua.fzf_exec("fd --type d", opts)
+      end
+
+      -- The reason I added  'opts' as a parameter is so you can
+      -- call this function with your own parameters / customizations
+      -- for example: 'git_files_cwd_aware({ cwd = <another git repo> })'
+      function M.git_files_cwd_aware(opts)
+        opts = opts or {}
+        local fzf_lua = require "fzf-lua"
+        -- git_root() will warn us if we're not inside a git repo
+        -- so we don't have to add another warning here, if
+        -- you want to avoid the error message change it to:
+        -- local git_root = fzf_lua.path.git_root(opts, true)
+        local git_root = fzf_lua.path.git_root(opts)
+        if not git_root then
+          return
+        end
+        local relative = fzf_lua.path.relative(vim.loop.cwd(), git_root)
+        opts.fzf_opts = { ["--query"] = git_root ~= relative and relative or nil }
+        return fzf_lua.git_files(opts)
+      end
+    end,
+  },
+  {
+    "pmizio/typescript-tools.nvim",
+    dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
+    opts = {},
+    config = function()
+      local mason_registry = require "mason-registry"
+      local tsserver_path = mason_registry.get_package("typescript-language-server"):get_install_path()
+      require("typescript-tools").setup {
+        settings = {
+          tsserver_path = tsserver_path .. "/node_modules/typescript/lib/tsserver.js",
+        },
+      }
     end,
   },
   -- {
