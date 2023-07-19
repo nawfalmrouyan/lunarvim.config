@@ -153,6 +153,7 @@ lvim.builtin.luasnip.sources.friendly_snippets = true
 
 -- ---remove a server from the skipped list, e.g. eslint, or emmet_ls. IMPORTANT: Requires `:LvimCacheReset` to take effect
 -- ---`:LvimInfo` lists which server(s) are skipped for the current filetype
+vim.list_extend(lvim.lsp.automatic_configuration.skipped_servers, { "tsserver" })
 lvim.lsp.automatic_configuration.skipped_servers = vim.tbl_filter(function(server)
   return server ~= "emmet_ls"
 end, lvim.lsp.automatic_configuration.skipped_servers)
