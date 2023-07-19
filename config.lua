@@ -22,7 +22,7 @@ vim.opt.wrap = true
 -- vim.opt.scrolloff = 0
 -- vim.opt.sidescrolloff = 0
 vim.opt.inccommand = "split"
-vim.opt.guifont = "Iosevka Medium:h9"
+vim.opt.guifont = "Iosevka Medium:h17"
 vim.opt.colorcolumn = "100"
 
 -- #22668 adds lua-loader. A builtin Lua module which byte-compiles and caches Lua files
