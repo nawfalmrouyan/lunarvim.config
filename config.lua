@@ -847,25 +847,6 @@ lvim.plugins = {
         }
         fzf_lua.fzf_exec("fd --type d", opts)
       end
-
-      -- The reason I added  'opts' as a parameter is so you can
-      -- call this function with your own parameters / customizations
-      -- for example: 'git_files_cwd_aware({ cwd = <another git repo> })'
-      function M.git_files_cwd_aware(opts)
-        opts = opts or {}
-        local fzf_lua = require "fzf-lua"
-        -- git_root() will warn us if we're not inside a git repo
-        -- so we don't have to add another warning here, if
-        -- you want to avoid the error message change it to:
-        -- local git_root = fzf_lua.path.git_root(opts, true)
-        local git_root = fzf_lua.path.git_root(opts)
-        if not git_root then
-          return
-        end
-        local relative = fzf_lua.path.relative(vim.loop.cwd(), git_root)
-        opts.fzf_opts = { ["--query"] = git_root ~= relative and relative or nil }
-        return fzf_lua.git_files(opts)
-      end
     end,
   },
   {
