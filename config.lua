@@ -682,6 +682,7 @@ lvim.plugins = {
   },
   {
     "NvChad/nvim-colorizer.lua",
+    event = "BufRead",
     config = function()
       require("colorizer").setup {
         filetypes = {
@@ -817,6 +818,7 @@ lvim.plugins = {
   },
   {
     "ibhagwan/fzf-lua",
+    event = "BufRead",
     init = function()
       lvim.builtin.which_key.mappings["F"] = {
         name = "Fzf",
@@ -851,6 +853,7 @@ lvim.plugins = {
   },
   {
     "pmizio/typescript-tools.nvim",
+    ft = { "html", "css", "javascript", "typescript", "javascriptreact", "typescriptreact", "svelte" },
     dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
     opts = {},
     config = function()
