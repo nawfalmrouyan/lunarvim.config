@@ -531,6 +531,7 @@ lvim.plugins = {
   }, -- vim -Nu ~/.local/share/lunarvim/site/pack/packer/start/vim-visual-multi/tutorialrc
   {
     "echasnovski/mini.ai",
+    enabled = false,
     event = "BufRead",
     config = function()
       require("mini.ai").setup {
@@ -867,53 +868,56 @@ lvim.plugins = {
       }
     end,
   },
-  -- {
-  --   "rebelot/kanagawa.nvim",
-  --   config = function()
-  --     require("user.kanagawa").config()
-  --   end,
-  -- },
-  -- {
-  --   "eandrju/cellular-automaton.nvim",
-  --   event = "BufRead",
-  --   init = function()
-  --     lvim.builtin.which_key.mappings["ml"] = { "<CMD>CellularAutomaton make_it_rain<CR>", "Make it RAIN" }
-  --   end,
-  -- },
-  -- {
-  --   "chrisgrieser/nvim-recorder",
-  --   event = "BufRead",
-  --   config = function()
-  --     require("recorder").setup {
-  --       -- Named registers where macros are saved. The first register is the default
-  --       -- register/macro-slot used after startup.
-  --       slots = { "a", "b" },
+  {
+    "rebelot/kanagawa.nvim",
+    enabled = false,
+    config = function()
+      require("user.kanagawa").config()
+    end,
+  },
+  {
+    "eandrju/cellular-automaton.nvim",
+    event = "BufRead",
+    enabled = false,
+    init = function()
+      lvim.builtin.which_key.mappings["ml"] = { "<CMD>CellularAutomaton make_it_rain<CR>", "Make it RAIN" }
+    end,
+  },
+  {
+    "chrisgrieser/nvim-recorder",
+    event = "BufRead",
+    enabled = false,
+    config = function()
+      require("recorder").setup {
+        -- Named registers where macros are saved. The first register is the default
+        -- register/macro-slot used after startup.
+        slots = { "a", "b" },
 
-  --       -- default keymaps, see README for description what the commands do
-  --       mapping = {
-  --         startStopRecording = "q",
-  --         playMacro = "Q",
-  --         switchSlot = "<C-q>",
-  --         editMacro = "cq",
-  --         yankMacro = "yq", -- also decodes it for turning macros to mappings
-  --         addBreakPoint = "##", -- ⚠️ this should be a string you don't use in insert mode during a macro
-  --       },
+        -- default keymaps, see README for description what the commands do
+        mapping = {
+          startStopRecording = "q",
+          playMacro = "Q",
+          switchSlot = "<C-q>",
+          editMacro = "cq",
+          yankMacro = "yq", -- also decodes it for turning macros to mappings
+          addBreakPoint = "##", -- ⚠️ this should be a string you don't use in insert mode during a macro
+        },
 
-  --       -- clears all macros-slots on startup
-  --       clear = false,
+        -- clears all macros-slots on startup
+        clear = false,
 
-  --       -- log level used for any notification, mostly relevant for nvim-notify
-  --       -- (note that by default, nvim-notify does not show the levels trace and debug.)
-  --       logLevel = vim.log.levels.INFO,
+        -- log level used for any notification, mostly relevant for nvim-notify
+        -- (note that by default, nvim-notify does not show the levels trace and debug.)
+        logLevel = vim.log.levels.INFO,
 
-  --       -- experimental, see README
-  --       dapSharedKeymaps = false,
-  --     }
+        -- experimental, see README
+        dapSharedKeymaps = false,
+      }
 
-  --     lvim.builtin.lualine.sections.lualine_y = { { require("recorder").displaySlots } }
-  --     lvim.builtin.lualine.sections.lualine_z = { { require("recorder").recordingStatus } }
-  --   end,
-  -- },
+      lvim.builtin.lualine.sections.lualine_y = { { require("recorder").displaySlots } }
+      lvim.builtin.lualine.sections.lualine_z = { { require("recorder").recordingStatus } }
+    end,
+  },
   -- {
   --   "glacambre/firenvim",
   --   -- Lazy load firenvim
@@ -971,7 +975,7 @@ lvim.plugins = {
   --     -- })
   --   end,
   -- },
-  -- { "mattn/vem-gist", event = "BufRead", dependencies = "mattn/webapi-vim" },
+  -- { "mattn/vim-gist", event = "BufRead", dependencies = "mattn/webapi-vim" },
   -- { "RRethy/nvim-treesitter-textsubjects", event = "BufRead", before = "nvim-treesitter" },
   -- { "p00f/nvim-ts-rainbow", event = "BufRead" },
   -- {
@@ -1082,33 +1086,34 @@ lvim.plugins = {
   --     require("lsp_signature").setup()
   --   end,
   -- },
-  -- {
-  --   "andymass/vim-matchup",
-  --   event = "CursorMoved",
-  --   config = function()
-  --     vim.g.matchup_matchparen_offscreen = { method = "popup" }
-  --   end,
-  -- },
-  -- {
-  --   "f-person/git-blame.nvim",
-  --   cmd = "GitBlameToggle",
-  --   init = function()
-  --     lvim.builtin.which_key.mappings["a"] = { "<cmd>GitBlameToggle<cr>", "Toggle Git Blame" }
-  --     vim.g.gitblame_enabled = 0
-  --   end,
-  --   config = function()
-  --     vim.cmd "highlight default link gitblame SpecialComment"
-  --   end,
-  -- },
-  -- {
-  --   "metakirby5/codi.vim",
-  --   cmd = "Codi",
-  --   ft = { "python", "javascript", "php" },
-  --   init = function()
-  --     lvim.builtin.which_key.mappings["y"] = { "<cmd>Codi<cr>", "Codi" }
-  --     lvim.builtin.which_key.mappings["Y"] = { "<cmd>Codi!<cr>", "Clear Codi" }
-  --   end,
-  -- },
+  {
+    "andymass/vim-matchup",
+    event = "CursorMoved",
+    config = function()
+      vim.g.matchup_matchparen_offscreen = { method = "popup" }
+      lvim.builtin.treesitter.matchup.enable = true
+    end,
+  },
+  {
+    "f-person/git-blame.nvim",
+    cmd = "GitBlameToggle",
+    init = function()
+      lvim.builtin.which_key.mappings["a"] = { "<cmd>GitBlameToggle<cr>", "Toggle Git Blame" }
+      vim.g.gitblame_enabled = 0
+    end,
+    config = function()
+      vim.cmd "highlight default link gitblame SpecialComment"
+    end,
+  },
+  {
+    "metakirby5/codi.vim",
+    cmd = "Codi",
+    ft = { "python", "javascript", "php" },
+    init = function()
+      lvim.builtin.which_key.mappings["y"] = { "<cmd>Codi<cr>", "Codi" }
+      lvim.builtin.which_key.mappings["Y"] = { "<cmd>Codi!<cr>", "Clear Codi" }
+    end,
+  },
   -- { "nvim-treesitter/nvim-treesitter-textobjects", before = "nvim-treesitter", event = "BufRead" },
   -- {
   --   "ruifm/gitlinker.nvim",
