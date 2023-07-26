@@ -1,4 +1,3 @@
--- lvim.format_on_save = false
 lvim.format_on_save = {
   enabled = true,
   pattern = "*.lua",
