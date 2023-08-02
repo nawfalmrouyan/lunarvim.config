@@ -1039,38 +1039,38 @@ lvim.plugins = {
   --     }
   --   end,
   -- },
-  -- {
-  --   "echasnovski/mini.map",
-  --   event = "BufRead",
-  --   branch = "stable",
-  --   init = function()
-  --     lvim.builtin.which_key.mappings["mm"] = { "<cmd>lua MiniMap.toggle()<cr>", "Minimap" }
-  --   end,
-  --   config = function()
-  --     require("mini.map").setup()
-  --     local map = require "mini.map"
-  --     map.setup {
-  --       integrations = {
-  --         map.gen_integration.builtin_search(),
-  --         map.gen_integration.diagnostic {
-  --           error = "DiagnosticFloatingError",
-  --           warn = "DiagnosticFloatingWarn",
-  --           info = "DiagnosticFloatingInfo",
-  --           hint = "DiagnosticFloatingHint",
-  --         },
-  --       },
-  --       symbols = {
-  --         encode = map.gen_encode_symbols.dot "4x2",
-  --       },
-  --       window = {
-  --         side = "right",
-  --         width = 20, -- set to 1 for a pure scrollbar :)
-  --         winblend = 0,
-  --         show_integration_count = false,
-  --       },
-  --     }
-  --   end,
-  -- },
+  {
+    "echasnovski/mini.map",
+    event = "BufRead",
+    branch = "stable",
+    init = function()
+      lvim.builtin.which_key.mappings["mm"] = { "<cmd>lua MiniMap.toggle()<cr>", "Minimap" }
+    end,
+    config = function()
+      require("mini.map").setup()
+      local map = require "mini.map"
+      map.setup {
+        integrations = {
+          map.gen_integration.builtin_search(),
+          map.gen_integration.diagnostic {
+            error = "DiagnosticFloatingError",
+            warn = "DiagnosticFloatingWarn",
+            info = "DiagnosticFloatingInfo",
+            hint = "DiagnosticFloatingHint",
+          },
+        },
+        symbols = {
+          encode = map.gen_encode_symbols.dot "4x2",
+        },
+        window = {
+          side = "right",
+          width = 20, -- set to 1 for a pure scrollbar :)
+          winblend = 0,
+          show_integration_count = false,
+        },
+      }
+    end,
+  },
   {
     "romgrk/nvim-treesitter-context",
     event = "BufRead",
