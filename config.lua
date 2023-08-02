@@ -1071,13 +1071,13 @@ lvim.plugins = {
   --     }
   --   end,
   -- },
-  -- {
-  --   "romgrk/nvim-treesitter-context",
-  --   event = "BufRead",
-  --   config = function()
-  --     require("user.treesitter-context").config()
-  --   end,
-  -- },
+  {
+    "romgrk/nvim-treesitter-context",
+    event = "BufRead",
+    config = function()
+      require("user.treesitter-context").config()
+    end,
+  },
   -- {
   --   "ray-x/lsp_signature.nvim",
   --   event = "BufRead",
