@@ -171,6 +171,7 @@ lvim.keys.normal_mode["<M-O>"] = "O<esc>"
 lvim.keys.normal_mode["<M-$>"] = "g$"
 lvim.keys.normal_mode["/"] = "ms/"
 lvim.keys.normal_mode["<C-p>"] = ":FzfLua files<cr>"
+-- lvim.keys.normal_mode["<C-p>"] = ":FzfLua files<cr>"
 
 -- From the primeagen
 -- lvim.keys.normal_mode["J"] = "mzJ`z"
@@ -1146,6 +1147,25 @@ lvim.plugins = {
     "chrisgrieser/nvim-origami",
     event = "BufReadPost", -- later or on keypress would prevent saving folds
     opts = true, -- needed even when using default config
+    "hrsh7th/nvim-pasta",
+    init = function()
+      vim.keymap.set({ "n", "x" }, "p", require("pasta.mappings").p)
+      vim.keymap.set({ "n", "x" }, "P", require("pasta.mappings").P)
+      vim.keymap.set({ "n" }, "<C-p>", require("pasta.mappings").toggle_pin)
+    end,
+    config = function()
+      require("pasta").setup {
+        paste_mode = false,
+        fix_cursor = true,
+        fix_indent = true,
+        prevent_diagnostics = false,
+        next_key = vim.api.nvim_replace_termcodes("<C-p>", true, true, true),
+        prev_key = vim.api.nvim_replace_termcodes("<C-n>", true, true, true),
+      }
+      require("pasta").setup.filetype({ "markdown", "yaml" }, {
+        converters = {},
+      })
+    end,
   },
 }
 
