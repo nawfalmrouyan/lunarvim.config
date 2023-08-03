@@ -535,43 +535,43 @@ lvim.plugins = {
       vim.cmd "let g:VM_default_mappings = 0"
     end,
   }, -- vim -Nu ~/.local/share/lunarvim/site/pack/packer/start/vim-visual-multi/tutorialrc
-  {
-    "echasnovski/mini.ai",
-    enabled = false,
-    event = "BufRead",
-    config = function()
-      require("mini.ai").setup {
-        -- Table with textobject id as fields, textobject specification as values.
-        -- Also use this to disable builtin textobjects. See |MiniAi.config|.
-        custom_textobjects = nil,
+  -- {
+  --   "echasnovski/mini.ai",
+  --   enabled = false,
+  --   event = "BufRead",
+  --   config = function()
+  --     require("mini.ai").setup {
+  --       -- Table with textobject id as fields, textobject specification as values.
+  --       -- Also use this to disable builtin textobjects. See |MiniAi.config|.
+  --       custom_textobjects = nil,
 
-        -- Module mappings. Use `''` (empty string) to disable one.
-        mappings = {
-          -- Main textobject prefixes
-          around = "a",
-          inside = "i",
+  --       -- Module mappings. Use `''` (empty string) to disable one.
+  --       mappings = {
+  --         -- Main textobject prefixes
+  --         around = "a",
+  --         inside = "i",
 
-          -- Next/last variants
-          around_next = "an",
-          inside_next = "in",
-          around_last = "al",
-          inside_last = "il",
+  --         -- Next/last variants
+  --         around_next = "an",
+  --         inside_next = "in",
+  --         around_last = "al",
+  --         inside_last = "il",
 
-          -- Move cursor to corresponding edge of `a` textobject
-          goto_left = "g[",
-          goto_right = "g]",
-        },
+  --         -- Move cursor to corresponding edge of `a` textobject
+  --         goto_left = "g[",
+  --         goto_right = "g]",
+  --       },
 
-        -- Number of lines within which textobject is searched
-        n_lines = 50,
+  --       -- Number of lines within which textobject is searched
+  --       n_lines = 50,
 
-        -- How to search for object (first inside current line, then inside
-        -- neighborhood). One of 'cover', 'cover_or_next', 'cover_or_prev',
-        -- 'cover_or_nearest', 'next', 'previous', 'nearest'.
-        search_method = "cover_or_nearest",
-      }
-    end,
-  },
+  --       -- How to search for object (first inside current line, then inside
+  --       -- neighborhood). One of 'cover', 'cover_or_next', 'cover_or_prev',
+  --       -- 'cover_or_nearest', 'next', 'previous', 'nearest'.
+  --       search_method = "cover_or_nearest",
+  --     }
+  --   end,
+  -- },
   {
     "echasnovski/mini.move",
     event = "BufRead",
@@ -1140,6 +1140,8 @@ lvim.plugins = {
     "chrisgrieser/nvim-origami",
     event = "BufReadPost", -- later or on keypress would prevent saving folds
     opts = true, -- needed even when using default config
+  },
+  {
     "hrsh7th/nvim-pasta",
     init = function()
       vim.keymap.set({ "n", "x" }, "p", require("pasta.mappings").p)
