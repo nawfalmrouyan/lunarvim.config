@@ -1,4 +1,12 @@
 {
     "$schema": "https://raw.githubusercontent.com/sumneko/vscode-lua/master/setting/schema.json",
-    "Lua.completion.autoRequire": false
+    "Lua.completion.autoRequire": false,
+    "workspace.library": [
+        "/usr/local/share/nvim/runtime",
+        "/home/opal/.local/share/lunarvim/lvim",
+        "/home/opal/.local/share/lunarvim/site/pack/lazy/opt/neodev.nvim/types/nightly",
+        "${3rd}/busted/library",
+        "${3rd}/luassert/library",
+        "${3rd}/luv/library"
+    ]
 }
