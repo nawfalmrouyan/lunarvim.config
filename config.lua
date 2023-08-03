@@ -771,7 +771,13 @@ lvim.plugins = {
       }
     end,
   },
-  { "ggandor/leap-spooky.nvim", event = "BufRead" },
+  {
+    "ggandor/leap-spooky.nvim",
+    event = "BufRead",
+    config = function()
+      require("leap-spooky").setup()
+    end,
+  },
   {
     "notjedi/nvim-rooter.lua",
     event = "BufRead",
