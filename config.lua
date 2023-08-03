@@ -208,7 +208,7 @@ lvim.plugins = {
       vim.keymap.set({ "n" }, "<leader>e", ":lua MiniFiles.open()<cr>")
     end,
     config = function()
-      require("mini.files").setup {}
+      require("mini.files").setup { windows = { preview = true } }
     end,
   },
   {
