@@ -38,6 +38,7 @@ lvim.builtin.terminal.active = true
 lvim.builtin.indentlines.active = true
 lvim.builtin.illuminate.active = true
 lvim.builtin.lir.active = false
+lvim.builtin.nvimtree.active = false
 
 vim.diagnostic.config { virtual_text = false }
 
@@ -198,11 +199,23 @@ lvim.builtin.which_key.mappings["x"] = { "<cmd>!chmod +x %<cr>", "Make it execut
 
 -- Additional Plugins
 lvim.plugins = {
+  -- {
+  --   "stevearc/oil.nvim",
+  --   opts = {},
+  --   -- Optional dependencies
+  --   dependencies = { "nvim-tree/nvim-web-devicons" },
+  -- },
   {
-    "stevearc/oil.nvim",
-    opts = {},
-    -- Optional dependencies
-    dependencies = { "nvim-tree/nvim-web-devicons" },
+    "echasnovski/mini.files",
+    event = "BufRead",
+    version = false,
+    init = function()
+      lvim.builtin.which_key.mappings["e"] = nil
+      vim.keymap.set({ "n" }, "<leader>e", ":lua MiniFiles.open()<cr>")
+    end,
+    config = function()
+      require("mini.files").setup {}
+    end,
   },
   {
     "laytan/tailwind-sorter.nvim",
