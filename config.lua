@@ -795,8 +795,8 @@ lvim.plugins = {
     init = function()
       lvim.builtin.which_key.mappings["Z"] =
         { name = "Zen", Z = { "<cmd>TZAtaraxis<cr>", "Zen Mode" }, f = { "<cmd>TZFocus<cr>", "Focus window" } }
-      vim.api.nvim_set_keymap("n", "<M-=>", ":TZFocus<cr>", { noremap = true, silent = false })
-      vim.api.nvim_set_keymap("t", "<M-=>", "<C-\\><C-n>:TZFocus<cr>i", { noremap = true, silent = false })
+      vim.keymap.set({ "n" }, "<M-=>", ":TZFocus<cr>")
+      vim.keymap.set({ "t" }, "<M-=>", "<C-\\><C-n>:TZFocus<cr>i")
     end,
     config = function()
       require("true-zen").setup()
