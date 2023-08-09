@@ -1119,24 +1119,31 @@ lvim.plugins = {
       lvim.builtin.which_key.mappings["Y"] = { "<cmd>Codi!<cr>", "Clear Codi" }
     end,
   },
-  -- { "nvim-treesitter/nvim-treesitter-textobjects", before = "nvim-treesitter", event = "BufRead" },
-  -- {
-  --   "ruifm/gitlinker.nvim",
-  --   event = "BufRead",
-  --   config = function()
-  --     require("gitlinker").setup {
-  --       opts = {
-  --         add_current_line_on_normal_mode = true,
-  --         action_callback = require("gitlinker.actions").copy_to_clipboard,
-  --         print_url = false,
-  --         mappings = "<leader>gy",
-  --       },
-  --     }
-  --   end,
-  --   dependencies = "nvim-lua/plenary.nvim",
-  -- },
+  {
+    "nvim-treesitter/nvim-treesitter-textobjects",
+    enabled = false,
+    before = "nvim-treesitter",
+    event = "BufRead",
+  },
+  {
+    "ruifm/gitlinker.nvim",
+    enabled = false,
+    event = "BufRead",
+    config = function()
+      require("gitlinker").setup {
+        opts = {
+          add_current_line_on_normal_mode = true,
+          action_callback = require("gitlinker.actions").copy_to_clipboard,
+          print_url = false,
+          mappings = "<leader>gy",
+        },
+      }
+    end,
+    dependencies = "nvim-lua/plenary.nvim",
+  },
   {
     "chrisgrieser/nvim-origami",
+    enabled = false,
     event = "BufReadPost", -- later or on keypress would prevent saving folds
     opts = true, -- needed even when using default config
   },
