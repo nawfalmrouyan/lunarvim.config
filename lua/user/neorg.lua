@@ -20,8 +20,8 @@ M.config = function()
       ["core.dirman"] = {
         config = {
           workspaces = {
-            work = "~/adata/notes/work",
-            home = "~/adata/notes/home",
+            work = "~/notes/work",
+            home = "~/notes/home",
           },
           default_workspace = "work",
         },
