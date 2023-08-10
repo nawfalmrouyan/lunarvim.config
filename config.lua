@@ -37,8 +37,8 @@ lvim.builtin.dap.active = false
 lvim.builtin.terminal.active = true
 lvim.builtin.indentlines.active = true
 lvim.builtin.illuminate.active = true
-lvim.builtin.lir.active = false
-lvim.builtin.nvimtree.active = false
+lvim.builtin.lir.active = true
+lvim.builtin.nvimtree.active = true
 
 vim.diagnostic.config { virtual_text = false }
 
@@ -201,6 +201,7 @@ lvim.builtin.which_key.mappings["x"] = { "<cmd>!chmod +x %<cr>", "Make it execut
 lvim.plugins = {
   {
     "echasnovski/mini.files",
+    enabled = false,
     event = "BufRead",
     version = false,
     init = function()
