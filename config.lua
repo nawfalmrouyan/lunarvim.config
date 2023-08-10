@@ -11,6 +11,7 @@ lvim.transparent_window = true
 
 -- vim.opt.cmdheight = 0
 -- vim.opt.timeoutlen = 500
+vim.g.maplocalleader = ","
 vim.opt.ignorecase = false
 vim.opt.smartcase = false
 vim.opt.relativenumber = true
