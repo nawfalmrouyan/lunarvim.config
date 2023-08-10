@@ -9,6 +9,7 @@ M.config = function()
     load = {
       ["core.defaults"] = {},
       ["core.upgrade"] = {},
+      ["core.summary"] = {},
       ["core.concealer"] = {
         config = { icon_preset = "diamond" },
       },
