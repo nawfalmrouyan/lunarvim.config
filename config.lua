@@ -260,6 +260,7 @@ lvim.plugins = {
   },
   {
     "rcarriga/nvim-notify",
+    enabled = false,
     init = function()
       lvim.builtin.which_key.mappings["sn"] = { "<CMD>Telescope notify<CR>", "Notifications history" }
     end,
@@ -273,6 +274,7 @@ lvim.plugins = {
   },
   {
     "mrded/nvim-lsp-notify",
+    enabled = false,
     config = function()
       require("lsp-notify").setup()
     end,
