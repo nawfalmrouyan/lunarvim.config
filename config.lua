@@ -228,7 +228,7 @@ lvim.plugins = {
   },
   {
     "Exafunction/codeium.vim",
-    event = "BufRead",
+    event = "BufEnter",
     init = function()
       vim.keymap.set("i", "<C-g>", function()
         return vim.fn["codeium#Accept"]()
