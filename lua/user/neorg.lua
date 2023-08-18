@@ -8,25 +8,24 @@ M.config = function()
   neorg.setup {
     load = {
       ["core.defaults"] = {},
-      ["core.concealer"] = {
-        config = { icon_preset = "diamond" },
-      },
+      ["core.completion"] = { config = { engine = "nvim-cmp" } },
+      ["core.concealer"] = { config = { icon_preset = "diamond" } },
+      ["core.export"] = {},
+      ["core.export.markdown"] = {},
+      ["core.manoeuvre"] = {},
+      ["core.presenter"] = { config = { zen_mode = "truezen" } },
+      ["core.summary"] = {},
+      ["core.ui.calendar"] = {},
       ["core.integrations.telescope"] = {},
       ["core.dirman"] = {
         config = {
           workspaces = {
-            work = "~/notes/work",
-            home = "~/notes/home",
+            fleeting = "~/notes/fleeting",
+            literature = "~/notes/literature",
+            permanent = "~/notes/permanent",
           },
-          default_workspace = "work",
+          default_workspace = "fleeting",
         },
-        ["core.manoeuvre"] = {},
-        ["core.completion"] = { config = { engine = "nvim-cmp" } },
-        ["core.presenter"] = { config = { zen_mode = "truezen" } },
-        ["core.export"] = {},
-        ["core.export.markdown"] = {},
-        ["core.ui.calendar"] = {},
-        ["core.summary"] = {},
       },
     },
   }
