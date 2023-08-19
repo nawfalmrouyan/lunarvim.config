@@ -308,6 +308,7 @@ lvim.plugins = {
   { "preservim/vim-markdown", ft = "markdown", dependencies = "godlygeek/tabular" },
   {
     "nvim-telescope/telescope-frecency.nvim",
+    enabled = false,
     event = "BufRead",
     init = function()
       lvim.builtin.which_key.mappings["so"] =
@@ -852,6 +853,7 @@ lvim.plugins = {
   { "wakatime/vim-wakatime" },
   {
     "j-hui/fidget.nvim",
+    enabled = false,
     event = "BufRead",
     branch = "legacy",
     config = function()
@@ -860,6 +862,7 @@ lvim.plugins = {
   },
   {
     "ibhagwan/fzf-lua",
+    enabled = false,
     event = "BufRead",
     init = function()
       lvim.builtin.which_key.mappings["F"] = {
