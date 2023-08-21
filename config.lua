@@ -1181,6 +1181,7 @@ lvim.plugins = {
   },
   {
     "hrsh7th/nvim-pasta",
+    enabled = false,
     init = function()
       vim.keymap.set({ "n", "x" }, "p", require("pasta.mappings").p)
       vim.keymap.set({ "n", "x" }, "P", require("pasta.mappings").P)
