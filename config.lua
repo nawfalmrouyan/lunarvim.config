@@ -777,6 +777,7 @@ lvim.plugins = {
   },
   {
     "karb94/neoscroll.nvim",
+    enabled = false,
     event = "BufEnter",
     config = function()
       require("user.neoscroll").config()
@@ -1218,6 +1219,13 @@ lvim.plugins = {
       "nvim-treesitter/nvim-treesitter",
     },
     opts = {},
+  },
+  {
+    "echasnovski/mini.animate",
+    version = false,
+    config = function()
+      require("mini.animate").setup()
+    end,
   },
 }
 
