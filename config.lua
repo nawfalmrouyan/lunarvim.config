@@ -554,13 +554,7 @@ lvim.plugins = {
   --     end
   --   end,
   -- },
-  {
-    "HiPhish/rainbow-delimiters.nvim",
-    event = "BufRead",
-    config = function()
-      require("rainbow-delimiters").setup()
-    end,
-  },
+  { "HiPhish/rainbow-delimiters.nvim", event = "BufRead" },
   { "windwp/nvim-ts-autotag", event = "InsertEnter" },
   { "romgrk/fzy-lua-native", build = "make" },
   { "nvim-telescope/telescope-fzy-native.nvim" },
