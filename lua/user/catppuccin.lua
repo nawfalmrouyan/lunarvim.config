@@ -34,9 +34,10 @@ M.config = function()
     },
     require("catppuccin").setup {
       integrations = {
+        alpha = true,
         cmp = true,
         dashboard = true,
-        fidget = true,
+        -- fidget = true,
         gitsigns = true,
         illuminate = true,
         leap = true,
@@ -47,9 +48,11 @@ M.config = function()
         noice = true,
         notify = true,
         nvimtree = true,
+        rainbow_delimiters = true,
+        semantic_tokens = true,
         telescope = true,
         treesitter = true,
-        ts_rainbow2 = true,
+        treesitter_context = true,
         which_key = true,
 
         -- Special integrations, see https://github.com/catppuccin/nvim#special-integrations
