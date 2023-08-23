@@ -766,8 +766,13 @@ lvim.plugins = {
   {
     "ggandor/leap.nvim",
     event = "BufRead",
+    dependencies = "tpope/vim-repeat",
     config = function()
-      require("leap").set_default_keymaps()
+      require("leap").add_default_mappings()
+      require("leap").add_repeat_mappings(";", ",", {
+        relative_directions = true,
+        modes = { "n", "x", "o" },
+      })
     end,
   },
   {
