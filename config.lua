@@ -536,24 +536,6 @@ lvim.plugins = {
       }
     end,
   },
-  -- {
-  --   "HiPhish/nvim-ts-rainbow2",
-  --   event = "BufRead",
-  --   dependencies = { "nvim-treesitter" },
-  --   init = function()
-  --     lvim.builtin.treesitter.on_config_done = function()
-  --       lvim.builtin.treesitter.rainbow = {
-  --         query = {
-  --           "rainbow-parens",
-  --           html = "rainbow-tags",
-  --         },
-  --         strategy = {
-  --           require("ts-rainbow").strategy.global,
-  --         },
-  --       }
-  --     end
-  --   end,
-  -- },
   { "HiPhish/rainbow-delimiters.nvim", event = "BufRead" },
   { "windwp/nvim-ts-autotag", event = "InsertEnter" },
   { "romgrk/fzy-lua-native", build = "make" },
