@@ -643,35 +643,7 @@ lvim.plugins = {
     },
     ft = "markdown",
     init = function()
-      lvim.builtin.which_key.vmappings["z"] = {
-        name = "Zettelkasten",
-        c = { ":'<'>ZkNewFromContentSelection<CR>" },
-        l = { ":'<'>ZkInsertLinkAtSelection { matchSelected = true }<CR>", "Insert link using selected text" },
-        s = { ":'<'>ZkMatch<CR>", "Search using selected text" },
-        t = { ":'<'>ZkNewFromTitleSelection<CR>", "New note with selection as Title" },
-      }
-      lvim.builtin.which_key.mappings["z"] = {
-        name = "Zettelkasten",
-        f = {
-          name = "Find notes",
-          n = { "<cmd>ZkNotes<CR>", "List all notes" },
-          o = { "<cmd>ZkOrphans<CR>", "List orphans" },
-          r = { "<cmd>ZkRecents<CR>", "List recents" },
-          t = { "<cmd>ZkTags<CR>", "List all tags" },
-        },
-        l = {
-          name = "Links",
-          b = { "<cmd>ZkBacklinks<CR>", "List backlinks" },
-          i = { "<cmd>ZkInsertLink<CR>", "Insert link" },
-          l = { "<cmd>ZkLinks<CR>", "List links" },
-        },
-        n = {
-          name = "New Note",
-          f = { "<cmd>ZkNew { dir = 'fleeting' }<CR>", "New fleeting note" },
-          l = { "<cmd>ZkNew { dir = 'literature' }<CR>", "New literature note" },
-          p = { "<cmd>ZkNew { dir = 'permanent' }<CR>", "New permanent note" },
-        },
-      }
+      require("user.zk-nvim").init()
     end,
     config = function()
       require("user.zk-nvim").config()
