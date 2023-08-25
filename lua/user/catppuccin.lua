@@ -39,7 +39,10 @@ M.config = function()
         dashboard = true,
         -- fidget = true,
         gitsigns = true,
-        illuminate = true,
+        illuminate = {
+          enabled = true,
+          lsp = true,
+        },
         leap = true,
         lsp_trouble = true,
         markdown = true,
