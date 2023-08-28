@@ -346,8 +346,6 @@ lvim.plugins = {
     "luukvbaal/statuscol.nvim",
     event = "BufRead",
     config = function()
-      -- local cfg = { order = "FNSs", setopt = true }
-      -- require("statuscol").setup(cfg)
       local builtin = require "statuscol.builtin"
       require("statuscol").setup {
         relculright = true,
