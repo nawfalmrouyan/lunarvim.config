@@ -651,6 +651,7 @@ lvim.plugins = {
   },
   {
     "ggandor/leap-spooky.nvim",
+    enabled = false,
     event = "BufRead",
     config = function()
       require("leap-spooky").setup()
