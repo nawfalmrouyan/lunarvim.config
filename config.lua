@@ -1031,6 +1031,15 @@ lvim.plugins = {
       require("mini.animate").setup()
     end,
   },
+  {
+    "gbprod/cutlass.nvim",
+    event = "BufRead",
+    config = function()
+      require("cutlass").setup {
+        exclude = { "ns", "nS" },
+      }
+    end,
+  },
 }
 
 lvim.autocommands = {
