@@ -68,7 +68,7 @@ lvim.builtin.treesitter.ensure_installed = {
 lvim.builtin.treesitter.highlight.enabled = true
 lvim.builtin.treesitter.rainbow.enable = true
 lvim.builtin.treesitter.autotag.enable = true
--- lvim.builtin.treesitter.textsubjects.enable = true
+lvim.builtin.treesitter.textsubjects.enable = true
 
 lvim.builtin.mason.ensure_installed = {
   "bashls",
@@ -825,7 +825,7 @@ lvim.plugins = {
     end,
   },
   -- { "mattn/vim-gist", event = "BufRead", dependencies = "mattn/webapi-vim" },
-  -- { "RRethy/nvim-treesitter-textsubjects", event = "BufRead", before = "nvim-treesitter" },
+  { "RRethy/nvim-treesitter-textsubjects", event = "BufRead", before = "nvim-treesitter" },
   -- {
   --   "simrat39/symbols-outline.nvim",
   --   event = "BufRead",
