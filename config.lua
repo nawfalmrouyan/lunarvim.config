@@ -171,6 +171,7 @@ lvim.keys.normal_mode["<M-o>"] = "o<esc>"
 lvim.keys.normal_mode["<M-O>"] = "O<esc>"
 lvim.keys.normal_mode["<M-$>"] = "g$"
 lvim.keys.normal_mode["/"] = "ms/"
+lvim.keys.normal_mode["<Esc>"] = "<Cmd>nohlsearch|diffupdate|normal!<C-l><CR>"
 -- lvim.keys.normal_mode["<C-p>"] = ":FzfLua files<cr>"
 
 -- From the primeagen
