@@ -108,49 +108,49 @@ lvim.builtin.cmp.cmdline.enable = true
 lvim.builtin.cmp.experimental.ghost_text = true
 lvim.builtin.luasnip.sources.friendly_snippets = true
 
--- lvim.builtin.treesitter.textobjects = {
---   lookahead = true,
---   select = {
---     enable = true,
---     keymaps = {
---       ["af"] = "@function.outer",
---       ["if"] = "@function.inner",
---       ["ac"] = "@class.outer",
---       ["ic"] = "@class.inner",
---       ["aC"] = "@conditional.outer",
---       ["iC"] = "@conditional.inner",
---     },
---   },
---   swap = {
---     enable = true,
---     swap_next = {
---       ["[w"] = "@parameter.inner",
---     },
---     swap_previous = {
---       ["]w"] = "@parameter.inner",
---     },
---   },
---   move = {
---     enable = true,
---     set_jumps = true, -- whether to set jumps in the jumplist
---     goto_next_start = {
---       ["]m"] = "@function.outer",
---       ["]]"] = "@class.outer",
---     },
---     goto_previous_start = {
---       ["[m"] = "@function.outer",
---       ["[["] = "@class.outer",
---     },
---   },
---   lsp_interop = {
---     enable = false,
---     border = "rounded",
---     peek_definition_code = {
---       ["df"] = "@function.outer",
---       ["dF"] = "@class.outer",
---     },
---   },
--- }
+lvim.builtin.treesitter.textobjects = {
+  lookahead = true,
+  select = {
+    enable = true,
+    keymaps = {
+      ["af"] = "@function.outer",
+      ["if"] = "@function.inner",
+      ["ac"] = "@class.outer",
+      ["ic"] = "@class.inner",
+      ["aC"] = "@conditional.outer",
+      ["iC"] = "@conditional.inner",
+    },
+  },
+  swap = {
+    enable = true,
+    swap_next = {
+      ["[w"] = "@parameter.inner",
+    },
+    swap_previous = {
+      ["]w"] = "@parameter.inner",
+    },
+  },
+  move = {
+    enable = true,
+    set_jumps = true, -- whether to set jumps in the jumplist
+    goto_next_start = {
+      ["]m"] = "@function.outer",
+      ["]]"] = "@class.outer",
+    },
+    goto_previous_start = {
+      ["[m"] = "@function.outer",
+      ["[["] = "@class.outer",
+    },
+  },
+  lsp_interop = {
+    enable = false,
+    border = "rounded",
+    peek_definition_code = {
+      ["df"] = "@function.outer",
+      ["dF"] = "@class.outer",
+    },
+  },
+}
 
 -- ---remove a server from the skipped list, e.g. eslint, or emmet_ls. IMPORTANT: Requires `:LvimCacheReset` to take effect
 -- ---`:LvimInfo` lists which server(s) are skipped for the current filetype
@@ -958,7 +958,6 @@ lvim.plugins = {
   },
   {
     "nvim-treesitter/nvim-treesitter-textobjects",
-    enabled = false,
     before = "nvim-treesitter",
     event = "BufRead",
   },
