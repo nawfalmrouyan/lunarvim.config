@@ -103,7 +103,7 @@ lvim.builtin.telescope.on_config_done = function(telescope)
   -- pcall(telescope.load_extension, "notify")
 end
 
-lvim.builtin.autopairs.active = true
+lvim.builtin.autopairs.active = false
 lvim.builtin.cmp.cmdline.enable = true
 lvim.builtin.cmp.experimental.ghost_text = true
 lvim.builtin.luasnip.sources.friendly_snippets = true
@@ -201,6 +201,16 @@ lvim.builtin.which_key.mappings["x"] = { "<cmd>!chmod +x %<cr>", "Make it execut
 
 -- Additional Plugins
 lvim.plugins = {
+  {
+    "altermo/ultimate-autopair.nvim",
+    event = { "InsertEnter", "CmdlineEnter" },
+    branch = "v0.6",
+    config = function()
+      require("ultimate-autopair").setup {
+        tabout = { enable = true },
+      }
+    end,
+  },
   {
     "echasnovski/mini.files",
     enabled = false,
