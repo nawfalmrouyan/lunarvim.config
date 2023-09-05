@@ -197,6 +197,7 @@ lvim.builtin.which_key.mappings["bo"] = { "<cmd>%bd|e#|bd#<cr>", "Close all buff
 lvim.builtin.which_key.mappings["?"] = { "<cmd>NvimTreeFindFile<cr>", "Find file in NvimTree" }
 lvim.builtin.which_key.mappings["c"] = { "<cmd>bdelete!<cr>", "Close Buffer" }
 lvim.builtin.which_key.mappings["x"] = { "<cmd>!chmod +x %<cr>", "Make it executable" }
+lvim.builtin.which_key.mappings["k"] = { "<cmd>%s/\\s\\+$//e<cr>:noh<cr>", "Delete trailing whitespace from file" }
 
 -- Additional Plugins
 lvim.plugins = {
