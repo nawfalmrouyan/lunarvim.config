@@ -714,7 +714,6 @@ lvim.plugins = {
   { "wakatime/vim-wakatime", enabled = false },
   {
     "j-hui/fidget.nvim",
-    enabled = false,
     event = "BufRead",
     branch = "legacy",
     config = function()
@@ -960,6 +959,7 @@ lvim.plugins = {
   },
   {
     "metakirby5/codi.vim",
+    enabled = false,
     cmd = "Codi",
     ft = { "python", "javascript", "php" },
     init = function()
