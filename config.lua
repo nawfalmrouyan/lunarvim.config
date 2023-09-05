@@ -837,47 +837,47 @@ lvim.plugins = {
   },
   -- { "mattn/vim-gist", event = "BufRead", dependencies = "mattn/webapi-vim" },
   { "RRethy/nvim-treesitter-textsubjects", event = "BufRead", before = "nvim-treesitter" },
-  -- {
-  --   "simrat39/symbols-outline.nvim",
-  --   event = "BufRead",
-  --   cmd = { "SymbolsOutline", "SymbolsOutlineOpen", "SymbolsOutlineClose" },
-  --   init = function()
-  --     lvim.builtin.which_key.mappings["lo"] = { "<cmd>SymbolsOutline<cr>", "Outline" }
-  --   end,
-  --   config = function()
-  --     -- require("user.symbolsoutline").config()
-  --     require("symbols-outline").setup {
-  --       symbols = {
-  --         File = { hl = "@text.uri" },
-  --         Module = { hl = "@namespace" },
-  --         Namespace = { hl = "@namespace" },
-  --         Package = { hl = "@namespace" },
-  --         Class = { hl = "@type" },
-  --         Method = { hl = "@method" },
-  --         Property = { hl = "@method" },
-  --         Field = { hl = "@field" },
-  --         Constructor = { hl = "@constructor" },
-  --         Enum = { hl = "@type" },
-  --         Interface = { hl = "@type" },
-  --         Function = { hl = "@function" },
-  --         Variable = { hl = "@constant" },
-  --         Constant = { hl = "@constant" },
-  --         String = { hl = "@string" },
-  --         Number = { hl = "@number" },
-  --         Boolean = { hl = "@boolean" },
-  --         Array = { hl = "@constant" },
-  --         Object = { hl = "@type" },
-  --         Key = { hl = "@type" },
-  --         Null = { hl = "@type" },
-  --         EnumMember = { hl = "@field" },
-  --         Struct = { hl = "@type" },
-  --         Event = { hl = "@type" },
-  --         Operator = { hl = "@operator" },
-  --         TypeParameter = { hl = "@parameter" },
-  --       },
-  --     }
-  --   end,
-  -- },
+  {
+    "simrat39/symbols-outline.nvim",
+    event = "BufRead",
+    cmd = { "SymbolsOutline", "SymbolsOutlineOpen", "SymbolsOutlineClose" },
+    init = function()
+      lvim.builtin.which_key.mappings["lo"] = { "<cmd>SymbolsOutline<cr>", "Outline" }
+    end,
+    config = function()
+      -- require("user.symbolsoutline").config()
+      require("symbols-outline").setup {
+        symbols = {
+          File = { hl = "@text.uri" },
+          Module = { hl = "@namespace" },
+          Namespace = { hl = "@namespace" },
+          Package = { hl = "@namespace" },
+          Class = { hl = "@type" },
+          Method = { hl = "@method" },
+          Property = { hl = "@method" },
+          Field = { hl = "@field" },
+          Constructor = { hl = "@constructor" },
+          Enum = { hl = "@type" },
+          Interface = { hl = "@type" },
+          Function = { hl = "@function" },
+          Variable = { hl = "@constant" },
+          Constant = { hl = "@constant" },
+          String = { hl = "@string" },
+          Number = { hl = "@number" },
+          Boolean = { hl = "@boolean" },
+          Array = { hl = "@constant" },
+          Object = { hl = "@type" },
+          Key = { hl = "@type" },
+          Null = { hl = "@type" },
+          EnumMember = { hl = "@field" },
+          Struct = { hl = "@type" },
+          Event = { hl = "@type" },
+          Operator = { hl = "@operator" },
+          TypeParameter = { hl = "@parameter" },
+        },
+      }
+    end,
+  },
   -- {
   --   "tzachar/cmp-tabnine",
   --   build = "./install.sh",
