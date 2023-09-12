@@ -1009,54 +1009,6 @@ lvim.plugins = {
     opts = true, -- needed even when using default config
   },
   {
-    "hrsh7th/nvim-pasta",
-    enabled = false,
-    init = function()
-      vim.keymap.set({ "n", "x" }, "p", require("pasta.mappings").p)
-      vim.keymap.set({ "n", "x" }, "P", require("pasta.mappings").P)
-      vim.keymap.set({ "n" }, "<C-p>", require("pasta.mappings").toggle_pin)
-    end,
-    config = function()
-      require("pasta").setup {
-        paste_mode = false,
-        fix_cursor = true,
-        fix_indent = true,
-        prevent_diagnostics = false,
-        next_key = vim.api.nvim_replace_termcodes("<C-p>", true, true, true),
-        prev_key = vim.api.nvim_replace_termcodes("<C-n>", true, true, true),
-      }
-      require("pasta").setup.filetype({ "markdown", "yaml" }, {
-        converters = {},
-      })
-    end,
-  },
-  {
-    "luckasRanarison/nvim-devdocs",
-    cmd = {
-      "DevdocsFetch",
-      "DevdocsInstall",
-      "DevdocsUninstall",
-      "DevdocsOpen",
-      "DevdocsOpenFloat",
-      "DevdocsUpdate",
-      "DevdocsUpdateAll",
-    },
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      "nvim-telescope/telescope.nvim",
-      "nvim-treesitter/nvim-treesitter",
-    },
-    opts = {},
-  },
-  {
-    "echasnovski/mini.animate",
-    enabled = false,
-    version = false,
-    config = function()
-      require("mini.animate").setup()
-    end,
-  },
-  {
     "gbprod/cutlass.nvim",
     event = "BufRead",
     config = function()
