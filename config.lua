@@ -655,8 +655,8 @@ lvim.plugins = {
     config = function()
       require("flit").setup {
         keys = { f = "f", F = "F", t = "t", T = "T" },
-        labeled_modes = "v",
-        multiline = true,
+        labeled_modes = "nv",
+        multiline = false,
         opts = {},
       }
     end,
