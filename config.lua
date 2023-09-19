@@ -878,6 +878,14 @@ lvim.plugins = {
       }
     end,
   },
+  {
+    "rasulomaroff/telepath.nvim",
+    dependencies = "ggandor/leap.nvim",
+    lazy = false,
+    config = function()
+      require("telepath").use_default_mappings()
+    end,
+  },
   -- {
   --   "tzachar/cmp-tabnine",
   --   build = "./install.sh",
