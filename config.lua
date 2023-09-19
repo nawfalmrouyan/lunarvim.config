@@ -371,6 +371,7 @@ lvim.plugins = {
   },
   {
     "chrisgrieser/nvim-various-textobjs",
+    enabled = false,
     event = "BufRead",
     config = function()
       require("various-textobjs").setup { useDefaultKeymaps = true }
