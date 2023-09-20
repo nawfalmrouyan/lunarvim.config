@@ -643,7 +643,7 @@ lvim.plugins = {
     event = "BufRead",
     dependencies = "tpope/vim-repeat",
     config = function()
-      require("leap").add_default_mappings()
+      -- require("leap").add_default_mappings()
       require("leap").add_repeat_mappings(";", ",", {
         relative_directions = true,
         modes = { "n", "x", "o" },
@@ -657,7 +657,7 @@ lvim.plugins = {
       require("flit").setup {
         keys = { f = "f", F = "F", t = "t", T = "T" },
         labeled_modes = "nv",
-        multiline = false,
+        multiline = true,
         opts = {},
       }
     end,
