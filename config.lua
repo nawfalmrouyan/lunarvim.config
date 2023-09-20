@@ -272,27 +272,6 @@ lvim.plugins = {
     end,
   },
   {
-    "rcarriga/nvim-notify",
-    enabled = false,
-    init = function()
-      lvim.builtin.which_key.mappings["sn"] = { "<CMD>Telescope notify<CR>", "Notifications history" }
-    end,
-    config = function()
-      require("notify").setup {
-        stages = "fade",
-        render = "compact",
-        background_colour = "#000000",
-      }
-    end,
-  },
-  {
-    "mrded/nvim-lsp-notify",
-    enabled = false,
-    config = function()
-      require("lsp-notify").setup()
-    end,
-  },
-  {
     "folke/noice.nvim",
     config = function()
       require("user.noice").config()
@@ -370,15 +349,8 @@ lvim.plugins = {
     dependencies = { "nvim-neorg/neorg-telescope", "nvim-lua/plenary.nvim" },
   },
   {
-    "chrisgrieser/nvim-various-textobjs",
-    enabled = false,
-    event = "BufRead",
-    config = function()
-      require("various-textobjs").setup { useDefaultKeymaps = true }
-    end,
-  },
-  {
     "echasnovski/mini.basics",
+    enabled = false,
     event = "BufRead",
     version = false,
     config = function()
@@ -399,14 +371,6 @@ lvim.plugins = {
           relnum_in_visual_mode = false,
         },
       }
-    end,
-  },
-  {
-    "echasnovski/mini.bracketed",
-    version = false,
-    event = "BufRead",
-    config = function()
-      require("mini.bracketed").setup()
     end,
   },
   {
@@ -439,7 +403,6 @@ lvim.plugins = {
   },
   {
     "ethanholz/nvim-lastplace",
-    -- event = "BufRead",
     config = function()
       require("nvim-lastplace").setup {
         lastplace_ignore_buftype = { "quickfix", "nofile", "help" },
@@ -457,7 +420,6 @@ lvim.plugins = {
   },
   {
     "folke/persistence.nvim",
-    -- event = "BufRead",
     init = function()
       lvim.builtin.which_key.mappings["S"] = {
         name = "Session",
@@ -755,15 +717,6 @@ lvim.plugins = {
     ft = { "html", "css", "javascript", "typescript", "javascriptreact", "typescriptreact", "svelte" },
     dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
     opts = {},
-    config = function()
-      local mason_registry = require "mason-registry"
-      local tsserver_path = mason_registry.get_package("typescript-language-server"):get_install_path()
-      require("typescript-tools").setup {
-        settings = {
-          tsserver_path = tsserver_path .. "/node_modules/typescript/lib/tsserver.js",
-        },
-      }
-    end,
   },
   {
     "chrisgrieser/nvim-recorder",
