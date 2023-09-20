@@ -663,14 +663,6 @@ lvim.plugins = {
     end,
   },
   {
-    "ggandor/leap-spooky.nvim",
-    enabled = false,
-    event = "BufRead",
-    config = function()
-      require("leap-spooky").setup()
-    end,
-  },
-  {
     "notjedi/nvim-rooter.lua",
     event = "BufRead",
     config = function()
@@ -774,21 +766,6 @@ lvim.plugins = {
     end,
   },
   {
-    "rebelot/kanagawa.nvim",
-    enabled = false,
-    config = function()
-      require("user.kanagawa").config()
-    end,
-  },
-  {
-    "eandrju/cellular-automaton.nvim",
-    event = "BufRead",
-    enabled = false,
-    init = function()
-      lvim.builtin.which_key.mappings["ml"] = { "<CMD>CellularAutomaton make_it_rain<CR>", "Make it RAIN" }
-    end,
-  },
-  {
     "chrisgrieser/nvim-recorder",
     event = "BufRead",
     enabled = false,
@@ -823,20 +800,6 @@ lvim.plugins = {
       lvim.builtin.lualine.sections.lualine_z = { { require("recorder").recordingStatus } }
     end,
   },
-  {
-    "glacambre/firenvim",
-    enabled = false,
-    -- Lazy load firenvim
-    -- Explanation: https://github.com/fofreelke/lazy.nvim/discussions/463#discussioncomment-4819297
-    lazy = not vim.g.started_by_firenvim,
-    build = function()
-      vim.fn["firenvim#install"](0)
-    end,
-    config = function()
-      require("user.firenvim").config()
-    end,
-  },
-  -- { "mattn/vim-gist", event = "BufRead", dependencies = "mattn/webapi-vim" },
   { "RRethy/nvim-treesitter-textsubjects", event = "BufRead", before = "nvim-treesitter" },
   {
     "simrat39/symbols-outline.nvim",
@@ -887,27 +850,6 @@ lvim.plugins = {
       require("telepath").use_default_mappings()
     end,
   },
-  -- {
-  --   "tzachar/cmp-tabnine",
-  --   build = "./install.sh",
-  --   dependencies = "hrsh7th/nvim-cmp",
-  --   event = "InsertEnter",
-  --   config = function()
-  --     local tabnine = require "cmp_tabnine.config"
-
-  --     tabnine:setup {
-  --       max_lines = 1000,
-  --       max_num_results = 20,
-  --       sort = true,
-  --       run_on_every_keystroke = true,
-  --       snippet_placeholder = "..",
-  --       ignored_file_types = {
-  --         -- lua = true
-  --       },
-  --       show_prediction_strength = false,
-  --     }
-  --   end,
-  -- },
   {
     "echasnovski/mini.map",
     enabled = false,
@@ -1010,12 +952,6 @@ lvim.plugins = {
       }
     end,
     dependencies = "nvim-lua/plenary.nvim",
-  },
-  {
-    "chrisgrieser/nvim-origami",
-    enabled = false,
-    event = "BufReadPost", -- later or on keypress would prevent saving folds
-    opts = true, -- needed even when using default config
   },
   {
     "gbprod/cutlass.nvim",
