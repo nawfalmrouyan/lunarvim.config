@@ -768,7 +768,6 @@ lvim.plugins = {
   {
     "chrisgrieser/nvim-recorder",
     event = "BufRead",
-    enabled = false,
     config = function()
       require("recorder").setup {
         -- Named registers where macros are saved. The first register is the default
@@ -911,7 +910,6 @@ lvim.plugins = {
   },
   {
     "metakirby5/codi.vim",
-    -- enabled = false,
     cmd = "Codi",
     ft = { "python", "javascript", "php" },
     init = function()
