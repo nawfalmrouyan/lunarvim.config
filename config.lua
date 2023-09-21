@@ -38,7 +38,7 @@ lvim.builtin.dap.active = false
 lvim.builtin.terminal.active = true
 lvim.builtin.indentlines.active = true
 lvim.builtin.illuminate.active = true
-lvim.builtin.lir.active = true
+lvim.builtin.lir.active = false
 lvim.builtin.nvimtree.active = true
 
 vim.diagnostic.config { virtual_text = false }
@@ -202,6 +202,12 @@ lvim.builtin.which_key.mappings["k"] = { "<cmd>%s/\\s\\+$//e<cr>:noh<cr>", "Dele
 
 -- Additional Plugins
 lvim.plugins = {
+  {
+    "stevearc/oil.nvim",
+    opts = {},
+    -- Optional dependencies
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+  },
   {
     "altermo/ultimate-autopair.nvim",
     event = { "InsertEnter", "CmdlineEnter" },
