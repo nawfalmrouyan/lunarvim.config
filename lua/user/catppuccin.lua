@@ -134,7 +134,7 @@ M.config = function()
     end,
   })
 
-  local mocha = require("catppuccin.palettes").get_palette "mocha"
+  -- local mocha = require("catppuccin.palettes").get_palette "mocha"
   lvim.builtin.bufferline.highlights = require("catppuccin.groups.integrations.bufferline").get()
 end
 
