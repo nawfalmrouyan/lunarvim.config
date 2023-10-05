@@ -28,6 +28,7 @@ vim.opt.colorcolumn = "100"
 -- test highlight only line number.
 vim.opt.cursorline = true
 vim.opt.cursorlineopt = "number"
+
 -- #22668 adds lua-loader. A builtin Lua module which byte-compiles and caches Lua files
 -- (speeds up load times).
 -- vim.loader.enable()
