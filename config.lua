@@ -576,7 +576,9 @@ lvim.plugins = {
   {
     "iamcco/markdown-preview.nvim",
     ft = "markdown",
-    build = "cd app && npm install",
+    build = function()
+      vim.fn["mkdp#util#install"]()
+    end,
     init = function()
       lvim.builtin.which_key.mappings["m"] =
         { name = "Markdown & Minimap", M = { "<cmd>MarkdownPreview<cr>", "Markdown Preview" } }
