@@ -352,6 +352,7 @@ lvim.plugins = {
   },
   {
     "nvim-neorg/neorg",
+    enabled = false,
     ft = "norg",
     cmd = "Neorg",
     build = ":Neorg sync-parsers",
