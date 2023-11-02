@@ -921,6 +921,7 @@ lvim.plugins = {
   },
   {
     "gbprod/cutlass.nvim",
+    enabled = false,
     event = "BufRead",
     config = function()
       require("cutlass").setup {
