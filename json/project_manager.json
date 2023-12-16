@@ -1,0 +1,7 @@
+{
+  "~/nodeProjects/typescript": {
+    "name": "Typescript playground",
+    "description": "Simple typescript playground",
+    "file_name": "main.ts"
+  },
+}

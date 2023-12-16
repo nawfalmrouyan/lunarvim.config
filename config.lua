@@ -929,6 +929,27 @@ lvim.plugins = {
       }
     end,
   },
+  {
+    "CRAG666/code_runner.nvim",
+    init = function()
+      lvim.builtin.which_key.mappings["r"] = {
+        name = "Run",
+        f = { "<cmd>RunFile<cr>", "File" },
+        p = { "<cmd>RunProject<cr>", "Project" },
+        c = { "<cmd>RunClose<cr>", "Close" },
+        r = { "<cmd>RunCode<cr>", "Code" },
+        t = { "<cmd>RunFile tab<cr>", "Tab" },
+        F = { "<cmd>CRFiletype<cr>", "Open Files" },
+        P = { "<cmd>CRProjects<cr>", "Open Projects" },
+      }
+    end,
+    config = function()
+      require("code_runner").setup {
+        filetype_path = vim.fn.expand "~/.config/lvim/json/code_runner.json",
+        -- project_path = vim.fn.expand "~/.config/lvim/json/project_manager.json",
+      }
+    end,
+  },
 }
 
 lvim.autocommands = {
