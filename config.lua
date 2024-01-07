@@ -547,7 +547,7 @@ lvim.plugins = {
     end,
   },
   {
-    "mickael-menu/zk-nvim",
+    "zk-org/zk-nvim",
     cmd = {
       "ZkNewFromTitleSelection",
       "ZkNewFromContentSelection",
