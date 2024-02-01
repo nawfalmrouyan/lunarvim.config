@@ -962,6 +962,11 @@ lvim.plugins = {
       }
     end,
   },
+  {
+    "Ciel-MC/rust-tools.nvim",
+    event = "BufRead",
+    ft = { "rust" },
+  },
 }
 
 lvim.autocommands = {
