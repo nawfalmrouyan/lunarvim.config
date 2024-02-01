@@ -889,6 +889,7 @@ lvim.plugins = {
   },
   {
     "metakirby5/codi.vim",
+    enabled = false,
     cmd = "Codi",
     ft = { "python", "javascript", "php" },
     init = function()
