@@ -245,19 +245,6 @@ lvim.plugins = {
     end,
   },
   {
-    "echasnovski/mini.files",
-    enabled = false,
-    event = "BufRead",
-    version = false,
-    init = function()
-      lvim.builtin.which_key.mappings["e"] = nil
-      vim.keymap.set({ "n" }, "<leader>e", ":lua MiniFiles.open()<cr>")
-    end,
-    config = function()
-      require("mini.files").setup { windows = { preview = true } }
-    end,
-  },
-  {
     "laytan/tailwind-sorter.nvim",
     ft = { "html", "css", "javascript", "typescript", "javascriptreact", "typescriptreact", "svelte" },
     dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-lua/plenary.nvim" },
@@ -312,28 +299,6 @@ lvim.plugins = {
   },
   { "preservim/vim-markdown", ft = "markdown", dependencies = "godlygeek/tabular" },
   {
-    "nvim-telescope/telescope-frecency.nvim",
-    enabled = false,
-    event = "BufRead",
-    init = function()
-      lvim.builtin.which_key.mappings["so"] =
-        { "<CMD>lua require('telescope').extensions.frecency.frecency()<CR>", "Frecency" }
-      lvim.builtin.which_key.mappings["sO"] = {
-        "<CMD>lua require('telescope').extensions.frecency.frecency({ workspace = 'CWD' })<CR>",
-        "Current Workspace Frecency",
-      }
-      local dashentry = lvim.builtin.alpha.dashboard.section.buttons.entries
-      local entry = {
-        "y",
-        lvim.icons.ui.History .. "  Frecency files",
-        "<CMD>lua require('telescope').extensions.frecency.frecency()<CR>",
-      }
-      -- table.remove(dashentry, 4)
-      table.insert(dashentry, 5, entry)
-    end,
-    dependencies = { "kkharji/sqlite.lua" },
-  },
-  {
     "roobert/tailwindcss-colorizer-cmp.nvim",
     ft = { "html", "typescript", "javascript", "svelte", "css", "javascriptreact", "typescriptreact" },
     init = function()
@@ -369,42 +334,6 @@ lvim.plugins = {
     dependencies = { "nvim-treesitter" },
     init = function()
       vim.keymap.set({ "n" }, "<TAB>", require("ts-node-action").node_action, { desc = "Trigger Node Action" })
-    end,
-  },
-  {
-    "nvim-neorg/neorg",
-    enabled = false,
-    ft = "norg",
-    cmd = "Neorg",
-    build = ":Neorg sync-parsers",
-    config = function()
-      require("user.neorg").config()
-    end,
-    dependencies = { "nvim-neorg/neorg-telescope", "nvim-lua/plenary.nvim" },
-  },
-  {
-    "echasnovski/mini.basics",
-    enabled = false,
-    event = "BufRead",
-    version = false,
-    config = function()
-      require("mini.basics").setup {
-        options = {
-          basic = true,
-          extra_ui = true,
-          win_borders = "bold",
-        },
-        mappings = {
-          basic = true,
-          option_toggle_prefix = [[\]],
-          windows = false,
-          move_with_alt = false,
-        },
-        autocommands = {
-          basic = true,
-          relnum_in_visual_mode = false,
-        },
-      }
     end,
   },
   {
@@ -703,7 +632,6 @@ lvim.plugins = {
     "christoomey/vim-tmux-navigator",
     event = "BufRead",
   },
-  { "wakatime/vim-wakatime", enabled = false },
   {
     "j-hui/fidget.nvim",
     event = "BufRead",
@@ -850,39 +778,6 @@ lvim.plugins = {
     end,
   },
   {
-    "echasnovski/mini.map",
-    enabled = false,
-    event = "BufRead",
-    branch = "stable",
-    init = function()
-      lvim.builtin.which_key.mappings["mm"] = { "<cmd>lua MiniMap.toggle()<cr>", "Minimap" }
-    end,
-    config = function()
-      require("mini.map").setup()
-      local map = require "mini.map"
-      map.setup {
-        integrations = {
-          map.gen_integration.builtin_search(),
-          map.gen_integration.diagnostic {
-            error = "DiagnosticFloatingError",
-            warn = "DiagnosticFloatingWarn",
-            info = "DiagnosticFloatingInfo",
-            hint = "DiagnosticFloatingHint",
-          },
-        },
-        symbols = {
-          encode = map.gen_encode_symbols.dot "4x2",
-        },
-        window = {
-          side = "right",
-          width = 20, -- set to 1 for a pure scrollbar :)
-          winblend = 0,
-          show_integration_count = false,
-        },
-      }
-    end,
-  },
-  {
     "romgrk/nvim-treesitter-context",
     event = "BufRead",
     config = function()
@@ -935,32 +830,6 @@ lvim.plugins = {
     "nvim-treesitter/nvim-treesitter-textobjects",
     before = "nvim-treesitter",
     event = "BufRead",
-  },
-  {
-    "ruifm/gitlinker.nvim",
-    enabled = false,
-    event = "BufRead",
-    config = function()
-      require("gitlinker").setup {
-        opts = {
-          add_current_line_on_normal_mode = true,
-          action_callback = require("gitlinker.actions").copy_to_clipboard,
-          print_url = false,
-          mappings = "<leader>gy",
-        },
-      }
-    end,
-    dependencies = "nvim-lua/plenary.nvim",
-  },
-  {
-    "gbprod/cutlass.nvim",
-    enabled = false,
-    event = "BufRead",
-    config = function()
-      require("cutlass").setup {
-        exclude = { "ns", "nS" },
-      }
-    end,
   },
   {
     "CRAG666/code_runner.nvim",
