@@ -7,7 +7,7 @@ lvim.lint_on_save = false
 lvim.colorscheme = "catppuccin"
 lvim.builtin.lualine.options.theme = "catppuccin"
 lvim.shell = "/usr/bin/zsh"
-lvim.transparent_window = true
+lvim.transparent_window = false
 
 -- vim.opt.cmdheight = 0
 -- vim.opt.timeoutlen = 500
