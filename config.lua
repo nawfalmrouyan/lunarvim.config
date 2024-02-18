@@ -329,7 +329,6 @@ lvim.plugins = {
   },
   {
     "ckolkey/ts-node-action",
-    enabled = false,
     event = "BufRead",
     dependencies = { "nvim-treesitter" },
     init = function()
