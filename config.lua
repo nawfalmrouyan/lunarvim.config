@@ -22,7 +22,7 @@ vim.opt.wrap = true
 -- vim.opt.scrolloff = 0
 -- vim.opt.sidescrolloff = 0
 vim.opt.inccommand = "split"
-vim.opt.guifont = "Iosevka Medium:h17"
+vim.opt.guifont = "PragmataPro Nerd Font Mono:h15"
 vim.opt.colorcolumn = "100"
 
 -- test highlight only line number.
