@@ -229,6 +229,13 @@ lvim.builtin.which_key.mappings["k"] = { "<cmd>%s/\\s\\+$//e<cr>:noh<cr>", "Dele
 -- Additional Plugins
 lvim.plugins = {
   {
+    "dstein64/vim-startuptime",
+    cmd = "StartupTime",
+    config = function()
+      vim.g.startuptime_tries = 10
+    end,
+  },
+  {
     "stevearc/oil.nvim",
     opts = {},
     -- Optional dependencies
