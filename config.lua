@@ -22,14 +22,22 @@ vim.opt.wrap = true
 -- vim.opt.scrolloff = 0
 -- vim.opt.sidescrolloff = 0
 vim.opt.inccommand = "split"
-vim.opt.guifont = "PragmataPro Nerd Font Mono:h15"
 vim.opt.colorcolumn = "100"
 
 -- test highlight only line number.
 vim.opt.cursorline = true
 vim.opt.cursorlineopt = "number"
 
+vim.diagnostic.config { virtual_text = false }
+
+-- #22668 adds lua-loader. A builtin Lua module which byte-compiles and caches Lua files
+-- (speeds up load times).
+-- vim.loader.enable()
+
 if vim.g.neovide then
+  -- neovide font setup
+  vim.opt.guifont = "PragmataPro Nerd Font Mono:h16"
+
   -- Helper function for transparency formatting
   local alpha = function()
     return string.format("%x", math.floor(255 * vim.g.transparency or 0.8))
@@ -50,10 +58,6 @@ if vim.g.neovide then
   vim.g.neovide_light_radius = 5
 end
 
--- #22668 adds lua-loader. A builtin Lua module which byte-compiles and caches Lua files
--- (speeds up load times).
--- vim.loader.enable()
-
 lvim.builtin.lualine.active = true
 lvim.builtin.bufferline.active = true
 lvim.builtin.bufferline.options.show_buffer_close_icons = false
@@ -66,7 +70,6 @@ lvim.builtin.illuminate.active = true
 lvim.builtin.lir.active = false
 lvim.builtin.nvimtree.active = true
 
-vim.diagnostic.config { virtual_text = false }
 
 lvim.builtin.treesitter.auto_install = true
 lvim.builtin.treesitter.ensure_installed = {
