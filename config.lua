@@ -70,7 +70,6 @@ lvim.builtin.illuminate.active = true
 lvim.builtin.lir.active = false
 lvim.builtin.nvimtree.active = true
 
-
 lvim.builtin.treesitter.auto_install = true
 lvim.builtin.treesitter.ensure_installed = {
   "bash",
@@ -81,6 +80,7 @@ lvim.builtin.treesitter.ensure_installed = {
   "gitcommit",
   "gitignore",
   "html",
+  "hyprlang",
   "javascript",
   "json",
   "lua",
@@ -923,5 +923,6 @@ vim.filetype.add {
   pattern = {
     ["req.*.txt"] = "config",
     ["gitconf.*"] = "gitconfig",
+    [".*/hyprland%.conf"] = "hyprlang",
   },
 }
