@@ -36,7 +36,7 @@ vim.diagnostic.config { virtual_text = false }
 
 if vim.g.neovide then
   -- neovide font setup
-  vim.opt.guifont = "PragmataPro Nerd Font Mono:h16"
+  vim.opt.guifont = "PragmataPro Nerd Font Mono:h15"
 
   -- Helper function for transparency formatting
   local alpha = function()
