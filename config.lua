@@ -88,6 +88,7 @@ lvim.builtin.treesitter.ensure_installed = {
   "markdown_inline",
   "python",
   "regex",
+  "sql",
   "svelte",
   "terraform",
   "typescript",
@@ -231,6 +232,23 @@ lvim.builtin.which_key.mappings["k"] = { "<cmd>%s/\\s\\+$//e<cr>:noh<cr>", "Dele
 
 -- Additional Plugins
 lvim.plugins = {
+  {
+    "kristijanhusak/vim-dadbod-ui",
+    dependencies = {
+      { "tpope/vim-dadbod", lazy = true },
+      { "kristijanhusak/vim-dadbod-completion", ft = { "sql", "mysql", "plsql" }, lazy = true },
+    },
+    cmd = {
+      "DBUI",
+      "DBUIToggle",
+      "DBUIAddConnection",
+      "DBUIFindBuffer",
+    },
+    init = function()
+      -- Your DBUI configuration
+      vim.g.db_ui_use_nerd_fonts = 1
+    end,
+  },
   {
     "dstein64/vim-startuptime",
     cmd = "StartupTime",
