@@ -459,8 +459,8 @@ lvim.plugins = {
   },
   { "HiPhish/rainbow-delimiters.nvim", event = "BufRead" },
   { "windwp/nvim-ts-autotag", event = "InsertEnter" },
-  { "nvim-telescope/telescope-fzy-native.nvim" },
   -- { "romgrk/fzy-lua-native", build = "make" },
+  -- { "nvim-telescope/telescope-fzy-native.nvim" },
   {
     "mg979/vim-visual-multi",
     event = "BufRead",
