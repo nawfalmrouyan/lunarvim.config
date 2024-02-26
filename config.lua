@@ -128,6 +128,7 @@ lvim.builtin.telescope.theme = "center"
 lvim.builtin.telescope.on_config_done = function(telescope)
   pcall(telescope.load_extension, "fzy_native")
   pcall(telescope.load_extension, "zk")
+  pcall(telescope.load_extension, "fzf")
   -- pcall(telescope.load_extension, "frecency")
   -- pcall(telescope.load_extension, "notify")
 end
@@ -461,6 +462,11 @@ lvim.plugins = {
   { "windwp/nvim-ts-autotag", event = "InsertEnter" },
   -- { "romgrk/fzy-lua-native", build = "make" },
   -- { "nvim-telescope/telescope-fzy-native.nvim" },
+  {
+    "nvim-telescope/telescope-fzf-native.nvim",
+    build = "make",
+    enabled = vim.fn.executable "make" == 1,
+  },
   {
     "mg979/vim-visual-multi",
     event = "BufRead",
