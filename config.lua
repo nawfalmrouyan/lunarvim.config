@@ -173,7 +173,7 @@ lvim.builtin.treesitter.textobjects = {
     },
   },
   lsp_interop = {
-    enable = false,
+    enable = true,
     border = "rounded",
     peek_definition_code = {
       ["df"] = "@function.outer",
