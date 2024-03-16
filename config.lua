@@ -700,6 +700,7 @@ lvim.plugins = {
   },
   {
     "tpope/vim-fugitive",
+    enabled = false,
     cmd = {
       "G",
       "Git",
