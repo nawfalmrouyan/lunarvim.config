@@ -1231,9 +1231,14 @@ lvim.plugins = {
       }
     end,
   },
+  -- {
+  --   "Ciel-MC/rust-tools.nvim",
+  --   event = "BufRead",
+  --   ft = { "rust" },
+  -- },
   {
-    "Ciel-MC/rust-tools.nvim",
-    event = "BufRead",
+    "mrcjkb/rustaceanvim",
+    version = "^4", -- Recommended
     ft = { "rust" },
   },
   {
